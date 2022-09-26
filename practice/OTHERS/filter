@@ -1,0 +1,181 @@
+ 
+ 
+
+
+
+
+
+
+// // magazine constr fucntion
+// // inhereit properties
+// Function Magazine(title,author,year,month){
+//     Book.call(this,title,author,year);
+// }
+
+// // inhereit prototype
+// Magazine.prototype = Object.create(Book.prototype)
+
+// Const mag1 = new Magazine(‘magOne’,’pinki’,’2012’,’jan’)
+// Console.log(mag1.getSummary())
+// [3:32 PM, 9/11/2022] Megha Cec: function Book(title, author, year) {
+//     This.title = title;
+//     This.author = author;
+//     This.title = title;
+//     This.year = year;
+// }
+// Book.prototype.getSummary = function () {
+//     Return `${this.title} is written by ${this.author}`
+// }
+// // instatiate object
+// Const book1 = new Book(‘book one’, ‘anil’, ‘2010’);
+// Console.log(book1);
+
+
+// // magazine constr fucntion
+// // inhereit properties
+// Function Magazine(title,author,year,month){
+//     Book.call(this,title,author,year);
+// }
+
+// // inhereit prototype
+// Magazine.prototype = Object.create(Book.prototype)
+
+// // use magzine consterucor
+// Magazine.prototype.constructor = Magazine;
+
+// Const mag1 = new Magazine(‘magOne’,’pinki’,’2012’,’jan’);
+// Console.log(mag1)
+// Console.log(mag1.getSummary())
+ 
+   
+ 
+
+// -------------------------------------------------------
+
+// const mulitiply = (x, y) => x * y;
+// const square = (x) => mulitiply(x, x);
+// const isRightTriangle = (a, b, c) => {
+//     return square(a) + square(b) === square(c);
+// };
+// isRightTriangle(3, 4, 5);
+
+//it returns three different arguments A,B,C it should return true,
+//isRightTriangle is going to be call other function,
+//square(a) called, that turns into calls moltiplele x.
+//multiple(x,x) calls ,x*y
+//when interpreter encounters the very first function,isRightTriangle(3, 4, 5);
+//its added to the call stack,
+//square(a) or square(3) added to the call stack,
+//square(3), multiplry(3,3) , is added to the stack
+// it calls another function
+//then  3*3 , multiply(3,3) added to the stack
+
+//const mulitiply = (x, y) => x * y;//3, this function is finished,then returns 3*3 =9,to square(3),then  it is removed from the stack
+// const square = (x) => mulitiply(x, x);//2,so the this function is not finished running//4 now it becomes 9, it returns value and removed from the stack
+// const isRightTriangle = (a, b, c) => {
+//     return square(a) + square(b) == square(c);//5, 9+square(b)===square(c)
+// };
+// isRightTriangle(3, 4, 5); //1,so the this function is not finished running
+
+//6,another function call, square(4) so on
+//another function call square(5) so on
+
+//isRightTriangle 9+16===25 –its in call stack
+//it is is same returns true
+//at the end call stack is empty
+
+//callback
+//browser or web api is in charge of keeping time, and then it reminds javascript
+//hey,here that thing I want you to do
+// console.log(“I print first”);
+// setTimeout(() => {
+//     console.log(“I print after 3 sec”);
+// }, 3000);
+// console.log(“I print second”);
+
+
+//callback functfion
+// const btn = document.querySelector(‘button’);
+// setTimeout(() => {
+//     btn.style.transform = ‘translateX(500px)’;
+// }, 5000);
+// //after 5s it will move 500px away x direction
+
+// const btn = document.querySelector(‘button’);
+// setTimeout(() => {
+//     btn.style.backgroundColor = “green”;
+// }, 5000);
+// //after 5s it will change green.
+
+//nested
+//2s move another 4s it will move angain
+// const btn = document.querySelector(‘button’);
+// setTimeout(() => {
+//     btn.style.transform = ‘translateX(100px)’;
+//     setTimeout(() => {
+//         btn.style.transform = ‘translateX(200px)’;
+//         setTimeout(() => {
+//             btn.style.transform = ‘translateX(300px)’;
+//             setTimeout(() => {
+//                 btn.style.transform = ‘translateX(400px)’;
+//                 setTimeout(() => {
+//                     btn.style.transform = ‘translateX(500px)’;
+
+
+//                 }, 1000); //fifth
+
+//             }, 1000);//fourth
+
+//         }, 1000);//third
+//     }, 1000);//second
+// }, 1000);//first
+
+
+//write using function
+// const btn = document.querySelector(‘button’);
+// const moveX = (element, amount, delay) => {
+//     setTimeout(() => {
+//         element.style.transform = `translateX(${amount}px)`;
+//     }, delay)
+// };
+// moveX(btn, 600, 2000)
+
+//nested
+//passing callback how
+//same idea, where we add another settimeout there we should add callback
+
+// const btn = document.querySelector(‘button’);
+// const moveX = (element, amount, delay, callback) => {
+//     setTimeout(() => {
+//         element.style.transform = `translateX(${amount}px)`;
+//         if (callback) callback();
+//     }, delay)
+// };
+// moveX(btn, 100, 2000, () => {
+//     moveX(btn, 200, 1000, () => {
+//         moveX(btn, 300, 1000, () => {
+//             moveX(btn, 400, 1000)
+//         })
+//     })
+// })
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
