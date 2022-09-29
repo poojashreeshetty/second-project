@@ -1,0 +1,914 @@
+// <!-- framework to build client side applications
+// great to build single page applications
+// reusable code
+// angular has lot of inbuilt capability such as validation,routing and so on,which makes development quicker and so easier
+// 2010-angular js
+// 2016-angular version 2
+// 2016 dec-angular version5
+// 2017 nov-angular version 5
+// install angular cli
+
+
+
+// angular is modular in nature
+// module is just the collection of many individual modules
+// every module represent a feature area
+// every application has one module that is root module
+// each module made up of components
+// all other component will be nested inside the root component
+// each component has html templtae to reepresent the view and class
+
+
+
+
+// angular app-having one or more modules
+// module - has one or more components and services
+// components has html + class
+// modules export and import code as when we recquired and finally render the view in the browser
+
+
+
+
+
+
+// package.json contains dependies and devdependies -->
+
+
+
+
+// <!-- 1.COMPONENT
+// *Component is madeup of three parts-template,class,metadata.
+// *which contains template which represents the view,which is created using html will be ui for our application
+// *next will be the class which nothing but the code that supports the view and this is created using typescript
+// *class that contains data and method used to control the logic of the view
+// *components has metadata this is the information that angular needs to desiogn 
+// metadata is defined to use the decorator -->
+
+
+// <!-- go to app.component.ts -->
+// <!-- *name of the class is app component
+// *contain one property title
+// <!-- export class AppComponent {
+//   title = 'code';
+// } -->
+
+
+
+// <!-- *to this class we have metadata attached in the form of component decorator
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+
+// *component decorator is basically a function that attaches to the class that is AppComponent
+// *that decorator tells the angular that---that is not a plain class that is component
+// *component decorator contains both the meta data and template which reprsents the view
+// *selector which is present in the decorator which represents component(AppComponent)
+// *when we specxify selector in an html angular rendwers the component template 
+// *in hello world , selctor is app-root 
+
+
+
+// *in an index.html it is used as custom html tag
+
+// <body>
+//   <app-root></app-root>
+// </body>
+// </html>
+
+// *so angular renders the appComponent template when it comes in to the <app-root></app-root> selector
+
+
+// *templateurl points to html file that represents the view for this component
+
+
+// *in app.component.html
+// <span>{{ title }} app !</span>
+// *title is nothing but the property in a class(app.component.ts)
+// *so when we run the application , app.component.html getsreplaced in the index.html where we specify the selsectr,<app-root></app-root>
+// </body>
+
+
+// *styleurls which is present in the app.component.ts is only for this component
+// *specified by css url , there we can style anything
+
+
+
+// //create new component
+// *To create new component use angular cli
+// *just type in the terminal ng g c (name of the component) -->
+// *when we created another , 4 new file will be created 
+
+// *CREATE src/app/new/new.component.css (0 bytes)
+// CREATE src/app/new/new.component.html (18 bytes)
+// CREATE src/app/new/new.component.spec.ts (578 bytes)
+// CREATE src/app/new/new.component.ts (263 bytes)
+// UPDATE src/app/app.module.ts (463 bytes)
+
+// *new is created in the app
+// *in that new folder ts,html,css,spec.ts created
+// *eventhough we created just new, component is added to it (new.component.ts)
+
+
+// *in app.module.ts
+// import { NgModule } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
+
+// import { AppRoutingModule } from './app-routing.module';
+// import { AppComponent } from './app.component';
+// import { NewComponent } from './new/new.component';
+
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     NewComponent
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+// *import the NewComponent , and add it it in declaration array
+// *this declartion array contains all the components
+// *for single command we can generate newcomponent that is ready to be use in angular application
+// *to include this newcomponent in html just add custom html tag that represents the selector
+
+
+
+
+// *go back to new.component.ts
+// import { Component, OnInit } from '@angular/core';
+
+// @Component({
+//   selector: 'app-new',
+//   templateUrl: './new.component.html',
+//   styleUrls: ['./new.component.css']
+// })
+// export class NewComponent implements OnInit {
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }
+
+// *selctor for newcomponent is app-new
+
+
+// *go back to app.component.html
+// *include <app-new> inside the html
+// *represnts the view for the app component
+// *which is the root component of angular applications
+// *there include custom html tag
+// <div style="text-align:center">
+// <h1>
+//   Welcome to {{title}}
+// </h1>
+// <app-new></app-new>
+// </div>
+
+// *run ---> npm start
+// *output will be  Welcome to code
+// new works!
+
+
+
+
+// *perform some chnanges
+// *first one is when we create a new.component
+// *in newm.component.ts has app-new
+// *use that in app.componnet.html to view the template
+
+
+// *second way is to use it as a class
+// *bigin with the selector as a dot character
+// @Component({
+//   selector: '.app-new',
+//   templateUrl: './new.component.html',
+//   styleUrls: ['./new.component.css']
+// })
+
+// *in app.component.html, instead of writing <app-new></app-new>
+// *write that using class
+// <div style="text-align:center">
+// <h1>
+//   Welcome to {{title}}
+// </h1>
+// <div class="app-new">
+
+// </div>
+// </div>
+
+// output will be Welcome to code
+// new works!
+
+
+
+// *third way to specify is enclose the square bracket 
+// @Component({
+//   selector: '[app-new]',
+//   templateUrl: './new.component.html',
+//   styleUrls: ['./new.component.css']
+// })
+
+// used that as a attribute
+// <h1>
+//   Welcome to {{title}}
+// </h1>
+// <div app-new>
+
+// </div>
+// </div>
+
+
+
+
+// *we can change the template
+// *we can change html elemnts in template--in new.component.ts
+// *
+// @Component({
+//   selector: '[app-new]',
+//   template: '<div>inline template</div>',
+//   styleUrls: ['./new.component.css']
+// })
+// *out will be same
+
+
+//inline templates
+// *some times inline html have more than one lines
+// *replace with the backticks
+// *now we can write multiple lines
+// @Component({
+//   selector: '[app-new]',
+//   template: `<div>inline template</div>
+//   <p>poojashree shetty</p>`,
+//   styleUrls: ['./new.component.css']
+// })
+
+
+
+// also we can use style inline
+// @Component({
+//   selector: '[app-new]',
+//   template: `<div>inline template</div>
+//   <p>poojashree shetty</p>`,
+//   styles: [`
+//   div{
+//     color:red;
+//   }`]
+// })
+
+
+
+
+
+
+//2.Interpolation
+//binding the data from class
+// *dynamically we can apply the value
+//firts control enters to index.html
+//it finds the selector
+//automatcallu rrot component selctor is attached to the index.html
+//it will go to the app.componnet.html
+//it will find the code
+// <div>
+// <div>
+//   {{title}} //this is the interpolation , we can dynamically add the data
+// </div>
+// <div>
+//   <app-interpol></app-interpol>
+// </div>
+
+// <h1>hello pooja</h1>
+// </div>
+
+
+//first it will find {{title}}, which is there in app.component.ts
+// @Component({
+//     selector: 'app-root',
+//     templateUrl: './app.component.html',
+//     styleUrls: ['./app.component.css']
+//   })
+//   export class AppComponent {
+//     title = 'binding';
+//   }
+  
+
+//next it will find <app-interpol><app-interpol>
+//it will go to the interpol.component.html
+//in interpol.component.ts
+// @Component({
+//     selector: 'app-interpol',
+//     templateUrl: './interpol.component.html',
+//     styleUrls: ['./interpol.component.css']
+//   })
+//   export class InterpolComponent implements OnInit {
+//   public name="shetty"//first we have to write here
+//     constructor() { }
+  
+//     ngOnInit(): void {
+//     }
+  
+//   }
+
+//in interpol.component.html
+// <p>interpol works!</p>
+// <p> my name is not {{name}}</p>
+
+
+
+
+//in interpol.component.html
+//we can perform expressions
+//in write interpol.component.html
+// <h2>{{2+2}}</h2>//print 4
+
+
+//in interpol.component.html
+//we can perform concatination
+// <h2>{{"welcome"+" "+ name}}</h2>
+
+
+
+//in interpol.component.html
+//using javascript properties within  curly braces
+//<h2>{{name.length}}</h2>-//6//since name will be shetty
+
+
+//we can use methods
+// <h2>{{name.toUpperCase()}}</h2>//SHETTY
+
+
+
+
+//we can also call method define in the component class
+//in interpol.component.ts
+// export class InterpolComponent implements OnInit {
+//     public name="shetty"
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+
+//in interpol.html
+// <h2 class="col">{{greetUser()}}</h2>//new shetty
+
+
+   
+
+//we cannot do
+////in interpol.html
+//we cannot assign the result of expression to a variable within double curly braces
+// <h2>{{a=2+2}}<h2>
+
+
+
+
+//3.property binding
+////in interpol.html
+// <input type="text" value="karthik">//it will show input field
+//when we inspect on input field, when we click $0.getAttribute('value');-gives karthik
+//$0 represents current element
+//similarly if we type $0.value--karthik
+
+//if we change in the input elemnt(dont change it in code,just chnage it in input firld) in input field
+//from karthik to pooja, if we write $0.value-gives pooja
+//$0.getAttribute('value')//gives karthik
+//so the attribute didnot chnage but $0.value chnage
+
+
+
+
+//differenced between attribute and property
+//attributes and properties are not same
+//attributes are defined by html
+//but properties are defined by documnet object model
+//atributes initialize the dom properties and then they are done.
+//attributes value cannot chnage once they are initialized
+//property values can change
+
+
+
+
+//property binding
+//create new property in interpol.component.ts
+// public name="shetty";
+// public myId="testId";//new property
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+//  greetUser()
+//  {
+//   return "new" + this.name
+//  }
+// }
+
+
+//input type is one of the elemnt , bind id property
+//so property how to bind the property to input
+//in interpol.componnet.html
+//<input [id]="myId" type="text" value="karthik">
+
+//when we inspect on the input field , in elemnts , we can see 
+//<input tag, 
+//<inputr type="text" value="karthik" id="testId">==$0
+//dynamically we get the id name
+
+
+//we can use interpolation for property binding
+//in interpol.component.html
+// <input id="{{myId}}" type="text" value="karthik">//same
+
+
+//why we need property binding
+//there is a limitation to interpolation 
+//it only work with the string values
+// <input disabled="{{true}}" id="{{myId}}" type="text" value="karthik">
+//for booliean interpolation not work , so we have to use property binding
+
+
+//use property binding to that
+// <input [disabled]="false" id="{{myId}}" type="text" value="karthik">
+//now we can deisabled
+
+
+
+//lets create dynamically
+//lets create property in the class and then bind it
+//in interpol.component.ts
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;//we can change
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+//add dynamically in the interpol.component.html
+// <input [disabled]="isDisabled" id="{{myId}}" type="text" value="karthik">
+
+//we can also write
+//<input bind-disabled="isDisabled" id="{{myId}}" type="text" value="karthik">
+
+
+
+
+
+
+
+//4.class binding
+//binding classes to html elemnt
+
+//in interpol.component.css
+//write style
+
+//in interpol.component.html
+// <h1 class="text-success">welcome to home</h1>//text in green color
+
+
+//to perform a class binding
+//in interpol.component.ts
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success"//add dynamically
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+    
+
+
+//in interpol.component.html
+// <h1 [class]=" successClass">welcome to another home</h1>
+
+
+
+
+//when we use both class attribute and class binding 
+// <h1 class="text-danger" [class]="successClass">welcome to another home</h1>
+//if we use both it wil; takes first property//now the answer will be in red color
+
+
+
+//another syntax for class binding is
+//apply a class based on an expression that evaluates either true or false
+//that we can change the color based on true or false
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public hasError=true;//create new property and set it to true
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+
+//set for h2 elemnts
+//this will work when we want to conditionally apply 
+//in interpol.componnet.html
+//add class to h2 elemnt based on whether this has true or false
+//if it is true-color red
+//if it is false-color black(normal color)
+
+// <h2 [class.text-danger]="hasError">alone</h2>--this is the syntax
+
+
+
+
+//for multiple binding we use ngClass
+//if we want to conditionally napply for the multiple classes
+//angular provides that ngclass directive
+//directive is nothing but custom html attribute that angular provides
+
+//to use ng class directive begin by adding new properties to our component class
+// <h2 [ngClass]="messageClasses">robosoft technologies pooja shetty</h2>
+
+// public messageClasses={ //for multple binding
+//     "text-success":this.isEmpl,
+//     "text-danger":this.isEmpl,
+//     "text-traial":this.isEmpl,
+//     "text-special":this.isSpecial
+//   }
+//     constructor() { }
+  
+//     ngOnInit(): void {
+//     }
+//    greetUser()
+//    {
+//     return "new" + this.name
+//    }
+//   }
+
+
+
+//5.style binding
+//assign string as a color value
+// <h2 [style.color]="'orange'">inline style binding</h2>//now color will be orange
+
+
+//in style binding it is possible to use the conditional operator to assign a 
+//value to css property
+//if the property in the class hasError set true-red or false-green
+
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;//set hasError true
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+// <h2 [style.color]="hasError ? 'red': 'green'">inline style binding</h2>//so it will display inline style
+
+
+
+//we can also assign component class property during binding
+// <h2 [style.color]="highColor">style binding 2</h2>
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;
+//     public highColor="blue";//herer
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+
+
+//for multiple style binding
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;
+//     public highColor="blue";
+//     public multiSTyle={ //multiline style binding
+//       color:"pink",
+//       fontStyle:"italic",
+      
+//     }
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+//create h2 tag and apply
+// <h3  [ngStyle]=" multiSTyle">multiline styling</h3>
+
+
+
+
+
+
+
+
+
+//6.event binding
+//event binding capture dom evnt and perform some action
+//some times mouse clicks or keyboard events we need the data flow 
+//in the other direction 
+//that is from the template to the class
+//to capture event we make use of evnt binding
+
+//go to the interpol.component.html
+//add button with text greet
+//when the user clicks on the button 
+//display welcome to home
+//we need to add clickevent
+
+// <button (click)="onClick()"></button>
+
+// write that method in export class in interpol.component.ts
+
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;
+//     public highColor="blue";
+//     public multiSTyle={
+//       color:"pink",
+//       fontStyle:"italic",
+    
+//     }
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//     //  greetUser()
+//     //  {
+//     //   return "new" + this.name
+//     //  }
+    
+//     onClick(){
+//       console.log("welcome to home")//when click button in console it will show the msg
+//     }
+//     }
+
+
+
+//we can also set properties on the mouseclick
+//go to .ts
+//add new property
+//initially set empty string
+//then opn the property click reset the property value
+
+// export class InterpolComponent implements OnInit {
+//     public greeting="";
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+// //  greetUser()
+// //  {
+// //   return "new" + this.name
+// //  }
+
+// onClick(){
+//   console.log("welcome to home");
+//   this.greeting="welcome to code"
+// }
+
+// }
+
+//next to the button use interpolation
+// <button (click)="onClick()">greet</button>{{greeting}}//outpurt is one button
+//when we click the button it will show in the browser only
+//so we binding to the click event and then setting the value property 
+//in the component class
+
+
+//sometimes we want information about the event itself
+//simply sen dthe parameter in the evnt handler
+
+// <button (click)="onClick($event)">greet</button>{{greeting}}-- $eventthis is the special variable for angular
+//$event gives all the information above the dom event that was released
+
+
+//add in a method defination
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;
+//     public highColor="blue";
+//     public multiSTyle={
+//       color:"pink",
+//       fontStyle:"italic",
+    
+//     };
+//     public greeting="";
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//     //  greetUser()
+//     //  {
+//     //   return "new" + this.name
+//     //  }
+    
+//     onClick(event:any){ //add in a method defination,any bcoz orelse it gives error
+//       console.log(event);
+//       this.greeting="welcome to code"
+//     }
+    
+//     }
+
+//when we click the greet button 
+//says it is a pointer evnet
+//PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+//in that all information aboit the evnt was captured
+//PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+// isTrusted: true
+// altKey: false
+// altitudeAngle: 1.5707963267948966
+// azimuthAngle: 0
+// bubbles: true
+// button: 0
+// buttons: 0
+// cancelBubble: false
+// cancelable: true
+// clientX: 33
+// clientY: 38
+// composed: true
+// ctrlKey: false
+// currentTarget: null
+// defaultPrevented: false
+// detail: 1
+// eventPhase: 0
+// fromElement: null
+// height: 1
+// isPrimary: false
+// layerX: 33--------so on
+
+//by using $evnet we can get the properties of dom 
+
+    
+
+
+
+
+
+    
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
