@@ -839,7 +839,116 @@
 
 //by using $evnet we can get the properties of dom 
 
-    
+  
+
+
+
+
+
+//1.template reference variable
+//we are able to get the value from the input element using template reference variable
+//#variable name -to create reference variable
+
+//when there is user interaction  we might want some data
+//to pass from the view to the class to perform an operation
+//for ex , we may require the value from input field perform some validation
+//so to easily access dom elemnt , and their properties
+//angular provides with template reference variable
+
+//in interpol.component.ht?ml
+// <input type="text">
+// <button>log</button>
+//when the user clicks on the button we should log to the console
+//whtever text is entered in the input field
+//for that we need to bind click event on that button
+//add click within paranthesis
+//whenm the clickl event is captured call method log message
+//to that method pass the value  of the input element as an argument
+//we use that using template reference variable
+
+//syntax is # followed by myInput ,next in the logMessage method 
+//add a parameter myInput.value 
+// <input #myInput type="text">
+// <button (click)="logMessage(myInput.value)">log</button>
+
+//and in the method defination we pass value as a parameter value
+//and then console .log value
+
+//in .ts file
+// logMessage(value:any){
+//     console.log(value)
+//   }
+
+
+
+
+
+//2.two way binding
+//consider a login form has username and password
+//the component class have corresponding properties
+//consider a login form this has username and password
+//and the component clas has a corresponding properties username and password
+
+//two way binding allows us to update a property and at the same time display the value of that property
+//for two way binding angular provides another directive ngmodel directive
+
+//create one file ng g c two way
+//create new property in the class
+
+//in ts file
+// export class TwowaybindComponent implements OnInit {
+//     public name=""; //initially create one empty string
+//     constructor() { }
+//     ngOnInit(): void {
+//     }
+//   }
+
+//in .html
+//write an input field
+//next bind the proprty name using interpolation
+// <input type="text">
+// {{name}}
+  
+
+//requirement is
+//when we type the input fiel;d property should be updated with its value,
+//means when we type anything in the input field , that value shoyuld be shown at the browser at the same time
+//basically view that is upper part and the model is in sync
+//so we need to ude ngModel directive
+//within the input element add the directive [(ngModel)] //assign a name property to it
+
+// <input [(ngModel)]="name" type="text">
+// {{name}}
+//so we have the square brackets for property binding, dataflow from the class to the template
+//and  () for event binding for the data flow from the template to the class
+//there is two way data flow and hence two way binding\
+
+//if we run this we got error
+//cant bind to ngmodel since it isnt a known property of input
+//angular is not aware of the ng model directive bcoz it is in a separate module called forms module
+//add that module to the application
+
+//so open app.module.ts, import froms module 
+//add it in imports array
+
+// import { NgModule } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { FormsModule } from '@angular/forms';//add forms module
+
+
+// imports: [
+//     BrowserModule,
+//     AppRoutingModule,
+//     FormsModule //add it in imports array
+//   ],
+//if we save and run it , got output
+
+
+
+  
+
+
+
 
 
 

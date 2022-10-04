@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <a href="typography.html">click</a> -->
+  <form action="process.php">
+    <div>
+      <label for="name">Name</label><br>
+      <input type="text" id="name">
+    </div>
+    <div>
+      <label for="Place">Place</label><br>
+      <input type="text" id="Place">
+    </div>
+    <div>
+      <label for="Email">Email</label><br>
+      <input type="email" id="Email" placeholder="enter email">
+    </div>
+
+    <div>
+      <label for="message">Message</label><br>
+      <textarea name="message" id="message" cols="50" rows="5"></textarea>
+    </div>
+    <div>
+      <label for="gender">gender</label>
+      <select name="gender" id="gender">
+        <option value="male">Male</option>
+        <option value="female" selected>Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div>
+      <label for="age">Age</label><br>
+      <input type="number" name="age" id="age">
+    </div>
+    <div>
+      <label for="birthdate">BIrthdate</label>
+      <input type="date" name="birthdate" id="birthdate">
+
+    </div>
+    <div>
+      <label for="member">mwmbership</label>
+      <input type="radio" name="member" value="simple" id="member">part1
+      <input type="radio" name="member" value="simplee" id="member">part2
+      <input type="radio" name="member" value="simpleee" id="member" checked>part3
+    </div>
+    <!-- checkbox -->
+    <div>
+      <label for="check">i like..</label>
+      <input type="checkbox" name="check" value="bike" id="check">bike
+      <input type="checkbox" name="check" value="car" id="check">car
+      <input type="checkbox" name="check" value="bus" id="check" checked>bus
+    </div>
+  </form>
+</body>
+
+</html>

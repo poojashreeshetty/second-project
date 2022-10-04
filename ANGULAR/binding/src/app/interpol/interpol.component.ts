@@ -40,4 +40,8 @@ onClick(event:any){
   this.greeting="welcome to code"
 }
 
+logMessage(value:any){
+  console.log(value)
+}
+
 }

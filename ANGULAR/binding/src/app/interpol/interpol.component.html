@@ -32,5 +32,7 @@
 <!-- <h3  [ngStyle]=" multiSTyle">multiline styling</h3> -->
 <!-- <button (click)="onClick()">greet</button> -->
 
-<button (click)="onClick($event)">greet</button>{{greeting}}
+<!-- <button (click)="onClick($event)">greet</button>{{greeting}} -->
 
+<input #myInput type="text">
+<button (click)="logMessage(myInput.value)">log</button>

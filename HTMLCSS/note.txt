@@ -1,0 +1,207 @@
+*doctype is tell about what type of document is 
+*bcoz browser can read html5,xhtml .. 
+
+
+//links
+*if we want to opn it in different tag , use  target="_blank";
+
+//tytpography
+*used to links
+*<body>--in index.html
+  <a href="typography.html">click</a>
+</body>
+
+
+
+//forms
+*form action it takes the file name, and that is the place where 
+file is submitted to
+
+
+
+//label
+*actual syntax for label
+*id used when we click on name it will reflect on textbox
+*we can add attribute to fix it
+*for example 
+*<input type="radio" name="member" value="simpleee" id="member" checked>part3
+
+
+<form action="process.php">
+    <div>
+      <label for="name">Name</label><br>
+      <input type="text" id="name">
+    </div>
+    <div>
+      <label for="Place">Place</label><br>
+      <input type="text" id="Place">
+    </div>
+    <div>
+      <label for="Email">Email</label><br>
+      <input type="email" id="Email" placeholder="enter email">
+    </div>
+
+    <div>
+      <label for="message">Message</label><br>
+      <textarea name="message" id="message" cols="50" rows="5"></textarea>
+    </div>
+    <div>
+      <label for="gender">gender</label>
+      <select name="gender" id="gender">
+        <option value="male">Male</option>
+        <option value="female" selected>Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div>
+      <label for="age">Age</label><br>
+      <input type="number" name="age" id="age">
+    </div>
+    <div>
+      <label for="birthdate">BIrthdate</label>
+      <input type="date" name="birthdate" id="birthdate">
+
+    </div>
+    <div>
+      <label for="member">mwmbership</label>
+      <input type="radio" name="member" value="simple" id="member">part1
+      <input type="radio" name="member" value="simplee" id="member">part2
+      <input type="radio" name="member" value="simpleee" id="member" checked>part3
+    </div>
+    <!-- checkbox -->
+    <div>
+      <label for="check">i like..</label>
+      <input type="checkbox" name="check" value="bike" id="check">bike
+      <input type="checkbox" name="check" value="car" id="check">car
+      <input type="checkbox" name="check" value="bus" id="check" checked>bus
+    </div>
+  </form>
+
+
+
+
+
+  //entities
+  *&nbsp; gives space
+  *&gt; greater than
+  *&lt; lesser than
+  *&copy; - copyright
+  *&reg;
+  *&cent;-curencies
+  *&spades;
+  *&diams;
+  *&clubs;
+  *&hearts;
+
+
+
+
+  //html semantic tags
+   <nav>
+  <main>
+  *header
+   <section>       <aside>
+    <article>
+  *footer
+ 
+
+
+
+ //css
+ *fonts.google.com
+ *since div tag is block level so it will take whole
+
+ //css backgrounds
+ *background-posituion:100px 100px; fisrt it moves from x direction about 100px and from y 100px
+ *background-repeat:no-repeat;
+ *background-size:cover;//takes whole image
+ *background:url() no-repeat center center/cover;
+ *background-attachment:fixed,when browser scroll it will fix in it
+
+ 
+ //css boxmodel
+ *for * selector
+ *margin:0;
+ *padding:0;
+
+ .main1 {
+        background-color: blue;
+        width:500px;
+        padding: 20px;
+  }//if we do like this the box is not actually 500px
+  //so use box-sizing:border-box it will give exact 500px
+  //pushes inside,adgusr in therre
+
+
+
+//css margin
+margin:auto;//it will take middle
+margin:30px auto;move it in top and bottom
+max-width
+text-align:justify
+
+*we can t set margin auto for inline elemnt 
+*only for block level elemnt
+
+
+//css clear
+ <div class="clr"></div>
+ .clr{
+        clear: both;
+  }
+
+
+
+
+  *{
+        box-sizing: border-box;
+        margin: auto;
+        max-width: 960px;
+      }
+      
+      .border{
+        
+       
+        padding: 20px;
+        border: 1px solid black;
+       
+      }
+      #box1{
+        width:25%;
+        float: left;
+      }
+      #box2,#box3{
+        width:75%;
+        float: right;
+      }
+
+
+
+//css button styling
+.button{
+  background-color:black;
+  color:white;
+  border:none;
+  font-size:16px;
+  padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.button:hover{
+  color:white;
+  background:blue;
+}
+
+
+//css overflow
+overflow:auto;
+//to get background back
+
+
+
+
+
+
+
+
