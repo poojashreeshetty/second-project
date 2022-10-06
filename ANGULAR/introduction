@@ -1,3 +1,6 @@
+//whatever selector us there in app component, index html-link that
+
+
 // <!-- framework to build client side applications
 // great to build single page applications
 // reusable code
@@ -845,7 +848,7 @@
 
 
 
-//1.template reference variable
+//7.template reference variable
 //we are able to get the value from the input element using template reference variable
 //#variable name -to create reference variable
 
@@ -883,7 +886,7 @@
 
 
 
-//2.two way binding
+//8.two way binding
 //consider a login form has username and password
 //the component class have corresponding properties
 //consider a login form this has username and password
@@ -946,6 +949,372 @@
 
 
   
+
+
+
+//9.ngif
+
+
+
+//10.ngswitch
+//*used when we have to compare multiple values
+//*display clor red,blue,green
+
+//first
+//*create new property
+//*initially set that as red
+
+//in .ts
+// export class NgswitchComponent implements OnInit {
+//   public color="red"; //if we change blue , blue switch case display
+//     constructor() { }
+//     ngOnInit(): void {
+//     }
+// }
+
+//second
+//.html
+//*add div tag that behaves like container for all the switch cases
+//*this is the container where ngswitch attaches
+//*to that assign an expression
+//*within that container specify switch cases with ngSwitch case
+//*in the firxt case if the color is red,..,if it is true, element gets render
+
+// <div [ngSwitch]="color">
+//   <div *ngSwitchCase="'red'">You pickede red color</div>
+//   <div *ngSwitchCase="'blue'">You pickede blue color</div>
+//   <div *ngSwitchCase="'green'">You pickede green color</div>
+// </div>
+
+//output is:You pickede red color
+
+
+
+
+
+//11.routing
+//based on url we navigate to corresponding component is displayed
+//*any angular application we built is going to have multiple components
+//*each component has its own view
+//*we need to navigate between the different views when user perform some action
+
+//how to navigate between two different views with buttonclicks
+//when the user navigates to the url localhost:4200
+//display a title that is routing and navigation
+//below the title have two buttons - departments , employees
+//if we navigate to the url localhost:4200/departments display list of the departments
+//if we navigate to the url localhost:4200/employees display list of the employees
+
+//steps
+//1.generate a propject with routing option
+//2.generate departmentlist and employeelist components , these are the components display in the view
+//3.configure the routes for our application
+//4.add buttons and use directives to navigate to the configure routes
+
+
+//first steps
+//generate new angular application
+//create one new project ng new routing-demo --routing
+//since we perform routing so --routing
+//first thing we need to include base tag in index.html file(automatically included)
+// <!doctype html>
+// <html lang="en">
+// <head>
+//   <meta charset="utf-8">
+//   <title>RoutingDemo</title>
+//   <base href="/"> //this is the base tag
+//this / is required so that the application knows how to construct 
+//the url while navigating 
+//   <meta name="viewport" content="width=device-width, initial-scale=1">
+//   <link rel="icon" type="image/x-icon" href="favicon.ico">
+// </head>
+// <body>
+//   <app-root></app-root>
+// </body>
+// </html>
+
+//next in the app folder cretae new file (automatically created)
+//app-routing.module.ts
+// import { NgModule } from '@angular/core';
+// import { RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = [];
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
+//this file contains routing  modules for our application
+
+
+//import app routing module in app module
+//in app.module.ts
+//import approutingmodule and add it the import array
+
+
+//second step
+//generate departmentlist and employee list
+//cd routing-demo
+//ng g c department-list --inline-template=true --inline-style=true
+//for employee list
+//ng g c employee-list --inline-template=true --inline-style=true
+
+
+//third step 
+//configure the route for that application
+//we do that in app routing module
+// import { NgModule } from '@angular/core';
+// import { RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = []; //here we define all possible routes
+//for our application
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
+
+
+
+// const routes: Routes = [
+//   {path:'departments'},
+// {path:'employees'}];
+////each route is nothing but object
+//object contains a path which is reflected in the url
+//configure two routes
+//first one is departments second one is employee
+//in the first route enter the path as departments
+//in the second routes enter the parth as employee
+
+
+
+// if we navigate to each departments we need to display department list components
+//similar to employee
+// const routes: Routes = [
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent}];
+
+//we have same import statements in both app.module.ts and app-routing.modules.ts
+//so create an array for all the routing components and export it and then import it in appmodule
+//create new const and export it 
+
+//in app-routing.module.ts
+// const routes: Routes = [
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent}];
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
+// export const routingComponents=[DepartmentListComponent,EmployeeListComponent]
+
+//import it in app.module.ts
+// import { NgModule } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
+
+// import { AppRoutingModule,routingComponents } from './app-routing.module';//import here
+// import { AppComponent } from './app.component';
+// import { DepartmentListComponent } from './department-list/department-list.component';//#1
+// import { EmployeeListComponent } from './employee-list/employee-list.component';//#2
+
+//remove #1 and #2 
+//@NgModule({
+  // declarations: [
+  //   AppComponent,
+  //   DepartmentListComponent,//remove this
+  //   EmployeeListComponent//remove this
+  // ],
+//and in the declaration array also remove 
+//and replace with routingComponents
+
+//final , in app.module.ts
+// import { NgModule } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { AppRoutingModule,routingComponents } from './app-routing.module';
+// import { AppComponent } from './app.component';
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     routingComponents
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+//so any time we add new component for routing just have to specify in the routing module
+//now rout have been configured
+//if we navigate the localhost:4200/departments we display departmentslistcomponents similar to employee
+
+
+//wr these components have to be display
+//in the router outlet directive
+//in the app.html file
+//<router-outlet></router-outlet>
+//this directive available from the router pacvkage and it marks where the router displays the view
+
+//when we run if we type localhost:4200-only display routing and navigation
+//if we type localhost:4200\departments-gives department-list works
+//if we type localhost:4200\employes-employees list works
+
+
+
+//add buttons
+// <h1>routing and navigation</h1>
+// <nav>
+//   <a>Departments</a>
+//   <a>employees</a>
+// </nav>
+// <router-outlet></router-outlet>
+
+//to make routing possible with these ancor tag we use two special directive from the router packages
+
+//first one is router link directives which specify the path to which we want to navigate to
+//so when we click on the departments button we want to navigate to departments path
+//similarly to employees 
+
+// <nav>
+//   <a routerLink="/departments">Departments</a>
+//   <a routerLink="/employees">employees</a>
+// </nav>
+
+//second one is routerlink active directive this directive specify one or more css classes that will be applied when corresponding router link is active
+//that means when we click on the anchor tag and the class specified over here gets applied to the anchor tag
+//in my example use active class
+//similor to employee
+
+// <nav>
+//   <a routerLink="/departments" routerLinkActive="active">Departments</a>
+// <a routerLink="/employees" routerLinkActive="active">employees</a>  
+// </nav>
+
+//in style.css
+// nav a.active{
+//   color: blue;
+// }
+
+
+//output
+//when click departments-departments list works shows and url changed 
+//same
+
+//summary
+//first  in index.html add the base tag href to a forward slash
+//in the app-routing.moduloe.ts , configure the route
+//each route has the path and corresponding components
+//export (declared) routingcomponents,and approutingmodule
+//in the app.module import routingcomponents and approutingmodule
+//include that in declaration array
+
+//with this setup we can navigate to the particular route by directly typing in the url
+
+//to navigate through buttons use routerlink directive and specify the path
+//add style to route use roterlinkactive directive
+
+
+
+
+
+
+
+//12.wildcard Route and Redirecting Routes
+//in the url if i try to navigate localhost:4200/text --it shows error
+//it shows error core.mjs:7635 ERROR Error: Uncaught (in promise): Error: NG04002: Cannot match any routes. URL Segment: 'text'
+//better way to handle invalid url is usong wildcard routes
+//but making use of wildcard routes 
+//by making use of wildcard routes we can navigate the user to a 404 page not found component with the url doesnot match any configured 
+
+//first\
+//create 404page component page
+//ng g c page-not-found --inline-template=true --inline-style=true
+//in page-not-found.component.ts , apply h3 tag and say page not found
+// @Component({
+//   selector: 'app-page-not-found',
+//   template: `
+//     <h3>
+//       page-not-found works!
+//     </h3>
+//   `,
+//   styles: [
+//   ]
+// })
+
+//second
+//add wildcard route
+//in app-routing.module.ts  add another route object
+// const routes: Routes = [
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent},
+// {path:"**",component:PageNotFoundComponent}];//should be at the last
+
+//import the component
+//import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+//and export it
+//export const routingComponents=[DepartmentListComponent,EmployeeListComponent,PageNotFoundComponent]
+
+//run ng serve
+//when we type http://localhost:4200/test
+//it displays page-not-found works!
+
+
+//summary
+//the wildcard route should always be in last route in the configuration
+//that is bcoz router tries to match the path from the top 
+//if we move above , it shows page not found
+//so it should be in last
+
+
+//there is one problem
+//if we type localhost:4200 in that also page not found is displayed
+//that is bcoz url doesnot match any of the configured route
+//so pagenotfound
+//so our application needs a default route
+
+//lets display, if we type localhost:4200,we can display departmentlistworks executed
+//so lets create an new object and path is empty and the component is going to be departmentlistcomponent
+// const routes: Routes = [
+//   {path:'',component:DepartmentListComponent},
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent},
+// {path:"**",component:PageNotFoundComponent}];
+
+
+//output
+//type localhost:4200-dipartmentlist works  executed
+//type localhost:4200/dipartments - dipartmentlist works  executed
+//type  localhost:4200/employees-- employeelist works executed
+//localhost:4200/text--pagenotfound executed
+
+
+
+//instead of specify the component specify the path to which we should redirect to
+//for that makeuse of redirectto property
+//redirecting to departmentpaths
+//for redirect toward we need to mention another property
+//that is the path match propety
+//this pathMatch property basically tells the router  how to match the url segments with the configure route
+//there are two [possible value
+//if uise prefix 
+//{path:'',redirectTo:'/departments',pathMatch:'prefix'},
+//departmentlist works whatever we click
+//prefix doenot work for us
+
+//so use full
+//it will work
+
+
+
+
+
+
+
 
 
 

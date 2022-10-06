@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InterpolComponent } from './interpol/interpol.component';
 import { TwowaybindComponent } from './twowaybind/twowaybind.component';
+import { NgswitchComponent } from './ngswitch/ngswitch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InterpolComponent,
-    TwowaybindComponent
+    TwowaybindComponent,
+    NgswitchComponent
   ],
   imports: [
     BrowserModule,
