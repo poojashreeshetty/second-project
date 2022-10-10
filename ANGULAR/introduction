@@ -1,5 +1,5 @@
 //whatever selector us there in app component, index html-link that
-
+//ng g c department-list --inline-template=true --inline-style=true
 
 // <!-- framework to build client side applications
 // great to build single page applications
@@ -1307,7 +1307,256 @@
 //prefix doenot work for us
 
 //so use full
-//it will work
+// const routes: Routes = [
+//   {path:'',redirectTo:'/departments',pathMatch:'full'},
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent},
+// {path:"**",component:PageNotFoundComponent}];
+ //it will work
+ //when enter department button shows department-list works
+ //when enter employees , emplouyees list works
+ //when enter localhost:4200 departmentlist works
+
+
+
+
+//13.Route parameters
+//passing and reading route parameters
+//how to pass and read route parameters
+//in the departmentlist component we have list of departments that is angular,node,mongodb,ruby,bootstrap
+//each of them have corresponding id 1,2 ,3 ,4,5
+//when we click on the department we will navigate departmentDetail component
+//passing the id of the department as routerparameter
+//and in the departmentDetail component we will read that component and display the id in the view
+//for example when we click the angular,it shows you selected department with id=1
+
+//in department-listcomponets.ts 
+//have array of departments each department has an id and name
+// export class DepartmentListComponent implements OnInit {
+
+//   departments=[
+//     {"id":1,"name":"Aangular"},
+//     {"id":2,"name":"Node"},
+//     {"id":3,"name":"Node"},
+//     {"id":4,"name":"Node"},
+//     {"id":5,"name":"Node"},
+//     ]
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }
+
+//in the view that is in the the @component decorator
+//use ngFor deractive to iterate over each department 
+//and display the id and the name and also added some classes badge and items to apply some styling
+//to a list of departments
+//@Component({
+//   selector: 'app-department-list',
+//   template: `
+//     <h3>Department List</h3>
+//     <ul class="items">
+//     <li *ngFor="let department of departments">
+//     <span class="badge">{{department.id}}</span>{{department.name}}
+//     </li>
+//     </ul>
+//   `,
+//   styles: [
+//   ]
+// })
+
+//now output
+// Department List
+// 1Aangular
+// 2Node
+// 3MongoDB
+// 4Ruby
+// 5Bootstrap
+
+//now impliment , when i click on angular url should change departments/1 and in departmentDetail component view  and where it prints 
+//you are selected department with id=1
+
+//first step
+//generate the departmentDetail component and configure new route for it
+//so in the terminal run the command ng g c department-detail --inline-template=true --inline-style=true
+//the component is generated add the route to navigate to this compnent
+
+//second step
+//in app-routing.module.ts 
+//in the routes array add a  new object
+//:id is the placeholder for a route parameter
+//since we are passing the id of the department named it :id
+//const routes: Routes = [
+//   {path:'',redirectTo:'/departments',pathMatch:'full'},
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent},
+// {path:"**",component:PageNotFoundComponent}, //sholud be in last
+// {path:'departments/:id',component:DepartmentDetailComponent}];
+//import it in app-routing.module.ts
+//import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+//and export it 
+//export const routingComponents=[DepartmentListComponent,EmployeeListComponent,PageNotFoundComponent,DepartmentDetailComponent]
+
+
+//third step
+//how to navigate the route from the code
+//navigate app-routing.module.ts this route when we click on the department
+//in department-list.component.ts bind the click event on each department
+//in the li tag (click) and assign a method name onSelect()
+//to this method pass the department as an argument
+// template: `
+// <h3>Department List</h3>
+// <ul class="items">
+// <li (click)="onSelect(department)" *ngFor="let department of departments">
+// <span class="badge">{{department.id}}</span>{{department.name}}
+// </li>
+// </ul>
+// `,
+
+//and define in onselect method
+//and in this method we need to navigate to the new route
+// export class DepartmentListComponent implements OnInit {
+// departments=[
+//     {"id":1,"name":"Aangular"},
+//     {"id":2,"name":"Node"},
+//     {"id":3,"name":"MongoDB"},
+//     {"id":4,"name":"Ruby"},
+//     {"id":5,"name":"Bootstrap"},
+//     ]
+// constructor() { }
+// ngOnInit(): void {
+//   }
+//   onSelect(department:any){ //here
+// }}
+
+
+//for navugating from code we make use of router service
+//first import it
+//import { Router } from '@angular/router';
+//and then we inject it
+//in the consyructor private router of type Router
+// export class DepartmentListComponent implements OnInit {
+
+//   departments=[
+//     {"id":1,"name":"Aangular"},
+//     {"id":2,"name":"Node"},
+//     {"id":3,"name":"MongoDB"},
+//     {"id":4,"name":"Ruby"},
+//     {"id":5,"name":"Bootstrap"},
+//     ]
+
+//   constructor(private router:Router) { } //here
+
+//   ngOnInit(): void {
+//   }
+//   onSelect(department:any){
+
+//   }
+
+// }
+
+//now make use of router instance
+//in onselect method this.router and then call the navigate method
+//the argument to this method is link parameters array ,it is all the information that angular needs to construct the url
+//pass two items in this parameter array
+//first one is path that we want to navigate
+//second one is route parameter this is the department.id
+// export class DepartmentListComponent implements OnInit {
+
+//   departments=[
+//     {"id":1,"name":"Aangular"},
+//     {"id":2,"name":"Node"},
+//     {"id":3,"name":"MongoDB"},
+//     {"id":4,"name":"Ruby"},
+//     {"id":5,"name":"Bootstrap"},
+//     ]
+
+//   constructor(private router:Router) { }
+
+//   ngOnInit(): void {
+//   }
+//   onSelect(department:any){
+// this.router.navigate(['/departments',department.id]); here
+//   }
+// }
+
+//departments followed by the id corresponds to the newly configured route
+// that is {path:'departments/:id',component:DepartmentDetailComponent}];
+// with this information angular router construct the url and /departments/id
+//save and run
+
+//in the broweser
+//if i click on the angular - shows localhost:4200/departments/1
+//if i click on the node- shows http://localhost:4200/departments/2
+//so on
+//and in the view page - department-detail works displayed for every lists
+//but we want "selected id is 1"
+
+//fourth step
+//go to department detail.component.ts
+//import { ActivatedRoute } from '@angular/router';
+//then inject it in the constructor 
+//constructor(private route:ActivatedRoute) { }
+//next in the ngoninit method read the route parameter
+//this service gives snapshot for current route
+//from this snapshot use paramMap api which helps us to get the parameter from the url
+//the parameter is the id parameter
+//ngOnInit(): void {
+// let id=this.route.snapshot.paramMap.get('id');}
+//so from the current route snapshot get the id parameter and assign it to the local variable id
+
+//tghen bind thid id to the view
+//create a new property
+//public departmentId:any;
+//and in ngoninit  this.departmentId=id; 
+
+//in the view change the template
+// template: `
+// <h3>you selected department with id = {{departmentId}}</h3>
+// `,
+
+//when click angular http://localhost:4200/departments/1
+//you selected department with id = 1
+
+//when click node - http://localhost:4200/departments/2
+//you selected department with id = 2
+
+
+//summary
+//in app routing module.ts cretae a route withy the placehiolder for the parameter
+//to pass a parameter while navigating make use of router service
+//it has a navigate method to which we can pass the link parametrs array
+//this.router.navigate(['/departments',department.id]);
+//to read the parameter to make use of activatedroute service
+//use the snapshot of the current route and use the param api to read the recquired parameter
+// ngOnInit(): void {
+//   let id=this.route.snapshot.paramMap.get('id');
+//   this.departmentId=id;
+// }
+//thyen bind it to the view using interpolation
+//<h3>you selected department with id = {{departmentId}}</h3>
+
+
+
+//14.paramMap Observable
+//there is a drawback to use snapshot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
