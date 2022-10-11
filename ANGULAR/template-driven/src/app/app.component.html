@@ -1,0 +1,89 @@
+<div class="form">
+  <h2 id="registration">Registration Form</h2>
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <div>
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        id="fname"
+        placeholder="Your name.."
+        name="firstname"
+        ngModel
+        required
+       />
+
+      <label for="lname">Last Name</label>
+      <input
+        type="text"
+        id="lname"
+        placeholder="Your last name.."
+        name="lastname"
+        ngModel
+        required
+        
+      />
+
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Your last email.."
+        name="email"
+        ngModel
+        required
+        email
+      />
+    </div>
+
+    <label for="country">Country</label>
+    <select id="country" name="country" ngModel>
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+      <option value="india">India</option>
+      <option value="uk">UK</option>
+    </select>
+
+    <label for="gender">Gender:</label>
+
+    <input type="radio" id="male" value="male" name="gender" ngModel />
+    <label for="male">male</label>
+
+    <input type="radio" name="gender" id="female" value="female" ngModel />
+    <label for="female">female</label>
+
+    <input type="radio" name="gender" id="other" value="other" ngModel />
+    <label for="other">other</label>
+
+    <br /><br />
+    <label>Hobbies</label>
+    <div class="form-inline">
+      <label
+        ><input type="checkbox" value="sports" name="hobbies" ngModel />
+        Sports</label
+      >
+      <label
+        ><input type="checkbox" value="movies" name="hobbies" ngModel />
+        Movies</label
+      >
+      <label
+        ><input type="checkbox" value="music" name="hobbies" ngModel />
+        Music</label
+      >
+    </div>
+    <br />
+
+    <label>Description</label><br /><br />
+    <textarea
+      placeholder="enter the description"
+      cols="45"
+      rows="8"
+      name="description"
+      ngModel
+    ></textarea>
+
+    <input type="submit" value="Submit" id="btn"  [disabled]="!myForm.valid"/>
+    <!--[disabled]="!myForm.valid"-->
+  </form>
+</div>

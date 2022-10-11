@@ -2,3 +2,8 @@
 nav a.active{
   color:red;
 }
+
+.items li.selected  .btn{
+  background-color: lightslategray;
+  color: whitesmoke;
+}
