@@ -1,0 +1,2073 @@
+//whatever selector us there in app component, index html-link that
+//ng g c department-list --inline-template=true --inline-style=true
+
+// <!-- framework to build client side applications
+// great to build single page applications
+// reusable code
+// angular has lot of inbuilt capability such as validation,routing and so on,which makes development quicker and so easier
+// 2010-angular js
+// 2016-angular version 2
+// 2016 dec-angular version5
+// 2017 nov-angular version 5
+// install angular cli
+
+
+
+// angular is modular in nature
+// module is just the collection of many individual modules
+// every module represent a feature area
+// every application has one module that is root module
+// each module made up of components
+// all other component will be nested inside the root component
+// each component has html templtae to reepresent the view and class
+
+
+
+
+// angular app-having one or more modules
+// module - has one or more components and services
+// components has html + class
+// modules export and import code as when we recquired and finally render the view in the browser
+
+
+
+
+
+
+// package.json contains dependies and devdependies -->
+
+
+
+
+// <!-- 1.COMPONENT
+// *Component is madeup of three parts-template,class,metadata.
+// *which contains template which represents the view,which is created using html will be ui for our application
+// *next will be the class which nothing but the code that supports the view and this is created using typescript
+// *class that contains data and method used to control the logic of the view
+// *components has metadata this is the information that angular needs to desiogn 
+// metadata is defined to use the decorator -->
+
+
+// <!-- go to app.component.ts -->
+// <!-- *name of the class is app component
+// *contain one property title
+// <!-- export class AppComponent {
+//   title = 'code';
+// } -->
+
+
+
+// <!-- *to this class we have metadata attached in the form of component decorator
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+
+// *component decorator is basically a function that attaches to the class that is AppComponent
+// *that decorator tells the angular that---that is not a plain class that is component
+// *component decorator contains both the meta data and template which reprsents the view
+// *selector which is present in the decorator which represents component(AppComponent)
+// *when we specxify selector in an html angular rendwers the component template 
+// *in hello world , selctor is app-root 
+
+
+
+// *in an index.html it is used as custom html tag
+
+// <body>
+//   <app-root></app-root>
+// </body>
+// </html>
+
+// *so angular renders the appComponent template when it comes in to the <app-root></app-root> selector
+
+
+// *templateurl points to html file that represents the view for this component
+
+
+// *in app.component.html
+// <span>{{ title }} app !</span>
+// *title is nothing but the property in a class(app.component.ts)
+// *so when we run the application , app.component.html getsreplaced in the index.html where we specify the selsectr,<app-root></app-root>
+// </body>
+
+
+// *styleurls which is present in the app.component.ts is only for this component
+// *specified by css url , there we can style anything
+
+
+
+// //create new component
+// *To create new component use angular cli
+// *just type in the terminal ng g c (name of the component) -->
+// *when we created another , 4 new file will be created 
+
+// *CREATE src/app/new/new.component.css (0 bytes)
+// CREATE src/app/new/new.component.html (18 bytes)
+// CREATE src/app/new/new.component.spec.ts (578 bytes)
+// CREATE src/app/new/new.component.ts (263 bytes)
+// UPDATE src/app/app.module.ts (463 bytes)
+
+// *new is created in the app
+// *in that new folder ts,html,css,spec.ts created
+// *eventhough we created just new, component is added to it (new.component.ts)
+
+
+// *in app.module.ts
+// import { NgModule } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
+
+// import { AppRoutingModule } from './app-routing.module';
+// import { AppComponent } from './app.component';
+// import { NewComponent } from './new/new.component';
+
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     NewComponent
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+// *import the NewComponent , and add it it in declaration array
+// *this declartion array contains all the components
+// *for single command we can generate newcomponent that is ready to be use in angular application
+// *to include this newcomponent in html just add custom html tag that represents the selector
+
+
+
+
+// *go back to new.component.ts
+// import { Component, OnInit } from '@angular/core';
+
+// @Component({
+//   selector: 'app-new',
+//   templateUrl: './new.component.html',
+//   styleUrls: ['./new.component.css']
+// })
+// export class NewComponent implements OnInit {
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }
+
+// *selctor for newcomponent is app-new
+
+
+// *go back to app.component.html
+// *include <app-new> inside the html
+// *represnts the view for the app component
+// *which is the root component of angular applications
+// *there include custom html tag
+// <div style="text-align:center">
+// <h1>
+//   Welcome to {{title}}
+// </h1>
+// <app-new></app-new>
+// </div>
+
+// *run ---> npm start
+// *output will be  Welcome to code
+// new works!
+
+
+
+
+// *perform some chnanges
+// *first one is when we create a new.component
+// *in newm.component.ts has app-new
+// *use that in app.componnet.html to view the template
+
+
+// *second way is to use it as a class
+// *bigin with the selector as a dot character
+// @Component({
+//   selector: '.app-new',
+//   templateUrl: './new.component.html',
+//   styleUrls: ['./new.component.css']
+// })
+
+// *in app.component.html, instead of writing <app-new></app-new>
+// *write that using class
+// <div style="text-align:center">
+// <h1>
+//   Welcome to {{title}}
+// </h1>
+// <div class="app-new">
+
+// </div>
+// </div>
+
+// output will be Welcome to code
+// new works!
+
+
+
+// *third way to specify is enclose the square bracket 
+// @Component({
+//   selector: '[app-new]',
+//   templateUrl: './new.component.html',
+//   styleUrls: ['./new.component.css']
+// })
+
+// used that as a attribute
+// <h1>
+//   Welcome to {{title}}
+// </h1>
+// <div app-new>
+
+// </div>
+// </div>
+
+
+
+
+// *we can change the template
+// *we can change html elemnts in template--in new.component.ts
+// *
+// @Component({
+//   selector: '[app-new]',
+//   template: '<div>inline template</div>',
+//   styleUrls: ['./new.component.css']
+// })
+// *out will be same
+
+
+//inline templates
+// *some times inline html have more than one lines
+// *replace with the backticks
+// *now we can write multiple lines
+// @Component({
+//   selector: '[app-new]',
+//   template: `<div>inline template</div>
+//   <p>poojashree shetty</p>`,
+//   styleUrls: ['./new.component.css']
+// })
+
+
+
+// also we can use style inline
+// @Component({
+//   selector: '[app-new]',
+//   template: `<div>inline template</div>
+//   <p>poojashree shetty</p>`,
+//   styles: [`
+//   div{
+//     color:red;
+//   }`]
+// })
+
+
+
+
+
+
+//2.Interpolation
+//binding the data from class
+// *dynamically we can apply the value
+//firts control enters to index.html
+//it finds the selector
+//automatcallu rrot component selctor is attached to the index.html
+//it will go to the app.componnet.html
+//it will find the code
+// <div>
+// <div>
+//   {{title}} //this is the interpolation , we can dynamically add the data
+// </div>
+// <div>
+//   <app-interpol></app-interpol>
+// </div>
+
+// <h1>hello pooja</h1>
+// </div>
+
+
+//first it will find {{title}}, which is there in app.component.ts
+// @Component({
+//     selector: 'app-root',
+//     templateUrl: './app.component.html',
+//     styleUrls: ['./app.component.css']
+//   })
+//   export class AppComponent {
+//     title = 'binding';
+//   }
+  
+
+//next it will find <app-interpol><app-interpol>
+//it will go to the interpol.component.html
+//in interpol.component.ts
+// @Component({
+//     selector: 'app-interpol',
+//     templateUrl: './interpol.component.html',
+//     styleUrls: ['./interpol.component.css']
+//   })
+//   export class InterpolComponent implements OnInit {
+//   public name="shetty"//first we have to write here
+//     constructor() { }
+  
+//     ngOnInit(): void {
+//     }
+  
+//   }
+
+//in interpol.component.html
+// <p>interpol works!</p>
+// <p> my name is not {{name}}</p>
+
+
+
+
+//in interpol.component.html
+//we can perform expressions
+//in write interpol.component.html
+// <h2>{{2+2}}</h2>//print 4
+
+
+//in interpol.component.html
+//we can perform concatination
+// <h2>{{"welcome"+" "+ name}}</h2>
+
+
+
+//in interpol.component.html
+//using javascript properties within  curly braces
+//<h2>{{name.length}}</h2>-//6//since name will be shetty
+
+
+//we can use methods
+// <h2>{{name.toUpperCase()}}</h2>//SHETTY
+
+
+
+
+//we can also call method define in the component class
+//in interpol.component.ts
+// export class InterpolComponent implements OnInit {
+//     public name="shetty"
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+
+//in interpol.html
+// <h2 class="col">{{greetUser()}}</h2>//new shetty
+
+
+   
+
+//we cannot do
+////in interpol.html
+//we cannot assign the result of expression to a variable within double curly braces
+// <h2>{{a=2+2}}<h2>
+
+
+
+
+//3.property binding
+////in interpol.html
+// <input type="text" value="karthik">//it will show input field
+//when we inspect on input field, when we click $0.getAttribute('value');-gives karthik
+//$0 represents current element
+//similarly if we type $0.value--karthik
+
+//if we change in the input elemnt(dont change it in code,just chnage it in input firld) in input field
+//from karthik to pooja, if we write $0.value-gives pooja
+//$0.getAttribute('value')//gives karthik
+//so the attribute didnot chnage but $0.value chnage
+
+
+
+
+//differenced between attribute and property
+//attributes and properties are not same
+//attributes are defined by html
+//but properties are defined by documnet object model
+//atributes initialize the dom properties and then they are done.
+//attributes value cannot chnage once they are initialized
+//property values can change
+
+
+
+
+//property binding
+//create new property in interpol.component.ts
+// public name="shetty";
+// public myId="testId";//new property
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+//  greetUser()
+//  {
+//   return "new" + this.name
+//  }
+// }
+
+
+//input type is one of the elemnt , bind id property
+//so property how to bind the property to input
+//in interpol.componnet.html
+//<input [id]="myId" type="text" value="karthik">
+
+//when we inspect on the input field , in elemnts , we can see 
+//<input tag, 
+//<inputr type="text" value="karthik" id="testId">==$0
+//dynamically we get the id name
+
+
+//we can use interpolation for property binding
+//in interpol.component.html
+// <input id="{{myId}}" type="text" value="karthik">//same
+
+
+//why we need property binding
+//there is a limitation to interpolation 
+//it only work with the string values
+// <input disabled="{{true}}" id="{{myId}}" type="text" value="karthik">
+//for booliean interpolation not work , so we have to use property binding
+
+
+//use property binding to that
+// <input [disabled]="false" id="{{myId}}" type="text" value="karthik">
+//now we can deisabled
+
+
+
+//lets create dynamically
+//lets create property in the class and then bind it
+//in interpol.component.ts
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;//we can change
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+//add dynamically in the interpol.component.html
+// <input [disabled]="isDisabled" id="{{myId}}" type="text" value="karthik">
+
+//we can also write
+//<input bind-disabled="isDisabled" id="{{myId}}" type="text" value="karthik">
+
+
+
+
+
+
+
+//4.class binding
+//binding classes to html elemnt
+
+//in interpol.component.css
+//write style
+
+//in interpol.component.html
+// <h1 class="text-success">welcome to home</h1>//text in green color
+
+
+//to perform a class binding
+//in interpol.component.ts
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success"//add dynamically
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+    
+
+
+//in interpol.component.html
+// <h1 [class]=" successClass">welcome to another home</h1>
+
+
+
+
+//when we use both class attribute and class binding 
+// <h1 class="text-danger" [class]="successClass">welcome to another home</h1>
+//if we use both it wil; takes first property//now the answer will be in red color
+
+
+
+//another syntax for class binding is
+//apply a class based on an expression that evaluates either true or false
+//that we can change the color based on true or false
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public hasError=true;//create new property and set it to true
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+
+//set for h2 elemnts
+//this will work when we want to conditionally apply 
+//in interpol.componnet.html
+//add class to h2 elemnt based on whether this has true or false
+//if it is true-color red
+//if it is false-color black(normal color)
+
+// <h2 [class.text-danger]="hasError">alone</h2>--this is the syntax
+
+
+
+
+//for multiple binding we use ngClass
+//if we want to conditionally napply for the multiple classes
+//angular provides that ngclass directive
+//directive is nothing but custom html attribute that angular provides
+
+//to use ng class directive begin by adding new properties to our component class
+// <h2 [ngClass]="messageClasses">robosoft technologies pooja shetty</h2>
+
+// public messageClasses={ //for multple binding
+//     "text-success":this.isEmpl,
+//     "text-danger":this.isEmpl,
+//     "text-traial":this.isEmpl,
+//     "text-special":this.isSpecial
+//   }
+//     constructor() { }
+  
+//     ngOnInit(): void {
+//     }
+//    greetUser()
+//    {
+//     return "new" + this.name
+//    }
+//   }
+
+
+
+//5.style binding
+//assign string as a color value
+// <h2 [style.color]="'orange'">inline style binding</h2>//now color will be orange
+
+
+//in style binding it is possible to use the conditional operator to assign a 
+//value to css property
+//if the property in the class hasError set true-red or false-green
+
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;//set hasError true
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+// <h2 [style.color]="hasError ? 'red': 'green'">inline style binding</h2>//so it will display inline style
+
+
+
+//we can also assign component class property during binding
+// <h2 [style.color]="highColor">style binding 2</h2>
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;
+//     public highColor="blue";//herer
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+
+
+//for multiple style binding
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;
+//     public highColor="blue";
+//     public multiSTyle={ //multiline style binding
+//       color:"pink",
+//       fontStyle:"italic",
+      
+//     }
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//      greetUser()
+//      {
+//       return "new" + this.name
+//      }
+//     }
+
+//create h2 tag and apply
+// <h3  [ngStyle]=" multiSTyle">multiline styling</h3>
+
+
+
+
+
+
+
+
+
+//6.event binding
+//event binding capture dom evnt and perform some action
+//some times mouse clicks or keyboard events we need the data flow 
+//in the other direction 
+//that is from the template to the class
+//to capture event we make use of evnt binding
+
+//go to the interpol.component.html
+//add button with text greet
+//when the user clicks on the button 
+//display welcome to home
+//we need to add clickevent
+
+// <button (click)="onClick()"></button>
+
+// write that method in export class in interpol.component.ts
+
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;
+//     public highColor="blue";
+//     public multiSTyle={
+//       color:"pink",
+//       fontStyle:"italic",
+    
+//     }
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//     //  greetUser()
+//     //  {
+//     //   return "new" + this.name
+//     //  }
+    
+//     onClick(){
+//       console.log("welcome to home")//when click button in console it will show the msg
+//     }
+//     }
+
+
+
+//we can also set properties on the mouseclick
+//go to .ts
+//add new property
+//initially set empty string
+//then opn the property click reset the property value
+
+// export class InterpolComponent implements OnInit {
+//     public greeting="";
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+// //  greetUser()
+// //  {
+// //   return "new" + this.name
+// //  }
+
+// onClick(){
+//   console.log("welcome to home");
+//   this.greeting="welcome to code"
+// }
+
+// }
+
+//next to the button use interpolation
+// <button (click)="onClick()">greet</button>{{greeting}}//outpurt is one button
+//when we click the button it will show in the browser only
+//so we binding to the click event and then setting the value property 
+//in the component class
+
+
+//sometimes we want information about the event itself
+//simply sen dthe parameter in the evnt handler
+
+// <button (click)="onClick($event)">greet</button>{{greeting}}-- $eventthis is the special variable for angular
+//$event gives all the information above the dom event that was released
+
+
+//add in a method defination
+// export class InterpolComponent implements OnInit {
+//     public name="shetty";
+//     public myId="testId";
+//     public isDisabled=false;
+//     public successClass="text-success";
+//     public isEmpl=true;
+//     public isSpecial=true;
+//     // public messageClasses={
+//     //   "text-success":this.isEmpl,
+//     //   "text-danger":this.isEmpl,
+//     //   "text-traial":this.isEmpl,
+//     //   "text-special":this.isSpecial
+//     // };
+//     public hasError=true;
+//     public highColor="blue";
+//     public multiSTyle={
+//       color:"pink",
+//       fontStyle:"italic",
+    
+//     };
+//     public greeting="";
+//       constructor() { }
+    
+//       ngOnInit(): void {
+//       }
+//     //  greetUser()
+//     //  {
+//     //   return "new" + this.name
+//     //  }
+    
+//     onClick(event:any){ //add in a method defination,any bcoz orelse it gives error
+//       console.log(event);
+//       this.greeting="welcome to code"
+//     }
+    
+//     }
+
+//when we click the greet button 
+//says it is a pointer evnet
+//PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+//in that all information aboit the evnt was captured
+//PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+// isTrusted: true
+// altKey: false
+// altitudeAngle: 1.5707963267948966
+// azimuthAngle: 0
+// bubbles: true
+// button: 0
+// buttons: 0
+// cancelBubble: false
+// cancelable: true
+// clientX: 33
+// clientY: 38
+// composed: true
+// ctrlKey: false
+// currentTarget: null
+// defaultPrevented: false
+// detail: 1
+// eventPhase: 0
+// fromElement: null
+// height: 1
+// isPrimary: false
+// layerX: 33--------so on
+
+//by using $evnet we can get the properties of dom 
+
+  
+
+
+
+
+
+//7.template reference variable
+//we are able to get the value from the input element using template reference variable
+//#variable name -to create reference variable
+
+//when there is user interaction  we might want some data
+//to pass from the view to the class to perform an operation
+//for ex , we may require the value from input field perform some validation
+//so to easily access dom elemnt , and their properties
+//angular provides with template reference variable
+
+//in interpol.component.ht?ml
+// <input type="text">
+// <button>log</button>
+//when the user clicks on the button we should log to the console
+//whtever text is entered in the input field
+//for that we need to bind click event on that button
+//add click within paranthesis
+//whenm the clickl event is captured call method log message
+//to that method pass the value  of the input element as an argument
+//we use that using template reference variable
+
+//syntax is # followed by myInput ,next in the logMessage method 
+//add a parameter myInput.value 
+// <input #myInput type="text">
+// <button (click)="logMessage(myInput.value)">log</button>
+
+//and in the method defination we pass value as a parameter value
+//and then console .log value
+
+//in .ts file
+// logMessage(value:any){
+//     console.log(value)
+//   }
+
+
+
+
+
+//8.two way binding
+//consider a login form has username and password
+//the component class have corresponding properties
+//consider a login form this has username and password
+//and the component clas has a corresponding properties username and password
+
+//two way binding allows us to update a property and at the same time display the value of that property
+//for two way binding angular provides another directive ngmodel directive
+
+//create one file ng g c two way
+//create new property in the class
+
+//in ts file
+// export class TwowaybindComponent implements OnInit {
+//     public name=""; //initially create one empty string
+//     constructor() { }
+//     ngOnInit(): void {
+//     }
+//   }
+
+//in .html
+//write an input field
+//next bind the proprty name using interpolation
+// <input type="text">
+// {{name}}
+  
+
+//requirement is
+//when we type the input fiel;d property should be updated with its value,
+//means when we type anything in the input field , that value shoyuld be shown at the browser at the same time
+//basically view that is upper part and the model is in sync
+//so we need to ude ngModel directive
+//within the input element add the directive [(ngModel)] //assign a name property to it
+
+// <input [(ngModel)]="name" type="text">
+// {{name}}
+//so we have the square brackets for property binding, dataflow from the class to the template
+//and  () for event binding for the data flow from the template to the class
+//there is two way data flow and hence two way binding\
+
+//if we run this we got error
+//cant bind to ngmodel since it isnt a known property of input
+//angular is not aware of the ng model directive bcoz it is in a separate module called forms module
+//add that module to the application
+
+//so open app.module.ts, import froms module 
+//add it in imports array
+
+// import { NgModule } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { FormsModule } from '@angular/forms';//add forms module
+
+
+// imports: [
+//     BrowserModule,
+//     AppRoutingModule,
+//     FormsModule //add it in imports array
+//   ],
+//if we save and run it , got output
+
+
+
+  
+
+
+
+//9.ngif
+
+
+
+//10.ngswitch
+//*used when we have to compare multiple values
+//*display clor red,blue,green
+
+//first
+//*create new property
+//*initially set that as red
+
+//in .ts
+// export class NgswitchComponent implements OnInit {
+//   public color="red"; //if we change blue , blue switch case display
+//     constructor() { }
+//     ngOnInit(): void {
+//     }
+// }
+
+//second
+//.html
+//*add div tag that behaves like container for all the switch cases
+//*this is the container where ngswitch attaches
+//*to that assign an expression
+//*within that container specify switch cases with ngSwitch case
+//*in the firxt case if the color is red,..,if it is true, element gets render
+
+// <div [ngSwitch]="color">
+//   <div *ngSwitchCase="'red'">You pickede red color</div>
+//   <div *ngSwitchCase="'blue'">You pickede blue color</div>
+//   <div *ngSwitchCase="'green'">You pickede green color</div>
+// </div>
+
+//output is:You pickede red color
+
+
+
+
+
+//11.routing
+//based on url we navigate to corresponding component is displayed
+//*any angular application we built is going to have multiple components
+//*each component has its own view
+//*we need to navigate between the different views when user perform some action
+
+//how to navigate between two different views with buttonclicks
+//when the user navigates to the url localhost:4200
+//display a title that is routing and navigation
+//below the title have two buttons - departments , employees
+//if we navigate to the url localhost:4200/departments display list of the departments
+//if we navigate to the url localhost:4200/employees display list of the employees
+
+//steps
+//1.generate a propject with routing option
+//2.generate departmentlist and employeelist components , these are the components display in the view
+//3.configure the routes for our application
+//4.add buttons and use directives to navigate to the configure routes
+
+
+//first steps
+//generate new angular application
+//create one new project ng new routing-demo --routing
+//since we perform routing so --routing
+//first thing we need to include base tag in index.html file(automatically included)
+// <!doctype html>
+// <html lang="en">
+// <head>
+//   <meta charset="utf-8">
+//   <title>RoutingDemo</title>
+//   <base href="/"> //this is the base tag
+//this / is required so that the application knows how to construct 
+//the url while navigating 
+//   <meta name="viewport" content="width=device-width, initial-scale=1">
+//   <link rel="icon" type="image/x-icon" href="favicon.ico">
+// </head>
+// <body>
+//   <app-root></app-root>
+// </body>
+// </html>
+
+//next in the app folder cretae new file (automatically created)
+//app-routing.module.ts
+// import { NgModule } from '@angular/core';
+// import { RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = [];
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
+//this file contains routing  modules for our application
+
+
+//import app routing module in app module
+//in app.module.ts
+//import approutingmodule and add it the import array
+
+
+//second step
+//generate departmentlist and employee list
+//cd routing-demo
+//ng g c department-list --inline-template=true --inline-style=true
+//for employee list
+//ng g c employee-list --inline-template=true --inline-style=true
+
+
+//third step 
+//configure the route for that application
+//we do that in app routing module
+// import { NgModule } from '@angular/core';
+// import { RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = []; //here we define all possible routes
+//for our application
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
+
+
+
+// const routes: Routes = [
+//   {path:'departments'},
+// {path:'employees'}];
+////each route is nothing but object
+//object contains a path which is reflected in the url
+//configure two routes
+//first one is departments second one is employee
+//in the first route enter the path as departments
+//in the second routes enter the parth as employee
+
+
+
+// if we navigate to each departments we need to display department list components
+//similar to employee
+// const routes: Routes = [
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent}];
+
+//we have same import statements in both app.module.ts and app-routing.modules.ts
+//so create an array for all the routing components and export it and then import it in appmodule
+//create new const and export it 
+
+//in app-routing.module.ts
+// const routes: Routes = [
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent}];
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
+// export const routingComponents=[DepartmentListComponent,EmployeeListComponent]
+
+//import it in app.module.ts
+// import { NgModule } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
+
+// import { AppRoutingModule,routingComponents } from './app-routing.module';//import here
+// import { AppComponent } from './app.component';
+// import { DepartmentListComponent } from './department-list/department-list.component';//#1
+// import { EmployeeListComponent } from './employee-list/employee-list.component';//#2
+
+//remove #1 and #2 
+//@NgModule({
+  // declarations: [
+  //   AppComponent,
+  //   DepartmentListComponent,//remove this
+  //   EmployeeListComponent//remove this
+  // ],
+//and in the declaration array also remove 
+//and replace with routingComponents
+
+//final , in app.module.ts
+// import { NgModule } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { AppRoutingModule,routingComponents } from './app-routing.module';
+// import { AppComponent } from './app.component';
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     routingComponents
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+//so any time we add new component for routing just have to specify in the routing module
+//now rout have been configured
+//if we navigate the localhost:4200/departments we display departmentslistcomponents similar to employee
+
+
+//wr these components have to be display
+//in the router outlet directive
+//in the app.html file
+//<router-outlet></router-outlet>
+//this directive available from the router pacvkage and it marks where the router displays the view
+
+//when we run if we type localhost:4200-only display routing and navigation
+//if we type localhost:4200\departments-gives department-list works
+//if we type localhost:4200\employes-employees list works
+
+
+
+//add buttons
+// <h1>routing and navigation</h1>
+// <nav>
+//   <a>Departments</a>
+//   <a>employees</a>
+// </nav>
+// <router-outlet></router-outlet>
+
+//to make routing possible with these ancor tag we use two special directive from the router packages
+
+//first one is router link directives which specify the path to which we want to navigate to
+//so when we click on the departments button we want to navigate to departments path
+//similarly to employees 
+
+// <nav>
+//   <a routerLink="/departments">Departments</a>
+//   <a routerLink="/employees">employees</a>
+// </nav>
+
+//second one is routerlink active directive this directive specify one or more css classes that will be applied when corresponding router link is active
+//that means when we click on the anchor tag and the class specified over here gets applied to the anchor tag
+//in my example use active class
+//similor to employee
+
+// <nav>
+//   <a routerLink="/departments" routerLinkActive="active">Departments</a>
+// <a routerLink="/employees" routerLinkActive="active">employees</a>  
+// </nav>
+
+//in style.css
+// nav a.active{
+//   color: blue;
+// }
+
+
+//output
+//when click departments-departments list works shows and url changed 
+//same
+
+//summary
+//first  in index.html add the base tag href to a forward slash
+//in the app-routing.moduloe.ts , configure the route
+//each route has the path and corresponding components
+//export (declared) routingcomponents,and approutingmodule
+//in the app.module import routingcomponents and approutingmodule
+//include that in declaration array
+
+//with this setup we can navigate to the particular route by directly typing in the url
+
+//to navigate through buttons use routerlink directive and specify the path
+//add style to route use roterlinkactive directive
+
+
+
+
+
+
+
+//12.wildcard Route and Redirecting Routes
+//in the url if i try to navigate localhost:4200/text --it shows error
+//it shows error core.mjs:7635 ERROR Error: Uncaught (in promise): Error: NG04002: Cannot match any routes. URL Segment: 'text'
+//better way to handle invalid url is usong wildcard routes
+//but making use of wildcard routes 
+//by making use of wildcard routes we can navigate the user to a 404 page not found component with the url doesnot match any configured 
+
+//first\
+//create 404page component page
+//ng g c page-not-found --inline-template=true --inline-style=true
+//in page-not-found.component.ts , apply h3 tag and say page not found
+// @Component({
+//   selector: 'app-page-not-found',
+//   template: `
+//     <h3>
+//       page-not-found works!
+//     </h3>
+//   `,
+//   styles: [
+//   ]
+// })
+
+//second
+//add wildcard route
+//in app-routing.module.ts  add another route object
+// const routes: Routes = [
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent},
+// {path:"**",component:PageNotFoundComponent}];//should be at the last
+
+//import the component
+//import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+//and export it
+//export const routingComponents=[DepartmentListComponent,EmployeeListComponent,PageNotFoundComponent]
+
+//run ng serve
+//when we type http://localhost:4200/test
+//it displays page-not-found works!
+
+
+//summary
+//the wildcard route should always be in last route in the configuration
+//that is bcoz router tries to match the path from the top 
+//if we move above , it shows page not found
+//so it should be in last
+
+
+//there is one problem
+//if we type localhost:4200 in that also page not found is displayed
+//that is bcoz url doesnot match any of the configured route
+//so pagenotfound
+//so our application needs a default route
+
+//lets display, if we type localhost:4200,we can display departmentlistworks executed
+//so lets create an new object and path is empty and the component is going to be departmentlistcomponent
+// const routes: Routes = [
+//   {path:'',component:DepartmentListComponent},
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent},
+// {path:"**",component:PageNotFoundComponent}];
+
+
+//output
+//type localhost:4200-dipartmentlist works  executed
+//type localhost:4200/dipartments - dipartmentlist works  executed
+//type  localhost:4200/employees-- employeelist works executed
+//localhost:4200/text--pagenotfound executed
+
+
+
+//instead of specify the component specify the path to which we should redirect to
+//for that makeuse of redirectto property
+//redirecting to departmentpaths
+//for redirect toward we need to mention another property
+//that is the path match propety
+//this pathMatch property basically tells the router  how to match the url segments with the configure route
+//there are two [possible value
+//if uise prefix 
+//{path:'',redirectTo:'/departments',pathMatch:'prefix'},
+//departmentlist works whatever we click
+//prefix doenot work for us
+
+//so use full
+// const routes: Routes = [
+//   {path:'',redirectTo:'/departments',pathMatch:'full'},
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent},
+// {path:"**",component:PageNotFoundComponent}];
+ //it will work
+ //when enter department button shows department-list works
+ //when enter employees , emplouyees list works
+ //when enter localhost:4200 departmentlist works
+
+
+
+
+//13.Route parameters
+//passing and reading route parameters
+//how to pass and read route parameters
+//in the departmentlist component we have list of departments that is angular,node,mongodb,ruby,bootstrap
+//each of them have corresponding id 1,2 ,3 ,4,5
+//when we click on the department we will navigate departmentDetail component
+//passing the id of the department as routerparameter
+//and in the departmentDetail component we will read that component and display the id in the view
+//for example when we click the angular,it shows you selected department with id=1
+
+//in department-listcomponets.ts 
+//have array of departments each department has an id and name
+// export class DepartmentListComponent implements OnInit {
+
+//   departments=[
+//     {"id":1,"name":"Aangular"},
+//     {"id":2,"name":"Node"},
+//     {"id":3,"name":"Node"},
+//     {"id":4,"name":"Node"},
+//     {"id":5,"name":"Node"},
+//     ]
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }
+
+//in the view that is in the the @component decorator
+//use ngFor deractive to iterate over each department 
+//and display the id and the name and also added some classes badge and items to apply some styling
+//to a list of departments
+//@Component({
+//   selector: 'app-department-list',
+//   template: `
+//     <h3>Department List</h3>
+//     <ul class="items">
+//     <li *ngFor="let department of departments">
+//     <span class="badge">{{department.id}}</span>{{department.name}}
+//     </li>
+//     </ul>
+//   `,
+//   styles: [
+//   ]
+// })
+
+//now output
+// Department List
+// 1Aangular
+// 2Node
+// 3MongoDB
+// 4Ruby
+// 5Bootstrap
+
+//now impliment , when i click on angular url should change departments/1 and in departmentDetail component view  and where it prints 
+//you are selected department with id=1
+
+//first step
+//generate the departmentDetail component and configure new route for it
+//so in the terminal run the command ng g c department-detail --inline-template=true --inline-style=true
+//the component is generated add the route to navigate to this compnent
+
+//second step
+//in app-routing.module.ts 
+//in the routes array add a  new object
+//:id is the placeholder for a route parameter
+//since we are passing the id of the department named it :id
+//const routes: Routes = [
+//   {path:'',redirectTo:'/departments',pathMatch:'full'},
+//   {path:'departments',component:DepartmentListComponent},
+// {path:'employees',component:EmployeeListComponent},
+// {path:"**",component:PageNotFoundComponent}, //sholud be in last
+// {path:'departments/:id',component:DepartmentDetailComponent}];
+//import it in app-routing.module.ts
+//import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+//and export it 
+//export const routingComponents=[DepartmentListComponent,EmployeeListComponent,PageNotFoundComponent,DepartmentDetailComponent]
+
+
+//third step
+//how to navigate the route from the code
+//navigate app-routing.module.ts this route when we click on the department
+//in department-list.component.ts bind the click event on each department
+//in the li tag (click) and assign a method name onSelect()
+//to this method pass the department as an argument
+// template: `
+// <h3>Department List</h3>
+// <ul class="items">
+// <li (click)="onSelect(department)" *ngFor="let department of departments">
+// <span class="badge">{{department.id}}</span>{{department.name}}
+// </li>
+// </ul>
+// `,
+
+//and define in onselect method
+//and in this method we need to navigate to the new route
+// export class DepartmentListComponent implements OnInit {
+// departments=[
+//     {"id":1,"name":"Aangular"},
+//     {"id":2,"name":"Node"},
+//     {"id":3,"name":"MongoDB"},
+//     {"id":4,"name":"Ruby"},
+//     {"id":5,"name":"Bootstrap"},
+//     ]
+// constructor() { }
+// ngOnInit(): void {
+//   }
+//   onSelect(department:any){ //here
+// }}
+
+
+//for navugating from code we make use of router service
+//first import it
+//import { Router } from '@angular/router';
+//and then we inject it
+//in the consyructor private router of type Router
+// export class DepartmentListComponent implements OnInit {
+
+//   departments=[
+//     {"id":1,"name":"Aangular"},
+//     {"id":2,"name":"Node"},
+//     {"id":3,"name":"MongoDB"},
+//     {"id":4,"name":"Ruby"},
+//     {"id":5,"name":"Bootstrap"},
+//     ]
+
+//   constructor(private router:Router) { } //here
+
+//   ngOnInit(): void {
+//   }
+//   onSelect(department:any){
+
+//   }
+
+// }
+
+//now make use of router instance
+//in onselect method this.router and then call the navigate method
+//the argument to this method is link parameters array ,it is all the information that angular needs to construct the url
+//pass two items in this parameter array
+//first one is path that we want to navigate
+//second one is route parameter this is the department.id
+// export class DepartmentListComponent implements OnInit {
+
+//   departments=[
+//     {"id":1,"name":"Aangular"},
+//     {"id":2,"name":"Node"},
+//     {"id":3,"name":"MongoDB"},
+//     {"id":4,"name":"Ruby"},
+//     {"id":5,"name":"Bootstrap"},
+//     ]
+
+//   constructor(private router:Router) { }
+
+//   ngOnInit(): void {
+//   }
+//   onSelect(department:any){
+// this.router.navigate(['/departments',department.id]); here
+//   }
+// }
+
+//departments followed by the id corresponds to the newly configured route
+// that is {path:'departments/:id',component:DepartmentDetailComponent}];
+// with this information angular router construct the url and /departments/id
+//save and run
+
+//in the broweser
+//if i click on the angular - shows localhost:4200/departments/1
+//if i click on the node- shows http://localhost:4200/departments/2
+//so on
+//and in the view page - department-detail works displayed for every lists
+//but we want "selected id is 1"
+
+//fourth step
+//go to department detail.component.ts
+//import { ActivatedRoute } from '@angular/router';
+//then inject it in the constructor 
+//constructor(private route:ActivatedRoute) { }
+//next in the ngoninit method read the route parameter
+//this service gives snapshot for current route
+//from this snapshot use paramMap api which helps us to get the parameter from the url
+//the parameter is the id parameter
+//ngOnInit(): void {
+// let id=this.route.snapshot.paramMap.get('id');}
+//so from the current route snapshot get the id parameter and assign it to the local variable id
+
+//tghen bind thid id to the view
+//create a new property
+//public departmentId:any;
+//and in ngoninit  this.departmentId=id; 
+
+//in the view change the template
+// template: `
+// <h3>you selected department with id = {{departmentId}}</h3>
+// `,
+
+//when click angular http://localhost:4200/departments/1
+//you selected department with id = 1
+
+//when click node - http://localhost:4200/departments/2
+//you selected department with id = 2
+
+
+//summary
+//in app routing module.ts cretae a route withy the placehiolder for the parameter
+//to pass a parameter while navigating make use of router service
+//it has a navigate method to which we can pass the link parametrs array
+//this.router.navigate(['/departments',department.id]);
+//to read the parameter to make use of activatedroute service
+//use the snapshot of the current route and use the param api to read the recquired parameter
+// ngOnInit(): void {
+//   let id=this.route.snapshot.paramMap.get('id');
+//   this.departmentId=id;
+// }
+//thyen bind it to the view using interpolation
+//<h3>you selected department with id = {{departmentId}}</h3>
+
+
+
+//14.paramMap Observable
+//there is a drawback to use snapshot
+
+//first step
+//lets add previous and next button
+//when we click on the previous link need to move back the department
+//when we click on tehj next we need to go to the next department
+//we should be listning the click event on these two anchor tag
+//then assign a handler goPrevious()
+//similarly for next and assign a handler
+//in department-detail.component.ts
+// @Component({
+//   selector: 'app-department-detail',
+//   template: `
+//     <h3>you selected department with id = {{departmentId}}</h3>
+//     <a (click)="goPrevious()">Previous</a>//here
+//     <a (click)="goNext()">Next</a>//here
+//   `,
+//   styles: [
+//   ]
+// })
+
+
+//second step
+//to navigate from code ,we need router service
+//made use of router service in departmentlistcomponent.ts to navigate from code
+//do the same in detailcomponent.ts
+//import router from router package
+//import { ActivatedRoute ,Router} from '@angular/router';
+//in the constructor private router:Router
+// export class DepartmentDetailComponent implements OnInit {
+//   public departmentId:any;
+//     constructor(private route:ActivatedRoute,private router:Router) { }//here
+  
+//     ngOnInit(): void {
+//       let id=this.route.snapshot.paramMap.get('id');
+//       this.departmentId=id;
+//     }
+  
+//   }
+
+
+//third step
+//now lets define goprevious and go next methods
+//in goPrevious method first declare a variable previousId then this is equal to this.departmentId-1
+//y bcoz this.departmentId gives current id when we subtract one to get previous id
+//let previousId=this.departmentId-1;
+//once we have the previous id 
+//pass it as the parameter in the nacvigate method on the router service
+//this.router.navigate(['/departments',previousId]);
+//similarly define for go next
+//export class DepartmentDetailComponent implements OnInit {
+// public departmentId:any;
+// constructor(private route:ActivatedRoute,private router:Router) { }
+
+// ngOnInit(): void {
+//   let id=this.route.snapshot.paramMap.get('id');
+//   this.departmentId=id;
+// }
+// goPrevious(){
+//   let previousId=this.departmentId-1;
+//   this.router.navigate(['/departments',previousId]); //here
+// }
+
+// goNext(){
+//   let nextId=this.departmentId+1;
+//   this.router.navigate(['/departments',nextId]);//here
+// }
+// }
+
+
+//when we click on the angular , http://localhost:4200/departments/1
+//then when we click on the next it will update in the url only that is http://localhost:4200/departments/2
+//but in the view we diint get the result it shows  you selected department with id = 1
+//actually we need  - you selected department with id = 2
+//so this didnt work
+
+
+//when we are navigating from one component back to the same component
+//the snapshot approach will not work
+//
+
+
+//to overcome this , we use paramMap Observable
+//instead of using snapshot that is
+//let id=this.route.snapshot.paramMap.get('id');
+//this.departmentId=id;
+
+//use this.route.paramMap this calls an observable,we get the data
+//only if subscribe to it
+//this.route.paramMap.subscribe();
+//the argument to the subscribe method is an arrow function
+//the observable(subscribe) provides a parameter 
+//this.route.paramMap.subscribe((params:ParamMap)=>{
+//import parammap
+//import { ActivatedRoute ,Router,ParamMap} from '@angular/router';
+//the paramMap api provides a get method to retrive the id parameter
+//let id=params.get('id');
+//then assign the id to the department
+//this.departmentId=id;
+//now anytime the parameter value changes even when navigating back to the same component
+//the parammap observable can detect and read it
+// export class DepartmentDetailComponent implements OnInit {
+//   public departmentId:any;
+//     constructor(private route:ActivatedRoute,private router:Router) { }
+  
+//     ngOnInit(): void {
+//       this.route.paramMap.subscribe((params:ParamMap)=>{//here
+//         let id=params.get('id');//here
+//         this.departmentId=id;//here
+//       });
+//     }
+//     goPrevious(){
+//       let previousId=this.departmentId-1;
+//       this.router.navigate(['/departments',previousId]);
+//     }
+  
+//     goNext(){
+//       let nextId=parseInt(this.departmentId)+1;
+//       this.router.navigate(['/departments',nextId]);
+//     }
+//  }
+
+//click on mongoDb button
+//when we click next url changes to http://localhost:4200/departments/4
+//and in the view also we get you selected department with id = 4
+
+
+
+//15.optional route parameters
+//here we need new recquirement
+//in the department detail component we need to add a back button
+//when we click on the back button it should be naviagted back to the list component
+//and previously selcect departmentlist must be highlited
+//for example if i click on the angular navigated to departmentdetail component
+//if i click on the back button navigate back to the departmentlist component
+//and angular should be highlighted
+//and this can be achieved by optional route parameters
+
+
+
+//first step
+//in the department-detail-component first add back button
+//and add click event on this button and assign a handler "gotoDepartments()"
+// @Component({
+//   selector: 'app-department-detail',
+//   template: `
+//     <h3>you selected department with id = {{departmentId}}</h3>
+//     <button><a (click)="goPrevious()">Previous</a></button><br>
+//     <button><a (click)="goNext()">Next</a></button>
+
+//     <div>
+//     <button (click)="gotoDepartments()">Back</button> //here
+//     </div>
+//   `
+
+
+//second step
+//lets define that method
+//first create new variable selected id 
+//and assign the id of the department that is currently in the view
+//that is departmentId and we can also check null
+//let selectedId=this.departmentId?this.departmentId:null;
+
+//now once we have the selected id we can navigate back to the departmentlist view
+//but this time passing it as an optional parameter in the link parameters array
+//first parameter is paths /departments and then the second argument is an object
+//the object has key value pair
+//the key value pair has nothing but optional route parameters we want to send
+//key is id and the value is selectedId 
+//this.router.navigate(['/departments',{id:selectedId}])
+
+// export class DepartmentDetailComponent implements OnInit {
+//   public departmentId:any;
+//     constructor(private route:ActivatedRoute,private router:Router) { }
+  
+//     ngOnInit(): void {
+//       //let id=this.route.snapshot.paramMap.get('id');
+//       //this.departmentId=id;
+//       this.route.paramMap.subscribe((params:ParamMap)=>{
+//         let id=params.get('id');
+//         this.departmentId=id;
+//       });
+//     }
+//     goPrevious(){
+//       let previousId=this.departmentId-1;
+//       this.router.navigate(['/departments',previousId]);
+//     }
+  
+//     goNext(){
+//       let nextId=parseInt(this.departmentId)+1;
+//       this.router.navigate(['/departments',nextId]);
+//     }
+  
+//     gotoDepartments(){
+//       let selectedId=this.departmentId?this.departmentId:null; //jere
+//       this.router.navigate(['/departments',{id:selectedId}]) //here
+//     }
+    
+//   }
+
+//let run it 
+//first click the departments button - url-localhost:4200/departments
+//lets click the Node button -url will be localhost:4200/departments/2
+//you selected department with id = 2 - it will display
+//and when we click the back button url changes to http://localhost:4200/departments;id=2
+//and in the view  shows
+//Department List
+// 1Aangular
+// 2Node
+// 3MongoDB
+// 4Ruby
+// 5Bootstrap
+
+//third step
+//if the id matches we should highlight it
+//go to the department-list-component
+//first import the activatedroute service and inject it
+//import { Router ,ActivatedRoute} from '@angular/router';
+//and inject it
+//constructor(private router:Router,private route:ActivatedRoute //here) { }
+//next in the ngOnInit method retrive the id parameter using the paramMap observable
+//ngOnInit(): void {
+//   this.route.paramMap.subscribe((params:ParamMap)=>{
+//     let id=params.get('id');
+//     this.selectedId=id;
+//   });
+// }
+//import parammap
+//and declare selctedId
+//public selectedId:any;
+//now we have selected id of the department
+//in department-list.component.ts
+// export class DepartmentListComponent implements OnInit {
+//   public selectedId:any;
+//     departments=[
+//       {"id":1,"name":"Aangular"},
+//       {"id":2,"name":"Node"},
+//       {"id":3,"name":"MongoDB"},
+//       {"id":4,"name":"Ruby"},
+//       {"id":5,"name":"Bootstrap"},
+//       ]
+  
+//     constructor(private router:Router,private route:ActivatedRoute) { }
+  
+//     ngOnInit(): void {
+//       this.route.paramMap.subscribe((params:ParamMap)=>{
+//         let id=params.get('id');
+//         this.selectedId=id;
+//       });
+//     }
+//     onSelect(department:any){
+//   this.router.navigate(['/departments',department.id]);
+//     }
+  
+//   }
+
+//fourt step
+//compare it with departmentid to check if they match
+//in department-list-component.ts
+//create new method iSelected() , department as a parameter
+//return department.id===this.selectedId
+//this method returns true if the department id is equal to the selectedId
+//isSelected(department){
+//   return department.id===this.selectedId;
+// }
+
+// export class DepartmentListComponent implements OnInit {
+//   public selectedId:any;
+//     departments=[
+//       {"id":1,"name":"Aangular"},
+//       {"id":2,"name":"Node"},
+//       {"id":3,"name":"MongoDB"},
+//       {"id":4,"name":"Ruby"},
+//       {"id":5,"name":"Bootstrap"},
+//       ]
+  
+//     constructor(private router:Router,private route:ActivatedRoute) { }
+  
+//     ngOnInit(): void {
+//       this.route.paramMap.subscribe((params:ParamMap)=>{
+//         let id=params.get('id');
+//         this.selectedId=id;
+//       });
+//     }
+//     onSelect(department:any){
+//   this.router.navigate(['/departments',department.id]);
+//     }
+//     isSelected(department){
+//       return department.id===this.selectedId;
+//      }
+  
+//   }
+
+//make use of this method to bind a class to the selected department in the list
+//in the li tag use class binding 
+//<li (click)="onSelect(department)"[class.selected]="isSelected(department)" *ngFor ="let department of departments">
+// @Component({
+//   selector: 'app-department-list',
+//   template: `
+//     <h3>Department List</h3>
+//     <ul class="items">                 //here
+//     <li (click)="onSelect(department)"[class.selected]="isSelected(department)" *ngFor ="let department of departments">
+//     <button><span class="badge">{{department.id}}</span>{{department.name}}</button>
+//     </li>
+//     </ul>
+//   `,
+//   styles: ['ul{list-style:none}']
+// })
+//if isselecteed returns true apply class selected to li tag
+//in style.css
+//add style
+//.items li.selected{
+//   background-color: green;
+//   color: brown;
+// }
+
+
+//save and run
+
+//pass another parameter say test and value is testvalue
+//in department-detail.component.ts
+//  gotoDepartments(){
+//   let selectedId=this.departmentId?this.departmentId:null;
+//   this.router.navigate(['/departments',{id:selectedId,test:'testvalue'}])
+// }
+
+//when click back button
+//url should be http://localhost:4200/departments;id=1;test=testvalue
+
+  
+
+//16.relative navigation
+//used to revert back to the slash
+//since we are using absolute path to the navigation  and it begins with /
+//but it has disadvantage, doenot have more flexibility
+//add the code for relative navigation
+//in department-list.component.ts
+//in onSelect write relative navigation code
+//this.router.navigate()
+//pass two arguments , first one is link parameter array
+//but this tym only contain parameter -department.id
+//and the second parameter is property relative to the value this.route
+//to the current route append the department id then navigate to the url
+//this.router.navigate([department.id],{relativeTo:this.route});
+//so if we are in the department-list component the url would be /department-list
+//do that just add department.id and then navigate to the particular url
+
+//in department-list.component.ts
+// export class DepartmentListComponent implements OnInit {
+//   public selectedId:any;
+//     departments=[
+//       {"id":1,"name":"Aangular"},
+//       {"id":2,"name":"Node"},
+//       {"id":3,"name":"MongoDB"},
+//       {"id":4,"name":"Ruby"},
+//       {"id":5,"name":"Bootstrap"},
+//       ]
+//     constructor(private router:Router,private route:ActivatedRoute) { }
+//     ngOnInit(): void {
+//       this.route.paramMap.subscribe((params:ParamMap)=>{
+//         let id=params.get('id');
+//         this.selectedId=id;
+//       });
+//     }
+//     onSelect(department:any){
+
+//   this.router.navigate([department.id],{relativeTo:this.route}); //here this is the relative navigation
+//     }
+//     isSelected(department:any){
+//       return department.id===parseInt(this.selectedId);
+//      }
+//   }
+
+
+//do the same in department-detail componnt
+//../ means go back one segment in the url
+//this.router.navigate(['../',{id:selectedId}],{relativeTo:this.route});
+//this is used, when we click the angular button http://localhost:4200/departments;id=3/3
+//when we click back button it will move back to the /
+//http://localhost:4200/departments;id=3
+
+// export class DepartmentDetailComponent implements OnInit {
+//   public departmentId:any;
+//     constructor(private route:ActivatedRoute,private router:Router) { }
+  
+//     ngOnInit(): void {
+//       //let id=this.route.snapshot.paramMap.get('id');
+//       //this.departmentId=id;
+//       this.route.paramMap.subscribe((params:ParamMap)=>{
+//         let id=params.get('id');
+//         this.departmentId=id;
+//       });
+//     }
+//     goPrevious(){
+//       let previousId=this.departmentId-1;
+//       this.router.navigate(['/departments',previousId]);
+//     }
+  
+//     goNext(){
+//       let nextId=parseInt(this.departmentId)+1;
+//       this.router.navigate(['/departments',nextId]);
+//     }
+  
+//     gotoDepartments(){
+//       let selectedId=this.departmentId?this.departmentId:null;
+//       this.router.navigate(['../',{id:selectedId}],{relativeTo:this.route});//here
+//     }
+//   }
+
+
+
+
+//17.child routes
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

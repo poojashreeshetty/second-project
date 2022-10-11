@@ -1,0 +1,495 @@
+// //1.add forms and styles in app.component.html and app.component.css
+//crete template driven form in angular
+// <div class="form">
+//   <h2 id="registration">Registration Form</h2>
+//   <form>
+//     <div>
+//       <label for="fname">First Name</label>
+//       <input
+//         type="text"
+//         id="fname"
+//         placeholder="Your name.."
+//         name="firstname"
+//       />
+
+//       <label for="lname">Last Name</label>
+//       <input
+//         type="text"
+//         id="lname"
+//         placeholder="Your last name.."
+//         name="lastname"
+//       />
+
+//       <label for="email">Email</label>
+//       <input
+//         type="email"
+//         id="email"
+//         name="email"
+//         placeholder="Your last email.."
+//         name="email"
+//       />
+//     </div>
+
+//     <label for="country">Country</label>
+//     <select id="country" name="country">
+//       <option value="australia">Australia</option>
+//       <option value="canada">Canada</option>
+//       <option value="usa">USA</option>
+//       <option value="india">India</option>
+//       <option value="uk">UK</option>
+//     </select>
+
+//     <label for="gender">Gender:</label>
+
+//     <input type="radio" name="gender" />
+//     <label for="male">male</label>
+
+//     <input type="radio" name="gender" />
+//     <label for="female">female</label>
+
+//     <input type="radio" name="gender" />
+//     <label for="other">other</label>
+
+//     <br /><br />
+//     <label>Hobbies</label>
+//     <div class="form-inline">
+//       <label><input type="checkbox" value="sports" name="hobbies" /> Sports</label>
+//       <label><input type="checkbox" value="movies" name="hobbies" /> Movies</label>
+//       <label><input type="checkbox" value="music" name="hobbies" /> Music</label>
+//     </div><br>
+
+//     <label>Description</label><br><br>
+//     <textarea placeholder="enter the description" cols="45" rows="8"></textarea>
+
+//     <input
+//       type="button"
+//       value="Submit"
+//       id="btn"
+//     /> <!--[disabled]="!myForm.valid"-->
+//   </form>
+// </div>
+
+//in css
+// input[type=text],[type=email], select {
+//   width: 100%;
+//   padding: 12px 20px;
+//   margin: 8px 0;
+//   display: inline-block;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   box-sizing: border-box;
+// }
+// #registration{
+//   text-align: center;
+// }
+
+// input[type=button] {
+//   width: 100%;
+//   background-color: #4CAF50;
+//   color: white;
+//   padding: 14px 20px;
+//   margin: 8px 0;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+// }
+
+// input[type=submit]:hover {
+//   background-color: #a04557;
+// }
+
+// .form{
+//   border-radius: 5px;
+//   background-color: #f2f2f2;
+//   padding: 20px;
+//   width: 400px;
+//   margin: 30px auto;
+// }
+
+
+//to work with forms in the angular first thing we need to do is
+
+//first step
+//in the app.module.ts
+//in the imports array we need to specify the forms module
+// import { NgModule } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+// import { BrowserModule } from '@angular/platform-browser';
+
+// import { AppRoutingModule } from './app-routing.module';
+// import { AppComponent } from './app.component';
+
+// @NgModule({
+//   declarations: [
+//     AppComponent
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule,
+//     FormsModule //this is the first step
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+
+
+//second step
+//in submit button we have used type="button"
+//instaed of using button, type="submit"
+//so that forms will be submitted
+//in app.html
+// <input
+// type="submit" //here
+// value="Submit"
+// id="btn"
+// />
+//also change in cssin app.css
+
+
+//third step
+//when the forms will be submitted?
+//by using angular we can do that
+//by using ngSubmit since it is a event we have to use ()
+//to this evnet assign a method , and call that method onsubmit()
+//so when the submit button will be clicked the ngSubmit event will be raised
+//and onSubmit() method will be called
+//in app.html
+//<form (ngSubmit)="onSubmit()">
+//inside this method we want to do somethoing
+//GO TO THE APP.TS FILE
+//call the method
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent {
+//   title = 'template-driven';
+
+//   onSubmit(){
+//     console.log("Form submitted") //here
+//   }
+// }
+//so when the form will be submitted , shows alert
+
+
+//fourth step
+//so instead of logging a string msg that is form submitted
+//we want to get access to the form elemnt
+//specify local reference variable pass that local reference variable to this method as its argumnet
+//<form (ngSubmit)="onSubmit(myForm) #myForm">
+//then that method is going to recieve an argumnt call it as form ,type is HTMLFormElement
+//and log that form
+//in app.ts
+//onSubmit(form:HTMLFormElement){
+//   console.log(form);
+// } 
+//output in the console is , it gives all the html elements 
+//now it is logging html of the file
+//instead of access to the html of the form we want to get this form as the javascript object
+//now we have form from the dom object
+//but we want ypescript object
+
+
+//fifth step
+//in app.html
+//to the local variable we can assign the string called ngForm
+//now we are assigning a value of type ngForm
+//<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+//now in the method call (app.ts)
+//we wre not going to recive  a  instance of HTMLFormElement
+//so remove and add NgForm and import it
+// onSubmit(form:NgForm){
+//   console.log(form);
+// }
+//nopw we get the output in the form of obj
+//import {  Component, ViewChild } from '@angular/core';
+// import { NgForm } from '@angular/forms';
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent {
+//   title = 'template-driven';
+//   @ViewChild('myForm') 
+//   form:NgForm;
+
+
+//   onSubmit(){
+//     console.log(this.form);
+//   }
+// }
+ //need to specify a name
+//second change is for each of the input elemnts we also need to use ngModel on them
+// <input
+// type="text"
+// id="fname"
+// placeholder="Your name.."
+// name="firstname"//here
+// ngModel//here so in controls object we get  firstname:FormControl
+// />
+//ngModel simply tell the angular that this input elemnt is control this form
+//that is if we include ngModel ,,,    in  the console we get object
+// in that , control object if we expand that , we get first
+//wherever name is there put ngModel
+//name should be in input , text area, selct
+// controls: Object
+// firstname: FormControl
+// defaultValue: null
+// errors: null
+// pristine: true
+// status: "VALID"
+//these properties are Formcontrol types
+
+//by using ngMOdel we get the property firstname,lastname,..
+//property name is same in the console as name in the input 
+//in app.html
+// <div class="form">
+//   <h2 id="registration">Registration Form</h2>
+//   <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+//     <div>
+//       <label for="fname">First Name</label>
+//       <input
+//         type="text"
+//         id="fname"
+//         placeholder="Your name.."
+//         name="firstname"
+//         ngModel
+//       />
+    
+//       <label for="lname">Last Name</label>
+//       <input
+//         type="text"
+//         id="lname"
+//         placeholder="Your last name.."
+//         name="lastname"
+//         ngModel
+//       />
+
+//       <label for="email">Email</label>
+//       <input
+//         type="email"
+//         id="email"
+//         name="email"
+//         placeholder="Your last email.."
+//         name="email"
+//         ngModel
+//       />
+//     </div>
+
+//     <label for="country">Country</label>
+//     <select id="country" name="country" ngModel>
+//       <option value="australia">Australia</option>
+//       <option value="canada">Canada</option>
+//       <option value="usa">USA</option>
+//       <option value="india">India</option>
+//       <option value="uk">UK</option>
+//     </select>
+
+//     <label for="gender">Gender:</label>
+
+//     <input type="radio" id="male" value="male" name="gender"  ngModel/>
+//     <label for="male">male</label>
+
+//     <input type="radio" name="gender" id="female" value="female"  ngModel/>
+//     <label for="female">female</label>
+
+//     <input type="radio" name="gender" id="other" value="other"  ngModel/>
+//     <label for="other">other</label>
+
+//     <br /><br />
+//     <label>Hobbies</label>
+//     <div class="form-inline">
+//       <label><input type="checkbox" value="sports" name="hobbies" ngModel/> Sports</label>
+//       <label><input type="checkbox" value="movies" name="hobbies" ngModel/> Movies</label>
+//       <label><input type="checkbox" value="music" name="hobbies" ngModel/> Music</label>
+//     </div><br>
+
+//     <label>Description</label><br><br>
+//     <textarea placeholder="enter the description" cols="45" rows="8" name="description" ngModel></textarea>
+
+//     <input
+//       type="submit"
+//       value="Submit"
+//       id="btn"
+//     /> <!--[disabled]="!myForm.valid"-->
+//   </form>
+// </div>
+
+
+
+//7th step
+//and ngForm also have the propery called value
+//in console
+// value: Object
+// country: ""
+// description: ""
+// email: ""
+// firstname: ""
+// gender: ""
+// hobbies: ""
+// lastname: ""
+//these property are assigned with value
+//initially we dint assign any value for firstname,latsnaem...
+//so empty
+//when we enter thye detailsa,it will show the details like
+// value: Object
+// country: "canada"
+// description: "ssssssszc"
+// email: "udemycourse.frontend@robosoftin.com"
+// firstname: "pooja"
+// gender: "female"
+// hobbies: true
+// lastname: "shetty"
+
+//so the value property contains control name as its property 
+//but value object are simply a primitive type, wheter there is a string,number so on
+
+
+//summary
+//so in this way we acn access a template driven form and then we can access the value of formcontrol
+//of a templatye driven form
+//when we assigningb the ngForm to the local reference varible (#myForm)
+//we are getting access to this form an object
+//and this object has all the recquired properties which we need to work with the form
+//control property , value property
+//and also we have valid property automatically set as true
+//ivalid:true, bcoz we diint perform validation
+//when the validation is not successful, invalid set to true and valid will set to false
+//dirty:true, when the form changes(if we write)
+//if we dint touch the form(initial stage) 
+//touched:false, untouched:true
+
+
+//8th step
+//instead of create local reference varible and pass it to the onSubmit function 
+//<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+//we can use @Viewchild decorator
+//remove the argumnt in app.html
+//<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+//and also remove the parameter in app.ts
+// onSubmit(){
+//   console.log(form);
+// }
+
+
+//lets create a new property 
+//form:NgForm and add the ViewChild decorator
+// @ViewChild('myForm') form:NgForm; (pass the local reference variable) 
+//and in onsubmit() use the form property
+// onSubmit(){
+//   console.log(this.form);
+// }
+
+// import {  Component, ViewChild } from '@angular/core';
+// import { NgForm } from '@angular/forms';
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent {
+//   title = 'template-driven';
+//   @ViewChild('myForm') 
+//   form:NgForm;
+
+
+//   onSubmit(){
+//     console.log(this.form);
+//   }
+// }
+
+
+//output-form will be working same
+
+
+
+
+
+//validation using template driven form
+
+//valid:true-means no error
+//if there is eror valid:false
+//in controls object, we have property created
+//every property having valid property 
+
+//first step
+//lets add validation for firstname, lastname,email
+//this is compolsury(this is recquired field)
+//these field shouldnot be empty when the user clicks on the submit button
+//each of the input field add recquired attribute(html)
+//if we skip to add any of these input fiels , in the console
+//in that object   valid:false
+
+//in the email input field,if we add nnhjjh like this valid is true
+//but we are entering the wrong text email should be in th poo@gmail.com
+//so when the value entered in the email field is not a proper email,, in that case in email object valid:true,this valid true we dont want to be true
+//for that we need to add another validation on email firld
+// <label for="email">Email</label>
+//       <input
+//         type="email"
+//         id="email"
+//         name="email"
+//         placeholder="Your last email.."
+//         name="email"
+//         ngModel
+//         required
+//         email //here
+//       />
+//if we apply email in the input,, if we type invalid email it will show valid:false
+//if we add valid email that is pooja@gmail.com ,   valid:true
+
+
+
+//second step
+//if the form is not valid we should disble the submit button
+//submit button is only be enabled when the form is valid
+//<input type="submit" value="Submit" id="btn"  disabled/>
+//add disbled in the submit button
+//then add property binding
+//in the console, ngForm object has valid property , bind the disabled attribute to that
+//bind the disabled attribute to the valid property of the ngForm object
+//we have the ngForm object in the #myForm variable  , so in the myForm add the validproperty, so assign that
+//<input type="submit" value="Submit" id="btn"  [disabled]="myForm.valid"/>
+//now if the form is valid in that case we dont wanto disble the button
+//if the form is not valid then only we want to disable the submit button,add !
+//<input type="submit" value="Submit" id="btn"  [disabled]="!myForm.valid"/>
+//so if the form is not valid,it submit button wont work
+
+//and also we can find angular class in elemnt (in console window)
+//if we dint touch the input fiels it will show angular class as ng-untouched
+//if we full the input field , ng-dirrty will be shown and ng-touched class is shown
+//so on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
