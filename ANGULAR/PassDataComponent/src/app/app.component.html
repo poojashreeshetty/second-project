@@ -1,0 +1,12 @@
+<div class="parent">
+  <h1>PARENT COMPONENT</h1>
+  <div>
+<label for="name">Name</label>
+<input #name type="text" name="name">
+     <input (click)="transfer(name.value)" type="button" value="submit">
+  </div>
+</div>
+<div class="main">
+<app-users [current]="beverage" [childFood]="food"  [nameData]="parentName"></app-users> 
+<app-second-child></app-second-child>
+</div>

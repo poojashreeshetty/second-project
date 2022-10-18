@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Webpage Design</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <div class="icon">
+          <h2 class="logo">PraRoz</h2>
+        </div>
+
+        <div class="menu">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">SERVICE</a></li>
+            <li><a href="#">DESIGN</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <div class="search">
+          <input
+            class="srch"
+            type="search"
+            name=""
+            placeholder="Type To text"
+          />
+          <a href="#"> <button class="btn">Search</button></a>
+        </div>
+      </div>
+      <div class="content">
+        <h1>Web Design & <br /><span>Development</span> <br />Course</h1>
+        <p class="par">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque
+          expedita atque eveniet <br />
+          quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus
+          <br />
+          a quae totam ipsa illum minus laudantium?
+        </p>
+
+        <!-- <button class="cn"><a href="#">JOIN US</a></button> -->
+        <!-- <button mat-raised-button><a href="#">JOIN US</a></button> -->
+        <button
+          mat-raised-button
+          color="primary"
+          class="cn"
+          routerLink="/remaining"
+        >
+          JOIN US
+        </button>
+      </div>
+
+      <div class="form">
+        <h2>Login Here</h2>
+        <form class="example-form">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Favorite food</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi" />
+          </mat-form-field>
+
+          <!-- <div class="check">
+            <label>Gender</label>
+            <mat-checkbox color="primary">Male</mat-checkbox>
+            <mat-checkbox color="warn">Female</mat-checkbox>
+            <mat-checkbox color="accent">Other</mat-checkbox>
+          </div> -->
+          <div class="check">
+            <mat-checkbox
+              (change)="selectAllChanged($event)"
+              color="warn"
+              labelPosition="before"
+              >Select All</mat-checkbox
+            >
+            <mat-checkbox
+              [(ngModel)]="task.completed"
+              *ngFor="let task of tasks"
+              color="warn"
+              >{{ task.value }}</mat-checkbox
+            >
+          </div>
+
+          <div class="radio">
+            <!-- <mat-radio-group [(ngModel)]="myModel">
+              <mat-radio-button value="angular" color="primary"
+                >Angular</mat-radio-button
+              >
+              <mat-radio-button value="react" color="warn"
+                >React</mat-radio-button
+              >
+              <mat-radio-button value="java" color="accent"
+                >Java</mat-radio-button
+              >
+            </mat-radio-group>
+            <div class="red">you selected {{ myModel }}</div> -->
+
+            <label id="example-radio-group-label"
+              >Pick your favorite season</label
+            >
+            <mat-radio-group
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+              [(ngModel)]="favoriteSeason"
+            >
+              <mat-radio-button
+                class="example-radio-button"
+                *ngFor="let season of seasons"
+                [value]="season"
+              >
+                {{ season }}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div>Your favorite season is: {{ favoriteSeason }}</div>
+          </div>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" class="date" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <button class="btnn"><a href="#">Login</a></button>
+
+          <p class="link">
+            Don't have an account<br />
+            <a href="#">Sign up here</a>
+          </p>
+          <p class="liw">Log in with</p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

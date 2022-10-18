@@ -1,0 +1,65 @@
+PASSING DATA BETWEEN COMPONENTS
+
+
+//1.PASSING DATA PARENT TO CHILD
+//Steps
+//make users component
+//make it child of app component
+//pass data to app to child component
+//display data in child component
+
+//first step
+//make users component
+
+//second step
+//first create a property in parent
+export class AppComponent {
+  title = 'PassDataComponent';
+  beverage="tea";
+  food={
+    juice: "mango",
+    breakfast:"dosa",
+    lunch:"ricesambbar"
+}
+}
+
+//second step
+//bind that property
+<div class="parent">
+  <h1>PARENT COMPONENT</h1>
+  <app-users [current]="beverage" [childFood]="food"></app-users>
+  //[current] works bcoz of we use @input
+</div>
+
+//third  step
+//parent to child means , we need to use @Input decorator in the child
+@Input() current:string="";
+@Input() childFood:any;
+
+//fourt styep
+<div class="child">
+  <h1>Child component</h1>
+  <P>CURRENT BEVERAGES IS : {{ current }}</P>
+  <p *ngFor="let foods of [childFood]">
+    CURRENT FOOD IS: {{ foods.juice }}, {{ foods.breakfast }}, {{
+      foods.lunch
+    }}
+  </p>
+</div>
+
+
+
+//2.PASSING DATA FROM CHILD TO PARENT
+//Steps
+//Make user component
+//Use it inside app component as child
+//pass data from child to parent with eventemitter
+
+
+
+//we use @Output decorator
+
+
+
+
+

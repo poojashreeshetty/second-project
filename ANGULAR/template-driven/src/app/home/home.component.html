@@ -10,8 +10,10 @@
         placeholder="Your id Number.."
         formControlName="IdNumber"
       />
-      <div id="red" *ngIf="idnumber.errors?.['required'] && idnumber.touched">idnumber is required</div>
+      <div id="red" *ngIf="idnumber.errors?.['required'] && (idnumber.touched||idnumber.dirty)">idnumber is required</div>
       <div id="red" *ngIf="idnumber.errors?.['pattern'] && (idnumber.touched||idnumber.dirty)">only numbers</div>
+      <div id="red" *ngIf="idnumber.errors?.['minlength'] && (idnumber.touched||idnumber.dirty)">number is too min</div>
+      <div id="red" *ngIf="idnumber.errors?.['maxlength'] && (idnumber.touched||idnumber.dirty)">length of the number should be less than 10</div>
 
       <br /><br />
    
@@ -25,6 +27,8 @@
         formControlName="Domain"
       />
       <div id="red" *ngIf="domain.errors?.['required'] && (domain.touched||domain.dirty)">Domain is required</div>
+      <div id="red" *ngIf="domain.errors?.['minlength']&& (domain.touched||domain.dirty)">first name is too short</div>
+
       <div id="red" *ngIf="domain.errors?.['pattern'] && (domain.touched||domain.dirty)">Name should be in alphabet</div>
 
       <br /><br />
@@ -36,7 +40,9 @@
         placeholder="enter your official email-id.."
         formControlName="Email"
       />
-      <div id="red" *ngIf="email.errors?.['required'] && email.touched">email is required</div>
+      <div id="red" *ngIf="email.errors?.['required'] && (email.touched||email.dirty)">email is required</div>
+      <div id="red" *ngIf="email.errors?.['email'] && (email.touched||email.dirty)">email is invalid</div>
+
       <br /><br />
 
       <label for="blood-group">Blood Group</label><br /><br />
@@ -68,7 +74,8 @@
       <label for=" yes">Yes</label>
       <input type="radio" id="no" value="no" formControlName="familyInsurance" />
       <label for=" no">No</label><br /><br />
-      <input type="submit" value="Submit" id="btn" />
+
+      <input type="submit" value="Submit" id="btn" routerLink="/container"/>
 
     </div>
   </form>

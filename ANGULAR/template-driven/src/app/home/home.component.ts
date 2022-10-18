@@ -12,9 +12,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.reactiveForm = new FormGroup({
-      IdNumber: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      Domain: new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]*$')]),
-      Email: new FormControl(null, Validators.required),
+      IdNumber: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(5),Validators.maxLength(10)]),
+      Domain: new FormControl(null, [Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z]*$')]),
+      Email: new FormControl(null, [Validators.required,Validators.email]),
       BloodGRoup: new FormControl('A+'),
       SelfInsurance: new FormControl('yes'),
       familyInsurance: new FormControl('yes')

@@ -1,0 +1,215 @@
+//create new project
+//install angular material
+//ng add @angular/material 
+
+
+
+//1.Use Material Butoon component
+
+//first step
+//import it in app.module.ts
+import {MatButtonModule} from '@angular/material/button';
+
+//second step
+//add it to the imports array
+//in module.ts
+ imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule
+    
+  ],
+
+//third step
+//add button tag with directive mat-button
+//in app.html
+<button mat-button>hello world</button>
+<button mat-raised-button>hello world</button>
+
+
+
+//2.add checkbox component
+
+//first step
+import {  MatCheckboxModule} from '@angular/material/checkbox'
+
+//second step import it in an array
+
+//in .html 
+//tag is
+ <mat-checkbox></mat-checkbox>
+ <mat-checkbox [indeterminate]="true"></mat-checkbox>
+ <mat-checkbox [indeterminate]="true" disabled></mat-checkbox>
+
+
+//select and deselect all
+
+//first step
+//first display the  the elemnt 
+//in .ts
+tasks=['Task one','Task two','Task three'];
+//in .html
+<mat-checkbox *ngFor="let task of tasks" color="warn">{{task}}</mat-checkbox>
+
+//in .ts convert into the objects
+//in .ts
+tasks=[{value:'Task one'},
+{value:'Task two'},
+{value:'Task three'}];
+}
+//in .html
+<mat-checkbox *ngFor="let task of tasks" color="warn">{{task.value}}</mat-checkbox>
+
+//second step
+//when click the select all check box we need to check all the checkbox
+//add change event
+//in .html
+<div class="check">
+<mat-checkbox  (change)="selectAllChanged($event)" color="warn" labelPosition="before">Select All</mat-checkbox>
+<mat-checkbox *ngFor="let task of tasks" color="warn">{{task.value }}</mat-checkbox>
+</div>
+//add in .ts
+selectAllChanged(event:any){
+  alert(event.checked) //if select box is checked gives true or false
+}
+//so based on these two value we can add select and deselcet
+selectAllChanged(event:any){
+ // alert(event.checked)
+ if(event.checked)
+ {
+  //select all boxes
+ }
+ else{
+  //unchecked all boxes
+ }
+}
+
+//third step
+//use ngmodule.so import formsmodule
+ <div class="check">
+<mat-checkbox(change)="selectAllChanged($event)" color="warn" labelPosition="before" >Select All</mat-checkbox><mat-checkbox
+[(ngModel)]="task.completed" *ngFor="let task of tasks"  color="warn"  >{{ task.value }}</mat-checkbox  > </div>
+//if task is completed
+
+tasks=[
+{value:'Task one' ,completed:false},
+{value:'Task two',completed:false}, //initialaly unchecked
+{value:'Task three',completed:false}
+];
+
+//fourt step
+//if we want to check all the boxes to check we need to use map 
+tasks = [
+    { value: 'Task one', completed: false },
+    { value: 'Task two', completed: false },
+    { value: 'Task three', completed: false },
+  ];
+
+  selectAllChanged(event: any) {
+    // alert(event.checked)
+    if (event.checked) {
+      //if evnt.checked is true - select all boxes
+      this.tasks = this.tasks.map((task) => {
+        task.completed = true;//it will select all box
+        return task;
+      });
+    } else {
+      //unchecked all boxes
+      this.tasks = this.tasks.map((task) => {
+        task.completed = false;//it wont select all boxes
+        return task;
+      });
+    }
+  }
+
+
+
+
+//Radio-buttons
+
+//first step
+import { MatRadioModule} from '@angular/material/radio'
+const MaterialComponents=[
+  MatButtonModule,
+  MatCheckboxModule,
+  FormsModule,
+  MatRadioModule
+]
+
+//second step
+//two elemnt radio group and radio elemnt
+ <div class="radio">
+            <mat-radio-group>
+              <mat-radio-button value="angular">Angular</mat-radio-button>
+              <mat-radio-button value="react">React</mat-radio-button>
+              <mat-radio-button value="java">Java</mat-radio-button>
+            </mat-radio-group>
+          
+ </div>
+
+//third step perform binding  using ngModel
+//first import the forms module
+<div class="radio">
+            <mat-radio-group [(ngModel)]="myModel">
+              <mat-radio-button value="angular" color="primary">Angular</mat-radio-button>
+              <mat-radio-button value="react" color="warn">React</mat-radio-button>
+              <mat-radio-button value="java" color="accent">Java</mat-radio-button>
+            </mat-radio-group>
+            <div>{{myModel}}</div>
+</div>
+
+//in ts
+export class ContainerComponent implements OnInit {
+  myModel="nothng";//initially 
+  
+
+//datepicker
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule } from '@angular/material/datepicker';
+
+//second step
+//consist of input field and calender popoup
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

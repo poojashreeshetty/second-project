@@ -473,6 +473,587 @@
 
 
 
+//add router fot link from main to home
+//    <input type="submit" value="Submit" id="btn" [disabled]="!myForm.valid"  routerLink="/home"/>
+//const routes: Routes = [
+  { path: 'main', component: MainComponent },
+  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+];
+
+
+
+
+//reactive forms in home component
+//defined in typescript class
+
+
+//first step is adding html and css part in home.html and home.ts
+<div class="form">
+  <h2 id="welcome">Welcome to the robosoft</h2>
+  <h3 id="remain">Please add remaining details!!!</h3>
+  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <div>
+      <label for="id-number">Id-Number</label><br /><br />
+      <input
+        type="text"
+        id="id-number"
+        placeholder="Your id Number.."
+        name="id-number"
+      /><br /><br />
+
+      <label for="domain">Domain</label><br /><br />
+      <input
+        type="text"
+        id="domain"
+        name="domain"
+        placeholder="Your domain.."
+        name="domain"
+      /><br /><br />
+
+      <label for="email">Official E-mail Id</label><br /><br />
+      <input
+        type="email"
+        id="email"
+        placeholder="enter your official email-id.."
+        name="official"
+      /><br /><br />
+
+      <label for="blood-group">Blood Group</label><br /><br />
+      <select id="blood-group" name="blood-group">
+        <br /><br />
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option></select
+      ><br /><br />
+
+      <label for="insurance">Insurance</label><br /><br />
+
+      <label for="self-insurance">Self-Insurance:</label>
+      <input type="radio" id="yes" name="self-insurance" />
+      <label for="yes">Yes</label>
+      <input type="radio" id="no" name="self-insurance" />
+      <label for=" no">No</label><br /><br />
+
+      <label for="family-insurance">family-Insurance:</label>
+      <input type="radio" id="yes" name="family-insurance" />
+      <label for=" yes">Yes</label>
+      <input type="radio" id="no" name="family-insurance" />
+      <label for=" no">No</label><br /><br />
+      <input type="submit" value="Submit" id="btn" />
+    </div>
+  </form>
+</div>
+
+
+//ad css
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+  }
+  
+  input[type=text],
+  [type=email],
+  select {
+  
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(24, 24, 24);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  #blood-group {
+   color: black;
+  }
+  
+  #welcome,
+  #remain {
+  
+    text-align: center;
+  }
+  
+  input[type=submit] {
+  
+   width: 100%;
+  background-color: rgb(52, 49, 49);
+   color: white;
+   padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+   border-radius: 4px;
+   cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+  
+   background-color: #91838d;
+  }
+  
+  .form {
+  color: white;
+   border-radius: 5px;
+   background-color: darkslategrey;
+   padding: 20px;
+   width: 400px;
+  margin: 30px auto;
+  }
+  
+  
+
+//second step
+//in home.ts
+//crete one property , we can call this property anything but the typr of the property should be FormGroup and import it
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms'; //here
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
+})
+export class HomeComponent implements OnInit {
+  reactiveForm: FormGroup; //here
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  onSubmit(form: NgForm) {
+    console.log(form);
+  }
+}
+
+
+
+//third step is
+//in app.module.ts
+//import 
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  
+  
+
+//fourth step
+//in home.ts
+//intantiate the form group in ngoninit
+ ngOnInit(): void {
+    this.reactiveForm=new FormGroup();
+  }
+  //and this  FormGroup(); constructor takes the javascript object as its argument
+    this.reactiveForm=new FormGroup({});
+//so in this way we have created our form
+
+
+//fifth step
+//we need setup the form controls
+//we can set up the control using key value pair
+//we have the controls IdNUmber,Domain,Email,BloodGRoup,Insurance
+//for each of thses controls, we need to create javascript property
+//IdNumber-property name,and to this property name define a value
+//and the value should be of type form control
+//so we need a instance of form control and import it
+//to this constructor we can pass some value which will be set as the default value for that control
+//for now simply pass null
+//same way create property for all
+//in home.ts
+ngOnInit(): void {
+    this.reactiveForm = new FormGroup({ //so here FormGroup we have created the form
+      IdNumber: new FormControl(null), //and using thsese form control creted form controls
+      Domain: new FormControl(null),
+      Email: new FormControl(null),
+      BloodGRoup: new FormControl(null),
+      Insurance: new FormControl(null),
+    });
+  }
+  
+  
+  
+//sixth step
+//now we need to connect this form to html form
+//add directive [formGroup] to this we need to assign a value (that value is property name-reactiveForm)
+//in home.html
+  <form [formGroup]=" reactiveForm">
+  
+//seventh step
+//in case of template driven form we use the name attribute but here we need to use formControlName
+//to this directive we need to assign a formcontrol
+//formcontrol we already created
+  ngOnInit(): void {
+    this.reactiveForm = new FormGroup({
+      IdNumber: new FormControl(null),
+      Domain: new FormControl(null), thses are the form control
+      Email: new FormControl(null),
+      BloodGRoup: new FormControl(null),
+      Insurance: new FormControl(null),
+    });
+  }
+//we need to bind the input elemnt with IdNUmber property,...so on
+//in home.html
+<div class="form">
+  <h2 id="welcome">Welcome to the robosoft</h2>
+  <h3 id="remain">Please add remaining details!!!</h3>
+  <form [formGroup]="reactiveForm">
+    <div>
+      <label for="id-number">Id-Number</label><br /><br />
+      <input
+        type="text"
+        id="id-number"
+        placeholder="Your id Number.."
+        formControlName="IdNumber"
+      /><br /><br />
+
+      <label for="domain">Domain</label><br /><br />
+      <input
+        type="text"
+        id="domain"
+        name="domain"
+        placeholder="Your domain.."
+        formControlName="Domain"
+      /><br /><br />
+
+      <label for="email">Official E-mail Id</label><br /><br />
+      <input
+        type="email"
+        id="email"
+        placeholder="enter your official email-id.."
+        formControlName="Email"
+      /><br /><br />
+
+      <label for="blood-group">Blood Group</label><br /><br />
+
+      <select id="blood-group" formControlName="BloodGRoup">
+        <br /><br />
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option></select
+      ><br /><br />
+
+      <label for="insurance">Insurance</label><br /><br />
+
+      <label for="self-insurance">Self-Insurance:</label>
+      <input type="radio" id="yes" formControlName=" SelfInsurance" />
+      <label for="yes">Yes</label>
+      <input type="radio" id="no" formControlName=" SelfInsurance" />
+      <label for=" no">No</label><br /><br />
+
+      <label for="family-insurance">family-Insurance:</label>
+      <input type="radio" id="yes" formControlName="familyInsurance" />
+      <label for=" yes">Yes</label>
+      <input type="radio" id="no" formControlName="familyInsurance"/>
+      <label for=" no">No</label><br /><br />
+      <input type="submit" value="Submit" id="btn" />
+    </div>
+  </form>
+</div>
+
+//for radio button set default values
+<label for="insurance">Insurance</label><br /><br />
+
+      <label for="SelfInsurance">Self-Insurance:</label>
+      <input type="radio" id="yes" value="yes" formControlName="SelfInsurance" />//set value
+      <label for="yes">Yes</label>
+      <input type="radio" id="no" value="no" formControlName="SelfInsurance" />//set value
+      <label for=" no">No</label><br /><br />
+
+      <label for="familyInsurance">family-Insurance:</label>
+      <input type="radio" id="yes" value="yes" formControlName="familyInsurance" />//set value
+      <label for=" yes">Yes</label>
+      <input type="radio" id="no" value="no" formControlName="familyInsurance" />//set value
+      <label for=" no">No</label><br /><br />
+      <input type="submit" value="Submit" id="btn" />
+
+//and add it in home.ts
+
+  ngOnInit(): void {
+    this.reactiveForm = new FormGroup({
+      IdNumber: new FormControl(null),
+      Domain: new FormControl(null),
+      Email: new FormControl(null),
+      BloodGRoup: new FormControl(null),
+      SelfInsurance: new FormControl('yes'),//here //set default
+      familyInsurance: new FormControl('yes'),//here//set default
+
+    });
+  }
+  
+  
+ 
+//eighth step
+//when the user click submit method want to do something
+//in the template driven form we used ngSubmit
+//and the same thing we can do here
+//add ngSubmit and assign a method
+//in home.html
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+
+
+
+//defien the in home.ts
+onSubmit() {
+    
+  }
+//for this method in the template driven form we were assigning local reference variable
+//then passing that local reference to the onsubmit method
+//but here we dont need to use local reference variable 
+//here we have already have the form inside the reactiveForm property
+ onSubmit() {
+    console.log(this.reactiveForm);//just add this,no need to assign a variable(bcoz we already have formcontrol) just log that
+  }
+//output
+//when we click the submit method we get FormGroup Object in the console window
+//FormGRopu object logged in the developwer console
+//this object looks very much similar to the  ngForm object(in template driven form)
+//have dirty,valid,invalid,untouche
+//this isthe reactive form
+
+
+
+
+
+//add validation for the reactive form
+
+//first step
+//in the template driven form for validation we specify recquired
+//but in reactive form no need to add recquired
+//in rective form we are creating the form in ts 
+//we are synchnosing the form (in ts) with the html
+//so we have to use validation in the ts
+//so we need to import the validatiors in home.ts
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+//id number,domain,emails are the required field
+//so we should validate that
+//so pass the second argumnet as validators
+//validators.recquired
+//and this validators has some property required property
+//so this validator makes a form control recquired
+ngOnInit(): void {
+    this.reactiveForm = new FormGroup({
+      IdNumber: new FormControl(null,Validators.required),//here
+      Domain: new FormControl(null,Validators.required),//herte
+      Email: new FormControl(null,Validators.required),//here
+      BloodGRoup: new FormControl('A+'),
+      SelfInsurance: new FormControl('yes'),
+      familyInsurance: new FormControl('yes'),
+
+    });
+  }
+//now valid:false if didnt fill the recquired field bcoz it validated
+
+
+
+
+//validate for name
+//if it is emty eror throw
+
+//first step
+onSubmit() {
+    console.log(this.reactiveForm); //this gives all the property in the console
+  }
+//like
+controls:
+BloodGRoup: FormControl {_pendingDirty: false, _hasOwnPendingAsyncValidator: false, _pendingTouched: false, _parent: FormGroup, _onCollectionChange: ƒ, …}
+Domain: FormControl {_pendingDirty: true, _hasOwnPendingAsyncValidator: false, _pendingTouched: true, _parent: FormGroup, _onCollectionChange: ƒ, …}
+Email: FormControl {_pendingDirty: true, _hasOwnPendingAsyncValidator: false, _pendingTouched: true, _parent: FormGroup, _onCollectionChange: ƒ, …}
+IdNumber: FormControl {_pendingDirty: true, _hasOwnPendingAsyncValidator: false, _pendingTouched: true, _parent: FormGroup, _onCollectionChange: ƒ, …}
+SelfInsurance: FormControl {_pendingDirty: false, _hasOwnPendingAsyncValidator: false, _pendingTouched: false, _parent: FormGroup, _onCollectionChange: ƒ, …}
+familyInsurance: FormCo
+
+
+//just for readebility get one property so use get method
+onSubmit() {
+    console.log(this.reactiveForm.get("IdNumber"));//it will shoow the property only for IdNUmber , so that we can easily find the errror, to check many properties, remove and add another
+ }
+//for this IdNumber , in console it shows one of the property error
+errors: {required: true} //error is true bcoz i didnt fill the IdNUmber input filed
+pristine: true
+status: "INVALID"
+
+//if i fill the IdNmber form
+//it wiull show
+defaultValue: null
+errors: null
+pristine: false
+status: "VALID"
+
+
+
+//second step
+//so i need to display the msg for that error
+//i should that in html
+//i have to get this IdNumber property in html 
+//just add the div to show error
+      <div id="red">Domain is required</div>
+
+
+//third step
+//requirement is if errors: {required: true} is true then the msg will be displayed
+//orelse dont display it
+//first we have to access the domain property in html
+//so use get method 
+ get domain() {
+    return this.reactiveForm.get('IdNumber');//this wont return formcontrol so use typecasting
+  }
+
+
+//we want formcontrol so as FormControl
+get domain() {
+    return this.reactiveForm.get('IdNumber') as FormControl;
+  }
+}
+
+
+//lets get all the property
+get idnumber() {
+    return this.reactiveForm.get('IdNumber') as FormControl;
+  }
+  get domain() {
+    return this.reactiveForm.get('IdNumber') as FormControl;
+  }
+  get email() {
+    return this.reactiveForm.get('IdNumber') as FormControl;
+  }
+  get bloodgroup() {
+    return this.reactiveForm.get('IdNumber') as FormControl;
+  }
+  get selfinsurance() {
+    return this.reactiveForm.get('IdNumber') as FormControl;
+  }
+  get familyinsurance() {
+    return this.reactiveForm.get('IdNumber') as FormControl;
+  }
+  
+
+//in html by using idnumber,domain,email,bloodgroup ... we can access
+//idnumber same as this.reactiveForm.get('IdNumber') as FormControl;
+//for short cut use these  , idnumber,domain,email,bloodgroup ...
+
+//use *ngif in html (it is a simple if)
+//*ngIf="domain"-in domain we have errors key
+errors: {required: true} //error is true bcoz i didnt fill the IdNUmber input filed
+pristine: true
+status: "INVALID"
+if domain.errors['recquired'] = true && ng.touched =treu, (touch madi admele,error=true idre, that means we dint fill) if both are true , cif consition executed
+
+      <div id="red" *ngIf="domain.errors['required'] ">Domain is required</div>
+//gives error that Object is possibly 'null'.
+//sp use?.
+
+      <div id="red" *ngIf="domain.errors?.['required'] ">Domain is required</div>
+//so it if erors is true (that is we dint fill the form) it willshow the msg
+//but it occrs at biginning we dont want that
+//when we touch the input field we want that msg
+//so use domain.touched directive
+      <div id="red" *ngIf="domain.errors?.['required'] && domain.touched">Domain is required</div>
+//when both are true, show error in console(errors:true,touched:true) - display msg
+
+
+//in the samw way applied for idnumber and email
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="id-number">Id-Number</label><br /><br />
+      <input
+        type="text"
+        id="id-number"
+        placeholder="Your id Number.."
+        formControlName="IdNumber"
+      />
+      <div id="red" *ngIf="idnumber.errors?.['required'] && idnumber.touched">idnumber is required</div>
+      <br /><br />
+   
+
+      <label for="domain">Domain</label><br /><br />
+      <input
+        type="text"
+        id="domain"
+        name="domain"
+        placeholder="Your domain.."
+        formControlName="Domain"
+      />
+      <div id="red" *ngIf="domain.errors?.['required'] && domain.touched">Domain is required</div>
+      <br /><br />
+
+      <label for="email">Official E-mail Id</label><br /><br />
+      <input
+        type="email"
+        id="email"
+        placeholder="enter your official email-id.."
+        formControlName="Email"
+      />
+      <div id="red" *ngIf="email.errors?.['required'] && email.touched">email is required</div>
+      <br /><br />
+      
+      
+
+//third step
+//another requirement
+//add domain  name should be in minimum length 3
+//if less than 3(0,1,2), error is true//and display the msg name is too short
+//in home.ts
+      IdNumber: new FormControl(null, [Validators.required,Validators.minLength(3)]),
+
+//in home.html
+//add one more div to show error msg for minlength
+      <div id="red" *ngIf="domain.errors?.['minlength']">first name is too short</div>
+
+
+//when the text is filled in input field, (if textfield is dirty ),after we delete the text it wont show domain is required
+//so use dirty
+//touched idru error
+//or dirty idre error
+<div id="red" *ngIf="domain.errors?.['required'] && (domain.touched||domain.dirty)">Domain is required</div>
+      <div id="red" *ngIf="domain.errors?.['minlength']&& (domain.touched||domain.dirty)">first name is too short</div>
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+//Aangular Matireal
+checkbox,button,date,expansion panel,form field,input,select,tabs,tootltip,gridlist and list,progress bar,menu,progress pinner,radio,slider,stepper,tree
+//ui component library
+//it provides us with components to build awesome user interface in quick time
+//implementation of googles material design specification
+
+
+
+
+
+
+
+
+ 
+  
+  
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,13 @@
+.main-nav .list {
+  display: flex;
+  justify-content: space-around;
+  padding:15px 0px;
+}
+.icon{
+  color: rgb(100, 30, 4);
+  
+}
+ .list {
+  background-color: orange;
+  list-style: none;
+} 

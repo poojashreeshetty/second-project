@@ -1,0 +1,10 @@
+<div class="child">
+  <h1>CHILD COMPONENT 1</h1>
+  <P>CURRENT BEVERAGES IS : {{ current }}</P>
+  <p *ngFor="let foods of [childFood]">
+    CURRENT FOOD IS: {{ foods.juice }}, {{ foods.breakfast }}, {{
+      foods.lunch
+    }}
+  </p>
+  <p> name is : {{nameData}}</p>
+</div>
