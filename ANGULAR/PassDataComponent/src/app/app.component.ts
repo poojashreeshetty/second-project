@@ -19,4 +19,9 @@ export class AppComponent {
     lunch:"ricesambbar"
 
 }
+Changetitle(datatitle:any){
+  this.title=datatitle;
+}
+
+parentTitle:string="parent data updated";
 }

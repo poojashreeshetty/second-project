@@ -48,6 +48,10 @@ export class AppComponent {
 </div>
 
 
+//passing data from parent to child
+
+
+
 
 //2.PASSING DATA FROM CHILD TO PARENT
 //Steps
@@ -55,9 +59,177 @@ export class AppComponent {
 //Use it inside app component as child
 //pass data from child to parent with eventemitter
 
+//first step
+//add input field in child
+<div>
+    <label for="name">Name</label>
+    <input type="text" class="name" #name>
+    <button>Change Name</button>
+  </div>
+</div>
+
+//second step
+//what data is updated in child input field try to pass that in parent component
+//go app.component.ts
+Changetitle(datatitle:any){
+  this.title=datatitle;
+}
+//whatever value is comming , update it in declared value
+
+
+//third step bind that in 
+//in app.component.html
+<app-users [current]="beverage" [childFood]="food"  [nameData]="parentName"  (updated)="Changetitle($event)"></app-users> 
+
+
+//fourt step
+//using outputdecorator , 
+//use eventemitter
+@Output() updated=new EventEmitter<string>();
+
+//in child.component.html
+<div>
+    <label for="name">Name</label>
+    <input type="text" class="name" #name>
+    <button (click)="updated.emit(name.value)">Change Name</button>
+  </div>
 
 
 //we use @Output decorator
+
+
+
+
+
+
+
+
+
+//PASSING DATA FROM NONRELATED COMPONENT
+
+//FIRST BU STORING DATA BY USING SUBJECT
+
+//FIRST STEP
+//CREATE TWO COMPONENT DEMO1 AND DEMO2 AND CREATE SERVICE
+
+//SECOND STEP
+//include the data in demo component
+export class DemoComponent implements OnInit {
+array=[{
+  name:'pooja',
+  age:22
+}]
+
+//thirdstep
+//when page relod in demo it will show the data for that use that in ngonit
+ngOnInit(): void {
+    console.log(this.array)
+  }
+
+//fourt step
+//cretae one button in demo and click event
+<button (click)="submit()">submit</button>
+
+//fifth step
+//call that method
+submit(){
+    console.log(this.array); //when we click the button data will be displayed in console button
+    }
+    
+//sixth step
+//so the requirement is, when i click that burron navigate to demo1 component and and data have to pass from demo to demo1 component
+//by using service we can do that
+
+//seventh
+//in demo.service .ts
+//here i stored the data by using subject 
+export class DemoService {
+  public subject = new Subject();
+
+//eighth step
+//in demo.service.ts
+//by storing the data we have to use next() method
+//call one method store it there
+  saveData(data: any) {
+    this.subject.next(data); //pass one parameter //data is in demo (this.array) so store it in 
+    swervice
+  }
+
+//ningth step
+//first inject the service, 
+submit(){
+    //console.log(this.array);
+    this.demo.saveData(this.array); //parameter
+}
+
+//tenth step
+//when we completed in storing the data, we should get that data, so call one method 
+//in demo.service.ts
+getData(){
+   return this.subject.asObservable()//used to get the data
+  }
+
+//eleventh step
+//in demo.component.ts
+//when we click the submit method, navigate to submit
+//use router//initially we have to define the router
+export class DemoComponent implements OnInit {
+array=[{
+  name:'pooja',
+  age:22
+}]
+  constructor(private demo:DemoService,private router:Router) { }
+
+  ngOnInit(): void {
+    //console.log(this.array)
+  }
+  submit(){
+    //console.log(this.array);
+    this.demo.saveData(this.array);
+    this.router.navigate(['demo1']);//here
+  }
+
+}
+
+
+//twelenth step
+then that stored data should be passed to demo1 component
+//in demo1 component , inject the service first
+export class Demo1Component implements OnInit {
+
+  constructor(private demo1:DemoService) { } //here
+
+  ngOnInit(): void {
+    console.log(this.demo1.getData().subscribe(function(data){
+      console.log(data)
+    }))
+  }
+
+}
+//then when the page reload it will show , so data is in getData(), when we use asObservable
+//we must use subscribe.
+
+
+
+
+//NGONCHANGES
+//ngOnchange will be triggred when the parent child communication ha shappened
+//create one component app and child
+
+//first step
+//in app.component.ts
+parentTitle:string="parent data updated";
+
+
+
+//use ngOnchange
+//used wherever @Input decorator is founf
+//in child component we have
+
+
+
+
+
 
 
 

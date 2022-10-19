@@ -5,8 +5,15 @@
 <input #name type="text" name="name">
      <input (click)="transfer(name.value)" type="button" value="submit">
   </div>
+  {{title}}
 </div>
 <div class="main">
-<app-users [current]="beverage" [childFood]="food"  [nameData]="parentName"></app-users> 
+  
+<app-users [current]="beverage" [childFood]="food"  [nameData]="parentName"  (updated)="Changetitle($event)"></app-users> 
 <app-second-child></app-second-child>
+<app-ng-on-change [title]="parentTitle"></app-ng-on-change>
 </div>
+
+<router-outlet></router-outlet>
+
+

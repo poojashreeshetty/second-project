@@ -7,4 +7,9 @@
     }}
   </p>
   <p> name is : {{nameData}}</p>
+  <div>
+    <label for="name">Name</label>
+    <input type="text" class="name" #name>
+    <button (click)="updated.emit(name.value)">Change Name</button>
+  </div>
 </div>

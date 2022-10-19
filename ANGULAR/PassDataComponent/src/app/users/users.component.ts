@@ -1,4 +1,4 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-users',
@@ -9,6 +9,7 @@ export class UsersComponent implements OnInit {
 @Input() current:string="";
 @Input() childFood:any;
 @Input() nameData:any;
+@Output() updated=new EventEmitter<string>();
 
   constructor() { }
 

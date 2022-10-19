@@ -1,0 +1,15 @@
+.demo{
+  border: 1px solid red;
+  background-color: chartreuse;
+  padding: 50px;
+  width: 25%;
+  margin-left: 200px;
+  margin-top: 12px;
+}
+.btn{
+  background-color:lightslategrey;
+  padding: 10px;
+  margin-top: 10px;
+  width: 30%;
+ 
+}

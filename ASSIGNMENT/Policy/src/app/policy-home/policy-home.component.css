@@ -1,0 +1,17 @@
+.header{
+  
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+
+}
+.logo{
+  display: flex;
+  justify-content: space-between;
+}
+.name{
+  position:absolute;
+  
+  top: 5%;
+left: 85%;
+  text-align: center;
+  margin: auto;
+}
