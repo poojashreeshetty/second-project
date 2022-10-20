@@ -3,23 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PolicyHomeComponent } from './policy-home/policy-home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
+import{HttpClientModule} from '@angular/common/http';
+import { HttpCustomerComponent } from './http-customer/http-customer.component'
+import { DemoService } from './demo.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PolicyHomeComponent
+    HttpCustomerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DemoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

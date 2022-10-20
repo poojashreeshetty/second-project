@@ -17,7 +17,7 @@ export class Demo1Component implements OnInit {
  
   ngOnInit(): void {
     this.demo1.getData().subscribe((dataaaaa:any) =>{
-      console.log(dataaaaa);
+      console.log("demo1",dataaaaa);
     })
   }
 

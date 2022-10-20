@@ -1,0 +1,240 @@
+//HTTP CLIENTS
+//HTTP cLIENT IS USED FOR PERFORMING http REQUESTS AND RESPONSES
+//httpclient service is availble in the @angular/common/http package
+//the new httpclient service is included in the http client module which is used to initiate HTTP request and responses in Angular appa
+//The HttpClientModule needs to be imported into the module usually in the app module
+//HttpClient also gives other useful functionality like params,interceptors,headers etc
+
+
+//HTTP METHODS
+1.get()-requesting the resource from the api,
+2.post()-trying to send the data to the api,
+3.put()-updtae the api
+4.delete()-delete the resource,
+5.head(),jsonp(),options(),patch() 
+
+
+//STEPS
+//httpmodule is used for communicating between frontend app and backend APi
+// import httpclientModule in our AppModule
+//we need to import httpclient in component/service and create its instance in constrctor
+//crud operation
+  ----> create new customer
+  ---->edit customer
+  ---->read customer
+//HttpMethods
+  ---->POST
+  ---->GET
+  ---->PUT
+  ---->DELETE
+//hTTPcLIENT ALLOWS US FOR SENDING/CONFIGURING THE headers that are sent
+//HttpClient can be used for common error handling
+
+
+//DO ABOVE OPERATION
+
+//first step
+//import httpclientModule
+import{HttpClientModule} from '@angular/common/http'
+
+//second step
+//create service
+ng g s demo
+
+//third step
+//import it in service.ts and inject it in services
+import { Injectable } from '@angular/core';
+import{HttpClient} from '@angular/common/http'
+@Injectable({
+  providedIn: 'root'
+})
+export class DemoService {
+
+  constructor(private http:HttpClient) { }
+}
+
+
+//USE GET METHOD
+//USE CASES
+//1.SIMPLE HTTP GET METHOD CALL
+//GET METHOD CALL WITH HEADERS
+//GET METHOD CALL WITH PARAMS
+//GET METHOD CALL WITH TYPE CASTING
+//SUBSCRIBE AND CATCH ERROR
+
+
+//Fourth  STEP
+//use fakeapi from  https://jsonplaceholder.typicode.com/
+//use httpinstance (HttpClients) to call the get method
+//in service.ts
+import { Injectable } from '@angular/core';
+import{HttpClient} from '@angular/common/http'
+@Injectable({
+  providedIn: 'root'
+})
+export class DemoService {
+
+  constructor(private http:HttpClient) { }
+  getUsers(){
+   return  this.http.get('https://jsonplaceholder.typicode.com/users'); //here
+  }
+}
+
+//fifth step
+//just go to http-customer.ts
+//inject the service first
+export class HttpCustomerComponent implements OnInit {
+
+  constructor(private customService:DemoService) { } //inject here
+
+  ngOnInit(): void {
+this.customService.getUsers(); //getUsers() by default have observable so that we need to subscribe it
+  }
+
+}
+
+//so call subscribe
+export class HttpCustomerComponent implements OnInit {
+users:any;
+  constructor(private customService:DemoService) { }
+
+  ngOnInit(): void {
+this.customService.getUsers().subscribe((data)=>{
+  this.users=data;
+});
+  }
+
+}
+
+//sixt step
+<p>http-customer works!</p>
+<!-- {{users}} -->
+<ul *ngFor="let user of users">
+  <li>{{user.name}}</li>
+
+</ul>
+
+
+//summary
+//we need to pass the url for get method
+//we will get a observable
+//we need to subscribe in order to process the results
+
+
+//seventh step
+//PASS HEADER
+export class DemoService {
+
+  constructor(private http:HttpClient) { }
+  getUsers(){
+    const headers=new HttpHeaders( //heder
+      {
+        'content-type':'application/json',
+        'authenticationToken':'12345'
+      }
+    );
+    
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
+  }
+}
+
+//eigth step
+//pass headers
+    return this.http.get('https://jsonplaceholder.typicode.com/users',{headers:header}); //to this url passing the header using get method
+//when we inspect go to network , click users(where we have data) , hetehre we can find 
+
+//eigth step
+//similarly we can set http params
+//like if we want to send some parameters ,pagination, page size we can configure them in http params
+const header=new HttpHeaders(
+      {
+        'content-type':'application/json',
+        'authenticationToken':'12345'
+      }
+    );
+ //pass thatparams in url just like header
+ //in the url we can get
+ 
+ 
+//BY DEFAULT ALL THE APP HTTP RETURNS OBSERVABLE OF TYPE "OBJECT"
+//so we get that as any type
+//so we need to perform typecast
+//so using interface define the type 
+in service.ts
+interface User{
+  name:string;
+  email:string;
+  phonenumber:number
+}
+
+
+
+
+export class DemoService {
+
+  constructor(private http:HttpClient) { }
+  getUsers():Observable<User>{ //this method has return observable of type user and this get call should return me a a type user
+    const header=new HttpHeaders(
+      {
+        'content-type':'application/json',
+        'authenticationToken':'12345'
+      }
+    );
+    const param=new HttpParams()
+    .set('pageNum','10')
+    .set('pageSize','100');
+    
+    return this.http.get<User>('https://jsonplaceholder.typicode.com/users',{headers:header,params:param}); //this get call should return me a a type user
+  }
+}
+
+//typecast
+//error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

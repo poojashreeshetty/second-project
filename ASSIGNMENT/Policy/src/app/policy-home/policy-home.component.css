@@ -1,17 +1,63 @@
-.header{
-  
+.header {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+.logo {
+  display: flex;
+  justify-content: space-around;
+}
+/* body part */
+/* section{
+  border:1px solid red;
+  width:25%;
+  margin: 10px;
+  float:
+} */
+/* .sidebar {
+  background-color: aliceblue;
+  float: left;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 5px 10px black; */
+  /* border: 1px solid red;*/
+  /* width: 30%;  */
+
+  /* height: 100vh; */
+  /* margin-top:  0 200px; */
+/* } */
+/* .sidebar p {
+  display: block;
+  color: black;
+  font-size: 18px;
+  padding: 14px 25px;
+} */
+
+
+aside{
+  background-color:gray;
+  float: left;
+  margin: 10px;
+  width:25%;
+  border-top-left-radius:10px;
+  border-top-left-radius:10px;
 
 }
-.logo{
-  display: flex;
-  justify-content: space-between;
-}
-.name{
-  position:absolute;
-  
-  top: 5%;
-left: 85%;
+aside ul li button {
   text-align: center;
-  margin: auto;
+  background-color: rgb(148, 28, 28);
+  color: white;
+  padding: 10px;
+  border-radius:10px;
+  /* border-top-left-radius:10px; */
+
+
 }
+
+aside ul li{
+  text-indent: 10px;
+  display: block;
+  font-size: 1.1em;
+  padding: 10px;
+}
+
+
+
