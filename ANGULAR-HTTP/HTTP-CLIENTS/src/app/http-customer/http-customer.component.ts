@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoService } from '../demo.service';
-
 @Component({
   selector: 'app-http-customer',
   templateUrl: './http-customer.component.html',

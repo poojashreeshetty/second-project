@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { PolicyHomeComponent } from './policy-home/policy-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PolicyHomeComponent
+    PolicyHomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

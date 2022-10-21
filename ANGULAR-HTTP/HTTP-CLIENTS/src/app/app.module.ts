@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import{HttpClientModule} from '@angular/common/http';
 import { HttpCustomerComponent } from './http-customer/http-customer.component'
 import { DemoService } from './demo.service';
+import { HttpPostComponent } from './http-post/http-post.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HttpCustomerComponent
+    HttpCustomerComponent,
+    HttpPostComponent
   ],
   imports: [
     BrowserModule,

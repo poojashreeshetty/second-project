@@ -193,8 +193,50 @@ export class DemoService {
 
 
 
+POST METHOD
+1.SIMPLE HTTP POST METHOD CALL 
+2.POST METHOD CALL WITH HEADERS
+3.POST METHOD CALL WITH PARAMS
+4.POST METHOD CALL WITH TYPE CASTING
+5.SUBSCRIBE AND CATCH ERROR
 
 
+//STEPS
+//1.IMPORT AND ADD THE HTTPCLIENTMODULE IN OUR APP MODULE
+//2.IMPORT {HttpClientModule} from '@angular/core/http'
+//3.import HttpClient in our service or component wherever we are making Http request
+  ITS GOOOD PRACTICE TO HAVE ALL HTTP CALLS IN SERVICE
+  BECOMES REUSABLE AND EASY TO MAINTAIN CODE
+  EASY TO SHARE BETWEEN VARIOUS COMPONENTS
+//4.Import {HttpClient} from '@angular/core/http'
+//5.inject the HttpClient in the constructor method of the class
+//6.Impplement the post method call
+//7.import the services into the required calling component class
+//8.call the method to make the http request
+
+
+//FIRST STEP
+//IMPORT SERVICE AND INJECT IT IN CONSTRUCTOR
+import { DemoService } from '../demo.service';
+
+  constructor(private demoservice:DemoService ) { }
+
+//SECOND STEP
+//CREATE NEW METHOD IN SERVICE
+
+
+
+
+//HTTP PUT METHOD
+//IT WILL TAKE URL FOLLOWED BY THE ID
+//URL WE WANT TO PASS
+//BODY
+//ACTUAL ID WE WANT TO PASS
+
+
+//HTTP DELET METHOD
+//simple http delete method call
+//take  url and id
 
 
 

@@ -1,0 +1,71 @@
+.rectangle {
+  height: 1138px;
+  width: 1440px;
+  background: linear-gradient(52.03deg, #7a7fc8 0%, #bd385b 100%);
+}
+header {
+  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.14);
+  height: 100px;
+  width: 1440px;
+  opacity: 0.98;
+  background-color: #ffffff;
+}
+
+.log{
+  margin: 23px 0;
+  margin-left: 130px;
+  height: 54px;
+  width: 280px;
+}
+.login {
+  position: relative;
+  height: 385px;
+  width: 535px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  margin: 377px 453px;
+}
+
+.login1 {
+  position: absolute;
+  height: 29px;
+  width: 64px;
+  color: #000000;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 29px;
+  margin-left: 236px;
+  margin-top: 44px;
+  margin-right: 312px;
+  margin-bottom: 235px;
+}
+.input1 {
+  position: absolute;
+  height: 75px;
+  width: 328px;
+  margin-left: 104px;
+  margin-top: 97px;
+  margin-right: 103px;
+  margin-bottom: 213px;
+}
+.input2{
+  position: absolute;
+  height: 75px;
+  width: 328px;
+  margin-left: 104px;
+  margin-top: 176px;
+  margin-right: 103px;
+  margin-bottom: 134px;
+}
+.btn{
+  position: absolute;
+  margin-left: 193px;
+  margin-top: 255px;
+  margin-right: 193px;
+  margin-bottom: 81px;
+ background-color:#D92756;
+ padding: 4px 42px;
+}
+
