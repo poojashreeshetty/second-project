@@ -1,0 +1,52 @@
+<h1 class="text-center">{{ title | titlecase }}</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-primary">
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Salary</th>
+      <th scope="col">DOB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name | uppercase }}</td>
+      <td>{{ user.city | lowercase }}</td>
+      <td>{{ user.salary | currency: "INR":"symbol":"3.3" }}</td>
+      <td>{{ user.dob | date: "dd/MMM/yyyy" | uppercase}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre
+  >{{ users | json }}
+</pre>
+
+<!-- custom pipes -->
+<h1 class="text-center">CUSTOM PIPES</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-primary">
+      <th scope="col">Age</th>
+      <th scope="col">salary in dollars</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.dob | age }}</td>
+      <td>{{ user.salary |  usdInr :'72'}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+<!-- <input type="text" [(ngModel)]="username"/>
+<h4>welcome {{username|reverse}}</h4> -->
+
+
+<input type="text" #result/>
+<button (click)="onclick(result.value)">click me</button>
+<h1>{{answer|reverse|uppercase}}</h1>

@@ -1,0 +1,330 @@
+//PIPES
+
+//pipes allow us to change the data before display
+//normally , a pipe takes the data and transforms this input to the desired output.there are many built-in pipes in angular
+
+
+//BUILTIN-PIPES
+//1.UPPERCASE
+//2.LOWERCASE
+//3.TITLE CASE -transform string to title , every word first character convert to uppercase
+//4.DATE - convert date to a desired date type format
+//5.CURRENCY - displays the data with the currency format
+//6.PERCENT - display data in percent
+//7.NUMBER - format the number
+//8.SLICE -return a substring or a subset of string array
+//9.JSON - converts a value into json string
+//10.ASYNC - used to handle the asynchronous data
+
+//SYNTAX
+//Expression | pipeoperator[:pipeArguments]
+//EXpression-it is the expression which you want to transform , 
+//|:-is the pipe character
+//pipeoperator:name of the pipe
+//:pipeArguments - argumants to the pipe
+
+//pipes can be changed together to make use of multiple pipes in one expression
+{{dateOfJoining | date | uppercase}}
+
+//STEPS
+//FIRST STEP
+//create one array  which is hoilding few information in app.ts
+ users :any[]=[
+    {id:101,name:"pooja",city:"DELHI",salary:2,dob:new Date("05/10/1989")},
+    {id:102,name:"peter",city:"PUNE",salary:80000,dob:new Date("05/12/1985")},
+    {id:103,name:"omed",city:"GOA",salary:190000,dob:new Date("10/10/1991")},
+    {id:104,name:"kunal",city:"DELHI",salary:55000,dob:new Date("12/18/1987")},
+
+  ];
+
+//second step
+//in app.html add 
+<table class="table table-bordered ">
+  <thead>
+    <tr class="bg-primary">
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Salary</th>
+      <th scope="col">DOB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.city }}</td>
+      <td>{{ user.salary }}</td>
+      <td>{{ user.dob }}</td>
+    </tr>
+  </tbody>
+</table>
+
+//third step
+//name is in lowercase , convert that as uppercase using pipe
+//use pipecharector
+      <td>{{ user.name | uppercase}}</td>
+
+//fourt step
+<h1 class="text-center">{{title | titlecase}}</h1> //every word first case convert to uppercase
+
+
+//fifth step
+//for date use date pipe
+Wed May 10 1989 00:00:00 GMT+0530 (India Standard Time)-initially
+//after use od date pipe
+      <td>{{ user.dob  | date}}</td>
+result-May 10, 1989
+//if we want to give our own format we should give argumant
+//pipe can take argument
+<td>{{ user.dob  | date:'dd/MM/yyyy'}}</td>
+
+
+//SIXTH STEP
+//USE CURRENCY PROVIDE SYMBOL OF THE CURRENCY
+      <td>{{ user.salary | currency}}</td>
+result-$2.00
+//if we want to change we should use arguments
+      <td>{{ user.salary | currency:'INR'}}</td>
+RESULT-₹2.00
+
+//IF WE WANT CODE OF THAT SYMBOL PASS ANOTHER ARGUMNT
+INR2.00
+      <td>{{ user.salary | currency:'INR':'code'}}</td>
+
+//for this handle the decimal part of the currency
+      <td>{{ user.salary | currency:'INR':'symbol':'3.3'}}</td>
+result-₹002.000
+//before decimal 3,after decimal 3 so 3.3
+
+
+//SEVENTH STEP
+//json pipe used for debugging
+
+//simply if we use {{users}} it will display like this
+[object Object],[object Object],[object Object],[object Object]
+
+//json pipe used to convert each object into json(string)
+{{users | json}}
+result -[ { "id": 101, "name": "pooja", "city": "DELHI", "salary": 2, "dob": "1989-05-09T18:30:00.000Z" }, { "id": 102, "name": "peter", "city": "PUNE", "salary": 80000, "dob": "1985-05-11T18:30:00.000Z" }, { "id": 103, "name": "omed", "city": "GOA", "salary": 190000, "dob": "1991-10-09T18:30:00.000Z" }, { "id": 104, "name": "kunal", "city": "DELHI", "salary": 55000, "dob": "1987-12-17T18:30:00.000Z" } ]
+
+
+
+
+//CUSTOM PIPES
+//instead of dateofbirth display age //so that we dont have predefine pipe
+//when we want to create any custom pipe we will have typescript class @pipe
+//so create one custom pipe in terminal 
+
+ng g p pipes/age-inside pipes folder age pipe
+
+//first step
+create one colomn age
+<h1 class="text-center">{{title | titlecase}}</h1>
+<table class="table table-bordered ">
+  <thead>
+    <tr class="bg-primary">
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Salary</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Age</th> //here
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name | uppercase}}</td>
+      <td>{{ user.city | lowercase }}</td>
+      <td>{{ user.salary | currency:'INR':'symbol':'3.3'}}</td>
+      <td>{{ user.dob  | date:'dd/MM/yyyy'}}</td>
+      <td>{{ user.dob }}</td> //here
+
+    </tr>
+  </tbody>
+</table>
+
+
+//second step
+Wed May 10 1989 00:00:00 GMT+0530 (India Standard Time) //instead of this display age
+
+//third step
+//we need to impliment pipe first
+//@Pipe({
+  name: 'age' //whatevr name is there in pipe.ts should be use that in html 
+})
+      <td>{{ user.dob | age}}</td>
+//by this we didint get output becouse we created custom pipe 
+
+transform(value: any, ...args: unknown[]): unknown { //this value holds the variable (user.dob ) that is it holds this data
+Wed May 10 1989 00:00:00 GMT+0530 (India Standard Time)
+Sun May 12 1985 00:00:00 GMT+0530 (India Standard Time)
+Thu Oct 10 1991 00:00:00 GMT+0530 (India Standard Time)
+Fri Dec 18 1987 00:00:00 GMT+0530 (India Standard Time)
+    return null;
+  }
+   
+...args-takes argument
+
+
+//fourth step
+//if we want to display the age we should know about the current age
+    let currentYear:any=new Date().getFullYear(); //this returns the current year 2022
+    
+    
+//fifth step
+//now we need to get the year from dob value
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'age'
+})
+export class AgePipe implements PipeTransform {
+
+  transform(value: any, ...args: unknown[]): unknown {
+    // console.log(value)
+    let currentYear:any=new Date().getFullYear();
+    // console.log(currentYear)//2022 for each value
+    let userBirthYear:any=new Date(value).getFullYear()
+    // console.log(userBirthYear);//1989 ,1985,1991,1987
+    let userAge = currentYear - userBirthYear
+    
+    return userAge;
+  }
+
+}
+
+//convert dollar into rupees using custom pipes
+export class UsdInrPipe implements PipeTransform {
+
+  transform(value: any, ...args: unknown[]): unknown {
+    return value *72;
+  }
+
+}
+
+//we can pass argument
+<h1 class="text-center">CUSTOM PIPES</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-primary">
+      <th scope="col">Age</th>
+      <th scope="col">salary in dollars</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.dob | age }}</td>
+      <td>{{ user.salary |  usdInr :'72'}}</td>//heer
+
+    </tr>
+  </tbody>
+</table>
+
+
+export class UsdInrPipe implements PipeTransform {
+
+  transform(value: any, ...args: any[]): unknown {
+    const[price]=args;
+    return value *price;//here
+  }
+
+}
+
+//CHAINING PIPES
+      <td>{{ user.dob | date: "dd/MMM/yyyy" | uppercase}}</td>
+      
+
+//reverse string  using twoway data binding
+//in app.ts
+  username:string | undefined;
+
+//in app.html
+<input type="text" [(ngModel)]="username"/>
+<h4>welcome {{username|reverse}}</h4>
+
+
+//in pipe.ts
+export class ReversePipe implements PipeTransform {
+  transform(value: any, ...args: any[]): any {
+   let username = value.split('').reverse().join('');
+  //  console.log(username);
+   
+    return username ;
+  }
+
+}
+
+
+//reverse using click event
+//in app.html
+<input type="text" #result/>
+<button (click)="onclick(result.value)">click me</button>
+
+//in app.ts
+//add click evnt
+answer:string | undefined;
+ onclick(name: any) { //take one parameter name=has our input asign it to answer
+     this.answer=name;
+  }
+  
+<h1>{{answer|reverse|uppercase}}</h1> //add pipe , in app.html
+let username = value.split('').reverse().join('');
+  //  console.log(username);
+   
+    return username ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

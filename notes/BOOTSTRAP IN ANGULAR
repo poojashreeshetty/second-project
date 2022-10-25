@@ -1,0 +1,12 @@
+//HOW TO USE BOOTSTRAP
+//1INSTALL BOOTSRATP IN THE PROJECT
+npm install --save bootstrap
+
+//GO TO node_modules
+//serach bootstrap 
+//add path in angular.json
+
+ "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ],

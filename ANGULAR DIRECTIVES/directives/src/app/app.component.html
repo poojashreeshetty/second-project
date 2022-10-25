@@ -1,0 +1,122 @@
+<!-- <div [ngClass]="'c1'">learning ngClass</div> -->
+<h1>ng class</h1>
+<!-- pass multiple classes it will overide-->
+<div [ngClass]="'c1'">learning ngClass</div>
+<div [ngClass]="'c1 c2'">learning ngClass</div>
+<br /><br />
+
+<!-- perform dynamicallay -->
+<div [ngClass]="styleProp">learning ngClass dynamically(using variable)</div>
+
+<!-- use conditons -->
+<div [ngClass]="consitionClassProp === 'c4' ? 'c4' : 'c5'">
+  learning ngClass by using conditions if property c4 add c4 class else c5 class
+</div>
+
+<!-- use objects -->
+<div [ngClass]="{ c4: true, c5: false }">learning ngClass by using objects</div>
+
+<!-- ngclass using method -->
+<div [ngClass]="getClassName()">learning ngClass by using methods</div>
+
+<h1>ngstyle</h1>
+<div [ngStyle]="{ 'background-color': 'green', padding: '30px' }">
+  this is ng style
+</div>
+
+<!-- dynamicallay -->
+<div [ngStyle]="{ 'background-color': styleprop, padding: stylePadding }">
+  instead of passing a style pass variable(dynamically)
+</div>
+
+<!-- ngstyle with condtional operators -->
+<div
+  [ngStyle]="{
+    'background-color': stylebackground === 'blue' ? 'blue' : 'green',
+    padding: stylePadding
+  }"
+>
+  ngstyle with condtional operators
+</div>
+
+<h1>ngModel</h1>
+<input [(ngModel)]="ngmodel" />
+<h2>{{ ngmodel }}</h2>
+
+<h1>ngif</h1>
+<h4 *ngIf="success_mssg" [ngClass]="'c7'">
+  user added successfully if success_msg is true
+</h4>
+
+<h1>ngif with logical operators</h1>
+<h4 *ngIf="success_msg || success_flag" [ngClass]="'c7'">
+  user added successfully if either is true
+</h4>
+
+<h1>ngif with else</h1>
+<h4 *ngIf="success_msg; else error_msg" [ngClass]="'c7'">
+  user added successfully if success_msg is true
+</h4>
+<ng-template #error_msg
+  ><p [ngClass]="'c7'">user is not valid (else)</p>
+</ng-template>
+
+<h1>ngif with then else</h1>
+<h4 *ngIf="successs_msg; then update_msg; else error_msg" [ngClass]="'c7'">
+  user added successfully if success_msg is true
+</h4>
+<ng-template #error_msg
+  ><p [ngClass]="'c7'">user is not valid (else)</p>
+</ng-template>
+
+<ng-template #update_msg
+  ><p [ngClass]="'c7'">user is updated(then)</p>
+</ng-template>
+
+<h1>ngfor</h1>
+<ul>
+  <li *ngFor="let contact of contacts; index as i; first as s; last as l">
+    <div *ngIf="s">this is first record</div>
+    <div>
+      {{ i }}
+      {{ contact.firstName }}
+      {{ contact.lastName }}
+    </div>
+    <div *ngIf="l">this is the last record</div>
+  </li>
+</ul>
+
+<h1>ngfor</h1>
+<ul>
+  <li *ngFor="let contact of contacts; index as i; even as e; odd as o">
+    <div *ngIf="e" style="background-color: blueviolet">
+      {{ i }}
+      {{ contact.firstName }}
+      {{ contact.lastName }}
+    </div>
+    <div *ngIf="o" style="background-color: aqua">
+      {{ i }}
+      {{ contact.firstName }}
+      {{ contact.lastName }}
+    </div>
+  </li>
+</ul>
+
+<h1>ngswitch directive</h1>
+<div class="container">
+  <div class="col-md-4">
+    <select class="form-control" (change)="getProduct($event)">
+      <option value="Laptop">Laptop</option>
+      <option value="Mobile">Mobile</option>
+      <option value="TV">TV</option>
+      <option value="Wahing Machine">Wahing Machine</option>
+    </select>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h2 class="text-danger">laptop</h2>
+  <h2 class="text-danger">MObile</h2>
+  <h2 class="text-danger">TV</h2>
+  <h2 class="text-danger">Washing Machine</h2>
+</div>

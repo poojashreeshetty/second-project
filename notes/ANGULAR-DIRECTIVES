@@ -1,0 +1,335 @@
+//CUSTOM DIRECTIVES
+
+//FIRST STEP
+//run the command ng g d directives/directiv
+
+
+//3 types
+//1.Components	- Used with a template. This type of directive is the most common directive type.
+//2.Attribute directives -Change the appearance or behavior of an element, component, or another directive.
+//3.Structural directives - Change the DOM layout by adding and removing DOM elements.
+
+
+
+//ATTRIBUTE DIRECTIVES
+//1.NgClass	Adds and removes a set of CSS classes.
+//2.NgStyle	Adds and removes a set of HTML styles.
+//3.NgModel	Adds two-way data binding to an HTML form element.
+
+//1.NgClass
+//we ca provide more than 1 class names using ngClass
+//we can pass strings,array values,objects
+
+//NGClass for string
+//first step
+//using as a string
+//app.html
+<div [ngClass]="'c1'">learning ngClass</div>
+
+//app.css
+.c1{
+  background-color: aquamarine;
+  color: black;
+}
+
+//NgClass for (passing multiple classes) it will overide
+<div [ngClass]="'c1'">learning ngClass</div>
+<div [ngClass]="'c1 c2'">learning ngClass</div> //it will overide,it shows c2 class
+
+.c1{
+  background-color: aquamarine;
+  color: black;
+}
+.c2{
+  background-color: blueviolet;
+  color: aliceblue;
+  font-size: large;
+}
+
+//add class dynamically (using variable)
+//in app.html
+<div [ngClass]="styleProp">learning ngClass dynamically</div>
+
+//in app.ts
+ styleProp='c3' ;
+ 
+//in app.css
+.c3{
+  background-color: black;
+  color: azure;
+  padding: 30px;
+  display: inline;
+  margin:auto;
+}
+
+//add class by using consdtions
+<div [ngClass]="consitionClassProp==='c4'?'c4':'c5'">learning ngClass by using conditions</div>
+//if consitionClassProp is c4 apply c4 class or apply c5 class
+
+//in app.ts
+  consitionClassProp='c4';
+  
+//ngclass we can also use object 
+//if it is true use c4 class
+<div [ngClass]="{c4:true,c5:false}">learning ngClass by using objects</div>
+
+//ngclass using method
+<div [ngClass]="getClassName()">learning ngClass by using methods</div>
+
+getClassName(){
+    return 'c5';
+  }
+
+.c5{
+  background-color: black;
+  color: azure;
+  padding: 30px;
+  margin-top:50px;
+}
+
+
+
+
+//NGSTYLE
+//it is a built in directives used to set style/css properties
+//more than 1 property on any dom elemnt
+//we can also pass dynamically
+
+//basic usage of ngstyle
+<div [ngStyle]="{'background-color':'green','padding':'30px'}">this is ng style</div>
+
+//dynamic value
+//instead of passing a style pass variable
+<div [ngStyle]="{'background-color':styleprop,'padding':stylePadding}">instead of passing a style pass variable(dynamically)</div>
+
+//in app.ts
+styleprop='purple'
+  stylePadding='30px'
+  
+
+//<!-- ngstyle with condtional operators -->
+//in app.ts
+ stylebackground='blue';
+ 
+ //in app.html
+ <div [ngStyle]="{'background-color':stylebackground==='blue'?'blue':'green','padding':stylePadding}"> ngstyle with condtional operators</div>
+
+
+
+//NGMODEL
+//IT IS A TECHNIQUE WHICH HELPS US SEND DATA FLOW FROM TEMPLATE TO COMPONENT AND VICE VERSA
+//propery binding and event binding
+//using ngmodel it will handle both evnt binding and property binding
+
+<input [value] ="data1" (input)="$event.target.value"/>//both property and event//by combinig this we can write by using ngmodel
+
+<input [(ngModel)]="username">
+
+//in app.html
+<h1>ngModel</h1>
+<input [(ngModel)]="ngmodel"/>
+<h2>{{ngmodel}}</h2>
+
+//app.ts
+  ngmodel: any;
+  
+
+
+
+
+
+
+//STRUCTORAL DIRECTIVES
+Change the DOM layout by adding and removing DOM elements.
+
+NgIf-Conditionally creates or disposes of subviews from the template.
+NgFor-Repeat a node for each item in a list.
+NgSwitch -A set of directives that switch among alternative views.
+
+
+//NGIF - Conditionally creates or disposes of subviews from the template.
+
+//ngIf
+//ngIf else
+//ngIf then else
+
+
+//ngIf
+//in app.html
+<h1>ngif</h1>
+<h4 *ngIf="success_msg">
+  user added successfully
+</h4>
+
+//in ts 
+success_msg=true;
+
+//by using logical operators
+<h1>ngif with  logical operators</h1>
+<h4 *ngIf="success_msg||success_flag" [ngClass]="'c7'">
+  user added successfully if either is true
+</h4>
+
+//in app.ts
+success_msg=true;
+  success_flag=false;
+
+
+//by using ngif else
+//use ng-template
+<h1>ngif with  else</h1>
+<h4 *ngIf="success_msg;else error_msg" [ngClass]="'c7'">
+  user added successfully if success_msg is true
+</h4>
+<ng-template #error_msg ><p [ngClass]="'c7'">user is not valid</p> </ng-template>
+
+//if  success_msg is false it will show ng-template
+  
+
+//by using if then else block
+//if  successs_msg=true; it will show then block else it will go to error msg
+<h1>ngif with then  else</h1>
+<h4 *ngIf="successs_msg;then update_msg;else error_msg" [ngClass]="'c7'">
+  user added successfully if success_msg is true
+</h4>
+<ng-template #error_msg ><p [ngClass]="'c7'">user is not valid (else)</p> </ng-template>
+
+<ng-template #update_msg ><p [ngClass]="'c7'">user is updated(then)</p> </ng-template>
+
+
+//ngfor
+ contact=[
+    {
+      'firstName':'pooja',
+      'lastName':"shetty",
+      'contactId':1234
+    },
+    {
+      'firstName':'naga',
+      'lastName':"darshan",
+      'contactId':12345
+    },
+    {
+      'firstName':'tanuja',
+      'lastName':"yy",
+      'contactId':123456
+    }
+  ]
+
+//in app.html
+<h1>ngfor</h1>
+<ul>
+  <li *ngFor="let contact of contacts">
+    {{contact.firstName}}  
+    {{contact.lastName}}      
+
+  </li>
+</ul>
+
+//display index
+<h1>ngfor</h1>
+<ul>
+  <li *ngFor="let contact of contacts; index as i;first as s; last as l">
+    <div *ngIf="s">this is first record</div>
+    <div>
+    {{i}}
+    {{contact.firstName}}  
+    {{contact.lastName}}      
+    </div>
+    <div *ngIf="l">this is the last record</div>
+  </li>
+</ul>
+
+
+//if odd or even
+<h1>ngfor</h1>
+<ul>
+  <li *ngFor="let contact of contacts; index as i;even as e; odd as o">
+    <div *ngIf="e" style="background-color:blueviolet">
+{{i}}
+    {{contact.firstName}}  
+    {{contact.lastName}}   
+    </div>
+    <div *ngIf="o" style="background-color:aqua">
+      {{i}}
+          {{contact.firstName}}  
+          {{contact.lastName}}   
+          </div>
+
+
+//NGSWITCH
+<h1>ngswitch directive</h1>
+<div class="container">
+  <div class="col-md-4">
+<select class="form-control">
+  <option value="Laptop">Laptop</option>
+  <option value="Mobile">Mobile</option>
+  <option value="TV">TV</option>
+  <option value="Wahing Machine">Wahing Machine</option>
+</select>
+</div>
+</div>
+
+<div class="col-md-12">
+  <h2 class="text-danger">laptop</h2>
+  <h2 class="text-danger">MObile</h2>
+  <h2 class="text-danger">TV</h2>
+  <h2 class="text-danger">Washing Machine</h2>
+</div>
+
+//FIRST STEP
+//when we click laptop select it should only show laptop
+    <select class="form-control" (change)="getProduct($event)">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

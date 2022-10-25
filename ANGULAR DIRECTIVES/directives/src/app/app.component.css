@@ -1,0 +1,36 @@
+.c1{
+  background-color: aquamarine;
+  color: black;
+}
+.c2{
+  background-color: blueviolet;
+  color: aliceblue;
+  font-size: larger;
+}
+.c3{
+  background-color: black;
+  color: azure;
+  padding: 30px;
+  margin:auto;
+}
+.c4{
+  background-color:chartreuse;
+  color:black;
+  padding: 30px;
+  margin-top:50px;
+  
+}
+.c5{
+  background-color: black;
+  color: azure;
+  padding: 30px;
+  margin-top:50px;
+  
+}
+.c7{
+  background-color: black;
+  color: azure;
+  padding: 30px;
+  margin-top:50px;
+  display: inline-block;
+}
