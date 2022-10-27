@@ -4,6 +4,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button'; 
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon'; 
 
 
 const materialComponent:any=[
@@ -11,7 +13,9 @@ const materialComponent:any=[
   MatFormFieldModule,
   FormsModule,
   MatDatepickerModule,
-  MatButtonModule
+  MatButtonModule,
+  MatNativeDateModule,
+  MatIconModule
 
 ]
 

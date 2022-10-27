@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
-
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-policy-home',
   templateUrl: './policy-home.component.html',
-  styleUrls: ['./policy-home.component.css']
+  styleUrls: ['./policy-home.component.css'],
 })
 export class PolicyHomeComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -17,9 +16,13 @@ export class PolicyHomeComponent implements OnInit {
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor() {}
+  // //body part
+  // public lists = [
+  //   'ISMS questionaries',
+  //   'PA questionaries ',
+  //   'process questionaries',
+  // ];
+  ngOnInit(): void {}
+  
 }
