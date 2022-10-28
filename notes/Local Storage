@@ -1,0 +1,65 @@
+LOCAL STORAGE
+//THERE ARE TWO MECHANISM TO STORE THE DATA 
+//1.LOCAL STORAGE AND 2.SESSION STORAGE
+//SESSION STORAGE-DATA WHICH IS STORED IN THE SESSION STORAGE WHICH IS RELATED ONLY TILL HE IS CLOSING THE WINDOW AS SOON AS HE CLOSES THE WINDOW OR TAB OF THE BROWSER THAT DATA IS LOST
+//IN CASE OF LOCAL STORAGE IT DOESNOT CLEAR ITSELF , EVEN USER CLOSES THE WEB BROWSER ,OR SHUT DOWN AND VISITS THE SAME WEBSITE STILL DATA IS THERE.
+
+
+//FIRST STEP
+//In the console window we have the section application
+//in the application we can find localstorage
+//here we can set the data in the form of key value pair
+//localstorage is stored on the window object 
+//we can access window.localstorage or we can use localstorage
+//for set the data we have to use setItem()
+//first we will hardcode the data in ts file or we can set the data in localstorage itself
+public user = [
+    { name: 'pooja', age: 22, lastname: 'shetty' },
+    { name: 'naga', age: 23, lastname: 'naik' },
+    { name: 'ashu', age: 24, lastname: 'setty' },
+    { name: 'tanvi', age: 25, lastname: 'vernekar' },
+  ];
+
+
+//SECOND STEP
+//SEt a key value data in localstorage when we load the page son write that in ngOnInit
+
+//THIRD STEP
+//first need to set that hardcoded  data in localstorage
+//initiall localstorage stores just strings like in a key value pair (localStorage.setItem("hello","world")
+//setItem() takes key and value
+//if we want to store the objects in the localstorage WE HAVE TO USE  JSON.stringyfy
+
+this.setuser=localStorage.setItem("users",JSON.stringify(this.user));
+console.log(this.setuser)
+
+ //result (in the application , in the localstorage we can get that in key value pair)   
+ 
+ Key                           Value
+users	[{"name":"pooja","age":22,"lastname":"shetty"},{"name":........
+//set the data in localstorage is finished
+
+
+//THIRD STEP //get the data
+//get the that data , for that we have to use getItem();
+this.getuser=localStorage.getItem("users");
+    console.log(this.getuser);
+
+//RESULT
+[{"name":"pooja","age":22,"lastname":"shetty"},{"name":"naga","age":23,"lastname":"naik"},{"name":"ashu","age":24,"lastname":"setty"},{"name":"tanvi","age":25,"lastname":"vernekar"}]
+//ALL ARE THERE IN STRING FORMAT SO CONVERT IT INTO CORRECT FORMAT
+
+
+//FOURT STEP
+this.finaluser=JSON.parse(this.getuser);
+    console.log(this.finaluser);
+
+//RESULT
+0: {name: 'pooja', age: 22, lastname: 'shetty'}
+1: {name: 'naga', age: 23, lastname: 'naik'}
+2: {name: 'ashu', age: 24, lastname: 'setty'}
+3: {name: 'tanvi', age: 25, lastname: 'vernekar'}
+length: 4
+[[Prototype]]: Array(0)
+
+

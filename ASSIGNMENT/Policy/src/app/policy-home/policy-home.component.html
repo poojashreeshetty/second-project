@@ -1,17 +1,4 @@
-<!-- header-section -->
-<div class="policy-header">
-  <div class="robologo">
-    <img src="./assets/Robosoft_logo_horizontal.png" width="300" />
-  </div>
-  <div class="logo">
-    <div class="name">
-      <span>Jane Doe</span>
-    </div>
-    <div>
-      <img src="./assets/images-icon.png" width="60" height="60" />
-    </div>
-  </div>
-</div>
+<app-header></app-header>
 <!-- body section -->
 
 <div class="policy-body">
@@ -75,6 +62,7 @@
           </mat-form-field>
         </div>
       </div>
+
       <mat-form-field floatlabel="auto" appearance="outline" class="input5">
         <mat-label>Check box text</mat-label>
         <input matInput type="text" value="I had read the guidelines" />
@@ -82,6 +70,7 @@
 
       <div class="pol-section-adddetail">
         <p class="pol-section-addtional">Additional Details</p>
+
         <div class="pol-section-calender">
           <div class="date1">
             <mat-form-field appearance="outline" class="input6">
@@ -90,6 +79,7 @@
               <mat-datepicker-toggle
                 matSuffix
                 [for]="picker"
+                class="material-icons color_red"
               ></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -102,6 +92,7 @@
               <mat-datepicker-toggle
                 matSuffix
                 [for]="picker1"
+                class="material-icons color_red"
               ></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -160,6 +151,7 @@
         </div>
       </div>
     </div>
+
     <div class="pol-section-second">
       <div class="pol-section-border">
         <div class="pol-section-icons">
@@ -168,6 +160,7 @@
               aria-hidden="false"
               aria-label="Example home icon"
               fontIcon="save"
+              class="material-icons color_red"
             ></mat-icon
             >SAVE
           </div>
@@ -176,6 +169,7 @@
               aria-hidden="false"
               aria-label="Example home icon"
               fontIcon="preview"
+              class="material-icons color_red"
             ></mat-icon
             >PREVIEW
           </div>
@@ -184,6 +178,7 @@
               aria-hidden="false"
               aria-label="Example home icon"
               fontIcon="publish"
+              class="material-icons color_red"
             ></mat-icon
             >PUBLISH
           </div>
@@ -191,7 +186,8 @@
             <mat-icon
               aria-hidden="false"
               aria-label="Example home icon"
-              fontIcon="remind"
+              fontIcon="add_alert"
+              class="material-icons color_red"
             ></mat-icon
             >REMIND
           </div>
@@ -200,58 +196,24 @@
               aria-hidden="false"
               aria-label="Example home icon"
               fontIcon="note"
+              class="material-icons color_red"
             ></mat-icon
             >NOTE
           </div>
+
+          <div>
+            <button id="option-btn" mat-fab color="accent">
+              <mat-icon
+                aria-hidden="false"
+                aria-label=" notes icon"
+                fontIcon="add"
+              ></mat-icon>
+            </button>
+          </div>
+          
         </div>
       </div>
     </div>
   </div>
-
-  <!-- <div>
-  
 </div>
-<div>
-  <div>
-   
-    <mat-form-field floatlabel="auto" appearance="outline" class="input">
-      <mat-label>Enter title</mat-label>
-
-      <input matInput type="text" placeholder="Secure Coding guidelines" />
-
-      <mat-hint>Please enter appropriate title</mat-hint>
-    </mat-form-field>
-    <mat-form-field floatlabel="auto" appearance="outline" class="input">
-      <mat-label>Description</mat-label>
-
-      <input
-        matInput
-        type="text"
-        placeholder="THese Guidelines Helps yout to code in a secure manor which would
-      assist in keeping the product data safe"
-      />
-    </mat-form-field>
-    <mat-form-field floatlabel="auto" appearance="outline" class="input">
-      <mat-label>Button Title</mat-label>
-
-      <input matInput type="text" />
-
-      <mat-hint>Please enter ap<li>PA questionaries <img src="./assets/sidebar-arrow.png" /></li>
-      <li>process questionaries <img src="./assets/sidebar-arrow.png" /></li> -->
-  <!-- <input matInput type="text" />
-
-      <mat-hint>I had read the Guidelines</mat-hint>
-    </mat-form-field>
-
-    <h2>Additional Details</h2>
-  </div>
-</div>
-
-<section>
-  <article>
-    
-    <div></div>
-  </article>
-</section> -->
-  <!-- </div> -->
-</div>
+<app-footer></app-footer>
