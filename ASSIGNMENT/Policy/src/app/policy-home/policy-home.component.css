@@ -79,7 +79,7 @@
   margin-left: 20px;
 }
 .pol-section-first {
-  width: 61%;
+  width: 68%;
   /* background-color: rgb(194, 156, 230); */
 }
 .pol-section-second {
@@ -173,10 +173,10 @@
 .date3 .mat-form-field .input8 {
   width: 70%;
 }
-.material-icons.color_red {
-  color: #d92756;
-  transform: scale(0.7);
-}
+/* .material-icons.color_red {
+  /* color: #d92756; */
+/* transform: scale(0.7); 
+} */
 
 .pol-section-ppt {
   display: flex;
@@ -234,11 +234,32 @@
   line-height: 16px;
 }
 
-
-
 #option-btn {
   position: absolute;
   left: 85%;
   bottom: 27px;
   font-size: 20px;
+}
+
+.button-dilogue {
+  margin-top: 250px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* background:rgb(214, 210, 210) */
+}
+.button-dilogue .btn {
+  /* width: 60%; */
+  margin: 10px;
+  border-radius: 15px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  line-height: 16px;
+  padding: 10px;
+  background-color: #fdf4f6;
+  color: #c21442;
+  border: none;
+  box-shadow: #e79db1 0px 3px 8px;
 }

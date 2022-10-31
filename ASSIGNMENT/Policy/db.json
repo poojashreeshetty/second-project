@@ -1,0 +1,29 @@
+{
+  "admins": [
+    {
+      "name": "poojashetty",
+      "employeeCode": 123,
+      "EmailId":"poojashetty310@gmail.com"
+    },
+    {
+      "name": "ashshetty",
+      "employeeCode": 1234,
+      "EmailId":"ashshetty410@gmail.com"
+    },
+    {
+      "name": "tanvshetty",
+      "employeeCode": 1235,
+      "EmailId":"tanvshetty510@gmail.com"
+    },
+    {
+      "name": "nagshetty",
+      "employeeCode": 1235,
+      "EmailId":"nagshetty610@gmail.com"
+    },
+    {
+      "name": "shlpshetty",
+      "employeeCode": 1235,
+      "EmailId":"shlpshetty710@gmail.com"
+    }
+  ]
+}

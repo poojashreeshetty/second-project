@@ -1,0 +1,40 @@
+.policy-header {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 15px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.robologo {
+  margin-right: 60%;
+}
+
+.rectangle {
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 202px;
+  width: 425px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  margin-top: 20%;
+  margin-left: 33%;
+  text-align: center;
+  padding: 10px;
+ 
+}
+#check{
+  position: absolute;
+  margin-top: 45px;
+  text-align: center;
+}
+.btn {
+  background-color: #d92756;
+  color: #ffffff;
+  padding: 14px 52px;
+  border-radius: 15px;
+  position: absolute;
+  margin-top: 115px;
+  margin-left: -65px;
+}

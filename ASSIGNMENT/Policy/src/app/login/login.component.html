@@ -1,21 +1,45 @@
-<div class="rectangle">
-  <header>
-    <div class="logo">
-      <img  class="log" src="./assets/Robosoft_logo_horizontal.png" />
-    </div>
-  </header>
-  <div class="login">
-    <p class="login1">Login</p>
-    <mat-form-field floatlabel="auto" appearance="outline" class="input1">
-      <mat-label>Enter Username</mat-label>
-      <input matInput type="text" placeholder="Enter Username" />
-    </mat-form-field>
-    <mat-form-field floatlabel="auto" appearance="outline" class="input2">
-      <mat-label>Enter Password</mat-label>
-      <input matInput type="text" placeholder="Enter Password" />
-    </mat-form-field>
-    <div>
-      <button class="btn" mat-button>Login</button>
-    </div>
+<div class="policy-header">
+  <div class="robologo">
+    <img src="./assets/Robosoft_logo_horizontal.png" width="300" />
   </div>
 </div>
+<div class="rectangle">
+  <form [formGroup]="myForm" class="login" (ngSubmit)="onSubmit()">
+    <div classs="login">
+      <p class="login1">Login</p>
+
+      <mat-form-field floatlabel="auto" appearance="outline" class="input1">
+        <mat-label>Enter Username</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter Username"
+          formControlName="name"
+        />
+      </mat-form-field>
+      <mat-form-field floatlabel="auto" appearance="outline" class="input2">
+        <mat-label>Enter Password</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter Password"
+          formControlName="password"
+        />
+      </mat-form-field>
+      <div>
+        <button
+          type="submit"
+          class="btn"
+          mat-button
+          [disabled]="myForm.invalid"
+        >
+          Login
+        </button>
+      </div>
+      <div>
+        <button class="forgot" routerLink="/password">Forgot Password?</button>
+      </div>
+    </div>
+  </form>
+</div>
+

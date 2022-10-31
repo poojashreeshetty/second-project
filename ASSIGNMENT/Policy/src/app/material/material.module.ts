@@ -6,6 +6,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button'; 
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon'; 
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 const materialComponent:any=[
@@ -15,7 +16,9 @@ const materialComponent:any=[
   MatDatepickerModule,
   MatButtonModule,
   MatNativeDateModule,
-  MatIconModule
+  MatIconModule,
+  MatDialogModule
+  
 
 ]
 

@@ -9,6 +9,12 @@ import { MaterialModule } from './material/material.module';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PolScreenDilogueComponent } from './pol-screen-dilogue/pol-screen-dilogue.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ForgotComponent } from './forgot/forgot.component';
+import { routings } from './app-routing.module';
+import { ServiceService } from 'server/service.service';
 
 
 @NgModule({
@@ -17,15 +23,20 @@ import { FooterComponent } from './footer/footer.component';
     PolicyHomeComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PolScreenDilogueComponent,
+    ForgotComponent,
+    routings
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

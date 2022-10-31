@@ -1,7 +1,7 @@
 <app-header></app-header>
 <!-- body section -->
 
-<div class="policy-body">
+<div class="policy-body" >
   <div class="policy-side">
     <ul>
       <li class="pol-side-head">Your questionaries</li>
@@ -72,33 +72,28 @@
         <p class="pol-section-addtional">Additional Details</p>
 
         <div class="pol-section-calender">
-          <div class="date1">
-            <mat-form-field appearance="outline" class="input6">
-              <mat-label>Select Start Date</mat-label>
-              <input matInput [matDatepicker]="picker" />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker"
-                class="material-icons color_red"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          </div>
+         
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          
+        
 
-          <div class="date2">
-            <mat-form-field appearance="outline" class="input7">
-              <mat-label>Select End Date</mat-label>
-              <input matInput [matDatepicker]="picker1" />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker1"
-                class="material-icons color_red"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field>
-          </div>
+     
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker1">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
 
-          <div class="date3">
+
+
             <mat-form-field
               floatlabel="auto"
               appearance="outline"
@@ -107,7 +102,7 @@
               <mat-label>Auto Remainder</mat-label>
               <input matInput type="text" value="4 Days" />
             </mat-form-field>
-          </div>
+
         </div>
 
         <div class="pol-section-ppt">
@@ -202,18 +197,32 @@
           </div>
 
           <div>
-            <button id="option-btn" mat-fab color="accent">
+            <button id="option-btn" mat-fab color="accent" (click)="buttonCLick()" >
               <mat-icon
                 aria-hidden="false"
                 aria-label=" notes icon"
                 fontIcon="add"
               ></mat-icon>
             </button>
+            
           </div>
-          
         </div>
       </div>
+      <div *ngIf="showMe" class="button-dilogue">
+        <button id="option-btn" mat-fab color="accent" (click)="buttonCLick()" >
+          <mat-icon
+            aria-hidden="false"
+            aria-label=" notes icon"
+            fontIcon="close"
+          ></mat-icon>
+        </button>
+        <button class="btn">Change Password</button>
+        <button class="btn" (click)="openDialog()">Add/Remove Super Admins</button>
+        <button class="btn">Add/Remove Admins</button>
+      </div>
     </div>
+    
   </div>
+ 
 </div>
 <app-footer></app-footer>
