@@ -1,29 +1,19 @@
 {
-  "admins": [
+  "posts": [
     {
-      "name": "poojashetty",
-      "employeeCode": 123,
-      "EmailId":"poojashetty310@gmail.com"
-    },
-    {
-      "name": "ashshetty",
-      "employeeCode": 1234,
-      "EmailId":"ashshetty410@gmail.com"
-    },
-    {
-      "name": "tanvshetty",
-      "employeeCode": 1235,
-      "EmailId":"tanvshetty510@gmail.com"
-    },
-    {
-      "name": "nagshetty",
-      "employeeCode": 1235,
-      "EmailId":"nagshetty610@gmail.com"
-    },
-    {
-      "name": "shlpshetty",
-      "employeeCode": 1235,
-      "EmailId":"shlpshetty710@gmail.com"
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
     }
-  ]
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

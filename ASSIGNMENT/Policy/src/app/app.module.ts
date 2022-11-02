@@ -14,7 +14,10 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotComponent } from './forgot/forgot.component';
 import { routings } from './app-routing.module';
-import { ServiceService } from 'server/service.service';
+import { PolicyServiceService } from './policy-service.service';
+import{HttpClientModule} from '@angular/common/http'
+
+
 
 
 @NgModule({
@@ -34,9 +37,11 @@ import { ServiceService } from 'server/service.service';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+    
   ],
-  providers: [ServiceService],
+  providers: [PolicyServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

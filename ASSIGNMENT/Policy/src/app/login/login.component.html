@@ -27,14 +27,14 @@
         />
       </mat-form-field>
       <div>
-        <button
+        <!-- <input
           type="submit"
           class="btn"
           mat-button
-          [disabled]="myForm.invalid"
+         
         >
-          Login
-        </button>
+          Login -->
+        <input type="submit" class="btn" value="login"  [disabled]="myForm.invalid" />
       </div>
       <div>
         <button class="forgot" routerLink="/password">Forgot Password?</button>
@@ -42,4 +42,3 @@
     </div>
   </form>
 </div>
-
