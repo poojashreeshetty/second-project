@@ -15,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotComponent } from './forgot/forgot.component';
 import { routings } from './app-routing.module';
 import { PolicyServiceService } from './policy-service.service';
-import{HttpClientModule} from '@angular/common/http'
+import{HttpClientModule} from '@angular/common/http';
+import { ChangePasswordComponent } from './change-password/change-password.component'
 
 
 
@@ -29,7 +30,8 @@ import{HttpClientModule} from '@angular/common/http'
     FooterComponent,
     PolScreenDilogueComponent,
     ForgotComponent,
-    routings
+    routings,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

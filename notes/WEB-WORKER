@@ -1,0 +1,55 @@
+A web worker is created. Web worker is basically a function, which will be called when a message event is fired. The web worker will receive the data send by the caller, process it and then send the response back to the caller.
+
+
+//WHEN WE ARE NOT USING WEBWORKER
+//when we find the prime number , prime number will show in a console 
+//but in the input field we cannot type  until we get the response(means untill it displays the data in console),bcoz javascript is a single threaded language , it is busy on calculating the prime number , so untill that computation is done we wont be able to access the dom elemnt
+
+
+//BY Using WEb worker
+//if we have some computations or some code which is going to take so much time and we dont want to our ui to freeze or browser to hang in that case we always go for the webworker
+
+
+
+//create webworker
+
+//first step
+//ng new web-worker-sample
+//ng generate web-worker app
+The output of the above command is as follows −
+CREATE tsconfig.worker.json (212 bytes)
+CREATE src/app/app.worker.ts (157 bytes)
+UPDATE tsconfig.app.json (296 bytes)
+UPDATE angular.json (3776 bytes)
+UPDATE src/app/app.component.ts (605 bytes)
+
+
+//second step
+angular.json includes the web worker configuration file, tsconfig.worker.json.
+//this is the basic code(automatically we get)
+// src/app/app.worker.ts
+addEventListener('message', ({ data }) => { //data is 9000 what we passed in app.ts
+   const response = `worker response to ${data}`;
+   postMessage(response);
+});
+
+addEventListener which is the subscriber when we call the webworker
+
+
+//third step
+//write program to check prime number
+//basically in app.ts we have basic code
+if (typeof Worker !== 'undefined') {
+  // Create a new
+  const worker = new Worker(new URL('./app.worker', import.meta.url));
+  worker.onmessage = ({ data }) => {
+    console.log(`page got message: ${data}`);
+  };
+  worker.postMessage(9000);//
+} else {
+  // Web Workers are not supported in this environment.
+  // You should add a fallback so that your program still executes correctly.
+}
+
+
+

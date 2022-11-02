@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   count: any = 0;
+  
   myForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -26,6 +27,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     // console.log(this.myForm);
+    localStorage.setItem('user',JSON.stringify(this.myForm.value))
+
+    
     this.loginservice.getInfo().subscribe((data) => {
       console.log(data);
       for (let d of data) {

@@ -1,0 +1,79 @@
+//first step
+npm install crypto-js --save
+
+//second step
+//crete variable in app.ts
+public message: string ='';
+  public key: string ='' ;
+  public encryptedMessage: string ='';
+  public decryptedMessage: string ='';
+  
+//app.html use two way data binding
+<h1 class="text-center">AES Encryption and Decryption with angular</h1>
+<br />
+<div>
+  <div class="row">
+    <div class="col-sm-6">
+      <br />
+      <div class="form-group">
+        <label for="txtTextToConvert">Plain Text</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter text you want to encrypt"
+          [(ngModel)]="message"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="txtPassword">Key</label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Enter encryption password"
+          [(ngModel)]="key"
+        />
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary btn-lg btn-block"
+        (click)="encrypt()"
+      >
+        Encryption
+      </button>
+
+      <textarea class="form-control" readonly rows="3">{{
+        encryptedMessage
+      }}</textarea>
+      <br />
+    </div>
+    <div class="col-sm-6">
+      <button
+        type="button"
+        class="btn btn-dark btn-lg btn-block"
+        (click)="decrypt()"
+      >
+        Decryption
+      </button>
+      <br />
+
+      <textarea class="form-control" readonly rows="3">{{
+        decryptedMessage
+      }}</textarea>
+      <br />
+    </div>
+  </div>
+</div>
+
+
+
+
+//call that metohd
+//trim() it will remove unwanted space in both the sides
+encrypt() {
+   this.encryptedMessage = CryptoJS.AES.encrypt( this.message.trim(), this.key.trim()).toString();
+  }
+  decrypt(){
+    this.decryptedMessage = CryptoJS.AES.decrypt( this.encryptedMessage,  this.key.trim() ).toString(CryptoJS.enc.Utf8);
+
+  }
