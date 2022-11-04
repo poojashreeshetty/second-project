@@ -16,7 +16,8 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { routings } from './app-routing.module';
 import { PolicyServiceService } from './policy-service.service';
 import{HttpClientModule} from '@angular/common/http';
-import { ChangePasswordComponent } from './change-password/change-password.component'
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AddAdminDilogComponent } from './add-admin-dilog/add-admin-dilog.component'
 
 
 
@@ -31,7 +32,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     PolScreenDilogueComponent,
     ForgotComponent,
     routings,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    AddAdminDilogComponent
   ],
   imports: [
     BrowserModule,

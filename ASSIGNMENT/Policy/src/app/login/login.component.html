@@ -55,7 +55,7 @@
          
         >
           Login -->
-        <button type="submit" class="btn">login</button>
+        <button type="submit" class="btn" [disabled]="myForm.invalid">login</button>
       </div>
       <div>
         <button class="forgot" routerLink="/password">Forgot Password?</button>

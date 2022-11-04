@@ -2,12 +2,12 @@
   "login": [
     {
       "userName": "poojashetty",
-      "password": "000",
+      "password": "pooj",
       "id": 1
     },
     {
       "userName": "ashshetty",
-      "password": "ashu@123",
+      "password": "tanvshetty",
       "id": 2
     },
     {
@@ -22,7 +22,39 @@
     },
     {
       "userName": "shlpshetty",
-      "password": "shlp@123",
+      "password": "Shlp@123",
+      "id": 5
+    }
+  ],
+  "superAdmin": [
+    {
+      "username": "poojashetty",
+      "employrcode": "2222",
+      "emailid": "000",
+      "id": 1
+    },
+    {
+      "username": "poojashetty",
+      "employrcode": "2222",
+      "emailid": "poojashetty",
+      "id": 2
+    },
+    {
+      "username": "poojashetty",
+      "employrcode": "2222",
+      "emailid": "tanvshetty",
+      "id": 3
+    },
+    {
+      "username": "poojashetty",
+      "employrcode": "2222",
+      "emailid": "tanvshetty",
+      "id": 4
+    },
+    {
+      "username": "shlpshetty",
+      "employrcode": "12368",
+      "emailid": "ashshetty",
       "id": 5
     }
   ]

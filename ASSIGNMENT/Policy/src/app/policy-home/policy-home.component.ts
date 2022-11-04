@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { AddAdminDilogComponent } from '../add-admin-dilog/add-admin-dilog.component';
 import { PolScreenDilogueComponent } from '../pol-screen-dilogue/pol-screen-dilogue.component';
 
 
@@ -48,7 +49,13 @@ export class PolicyHomeComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+  openDialogAdmin() {
+    const dialogRef = this.dialog.open(AddAdminDilogComponent);
 
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
+  }
   ngOnInit(): void {}
   
 }
