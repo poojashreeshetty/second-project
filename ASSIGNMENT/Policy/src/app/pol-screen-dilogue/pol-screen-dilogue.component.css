@@ -1,2 +1,36 @@
+/* #option-btn {
+  position: absolute;
+  left: 85%;
+  bottom: 27px;
+  font-size: 20px;
+}
 
- 
+.button-dilogue {
+  margin-top: 250px;
+  display: flex;
+  flex-direction: column; */
+  /* justify-content: center; */
+  /* background:rgb(214, 210, 210) */
+/* }
+.button-dilogue .btn { */
+  /* width: 60%; */
+  /* margin: 10px;
+  border-radius: 15px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  line-height: 16px;
+  padding: 10px;
+  background-color: #fdf4f6;
+  color: #c21442;
+  border: none;
+  box-shadow: #e79db1 0px 3px 8px;
+}
+
+ ::ng-deep .mat-dialog-container{
+box-shadow: none;
+background: none;
+color: rgba(0,0,0,.87);
+}
+  */

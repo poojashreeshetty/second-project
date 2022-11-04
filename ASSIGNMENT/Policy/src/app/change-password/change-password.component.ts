@@ -36,7 +36,7 @@ export class ChangePasswordComponent implements OnInit {
         this.pass = (this.myForm.get('newpassword')?.value);
         this.lservice.updateInfo(this.pass).subscribe()
         console.log('Password Updated');
-        this.router.navigate(['login'])
+        this.router.navigate(['policyHome'])
   
   
   

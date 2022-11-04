@@ -7,22 +7,22 @@
     },
     {
       "userName": "ashshetty",
-      "password": 1234,
+      "password": "ashu@123",
       "id": 2
     },
     {
       "userName": "tanvshetty",
-      "password": 1235,
+      "password": "tanv@123",
       "id": 3
     },
     {
       "userName": "nagshetty",
-      "password": 12367,
+      "password": "naga@123",
       "id": 4
     },
     {
       "userName": "shlpshetty",
-      "password": 12368,
+      "password": "shlp@123",
       "id": 5
     }
   ]

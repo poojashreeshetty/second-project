@@ -16,6 +16,16 @@
           placeholder="Enter Username"
           formControlName="name"
         />
+        <mat-error
+          *ngIf="myForm.get('name')?.errors?.['required'] && (myForm.get('name')?.touched ||myForm.get('name')?.dirty )"
+        >
+          Name should be required</mat-error
+        >
+        <mat-error
+          *ngIf="myForm.get('name')?.errors?.['pattern'] && (myForm.get('name')?.touched || myForm.get('name')?.dirty)"
+        >
+          Name should be in aplhabet</mat-error
+        >
       </mat-form-field>
       <mat-form-field floatlabel="auto" appearance="outline" class="input2">
         <mat-label>Enter Password</mat-label>
@@ -25,6 +35,17 @@
           placeholder="Enter Password"
           formControlName="password"
         />
+
+        <mat-error
+          *ngIf="myForm.get('password')?.errors?.['required'] && (myForm.get('password')?.touched || myForm.get('password')?.dirty)"
+        >
+          password recquired</mat-error
+        >
+        <mat-error
+          *ngIf="myForm.get('password')?.errors?.['pattern']  && (myForm.get('password')?.touched || myForm.get('password')?.dirty)"
+        >Must contain at least one number, Capital case and Uppercase and min 8 </mat-error
+        >
+        
       </mat-form-field>
       <div>
         <!-- <input
@@ -34,7 +55,7 @@
          
         >
           Login -->
-        <button type="submit" class="btn"  [disabled]="myForm.invalid" >login</button>
+        <button type="submit" class="btn">login</button>
       </div>
       <div>
         <button class="forgot" routerLink="/password">Forgot Password?</button>

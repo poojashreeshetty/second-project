@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PolicyServiceService } from '../policy-service.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   count: any = 0;
-  
+
   myForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -20,16 +21,19 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      name: this.fb.control(null, Validators.required),
-      password: this.fb.control(null, Validators.required),
+      name: this.fb.control(null, [
+        Validators.required,
+        Validators.pattern('^[a-zA-Z]*$'),
+      ]),
+      password: this.fb.control(
+        null,[Validators.required, Validators.pattern('((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,})')]),
     });
   }
 
   onSubmit() {
-    // console.log(this.myForm);
-    localStorage.setItem('user',JSON.stringify(this.myForm.value))
+    console.log(this.myForm);
+    localStorage.setItem('user', JSON.stringify(this.myForm.value));
 
-    
     this.loginservice.getInfo().subscribe((data) => {
       console.log(data);
       for (let d of data) {
@@ -44,10 +48,17 @@ export class LoginComponent implements OnInit {
       if (this.count == 1) {
         console.log('password matched');
         this.router.navigate(['/policyHome']);
-      }
-      else{
-        alert("invalid password")
+      } else {
+        alert('invalid password');
       }
     });
   }
+
+  // passwordCustom(control: AbstractControl): ValidatorFn {
+  //   return (control: AbstractControl):{[key:string]:boolean} | null=>{
+  //     if(){
+
+  //     }
+  //   }
+  // }
 }
