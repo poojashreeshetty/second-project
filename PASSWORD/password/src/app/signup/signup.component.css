@@ -1,0 +1,75 @@
+.rectangle {
+    height: 100vh;
+    position: relative;
+
+}
+
+.main {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* -ms-transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%);
+    background: linear-gradient(180deg, #20bbff 0%, #0e85ff 100%);
+    width: 53%;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px 10px rgba(0, 0, 0, 0.02);
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.custum-margin {
+    margin-top: 72px !important;
+    margin-bottom: 28px !important;
+}
+
+.triangle {
+    height: 128px;
+    width: 118;
+}
+
+.protect-manage-eve {
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 580;
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.border-right {
+    /* border: 1px solid rgba(0, 0, 0); */
+    border-right: 1px solid rgba(252, 249, 249, 0.19) !important;
+
+
+}
+
+.sign-up {
+
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 5000;
+    letter-spacing: 1.67px;
+    line-height: 27px;
+    margin-top: 50px;
+}
+
+.mycard {
+    width: 80%;
+    margin: auto;
+}
+
+/* @media screen and (max-width: 768px) and (min-width: 200px) {
+    .main {
+        width: 100%;
+    }
+} */

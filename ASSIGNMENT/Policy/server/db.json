@@ -1,8 +1,10 @@
 {
   "login": [
     {
-      "userName": "poojashetty",
-      "password": "pooj",
+      "username": "anilchinnunanmuddu",
+      "employrcode": "kk",
+      "emailid": "shey",
+      "isDisabled": true,
       "id": 1
     },
     {
@@ -28,34 +30,32 @@
   ],
   "superAdmin": [
     {
-      "username": "poojashetty",
-      "employrcode": "2222",
-      "emailid": "000",
+      "username": "pooja",
+      "employrcode": "kk",
+      "emailid": "shey",
+      "isDisabled": true,
       "id": 1
     },
     {
-      "username": "poojashetty",
-      "employrcode": "2222",
-      "emailid": "poojashetty",
+      "username": "pooja",
+      "employrcode": "123",
+      "emailid": "shey",
+      "isDisabled": true,
       "id": 2
     },
     {
-      "username": "poojashetty",
-      "employrcode": "2222",
-      "emailid": "tanvshetty",
+      "username": "pooja",
+      "employrcode": "123",
+      "emailid": "shey",
+      "isDisabled": true,
       "id": 3
     },
     {
-      "username": "poojashetty",
-      "employrcode": "2222",
-      "emailid": "tanvshetty",
+      "username": "pooja",
+      "employrcode": "kk",
+      "emailid": "shey",
+      "isDisabled": true,
       "id": 4
-    },
-    {
-      "username": "shlpshetty",
-      "employrcode": "12368",
-      "emailid": "ashshetty",
-      "id": 5
     }
   ]
 }

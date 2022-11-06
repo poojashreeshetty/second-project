@@ -1,0 +1,22 @@
+.superInput {
+    display: flex;
+
+    /* height: 75px;*/
+
+    width: 835px;
+
+    /* justify-content: space-evenly; */
+}
+
+#option-btn,
+.input2.input3 {
+    margin-left: 2%;
+}
+
+.input3 {
+    margin-left: 2%;
+}
+
+.input2 {
+    margin-left: 2%;
+}

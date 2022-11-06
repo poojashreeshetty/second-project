@@ -12,72 +12,84 @@
 <!-- <div> -->
 
 
-  <mat-dialog-actions align="end"
-  ><button mat-button mat-dialog-close>
-    <mat-icon
-      aria-hidden="false"
-      aria-label=" notes icon"
-      fontIcon="close"
-    ></mat-icon>
+<mat-dialog-actions align="end"><button mat-button mat-dialog-close>
+    <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="close"></mat-icon>
   </button>
 </mat-dialog-actions>
 
 <p class="head">Add/Remove Super Admin</p>
 
-<div >
-<form class="superInput" [formGroup]="superadminForm" >
+<div>
+  <form class="superInput" [formGroup]="superadminForm">
     <mat-form-field floatlabel="auto" appearance="outline" class="input1">
       <mat-label>Enter Name</mat-label>
-      <input  formControlName="username" matInput type="text" placeholder="Enter Name" />
+      <input formControlName="username" matInput type="text" placeholder="Enter Name" />
     </mat-form-field>
-  
+
     <mat-form-field floatlabel="auto" appearance="outline" class="input2">
       <mat-label>Enter Employee Code</mat-label>
-      <input  formControlName="employrcode"   matInput type="text" placeholder="Enter Employee Code" />
+      <input formControlName="employrcode" matInput type="text" placeholder="Enter Employee Code" />
     </mat-form-field>
-  
+
     <mat-form-field floatlabel="auto" appearance="outline" class="input3">
       <mat-label>Enter Email</mat-label>
-      <input   formControlName="emailid" matInput type="text" placeholder="Enter Email" />
+      <input formControlName="emailid" matInput type="text" placeholder="Enter Email" />
     </mat-form-field>
-  
 
 
-  <button mat-button id="option-btn" mat-fab color="accent" (click)="addDetails()">
-    <mat-icon
-      aria-hidden="false"
-      aria-label=" notes icon"
-      fontIcon="add"
-    ></mat-icon>
-  </button>
-</form>
+
+    <button mat-button id="option-btn" mat-fab color="accent" (click)="addDetails()">
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="add">add</mat-icon>
+    </button>
+  </form>
 </div>
 
-  <div class="container" *ngFor="let admin of details;index as i ">
-    
-      <div class="superInput">
-        <mat-form-field floatlabel="auto" appearance="outline" class="input1">
-          <mat-label>Enter Name</mat-label>
-          <input  value="{{admin.username}}" matInput type="text" placeholder="Enter Name" />
-        </mat-form-field>
-      
-        <mat-form-field floatlabel="auto" appearance="outline" class="input2">
-          <mat-label>Enter Employee Code</mat-label>
-          <input value="{{admin.employrcode}}"     matInput type="text" placeholder="Enter Employee Code" />
-        </mat-form-field>
-      
-        <mat-form-field floatlabel="auto" appearance="outline" class="input3">
-          <mat-label>Enter Email</mat-label>
-          <input   value="{{admin.emailid}}"  matInput type="text" placeholder="Enter Email" />
-        </mat-form-field>
-      </div>
-    
-  </div> 
+<div class="container" *ngFor="let admin of details;index as i ">
+
+  <div class="superInput">
+    <mat-form-field floatlabel="auto" appearance="outline" class="input1">
+      <mat-label>Enter Name</mat-label>
+      <input [(ngModel)]=admin.username matInput type='text' [disabled]=admin.isDisabled placeholder="Enter Name" />
+      <!-- <input value="{{admin.username}}" matInput type='text' placeholder="Enter Name" /> -->
+
+    </mat-form-field>
+
+    <mat-form-field floatlabel="auto" appearance="outline" class="input2">
+      <mat-label>Enter Employee Code</mat-label>
+      <input [(ngModel)]=admin.employrcode matInput type='text' [disabled]=admin.isDisabled
+        placeholder="Enter Employee Code" />
+      <!-- <input value="{{admin.employrcode}}" matInput type='text' placeholder="Enter Employee Code" /> -->
+    </mat-form-field>
+
+    <mat-form-field floatlabel="auto" appearance="outline" class="input3">
+      <mat-label>Enter Email</mat-label>
+      <input [(ngModel)]=admin.emailid matInput type='text' [disabled]=admin.isDisabled placeholder="Enter Email" />
+      <!-- <input value="{{admin.emailid}}" matInput type='text' placeholder="Enter Email" /> -->
+
+    </mat-form-field>
+    <!-- <button mat-button id="option-btn" mat-fab color="accent" (click)="editProduct($event)">
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="edit">edit</mat-icon>
+    </button> -->
+    <button mat-button id="option-btn" mat-fab color="accent" (click)="editProduc(admin)">
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="edit">edit</mat-icon>
+    </button>
+    <button mat-button id="option-btn" mat-fab color="accent" *ngIf=!admin.isDisabled (click)="updateProduc(admin)">
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="update">update</mat-icon>
+    </button>
+    <button mat-button id="option-btn" mat-fab color="accent" (click)="deleteProduc(admin)">
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="delete">delete</mat-icon>
+    </button>
+    <!-- <button mat-button id="option-btn" mat-fab color="accent" (click)="deleteProduct()">
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="delete">delete</mat-icon>
+    </button> -->
+  </div>
+
+</div>
 
 
 
 
-  <!-- {"username": "rajnshetty",
+<!-- {"username": "rajnshetty",
     "employrcode": 12,
     "emailid":"rajnshetty@12"
     },

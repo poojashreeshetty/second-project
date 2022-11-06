@@ -75,3 +75,7 @@ color: rgba(0,0,0,.87);
 .input2 {
   margin-left: 2%;
 }
+
+::ng-deep div#cdk-overlay-0 {
+  overflow: auto !important;
+}

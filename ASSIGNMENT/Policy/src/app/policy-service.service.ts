@@ -7,7 +7,7 @@ interface login extends Array<login[]> {
   password: string;
   id: number;
 
- 
+
 
 
 }
@@ -16,7 +16,7 @@ interface login extends Array<login[]> {
   providedIn: 'root',
 })
 export class PolicyServiceService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getInfo(): Observable<login[]> {
     return this.http.get<login[]>('http://localhost:3000/login');
@@ -24,7 +24,7 @@ export class PolicyServiceService {
 
   updateInfo(password: any, userName: any, id: number) {
     console.log(id + "from service");
-    
+
     const body = {
       userName: userName,
       password: password,
@@ -40,15 +40,21 @@ export class PolicyServiceService {
 
 
   //superadmin
-  postDetail(data:any){
-    return this.http.post<any>("http://localhost:3000/superAdmin/",data);
+  postDetail(data: any) {
+    return this.http.post<any>("http://localhost:3000/superAdmin/", data);
   }
 
-  getDetail()
-  {
+  getDetail() {
     return this.http.get<any>("http://localhost:3000/superAdmin/");
   }
 
+  update(id: any, body: any) {
+    return this.http.put('http://localhost:3000/superAdmin/' + id, body);
+  }
+
+  delete(id: any) {
+    return this.http.delete('http://localhost:3000/superAdmin/' + id);
+  }
 
 
 }
