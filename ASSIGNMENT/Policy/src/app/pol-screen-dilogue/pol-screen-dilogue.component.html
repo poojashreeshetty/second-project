@@ -39,18 +39,20 @@
 
 
     <button mat-button id="option-btn" mat-fab color="accent" (click)="addDetails()">
-      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="add">add</mat-icon>
+      <mat-icon aria-hidden="false" aria-label=" notes icon" [innerHTML]="editMode ? 'check' : 'add' ">add</mat-icon>
     </button>
   </form>
 </div>
 
-<div class="container" *ngFor="let admin of details;index as i ">
+
+
+<!-- using ngmodel -->
+<!-- <div class="container" *ngFor="let admin of details;index as i ">
 
   <div class="superInput">
     <mat-form-field floatlabel="auto" appearance="outline" class="input1">
       <mat-label>Enter Name</mat-label>
       <input [(ngModel)]=admin.username matInput type='text' [disabled]=admin.isDisabled placeholder="Enter Name" />
-      <!-- <input value="{{admin.username}}" matInput type='text' placeholder="Enter Name" /> -->
 
     </mat-form-field>
 
@@ -58,18 +60,13 @@
       <mat-label>Enter Employee Code</mat-label>
       <input [(ngModel)]=admin.employrcode matInput type='text' [disabled]=admin.isDisabled
         placeholder="Enter Employee Code" />
-      <!-- <input value="{{admin.employrcode}}" matInput type='text' placeholder="Enter Employee Code" /> -->
     </mat-form-field>
 
     <mat-form-field floatlabel="auto" appearance="outline" class="input3">
       <mat-label>Enter Email</mat-label>
       <input [(ngModel)]=admin.emailid matInput type='text' [disabled]=admin.isDisabled placeholder="Enter Email" />
-      <!-- <input value="{{admin.emailid}}" matInput type='text' placeholder="Enter Email" /> -->
 
     </mat-form-field>
-    <!-- <button mat-button id="option-btn" mat-fab color="accent" (click)="editProduct($event)">
-      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="edit">edit</mat-icon>
-    </button> -->
     <button mat-button id="option-btn" mat-fab color="accent" (click)="editProduc(admin)">
       <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="edit">edit</mat-icon>
     </button>
@@ -79,12 +76,54 @@
     <button mat-button id="option-btn" mat-fab color="accent" (click)="deleteProduc(admin)">
       <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="delete">delete</mat-icon>
     </button>
-    <!-- <button mat-button id="option-btn" mat-fab color="accent" (click)="deleteProduct()">
-      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="delete">delete</mat-icon>
+
+  </div>
+
+</div> -->
+
+
+
+
+
+
+<!-- another method -->
+<div class="container" *ngFor="let admin of details;index as i ">
+
+  <div class="superInput">
+    <mat-form-field floatlabel="auto" appearance="outline" class="input1">
+      <mat-label>Enter Name</mat-label>
+         <input value="{{admin.username}}" matInput type='text' placeholder="Enter Name" />
+
+
+    </mat-form-field>
+
+    <mat-form-field floatlabel="auto" appearance="outline" class="input2">
+      <mat-label>Enter Employee Code</mat-label>
+      <input value="{{admin.employrcode}}" matInput type='text' placeholder="Enter Employee Code" />
+
+    </mat-form-field>
+
+    <mat-form-field floatlabel="auto" appearance="outline" class="input3">
+      <mat-label>Enter Email</mat-label>
+            <input value="{{admin.emailid}}" matInput type='text' placeholder="Enter Email" />
+
+
+    </mat-form-field>
+    <button mat-button id="option-btn" mat-fab color="accent" (click)="editSuperAdmin(admin.id)" >
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="edit">edit</mat-icon>
+    </button>
+    <!-- <button mat-button id="option-btn" mat-fab color="accent" >
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="update">update</mat-icon>
     </button> -->
+    <button mat-button id="option-btn" mat-fab color="accent" (click)="deleteSuperAdmin(admin.id)">
+      <mat-icon aria-hidden="false" aria-label=" notes icon" fontIcon="delete">delete</mat-icon>
+    </button>
+
   </div>
 
 </div>
+
+
 
 
 

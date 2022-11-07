@@ -28,34 +28,5 @@
       "id": 5
     }
   ],
-  "superAdmin": [
-    {
-      "username": "pooja",
-      "employrcode": "kk",
-      "emailid": "shey",
-      "isDisabled": true,
-      "id": 1
-    },
-    {
-      "username": "pooja",
-      "employrcode": "123",
-      "emailid": "shey",
-      "isDisabled": true,
-      "id": 2
-    },
-    {
-      "username": "pooja",
-      "employrcode": "123",
-      "emailid": "shey",
-      "isDisabled": true,
-      "id": 3
-    },
-    {
-      "username": "pooja",
-      "employrcode": "kk",
-      "emailid": "shey",
-      "isDisabled": true,
-      "id": 4
-    }
-  ]
+  "superAdmin": []
 }

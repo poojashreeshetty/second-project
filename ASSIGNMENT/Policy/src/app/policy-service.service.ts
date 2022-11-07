@@ -41,6 +41,7 @@ export class PolicyServiceService {
 
   //superadmin
   postDetail(data: any) {
+    
     return this.http.post<any>("http://localhost:3000/superAdmin/", data);
   }
 
@@ -48,13 +49,29 @@ export class PolicyServiceService {
     return this.http.get<any>("http://localhost:3000/superAdmin/");
   }
 
-  update(id: any, body: any) {
+  // update(id: any, body: any) {
+  //   return this.http.put('http://localhost:3000/superAdmin/' + id, body);
+  // }
+
+  // delete(id: any) {
+  //   return this.http.delete('http://localhost:3000/superAdmin/' + id);
+  // }
+
+  editSuper(data:any,id:any){
+    const body={
+      username:data.username,
+      employrcode :data.employrcode,
+      emailid:data.emailid
+    }
     return this.http.put('http://localhost:3000/superAdmin/' + id, body);
+    
+
   }
 
-  delete(id: any) {
+ delete(id: any) {
     return this.http.delete('http://localhost:3000/superAdmin/' + id);
   }
+
 
 
 }
