@@ -1,0 +1,78 @@
+<div class="rectangle">
+  <div class="container">
+    <div class="row">
+    <div class="row mt-2">
+      <!-- icon  -->
+      <div class="col-6 p-0 mt-5 img-icon">
+        <img src="./assets/logo_web.png " alt="" />
+      </div>
+
+      <!-- search bar -->
+      <div class="col-6 mt-4 p-0 search-input">
+        <div class="serach-city">
+          <input
+            matInput
+            type="search"
+            placeholder="Search city"
+            id="search-input"
+          />
+          <mat-icon matPrefix class="serach-bar">search</mat-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5 border-bottom">
+      <div class="col-1 mb-1 p-0 home">HOME</div>
+      <div class="col-1 mb-1 p-0 favourite">FAVOURITE</div>
+      <div class="col-2 mb-1 p-0 recent-search">RECENT SEARCH</div>
+      <div class="col-8 mb-1 p-0 wed-28-nov-2018-11">
+        {{ date | date: "E" }},{{ date | date: "mediumDate" }}&nbsp;&nbsp;{{
+          date | date: "shortTime"
+        }}
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12 current-location">Udupi, Karnataka</div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <mat-icon class="favorite-icon">favorite</mat-icon
+        ><span class="Add-to-favourite">Add to favourite</span>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12 icon-mostly-sunny">
+        <img src="./assets/icon_mostly_sunny.png" alt="" />
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-6 deg-87">87</div>
+      <div class="col-6 cel-far mt-4">
+        <button class="c">&#176;C</button> <button class="c">&#176;F</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 Mostly Sunny-col mt-3 mb-3">
+        <p class="mostly-sunny">Mostly Sunny</p>
+      </div>
+    </div>
+
+    <div class="row border-bottom mt-5 mb-3">
+
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-3 min"><img src="./assets/icon_temperature_info.png" alt=""><span class="Winds" id="Min">Min - Max</span><p id="Min-deg">75&#176; - 90&#176;</p></div>
+      <div class="col-2"><img src="./assets/icon_precipitation_info.png" alt=""><span class="Winds" id="Precipitation"> Precipitation</span><p id="Precipitation-per">0%</p></div>
+      <div class="col-2"><img src="./assets/icon_humidity_info.png" alt=""><span class="Winds" id="Humidity">Humidity</span><p id="Humidity-perc">47%</p></div>
+      <div class="col-2"><img src="./assets/icon_wind_info.png" alt=""><span class="Winds" id="Wind">Wind</span><p id="Wind-mph">4 mph</p></div>
+      <div class="col-3 vis"><img src="./assets/icon_visibility_info.png" alt=""><span class="Winds" id="Visibility">Visibility</span><p id="Visibility-mph">12 mph</p></div>
+    </div>
+  </div>
+</div>
+</div>

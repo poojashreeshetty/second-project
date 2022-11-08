@@ -9,7 +9,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    /* -ms-transform: translate(-50%, -50%); */
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background: linear-gradient(180deg, #20bbff 0%, #0e85ff 100%);
     width: 53%;
