@@ -30,32 +30,18 @@
   ],
   "superAdmin": [
     {
-      "username": "pooja",
-      "employrcode": "kk",
-      "emailid": "shey",
+      "username": "anil",
+      "employrcode": "123",
+      "emailid": "pooja@",
       "isDisabled": true,
       "id": 1
     },
     {
-      "username": "pooja",
+      "username": "anil",
       "employrcode": "123",
-      "emailid": "shey",
+      "emailid": "pooja@",
       "isDisabled": true,
       "id": 2
-    },
-    {
-      "username": "pooja",
-      "employrcode": "123",
-      "emailid": "shey",
-      "isDisabled": true,
-      "id": 3
-    },
-    {
-      "username": "pooja",
-      "employrcode": "kk",
-      "emailid": "shey",
-      "isDisabled": true,
-      "id": 4
     }
   ]
 }

@@ -20,7 +20,7 @@
 <p class="head">Add/Remove Super Admin</p>
 
 <div>
-  <form class="superInput" [formGroup]="superadminForm">
+  <form class="superInput" [formGroup]="superadminForm">{{superadminForm.value|json}}
     <mat-form-field floatlabel="auto" appearance="outline" class="input1">
       <mat-label>Enter Name</mat-label>
       <input formControlName="username" matInput type="text" placeholder="Enter Name" />

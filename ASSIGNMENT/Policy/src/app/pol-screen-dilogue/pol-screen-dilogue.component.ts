@@ -51,9 +51,22 @@ export class PolScreenDilogueComponent implements OnInit {
     //   });
     // }
     if (this.superadminForm.valid) {
+      this.superadminForm.patchValue({
+        // username: 'anil',
+        // employrcode:55
+        isDisabled: true
+
+
+      })
+      console.log('myform', this.superadminForm.value);
+
+
+
       this.superService.postDetail(this.superadminForm.value).subscribe((res) => {
         console.log(res);
         this.superadminForm.reset();
+
+        // this.superadminForm.get("isDisabled")?.setValue(true);
 
         alert('details added');
         this.getAllDetail();
