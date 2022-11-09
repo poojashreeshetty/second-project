@@ -9,18 +9,23 @@ import { WeatherService } from '../weather.service';
 })
 export class WeatherHomeComponent implements OnInit {
   date: any;
-  finaluser: any;
-  getuser: any;
+  getCity: any;
+  routerUrl!: string;
+  cityArray = [];
 
 
-  constructor(public weatherservice: WeatherService, public router: Router) {}
+  constructor(public weatherservice: WeatherService, public router: Router) { }
 
   ngOnInit(): void {
     this.date = new Date();
-    this.getuser = localStorage.getItem('weatherDetail');
-    this.finaluser = JSON.parse(this.getuser);
-    console.log(this.finaluser);
-    
+    this.getCity = JSON.parse((localStorage.getItem('weatherDetail') || '{}'));
+    console.log(this.getCity);
+    console.log(this.router.url);
+    this.routerUrl = this.router.url;
+
+
+
+
   }
 
   //call api by using http
@@ -42,9 +47,23 @@ export class WeatherHomeComponent implements OnInit {
     this.weatherservice.getApi(cityname).subscribe((results) => {
       // console.log(results);
       localStorage.setItem('weatherDetail', JSON.stringify(results));
-      this.router.navigate(['weather-home']).then(() => {
-        window.location.reload();
-      });
+      // this.router.navigate(['weather-home']).then(() => {
+      //   window.location.reload();
+      // });
+      this.getCity = JSON.parse((localStorage.getItem('weatherDetail') || '{}'));
+      console.log(this.getCity);
     });
   }
+
+
+  addFav(data: any) {
+    console.log(data);
+
+    this.cityArray.push(data);
+    console.log(this.cityArray);
+
+
+  }
+
+
 }

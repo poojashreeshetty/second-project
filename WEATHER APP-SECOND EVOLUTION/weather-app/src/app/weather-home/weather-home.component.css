@@ -101,7 +101,8 @@ li.nav-item {
 
 .active {
   border-bottom: 2px solid #ffd639;
-  
+  color: #ffd639;
+
 }
 
 /* .home:hover {
@@ -255,4 +256,3 @@ p#Min-deg {
   position: absolute;
   margin-left: 82%;
 } */
-
