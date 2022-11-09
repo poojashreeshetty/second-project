@@ -1,0 +1,28 @@
+/* .gird{
+  display: grid;
+
+} */
+.gird {
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+}
+
+.row1 {
+  background-color: aqua;
+  border: 1px solid black;
+  padding: 20px;
+  width: 20%;
+}
+.row2 {
+  background-color: rgb(255, 0, 255);
+  border: 1px solid black;
+  padding: 20px;
+  width: 20%;
+}
+.row3 {
+  background-color: rgb(255, 0, 13);
+  border: 1px solid black;
+  padding: 20px;
+  width: 20%;
+}

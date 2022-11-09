@@ -28,6 +28,7 @@
       "id": 5
     }
   ],
+<<<<<<< HEAD
   "superAdmin": [
     {
       "username": "anil",
@@ -44,4 +45,7 @@
       "id": 2
     }
   ]
+=======
+  "superAdmin": []
+>>>>>>> 71248c7af4c9f364b0b0fb767104b3bdc2cb9efb
 }

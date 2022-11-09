@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EdiDilogueComponent } from './edi-dilogue.component';
+import { WeatherHomeComponent } from './weather-home.component';
 
-describe('EdiDilogueComponent', () => {
-  let component: EdiDilogueComponent;
-  let fixture: ComponentFixture<EdiDilogueComponent>;
+describe('WeatherHomeComponent', () => {
+  let component: WeatherHomeComponent;
+  let fixture: ComponentFixture<WeatherHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EdiDilogueComponent ]
+      declarations: [ WeatherHomeComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(EdiDilogueComponent);
+    fixture = TestBed.createComponent(WeatherHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
