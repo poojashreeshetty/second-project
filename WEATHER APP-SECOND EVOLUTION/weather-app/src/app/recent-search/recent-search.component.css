@@ -40,14 +40,11 @@ input {
   box-sizing: border-box;
   height: 6.54%;
   width: 80%;
-
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #a79e9e;
   /* opacity: 0.3; */
   border-radius: 3px;
   background-color: transparent;
   z-index: 99999;
-
-  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .serach-bar {
@@ -101,41 +98,16 @@ li.nav-item {
 
 .active {
   border-bottom: 2px solid #ffd639;
-  
 }
 
-/* .home:hover {
+.home:hover {
   color: #ffd639;
   text-decoration: underline;
-} */
+}
 
 i.bi.bi-heart {
   color: white;
   font-size: 20px;
-}
-
-.current-location {
-  text-align: left !important;
-  color: #ffffff;
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 24px;
-  text-align: center;
-}
-
-.Add-to-favourite {
-  color: #ffffff;
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 450;
-  letter-spacing: 0;
-  /* padding-left: 3px; */
-  font-style: normal;
-  position: absolute;
-  width: 100px;
-  left: 28px;
 }
 
 .line-copy {
@@ -145,114 +117,102 @@ i.bi.bi-heart {
   opacity: 0.3;
 }
 
-.deg-87 {
+.nothing {
+  margin-top: 284px;
+}
+.No-favourite-added {
+  margin-top: 20px;
   color: #ffffff;
   font-family: Roboto;
-  font-size: 64px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 75px;
-  text-align: right;
+  line-height: 21px;
+  text-align: center;
+}
+.city-added-remove {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1%;
 }
 
-.cel-far button {
-  border: 1px solid #ffffff;
+.city-added-text {
   color: #ffffff;
-  background-color: transparent;
-  padding: 5px;
-  cursor: pointer;
-  float: left;
+  font-family: Roboto;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 15px;
 }
 
-.cel-far:after {
-  content: "";
-  clear: both;
-  display: table;
+table {
+ 
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  /* border: 1px solid #ddd; */
+}
+th {
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  padding: 15px;
+}
+tr {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid red;
+}
+.main-table {
+  border-collapse: separate;
+  border-spacing: 0 1px;
 }
 
-.cel-far button:not(:last-child) {
-  border-right: none;
-  /* Prevent double borders */
+/* tr:nth-child(even){background-color: #f2f2f2} */
+
+.table-location {
+  /* color: #FFE539; */
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 19px;
+  /* padding: 10px; */
+  width:47%;
 }
 
-.cel-far button:hover {
-  background-color: white;
-  color: #e32843;
+.related-img {
+  height: 3.16%;
+  width: 1.78%;
 }
 
-.c {
+.related-deg {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 38px;
+}
+.related-msg {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 21px;
+}
+.cel-faren {
   color: #ffffff;
   font-family: Roboto;
   font-size: 16px;
   letter-spacing: 0;
   line-height: 19px;
+  padding-right: 10px;
 }
 
-.mostly-sunny {
-  color: #ffffff;
-  font-family: Roboto;
-  font-size: 22px;
-  letter-spacing: 0;
-  line-height: 25px;
-  text-align: center;
+.related-fav {
+  text-align: end;
 }
-
-.Mostly Sunny-col {
-  margin: auto;
-}
-
-.Winds {
-  position: relative;
-  color: #ffffff;
-  font-family: Roboto;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: 18px;
-  /* text-align: center; */
-}
-
-/* #Visibility {
-  position: absolute;
-  margin-left: 3%;
-  margin-top: 2px;
-} */
-
-.mt-40px {
-  margin-top: 40px !important;
-}
-
-p#Min-deg {
-  margin-top: -3px;
-}
-
-/* #Wind,
-#Humidity,
-#Precipitation,
-#Min {
-  position: absolute;
-  margin-left: 1%;
-} */
-
-#Min-deg,
-#Precipitation-per,
-#Humidity-perc,
-#Wind-mph,
-#Visibility-mph {
-  color: #ffffff;
-  font-family: Roboto;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 25px;
-}
-
-/* #Visibility-mph{
-  position: absolute;
-  margin-left:13% ;
-  margin-top: 1%;
-}
-.vis{
-  position: absolute;
-  margin-left: 82%;
-} */
 

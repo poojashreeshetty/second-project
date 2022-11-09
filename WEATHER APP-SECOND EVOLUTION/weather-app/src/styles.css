@@ -34,3 +34,8 @@ input:focus {
 .justify-content-space-around {
   justify-content: space-around !important;
 }
+
+.row.m-0.pt-5 {
+  padding-top: 4rem !important;;
+}
+

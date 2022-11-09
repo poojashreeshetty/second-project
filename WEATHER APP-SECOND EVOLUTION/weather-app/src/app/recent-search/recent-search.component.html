@@ -1,0 +1,143 @@
+<div class="rectangle">
+  <div class="container">
+    <!-- header start -->
+    <div class="row m-0 pt-4">
+      <div class="col-12 col-md-6 p-0 d-flex align-items-center img-icon">
+        <img src="./assets/logo_web.png " alt="" />
+      </div>
+
+      <!-- search bar -->
+      <div class="col-12 col-md-6 p-0 search-input">
+        <div class="serach-city">
+          <input type="text" placeholder="Search city" />
+          <mat-icon matPrefix class="serach-bar">search</mat-icon>
+        </div>
+      </div>
+    </div>
+    <!-- header end -->
+
+    <div class="row m-0 mt-5 relative">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav w-100">
+            <li class="nav-item pl-0 active">
+              <a class="nav-link link-active" routerLink="/weather-home"
+                >HOME <span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/favourite"
+                >FAVOURITE <span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/recent-serach"
+                >RECENT SEARCH <span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="nav-item ms-auto">
+              <a class="nav-link" href="#">
+                {{ date | date: "E" }},{{
+                  date | date: "mediumDate"
+                }}&nbsp;&nbsp;{{ date | date: "shortTime" }}
+                <span class="sr-only"></span
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="line-copy position"></div>
+    </div>
+
+    <!-- nothing image -->
+    <!-- <div class="row">
+      <div
+        class="col-12 d-flex justify-content-center align-items-center nothing"
+      >
+        <img src="./assets/icon_nothing.png" alt="" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <p class="No-favourite-added">No Favourites added</p>
+      </div>
+    </div> -->
+    <!-- nothing end -->
+
+    <div class="city-added-remove">
+      <div><p class="city-added-text">You recently searched for</p></div>
+      <div><p class="city-added-text" (click)="openDialog()">Clear All</p></div>
+    </div>
+
+    <div style="overflow-x: auto">
+      <table class="main-table">
+        <tr>
+          <td class="table-location">Udupi,Karnataka</td>
+          <td class="related-img">
+            <img src="./assets/icon_mostly_sunny_small.png" alt="" />
+          </td>
+          <td>
+            <span class="related-deg">31&#176;</span
+            ><span class="cel-faren">C</span>
+            <span class="related-msg">Mostly Sunny</span>
+          </td>
+
+          <td class="related-fav"><i class="bi bi-heart"></i></td>
+        </tr>
+        <tr>
+          <td class="table-location">Udupi,Karnataka</td>
+          <td class="related-img">
+            <img src="./assets/icon_mostly_sunny_small.png" alt="" />
+          </td>
+          <td>
+            <span class="related-deg">31&#176;</span
+            ><span class="cel-faren">C</span>
+            <span class="related-msg">Mostly Sunny</span>
+          </td>
+
+          <td class="related-fav"><i class="bi bi-heart"></i></td>
+        </tr>
+        <tr>
+          <td class="table-location">Udupi,Karnataka</td>
+          <td class="related-img">
+            <img src="./assets/icon_mostly_sunny_small.png" alt="" />
+          </td>
+          <td>
+            <span class="related-deg">31&#176;</span
+            ><span class="cel-faren">C</span>
+            <span class="related-msg">Mostly Sunny</span>
+          </td>
+
+          <td class="related-fav"><i class="bi bi-heart"></i></td>
+        </tr>
+        <tr>
+          <td class="table-location">Udupi,Karnataka</td>
+          <td class="related-img">
+            <img src="./assets/icon_mostly_sunny_small.png" alt="" />
+          </td>
+          <td>
+            <span class="related-deg">31&#176;</span
+            ><span class="cel-faren">C</span>
+            <span class="related-msg">Mostly Sunny</span>
+          </td>
+
+          <td class="related-fav"><i class="bi bi-heart"></i></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
