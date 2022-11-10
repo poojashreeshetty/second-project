@@ -9,18 +9,29 @@ import { RemoveAllDilogueComponent } from '../remove-all-dilogue/remove-all-dilo
 })
 export class FavoriteComponent implements OnInit {
   date: any;
+  favCity: any;
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.date = new Date();
+    this.getFavCity()
 
   }
-  openDialog(): void {
-    this.dialog.open(RemoveAllDilogueComponent, {
-      width: '450px',
 
-    });
+  getFavCity() {
+    let city = JSON.parse(localStorage.getItem('cityData') || null)
+    console.log(city)
+    if (city) {
+      this.favCity = [...new Map(city.map((m) => [m.id, m])).values()];
+      console.log(this.favCity)
+    }
+  }
+
+
+  removeFav() {
+    localStorage.removeItem('cityData');
+    this.favCity = []
   }
 
 

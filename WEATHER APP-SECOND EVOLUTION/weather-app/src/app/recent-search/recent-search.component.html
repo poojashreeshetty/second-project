@@ -75,49 +75,14 @@
 
     <div style="overflow-x: auto">
       <table class="main-table">
-        <tr>
-          <td class="table-location">Udupi,Karnataka</td>
+        <tr *ngFor="let city of recentSearched">
+          <td class="table-location">{{city.name}},Karnataka</td>
           <td class="related-img">
             <img src="./assets/icon_mostly_sunny_small.png" alt="" />
           </td>
           <td>
-            <span class="related-deg">31&#176;</span><span class="cel-faren">C</span>
-            <span class="related-msg">Mostly Sunny</span>
-          </td>
-
-          <td class="related-fav"><i class="bi bi-heart"></i></td>
-        </tr>
-        <tr>
-          <td class="table-location">Udupi,Karnataka</td>
-          <td class="related-img">
-            <img src="./assets/icon_mostly_sunny_small.png" alt="" />
-          </td>
-          <td>
-            <span class="related-deg">31&#176;</span><span class="cel-faren">C</span>
-            <span class="related-msg">Mostly Sunny</span>
-          </td>
-
-          <td class="related-fav"><i class="bi bi-heart"></i></td>
-        </tr>
-        <tr>
-          <td class="table-location">Udupi,Karnataka</td>
-          <td class="related-img">
-            <img src="./assets/icon_mostly_sunny_small.png" alt="" />
-          </td>
-          <td>
-            <span class="related-deg">31&#176;</span><span class="cel-faren">C</span>
-            <span class="related-msg">Mostly Sunny</span>
-          </td>
-
-          <td class="related-fav"><i class="bi bi-heart"></i></td>
-        </tr>
-        <tr>
-          <td class="table-location">Udupi,Karnataka</td>
-          <td class="related-img">
-            <img src="./assets/icon_mostly_sunny_small.png" alt="" />
-          </td>
-          <td>
-            <span class="related-deg">31&#176;</span><span class="cel-faren">C</span>
+            <span class="related-deg">{{(city?.main.temp -273.15).toFixed(0)}}&#176;</span><span
+              class="cel-faren">C</span>
             <span class="related-msg">Mostly Sunny</span>
           </td>
 

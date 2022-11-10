@@ -1,4 +1,4 @@
-.are-you-sure-text{
+.are-you-sure-text {
 
   color: #000000;
   font-family: Roboto;
@@ -8,30 +8,32 @@
   text-align: center;
 }
 
-.yes-no-button{
+.yes-no-button {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
- 
+
 }
-.no-button,.yes-button{
-padding: 8px 47px;
-height: 5.09%;
-width: 8.83%;
-border-radius: 2px;
-border: none;
-color: #000000;
+
+.no-button,
+.yes-button {
+  padding: 8px 47px;
+  height: 5.09%;
+  width: 8.83%;
+  border-radius: 2px;
+  border: none;
+  color: #000000;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 0;
   line-height: 18px;
   text-align: center;
-/* background-color: #F76B1C; */
+  /* background-color: #F76B1C; */
 }
 
 
-.dilog{
+.dilog {
   padding: 44px;
 }
