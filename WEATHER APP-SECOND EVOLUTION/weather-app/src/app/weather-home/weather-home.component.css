@@ -58,9 +58,9 @@ input {
 }
 
 ::placeholder {
-  opacity: 1;
+  opacity: 0.8;
   /* font-weight: 10px; */
-  color: #ffffff;
+  color: #ece7e7;
   font-family: Roboto;
   font-size: 16px;
   letter-spacing: 0;
@@ -102,7 +102,6 @@ li.nav-item {
 .active {
   border-bottom: 2px solid #ffd639;
   color: #ffd639;
-
 }
 
 /* .home:hover {
@@ -255,4 +254,189 @@ p#Min-deg {
 .vis{
   position: absolute;
   margin-left: 82%;
+} */
+
+
+
+
+/* footer  */
+.footer{
+  display: flex;
+ justify-content: space-around;
+ padding-top: 38px;
+}
+.footer-1,.footer-2,.footer-3,.footer-4,.footer-5{
+  display: flex;
+  
+}
+.footer-1-image img,.footer-2-image img,.footer-3-image img,.footer-4-image img,.footer-5-image img{
+  padding-right: 11px;
+}
+.footer-1-content-info1 ,.footer-2-content-info2,.footer-3-content-info3,.footer-4-content-info4,.footer-5-content-info5{
+  padding-top: 10px;
+}
+
+/* nav bar */
+li {
+  list-style: none;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.nav-menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.nav-item-main {
+  display: flex;
+  justify-content: space-evenly;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .hamburger {
+    position: fixed;
+    display: block;
+    top: 7%;
+    left: 3%;
+  }
+
+  .nav-item-main {
+    display: none;
+  }
+  input {
+    display: none;
+  }
+  .serach-bar {
+    position: fixed;
+    top: 7%;
+    right: 6%;
+    color: #ffffff;
+  }
+  .line-copy {
+    display: none;
+  }
+  .img-icon {
+    position: fixed;
+    /* position: relative; */
+    top: 7%;
+    left: 16%;
+  }
+
+  .nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a.nav-link {
+    font-size: 15px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+  }
+
+  .current-location {
+    text-align: center !important;
+    margin-top: -43px;
+  }
+  .col-12.d-flex.justify-content-center.align-items-center {
+    margin-top: 24px;
+  }
+  .mt-4 {
+    margin-top: -0.5rem !important;
+  }
+
+  /* .footer-row{
+    flex-wrap: nowrap;
+  }
+   */
+  
+ 
+  /* .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translate(8px) rotate (-45deg);
+  }
+  .nav-menu {
+    position: fixed;
+    right: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    transition: 0, 3s;
+  }
+  .nav-item-main {
+    margin: 16px 0;
+  }
+  .nav-menu.active {
+    right: 0;
+  } */
+}
+
+/* Set the background color of body to tan */
+
+/* On screens that are 992px or less, set the background color to blue */
+/* @media screen and (max-width: 992px) {
+  .navbar-header {
+    float: none;
+  }
+  .navbar-left,
+  .navbar-right {
+    float: none !important;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .navbar-nav {
+    float: none !important;
+    margin-top: 7.5px;
+  }
+  .navbar-nav > li {
+    float: none;
+  }
+  .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .collapse.in {
+    display: block !important;
+  }
+} */
+
+/* On screens that are 600px or less, set the background color to olive */
+/* @media screen and (max-width: 600px) {
+  .container {
+    background-color: olive;
+  }
 } */

@@ -2,22 +2,66 @@
   <div class="container">
     <!-- header start -->
     <div class="row m-0 pt-5">
-      <div class="col-12 col-md-6 p-0 d-flex align-items-center img-icon">
+      
+      <div class="col-6 col-md-6 p-0 d-flex align-items-center img-icon">
         <img src="./assets/logo_web.png " alt="" />
       </div>
 
       <!-- search bar -->
-      <div class="col-12 col-md-6 p-0 search-input">
+      <div class="col-6 col-md-6 p-0 search-input">
         <div class="serach-city">
           <input type="text" #cityname placeholder="Search city" />
-          <mat-icon matPrefix class="serach-bar" (click)="onClickCity(cityname.value)">search</mat-icon>
+          <mat-icon
+            matPrefix
+            class="serach-bar"
+            (click)="onClickCity(cityname.value)"
+            >search</mat-icon
+          >
         </div>
+       
       </div>
+     
     </div>
+   
     <!-- header end -->
 
     <div class="row m-0 mt-5 relative">
-      <nav class="navbar navbar-expand-lg navbar-light">
+     
+      <nav class="navbar">
+        <!-- <a href="#" class=""></a> -->
+
+        <div class="nav-menu">
+          <div class="nav-item-main">
+            <li class="nav-item">
+              <a href="#" class="nav-link">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">FAVOURITE</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">RECENT SEARCH</a>
+            </li>
+          </div>
+          <div>
+            <li class="nav-item" id="nav-date">
+              <a class="nav-link" href="#">
+                {{ date | date: "E" }},{{
+                  date | date: "mediumDate"
+                }}&nbsp;&nbsp;{{ date | date: "shortTime" }}</a
+              >
+            </li>
+          </div>
+        </div>
+        <div class="hamburger col-sm-1">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        
+      </nav>
+
+      <!-- <nav class="navbar navbar-expand-lg navbar-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -44,30 +88,28 @@
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> -->
+
       <div class="line-copy position"></div>
     </div>
 
     <!-- home start -->
     <div class="mainHome">
       <div class="row mt-5">
-        <div class="col-12 current-location">{{getCity.name}},Karnataka</div>
+        <div class="col-12 current-location">{{ getCity.name }},Karnataka</div>
       </div>
 
       <div class="row m-0 mt-3">
-        <div class="col-12 p-0">
-          <i class="bi bi-heart relative" (click)="addFav(getCity)"><span class="Add-to-favourite">Add to
-              favourite</span></i>
+        <div class="col-md-12 p-0">
+          <i class="bi bi-heart relative col-6" (click)="addFav(getCity)"
+            ><span class="Add-to-favourite col-6">Add to favourite</span></i
+          >
           <!-- <mat-icon class="favorite-icon">favorite</mat-icon> -->
         </div>
       </div>
     </div>
 
-
-    <!-- <p>{{( weatherTemp?.temp -273.15).toFixed(0)}}</p>
-    <p></p> -->
-
-    <div class="row m-0 mt-4">
+    <div class="row m-0 mt-5">
       <div class="col-12 d-flex justify-content-center align-items-center">
         <img src="./assets/icon_mostly_sunny.png" alt="" />
       </div>
@@ -75,7 +117,9 @@
 
     <div class="row m-0 mt-4">
       <div class="col-12 d-flex justify-content-center align-items-center">
-        <div class="deg-87">{{(getCity['main']?.temp -273.15).toFixed(0)}}</div>
+        <div class="deg-87">
+          {{ (getCity["main"]?.temp - 273.15).toFixed(0) }}
+        </div>
         <div class="cel-far mt-3 p-2">
           <button class="c">&#176;C</button> <button class="c">&#176;F</button>
         </div>
@@ -92,9 +136,9 @@
     <!-- home end -->
 
     <!-- footer start -->
-    <div class="footer pb-3" style="width: 95%; margin: auto ">
-      <div class="row m-0 mt-40px d-flex justify-content-space-around">
-        <div class="col-12 col-md-2 p-0">
+    <div class="footer pb-3" style="width: 95%; margin: auto;">
+      <div class="row m-0 mt-40px d-flex justify-content-space-around  footer-row">
+        <div class="col-2 col-md-2 p-0">
           <div class="row m-0">
             <div class="col-2">
               <img src="./assets/icon_temperature_info.png" alt="" />
@@ -105,15 +149,18 @@
                   <span class="Winds" id="Min">Min - Max</span>
                 </div>
                 <div class="col-12 p-1">
-                  <p id="Min-deg">{{(getCity['main'].temp_min -273.15).toFixed(0)}}-{{(getCity['main'].temp_max
-                    -273.15).toFixed(0)}}</p>
+                  <p id="Min-deg">
+                    {{ (getCity["main"].temp_min - 273.15).toFixed(0) }}-{{
+                      (getCity["main"].temp_max - 273.15).toFixed(0)
+                    }}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-2 p-0">
+        <div class="col-4 col-md-2 p-0">
           <div class="row m-0">
             <div class="col-2">
               <img src="./assets/icon_precipitation_info.png" alt="" />
@@ -121,17 +168,24 @@
             <div class="col-10">
               <div class="row m-0 p-1">
                 <div class="col-12 p-1">
-                  <span class="Winds" style="display: inline-block; margin-left: 10px" id="Min">Precipitation</span>
+                  <span
+                    class="Winds"
+                    style="display: inline-block; margin-left: 10px"
+                    id="Min"
+                    >Precipitation</span
+                  >
                 </div>
                 <div class="col-12 p-1">
-                  <p id="Precipitation-per" style="margin-left: 10px">{{getCity['main'].pressure}}</p>
+                  <p id="Precipitation-per" style="margin-left: 10px">
+                    {{ getCity["main"].pressure }}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-2 p-0">
+        <div class="col-4 col-md-2 p-0">
           <div class="row m-0">
             <div class="col-2">
               <img src="./assets/icon_humidity_info.png" alt="" />
@@ -142,14 +196,14 @@
                   <span class="Winds" id="Humidity">Humidity</span>
                 </div>
                 <div class="col-12 p-1">
-                  <p id="Humidity-perc">{{getCity['main'].humidity}}</p>
+                  <p id="Humidity-perc">{{ getCity["main"].humidity }}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-2 p-0">
+        <div class="col-4 col-md-2 p-0">
           <div class="row m-0">
             <div class="col-2">
               <img src="./assets/icon_wind_info.png" alt="" />
@@ -157,17 +211,24 @@
             <div class="col-10">
               <div class="row m-0">
                 <div class="col-12 p-1">
-                  <span class="Winds" id="Wind" style="display: inline-block; margin-left: 10px">Wind</span>
+                  <span
+                    class="Winds"
+                    id="Wind"
+                    style="display: inline-block; margin-left: 10px"
+                    >Wind</span
+                  >
                 </div>
                 <div class="col-12 p-1">
-                  <p id="Min-deg" style="margin-left: 10px">{{getCity['wind'].speed}} mph</p>
+                  <p id="Min-deg" style="margin-left: 10px">
+                    {{ getCity["wind"].speed }} mph
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-2 p-0">
+        <div class="col-4 col-md-2 p-0">
           <div class="row m-0">
             <div class="col-2">
               <img src="./assets/icon_visibility_info.png" alt="" />
@@ -175,10 +236,17 @@
             <div class="col-10">
               <div class="row m-0">
                 <div class="col-12 p-1">
-                  <span class="Winds" style="display: inline-block; margin-left: 10px" id="Visibility">Visibility</span>
+                  <span
+                    class="Winds"
+                    style="display: inline-block; margin-left: 10px"
+                    id="Visibility"
+                    >Visibility</span
+                  >
                 </div>
                 <div class="col-12 p-1">
-                  <p id="Visibility-mph" style="margin-left: 10px">{{getCity.visibility}} mph </p>
+                  <p id="Visibility-mph" style="margin-left: 10px">
+                    {{ getCity.visibility }} mph
+                  </p>
                 </div>
               </div>
             </div>

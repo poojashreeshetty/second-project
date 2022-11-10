@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WeatherService } from '../weather.service';
 
+declare function greet(): any;
 @Component({
   selector: 'app-weather-home',
   templateUrl: './weather-home.component.html',
@@ -13,19 +14,15 @@ export class WeatherHomeComponent implements OnInit {
   routerUrl!: string;
   cityArray = [];
 
-
-  constructor(public weatherservice: WeatherService, public router: Router) { }
+  constructor(public weatherservice: WeatherService, public router: Router) {}
 
   ngOnInit(): void {
+    
     this.date = new Date();
-    this.getCity = JSON.parse((localStorage.getItem('weatherDetail') || '{}'));
+    this.getCity = JSON.parse(localStorage.getItem('weatherDetail') || '{}');
     console.log(this.getCity);
     console.log(this.router.url);
     this.routerUrl = this.router.url;
-
-
-
-
   }
 
   //call api by using http
@@ -50,20 +47,15 @@ export class WeatherHomeComponent implements OnInit {
       // this.router.navigate(['weather-home']).then(() => {
       //   window.location.reload();
       // });
-      this.getCity = JSON.parse((localStorage.getItem('weatherDetail') || '{}'));
+      this.getCity = JSON.parse(localStorage.getItem('weatherDetail') || '{}');
       console.log(this.getCity);
     });
   }
-
 
   addFav(data: any) {
     console.log(data);
 
     this.cityArray.push(data);
     console.log(this.cityArray);
-
-
   }
-
-
 }
