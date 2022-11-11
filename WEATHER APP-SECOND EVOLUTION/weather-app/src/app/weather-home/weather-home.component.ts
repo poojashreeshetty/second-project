@@ -13,6 +13,9 @@ export class WeatherHomeComponent implements OnInit {
   routerUrl!: string;
   favCityArray = [];
   recentlySerached = [];
+  temp: string;
+  
+
   constructor(public weatherservice: WeatherService, public router: Router) { }
 
   ngOnInit(): void {
@@ -36,6 +39,7 @@ export class WeatherHomeComponent implements OnInit {
     // }
     console.log(this.router.url);
     this.routerUrl = this.router.url;
+    this.temp=(this.getCity['main'].temp -273.15).toFixed(0);
   }
 
   //call api by using http
@@ -90,5 +94,12 @@ export class WeatherHomeComponent implements OnInit {
 
   }
 
+  cel(){
+    this.temp=(this.getCity['main'].temp -273.15).toFixed(0)
+  }
+
+  far(){
+    this.temp=(this.getCity['main'].temp).toFixed(0)
+  }
 
 }
