@@ -30,6 +30,7 @@ export class RecentSearchComponent implements OnInit {
     if (recent) {
       this.recentSearched = [...new Map(recent.map((m) => [m.id, m])).values()];
       console.log(this.recentSearched)
+      localStorage.setItem('recentlySerached', JSON.stringify(this.recentSearched));
     }
   }
 }

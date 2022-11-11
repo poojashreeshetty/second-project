@@ -62,8 +62,20 @@
       </div>
     </div> -->
     <!-- nothing end -->
+    <!-- nothing image -->
+    <div class="row" *ngIf="favCity.length<=0">
+      <div class="col-12 d-flex justify-content-center align-items-center nothing">
+        <img src="./assets/icon_nothing.png" alt="" />
+      </div>
+    </div>
 
-    <div class="city-added-remove">
+    <div class="row" *ngIf="favCity.length<=0">
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <p class="No-favourite-added">No Favourites added</p>
+      </div>
+    </div>
+    <!-- nothing end -->
+    <div class="city-added-remove" *ngIf="favCity.length>0">
       <div>
         <p class="city-added-text" *ngIf="favCity">{{favCity.length}} City added as favourite</p>
       </div>
@@ -85,7 +97,10 @@
             <span class="related-msg">Mostly Sunny</span>
           </td>
 
-          <td class="related-fav"><i class="bi bi-heart"></i></td>
+          <!-- <td class="related-fav"><i class="bi bi-heart"></i></td> -->
+          <i class="bi bi-heart-fill relative fillIcon">
+
+          </i>
         </tr>
       </table>
     </div>

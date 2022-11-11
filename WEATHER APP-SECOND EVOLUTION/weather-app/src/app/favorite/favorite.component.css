@@ -224,6 +224,11 @@ tr {
   text-align: end;
 }
 
+.fillIcon {
+  color: #ffd639;
+  font-size: 20px;
+}
+
 /* modal */
 .are-you-sure-text {
 

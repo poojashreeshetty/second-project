@@ -2,22 +2,32 @@
   <div class="container">
     <!-- header start -->
     <div class="row m-0 pt-5">
-      <div class="col-12 col-md-6 p-0 d-flex align-items-center img-icon">
+      <div class="col-7 col-md-6 p-0 d-flex align-items-center img-icon">
         <img src="./assets/logo_web.png " alt="" />
       </div>
 
       <!-- search bar -->
-      <div class="col-12 col-md-6 p-0 search-input">
+      <div class="col-5 col-md-6 p-0 search-input">
         <div class="serach-city">
           <input type="text" #cityname placeholder="Search city" />
           <mat-icon matPrefix class="serach-bar" (click)="onClickCity(cityname.value)">search</mat-icon>
         </div>
       </div>
     </div>
+
+    <div class="row m-0 mt-4 display-mobile">
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <a class="nav-link" href="#">
+          {{ date | date: "E" }},{{
+          date | date: "mediumDate"
+          }}&nbsp;&nbsp;{{ date | date: "shortTime" }}
+          <span class="sr-only"></span></a>
+      </div>
+    </div>
     <!-- header end -->
 
-    <div class="row m-0 mt-5 relative">
-      <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="row m-0 mt-5 relative mobile-margin tab-display">
+      <nav class="navbar navbar-expand-lg navbar-light ">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,7 +45,7 @@
             <li class="nav-item">
               <a class=" nav-link" routerLink="/recent-serach">RECENT SEARCH <span class="sr-only"></span></a>
             </li>
-            <li class="nav-item ms-auto">
+            <li class="nav-item ms-auto display-desktop">
               <a class="nav-link" href="#">
                 {{ date | date: "E" }},{{
                 date | date: "mediumDate"
@@ -55,7 +65,7 @@
       </div>
 
       <div class="row m-0 mt-3">
-        <div class="col-12 p-0">
+        <div class="col-12 p-0 myfav">
           <i class="bi bi-heart relative" *ngIf='!getCity?.isFav && getCity || favCityArray.length==0 && getCity'
             (click)="addFav(getCity)">
             <span class="Add-to-favourite">
@@ -101,7 +111,7 @@
     <!-- home end -->
 
     <!-- footer start -->
-    <div class="footer pb-3" style="width: 95%; margin: auto ">
+    <div class="footer pb-3 display-desktop" style="width: 95%; margin: auto ">
       <div class="row m-0 mt-40px d-flex justify-content-space-around">
         <div class="col-12 col-md-2 p-0">
           <div class="row m-0">
@@ -114,8 +124,8 @@
                   <span class="Winds" id="Min">Min - Max</span>
                 </div>
                 <div class="col-12 p-1">
-                  <p id="Min-deg">{{(getCity?.main.temp_min -273.15).toFixed(0)}}-{{(getCity?.main.temp_max
-                    -273.15).toFixed(0)}}</p>
+                  <p id="Min-deg">{{(getCity?.main.temp_min -273.15).toFixed(0)}}&#176;-{{(getCity?.main.temp_max
+                    -273.15).toFixed(0)}}&#176;</p>
                 </div>
               </div>
             </div>
@@ -151,7 +161,7 @@
                   <span class="Winds" id="Humidity">Humidity</span>
                 </div>
                 <div class="col-12 p-1">
-                  <p id="Humidity-perc">{{getCity?.main.humidity}}</p>
+                  <p id="Humidity-perc">{{getCity?.main.humidity}}&#176;</p>
                 </div>
               </div>
             </div>
@@ -187,7 +197,7 @@
                   <span class="Winds" style="display: inline-block; margin-left: 10px" id="Visibility">Visibility</span>
                 </div>
                 <div class="col-12 p-1">
-                  <p id="Visibility-mph" style="margin-left: 10px">{{getCity?.visibility}} mph </p>
+                  <p id="Visibility-mph" style="margin-left: 10px">{{getCity?.main.humidity}} mph </p>
                 </div>
               </div>
             </div>
@@ -197,5 +207,7 @@
     </div>
 
     <!-- footer end -->
+
+
   </div>
 </div>

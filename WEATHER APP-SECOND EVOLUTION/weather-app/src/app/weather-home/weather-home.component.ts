@@ -27,12 +27,13 @@ export class WeatherHomeComponent implements OnInit {
 
     // if fav-city not available then by defalut we should show add to fav button
     console.log(this.favCityArray.length <= 0)
-    if (this.favCityArray.length <= 0) {
-      this.getCity['isFav'] = false;
-    } else {
-      this.getCity['isFav'] = true;
+    // if (this.favCityArray.length <= 0) {
+    //   this.getCity['isFav'] = false;
+    // }
+    //  else {
+    //   this.getCity['isFav'] = true;
 
-    }
+    // }
     console.log(this.router.url);
     this.routerUrl = this.router.url;
   }
@@ -51,14 +52,15 @@ export class WeatherHomeComponent implements OnInit {
 
   //     });
   // }
+
   onClickCity(cityname: any) {
     // console.log(cityname);
     this.weatherservice.getApi(cityname).subscribe((results) => {
-      // console.log(results);
+      console.log(results);
       results['isFav'] = false;
       localStorage.setItem('weatherDetail', JSON.stringify(results));
 
-      let recent = JSON.parse(localStorage.getItem('recentlySerached'));
+      let recent = JSON.parse(localStorage.getItem('recentlySerached') || '[]');
       this.recentlySerached.push(results)
       console.log("recent............................", recent)
       // stored only recente 5 data
@@ -84,7 +86,7 @@ export class WeatherHomeComponent implements OnInit {
     localStorage.setItem('weatherDetail', JSON.stringify(data));
     this.favCityArray.push(data)
     console.log(this.favCityArray)
-    localStorage.setItem('cityData', JSON.stringify(this.favCityArray));
+    localStorage.setItem('cityData', JSON.stringify(this.favCityArray));  //fav DATA
 
   }
 
