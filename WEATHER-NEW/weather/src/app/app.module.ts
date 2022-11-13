@@ -5,16 +5,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { FavouriteComponent } from './favourite/favourite.component';
+import { RemoveAllComponent } from './remove-all/remove-all.component';
+import { RecentSearchComponent } from './recent-search/recent-search.component';
+import { ClearAllComponent } from './clear-all/clear-all.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    FavouriteComponent,
+    RemoveAllComponent,
+    RecentSearchComponent,
+    ClearAllComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,150 @@
-.main-home{
-background-image: url("/assets/background.png");
-background-size: cover;
-background-repeat: no-repeat;
-min-height: 100vh;
+.location {
+  margin-top: 3%;
+  padding: 0 10px;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+.mat-icon {
+  color: white;
+}
+.add-to-fav-text {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 20%;
+  padding-left: 5px;
+}
+.fav-and-text {
+  padding: 0 10px;
+  margin-top: 1%;
+  position: relative;
+}
+
+.mostly-sunny-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9%;
+}
+.mostly-sunny-div img {
+  width: 100px;
+}
+.temp-cel {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 75px;
+}
+
+button {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: transparent;
+  padding: 6px;
+  cursor: pointer;
+  margin-top: 1%;
+}
+
+button:not(:last-child) {
+  border-right: none;
+}
+
+button:hover {
+  background-color: white;
+  color: #e32843;
+}
+
+.c {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 19px;
+  /* position: absolute; */
+}
+.cel-far-btn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+}
+
+.mostly-sunny-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 25px;
+  text-align: center;
+  margin-top: 1%;
+}
+.line-copy {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  margin-top: 5px;
+  margin-top: 5%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 38px;
+}
+
+.footer-1,
+.footer-2,
+.footer-3,
+.footer-4,
+.footer-5 {
+  display: flex;
+}
+
+.footer-1-image img,
+.footer-2-image img,
+.footer-3-image img,
+.footer-4-image img,
+.footer-5-image img {
+  padding-right: 11px;
+}
+
+.footer-1-content-info1,
+.footer-2-content-info2,
+.footer-3-content-info3,
+.footer-4-content-info4,
+.footer-5-content-info5 {
+  padding-top: 10px;
+}
+
+#Min-deg{
+  color: #FFFFFF;
+  font-family: Roboto;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+#Visibility-mph{
+  color: #FFFFFF;
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container{
+    width:100%;
+  }
 }
