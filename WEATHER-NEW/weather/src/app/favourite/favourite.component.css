@@ -90,3 +90,21 @@
   line-height: 21px;
   opacity: 0.9;
 }
+.back-arrow{
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    width: 100%;
+  }
+.fav-head{
+  display: none;
+}
+.back-arrow{
+  background-color:white;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+}
+}

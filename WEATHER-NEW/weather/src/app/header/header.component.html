@@ -8,27 +8,39 @@
   </div>
 </div>
 
-<div class="ham-icon">
-  <span></span>
-  <span></span>
-  <span></span>
+<div id="menu" (click)="openMenu()" [class.hanburgerClass]="hamburger_icon_variable">
+  <div id="bar1" class="bar"></div>
+  <div id="bar2" class="bar"></div>
+  <div id="bar3" class="bar"></div>
 </div>
-<div class="nav-bar-mobile">
+
+
+
+
+<div class="nav-bar-mobile" [class.menuClass]="menuVariable">
   <div class="nav-bar-second-div">
-    <div class="home-mobile">HOME</div>
-    <div class="home-mobile">FAVOURITE</div>
-    <div class="home-mobile">RECENT SEARCH</div>
+    <div class="home-mobile" routerLink="/home">HOME</div>
+    <div class="home-mobile" routerLink="/favourite">FAVOURITE</div>
+    <div class="home-mobile" routerLink="/recent-serach">RECENT SEARCH</div>
   </div>
 </div>
 
 <div class="header-second">
   <div class="nav-bar">
-    <div class="home">HOME</div>
-    <div class="home">FAVOURITE</div>
-    <div class="home">RECENT SEARCH</div>
+    <p class="home" routerLink="/home" [routerLinkActive]="active">HOME</p>
+    <p class="home" routerLink="/favourite" [routerLinkActive]="active">
+      FAVOURITE
+    </p>
+    <p class="home" routerLink="/recent-serach" [routerLinkActive]="active">
+      RECENT SEARCH
+    </p>
   </div>
 
-  <div class="date">Wed, 28 Nov 2018 11:35 AM</div>
+  <div class="date">
+    <p>Wed,28 Nov 2018 11:35 AM</p>
+  </div>
 </div>
+
+<div id="mobile-date">WED, 28 NOV 2018 11:35 AM</div>
 
 <div class="line-copy"></div>
