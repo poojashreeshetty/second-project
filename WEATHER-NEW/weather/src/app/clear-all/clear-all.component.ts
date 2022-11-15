@@ -11,5 +11,8 @@ export class ClearAllComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  removeall(){
+    localStorage.removeItem('recentfinalkey');
+    window.location.reload();
+  }
 }

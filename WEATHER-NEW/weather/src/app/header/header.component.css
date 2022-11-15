@@ -5,11 +5,11 @@
 }
 
 .search-input {
-  width: 42%;
+  width: 45%;
   position: relative;
 }
 .serach-city-input {
-  padding: 15px;
+  padding: 12px;
   box-sizing: border-box;
   /* height: 100.54%; */
   width: 100%;
@@ -29,7 +29,7 @@
 ::placeholder {
   opacity: 1;
   /* font-weight: 10px; */
-  color: #ffffff;
+  color: #ffffff !important;
   font-family: Roboto;
   font-size: 16px;
   letter-spacing: 0;
@@ -94,8 +94,12 @@
 }
 
 
-
-
+input[type="text"] {
+  color: white;
+}
+input.serach-city-input {
+  outline: none;
+}
 /* @media only screen and (max-width: 709px) {
   .home {
     padding-right: 15px;
@@ -130,6 +134,7 @@
   .serach-city-input {
     background: transparent;
     border: none;
+    display: none;
   }
   ::-webkit-input-placeholder {
     color: transparent;

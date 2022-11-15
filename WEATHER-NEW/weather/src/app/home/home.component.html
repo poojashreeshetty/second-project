@@ -2,12 +2,12 @@
   <app-header></app-header>
 
   <!-- location  -->
-  <div class="location">Udupi, Karnataka</div>
+  <div class="location">{{getCityResults.name}}</div>
 
   <!-- favourite  -->
   <div class="fav-and-text">
-    <mat-icon>favorite_border</mat-icon>
-    <span class="add-to-fav-text">Add to favourite</span>
+    <mat-icon  [ngClass]="color" [innerText]="border" (click)="onClickFav()" ></mat-icon>
+    <span class="add-to-fav-text"  [innerText]="text" [ngClass]="color" (click)="onClickFav()"></span>
   </div>
 
   <!-- mostly-sunny  -->
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="mostly-sunny-text">Mostly Sunny</div>
+  <div class="mostly-sunny-text">{{getCityResults?.weather.description}}</div>
 
   <!-- hr  -->
   <div class="line-copy1"></div>

@@ -1,49 +1,56 @@
+
+<div class="back-arrow">
+  <div class="arrow-back-div"><mat-icon routerLink="/home">arrow_back</mat-icon></div>
+  <div class="recent-head-div">
+    <p class="recent-head-fvt">Recent Search</p>
+  </div>
+  <div class="search-bar-div">
+    <mat-icon class="serach-bar-icon" >search</mat-icon>
+  </div>
+</div>
+
 <div class="main-container">
-  <app-header></app-header>
+  <div class="fav-head">
+    <app-header></app-header>
+  </div>
+
+
+  <div *ngIf="fav ; then Avail ; else notAvail"></div>
+
+
+  <ng-template #notAvail>
+
   <!-- nothing img  -->
-  <!-- <div class="no-fvt-img">
+  <div class="no-fvt-img">
     <img src="./assets/icon_nothing.png" alt="" />
   </div>
   <div class="no-fvt-text-div">
     <p class="No-favourite-added">No Favourites added</p>
-  </div> -->
+  </div>
   <!-- nthng-img end  -->
+</ng-template>
 
 
-
-
+<ng-template #Avail>
   <div class="added-as-favt-remove-text-div">
     <div>You recently searched for</div>
     <div (click)="opendilog()">Clear All</div>
   </div>
 
-  <div class="fvt-data-added-div">
-    <div class="location-status">Bengaluru, Karnataka</div>
+  <div class="fvt-data-added-div" *ngFor="let data of getfinaldetils">
+    <div class="location-status">{{data.name}}</div>
     <div class="data-status">
       <div class="img-data">
         <img src="./assets/icon_mostly_sunny_small.png" alt="" />
       </div>
       <div class="deg-data">
-        <span class="deg-data-number">37&#176;</span
+        <span class="deg-data-number">{{(data.main.temp -273.15).toFixed(0)}}&#176;</span
         ><span class="celcius-data">C</span>
       </div>
       <div class="msg-data">Mostly Sunny</div>
     </div>
     <div class="icon-data"><mat-icon>favorite_border</mat-icon></div>
   </div>
-
-  <div class="fvt-data-added-div">
-    <div class="location-status">Bengaluru, Karnataka</div>
-    <div class="data-status">
-      <div class="img-data">
-        <img src="./assets/icon_mostly_sunny_small.png" alt="" />
-      </div>
-      <div class="deg-data">
-        <span class="deg-data-number">37&#176;</span
-        ><span class="celcius-data">C</span>
-      </div>
-      <div class="msg-data">Mostly Sunny</div>
-    </div>
-    <div class="icon-data"><mat-icon>favorite_border</mat-icon></div>
-  </div>
+</ng-template>
+  
 </div>

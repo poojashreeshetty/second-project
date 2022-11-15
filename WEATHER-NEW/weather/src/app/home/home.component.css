@@ -35,7 +35,7 @@
   margin-top: 10%;
 }
 .mostly-sunny-div img {
-  width: 100px;
+  width: 90px;
 }
 .temp-cel {
   color: #ffffff;
@@ -161,6 +161,24 @@ button:hover {
 .mobile-fvt {
   display: none;
 }
+
+
+/* favt color  */
+.no-color{
+ color:white
+}
+.color{
+  color: yellow;
+}
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 1006px) {
   #Min-deg {
     width: 103%;

@@ -1,0 +1,58 @@
+//first step
+//create api key and url in environment
+//in environment.ts
+export const environment = {
+  production: false,
+  API_KEY:'0c3a9586b5ce98868d5fda6f6b4e8eef',
+  API_URL:'https://api.openweathermap.org/data/2.5'
+
+};
+
+
+//next by using the service use that api
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+
+const API_URL = environment.API_URL;
+const API_KEY = environment.API_KEY;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class WeatherServiceService {
+  constructor(public httpClient: HttpClient) {}
+
+  getApi(citydata: any) {
+    return this.httpClient.get(
+      `${API_URL}/weather?q=${citydata}&appid=${API_KEY}`
+    );
+  }
+}
+
+
+//first requiremnt is when we click the serach input should get the api
+//so using reference variable
+<input type="text"  #cityname placeholder="Search city" class="serach-city-input" />
+    <mat-icon class="serach-bar-icon" (click)="OnclickCity(cityname.value)">search</mat-icon>
+    
+
+
+//call that method in header.ts
+OnclickCity(citydata:any){ //citydata=mumbai
+    this.weatherService.getApi(citydata).subscribe((cityResults)=>{ //using service instance , getApi() call--cityname hako, then it call the service
+      console.log(cityResults);
+      
+    })
+  }
+
+
+getApi(cityname: any) { //it will give all the data of cityname=mumbai
+    return this.httpClient.get(
+      `${API_URL}/weather?q=${citydata}&appid=${API_KEY}`
+    );
+   
+  }
+  
+  
+//then in header.ts,subscribe it 

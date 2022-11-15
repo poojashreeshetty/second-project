@@ -91,3 +91,76 @@
   line-height: 21px;
   opacity: 0.9;
 }
+.back-arrow{
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .main-container {
+    width: 92%;
+  }
+  .fav-head {
+    display: none;
+  }
+  .back-arrow {
+    background-color: white;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .recent-head-fvt {
+    color: black;
+    font-family: Roboto;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 21px;
+  }
+
+  .recent-head-div {
+    width: 55%;
+    margin-top: 2%;
+  }
+  .arrow-back-div {
+    margin-left: 3%;
+  }
+  .search-bar-div {
+    margin-right: 3%;
+  }
+  .fvt-data-added-div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: -28px;
+  }
+  .icon-data {
+    position: absolute;
+    right: 1%;
+    top: 39%;
+  }
+  .location-status {
+    position: absolute;
+    left: 1%;
+    top: 6%;
+  }
+  .data-status {
+    position: absolute;
+    left: 1%;
+    top: 35%;
+  }
+  .img-data img {
+    width: 84%;
+  }
+  .deg-data-number {
+    font-size: 20px;
+  }
+  span.celcius-data {
+    font-size: 14px;
+  }
+  .msg-data {
+    font-size: 14px;
+  }
+  .added-as-favt-remove-text-div{
+    margin-top: 26px;
+  }
+}

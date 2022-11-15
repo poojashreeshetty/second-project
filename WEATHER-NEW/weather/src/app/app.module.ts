@@ -11,6 +11,8 @@ import { FavouriteComponent } from './favourite/favourite.component';
 import { RemoveAllComponent } from './remove-all/remove-all.component';
 import { RecentSearchComponent } from './recent-search/recent-search.component';
 import { ClearAllComponent } from './clear-all/clear-all.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -21,13 +23,14 @@ import { ClearAllComponent } from './clear-all/clear-all.component';
     FavouriteComponent,
     RemoveAllComponent,
     RecentSearchComponent,
-    ClearAllComponent
+    ClearAllComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

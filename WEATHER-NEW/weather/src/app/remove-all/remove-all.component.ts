@@ -11,5 +11,8 @@ export class RemoveAllComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  removeall(){
+    localStorage.removeItem('fvtfinalkey');
+    window.location.reload();
+  }
 }
