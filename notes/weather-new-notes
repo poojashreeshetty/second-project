@@ -49,10 +49,21 @@ OnclickCity(citydata:any){ //citydata=mumbai
 
 getApi(cityname: any) { //it will give all the data of cityname=mumbai
     return this.httpClient.get(
-      `${API_URL}/weather?q=${citydata}&appid=${API_KEY}`
+      `${API_URL}/weather?q=${cityname}&appid=${API_KEY}`
     );
    
   }
   
   
 //then in header.ts,subscribe it 
+//we can get the results in console,
+//we have to set the results in localstorage
+//in cityResults we have details of mmubai
+//then set that in localstorage
+
+OnclickCity(cityname: any) {
+    this.weatherService.getApi(cityname).subscribe((cityResults) => {
+      console.log(cityResults);
+      localStorage.setItem('cityResultsSetLocal', JSON.stringify(cityResults));
+    });
+  }

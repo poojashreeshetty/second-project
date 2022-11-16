@@ -45,14 +45,29 @@
 }
 .data-status {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
+  width:400px;
 }
 .img-data,
 .deg-data,
 .msg-data {
   padding: 0 9px;
+
 }
+.img-data img{
+  width:38px;
+  /* margin-right: 20px; */
+
+}
+.deg-data{
+  width:58px;
+  margin-right: 25px;
+}
+/* .msg-data{
+  width:125px;
+} */
+
 
 .location-status {
   color: #ffffff;
@@ -62,6 +77,8 @@
   letter-spacing: 0;
   line-height: 19px;
   padding-left: 20px;
+  width:200px
+
 }
 
 .icon-data {
@@ -75,6 +92,7 @@
   font-weight: 500;
   letter-spacing: 0;
   line-height: 38px;
+  /* width:38px; */
 }
 .celcius-data {
   color: #ffffff;
@@ -99,6 +117,9 @@
   color:yellow ;
 }
 
+.img-data img {
+  width: 68px;
+}
 @media only screen and (max-width: 600px) {
   .main-container {
     width: 92%;
@@ -148,14 +169,16 @@
     position: absolute;
     left: 1%;
     top: 6%;
+    color: #FFE539;
+
   }
   .data-status {
     position: absolute;
     left: 1%;
-    top: 35%;
+    top: 16%;
   }
   .img-data img {
-    width: 84%;
+    width: 68px;
   }
   .deg-data-number {
     font-size: 20px;

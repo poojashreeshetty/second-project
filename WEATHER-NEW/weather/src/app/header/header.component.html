@@ -3,7 +3,7 @@
     <img src="./assets/logo_web.png" alt="" />
   </div>
   <div class="search-input">
-    <input type="text"  #cityname placeholder="Search city" class="serach-city-input" />
+    <input type="text"  #cityname placeholder="Search city" class="serach-city-input" (keydown)="enter($event,cityname.value)" />
     <mat-icon class="serach-bar-icon" (click)="OnclickCity(cityname.value)">search</mat-icon>
   </div>
 </div>
@@ -34,10 +34,13 @@
   </div>
 
   <div class="date">
-    <p>Wed,28 Nov 2018 11:35 AM</p>
+    <p>{{ date | date: "E" }},{{ date | date: "mediumDate" }}&nbsp;&nbsp;{{
+      date | date: "shortTime"
+    }}</p>
   </div>
 </div>
 
-<div id="mobile-date">WED, 28 NOV 2018 11:35 AM</div>
+<div id="mobile-date">{{ date | date: "E" | uppercase}},{{ date | date: "mediumDate" | uppercase}}&nbsp;&nbsp;{{
+  date | date: "shortTime" | uppercase}}</div>
 
 <div class="line-copy"></div>

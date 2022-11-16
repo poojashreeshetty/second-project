@@ -37,17 +37,17 @@
     <div (click)="opendilog()">Clear All</div>
   </div>
 
-  <div class="fvt-data-added-div" *ngFor="let data of getfinaldetils">
+  <div class="fvt-data-added-div" *ngFor="let data of getfinaldetils" (click)="recentback(data)">
     <div class="location-status">{{data.name}}</div>
     <div class="data-status">
       <div class="img-data">
-        <img src="./assets/icon_mostly_sunny_small.png" alt="" />
+        <img src="http://openweathermap.org/img/wn/{{this.data['weather'][0].icon}}@2x.png"  alt="" />
       </div>
       <div class="deg-data">
         <span class="deg-data-number">{{(data.main.temp -273.15).toFixed(0)}}&#176;</span
         ><span class="celcius-data">C</span>
       </div>
-      <div class="msg-data">Mostly Sunny</div>
+      <div class="msg-data">{{data['weather']['0'].description | titlecase}}</div>
     </div>
     <div class="icon-data"><mat-icon>favorite_border</mat-icon></div>
   </div>

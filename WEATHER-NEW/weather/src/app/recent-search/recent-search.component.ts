@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ClearAllComponent } from '../clear-all/clear-all.component';
 
 @Component({
@@ -10,7 +11,7 @@ import { ClearAllComponent } from '../clear-all/clear-all.component';
 export class RecentSearchComponent implements OnInit {
   getfinaldetils: any;
   fav:any;
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,public router:Router) {}
 
   ngOnInit(): void {
     this.getfinaldetils= (localStorage.getItem('recentfinalkey'));
@@ -22,11 +23,19 @@ export class RecentSearchComponent implements OnInit {
     else{
       this.fav=false;
     }
+
+    localStorage.setItem('url',JSON.stringify(this.router.url));
+
   }
 
   opendilog(): void {
     const dialogRef = this.dialog.open(ClearAllComponent, {
       // width: '250px',
     });
+  }
+
+  recentback(data:any){
+    this.router.navigate(['home']);
+    localStorage.setItem('cityDetails',JSON.stringify(data))
   }
 }

@@ -2,128 +2,118 @@
   <app-header></app-header>
 
   <!-- location  -->
-  <div class="location">{{getCityResults.name}}</div>
+  <div class="location">{{ getCityResults.name }}</div>
 
   <!-- favourite  -->
   <div class="fav-and-text">
-    <mat-icon  [ngClass]="color" [innerText]="border" (click)="onClickFav()" ></mat-icon>
-    <span class="add-to-fav-text"  [innerText]="text" [ngClass]="color" (click)="onClickFav()"></span>
+    <mat-icon
+      [ngClass]="color"
+      [innerText]="border"
+      (click)="onClickFav()"
+    ></mat-icon>
+    <span
+      class="add-to-fav-text"
+      [innerText]="text"
+      [ngClass]="color"
+      (click)="onClickFav()"
+    ></span>
   </div>
 
   <!-- mostly-sunny  -->
   <div class="mostly-sunny-div">
-    <img src="./assets/icon_mostly_sunny.png" alt="" />
+    <img
+      src="http://openweathermap.org/img/wn/{{
+        this.getCityResults['weather'][0].icon
+      }}@2x.png"
+      alt=""
+    />
   </div>
 
   <div class="cel-far-btn-div">
-    <div class="temp-cel">87</div>
+    <div class="temp-cel">{{ temperature }}</div>
     <div id="btn">
-      <button class="c">&#176;C</button><button class="c">&#176;F</button>
+      <button class="c" (click)="cel()" [ngClass]="active">&#176;C</button
+      ><button class="c" (click)="far()" [ngClass]="active1">&#176;F</button>
     </div>
   </div>
 
-  <div class="mostly-sunny-text">{{getCityResults?.weather.description}}</div>
+  <div class="mostly-sunny-text">
+    {{ getCityResults["weather"]["0"].description | titlecase }}
+  </div>
 
-  <!-- hr  -->
-  <div class="line-copy1"></div>
-
-  <!-- footer  -->
-  <div class="footer">
-    <!-- footer 1  -->
-    <div class="footer-1">
-      <div class="footer-1-image">
-        <img src="./assets/icon_temperature_info.png" alt="" />
-      </div>
-
-      <div class="footer-1-content">
-        <div class="footer-1-content-info1">
-          <p id="Min-deg">Min-Max</p>
+  <hr />
+  
+  <div id="ft">
+    <div class="footer">
+      <!-- 1 -->
+     
+      <div class="foot">
+        <div class="footer-img">
+          <img src="/assets/icon_temperature_info.png" />
         </div>
 
-        <div class="footer-1-content-info1">
-          <p id="Visibility-mph">27-28</p>
+        <div class="abc">
+          <div class="footer-text1">Min - Max</div>
+
+          <div class="footer-text2">
+            {{ (getCityResults["main"].temp_min - 273.15).toFixed(0) }}&#176;-{{
+              (getCityResults["main"].temp_max - 273.15).toFixed(0)
+            }}&#176;
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- footer 2  -->
+      <!-- 2 -->
 
-    <div class="footer-2">
-      <div class="footer-2-image">
-        <img src="./assets/icon_precipitation_info.png" alt="" />
-      </div>
-      <div class="footer-2-content">
-        <div class="footer-2-content-info2">
-          <p
-            class="Winds"
-            style="display: inline-block; margin-left: 10px"
-            id="Min-deg"
-            >Precipitation</p
-          >
-        </div>
-        <div class="footer-2-content-info2">
-          <p id="Visibility-mph" style="margin-left: 10px">100</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- footer 3  -->
-    <div class="footer-3">
-      <div class="footer-3-image">
-        <img src="./assets/icon_humidity_info.png" alt="" />
-      </div>
-
-      <div class="footer-3-content">
-        <div class="footer-3-content-info3">
-          <p class="Winds" id="Min-deg">Humidity</p>
+      <div class="foot">
+        <div class="footer-img">
+          <img src="/assets/icon_precipitation_info.png" />
         </div>
 
-        <div class="footer-2-content-info2">
-          <p id="Visibility-mph">100</p>
+        <div class="abc">
+          <div class="footer-text1">Pressure</div>
+
+          <div class="footer-text2">{{ getCityResults["main"].pressure }}</div>
         </div>
       </div>
-    </div>
 
-    <!-- footer 4  -->
-    <div class="footer-4">
-      <div class="footer-4-image">
-        <img src="./assets/icon_wind_info.png" alt="" />
-      </div>
+      <!-- 3 -->
 
-      <div class="footer-4-content">
-        <div class="footer-4-content-info4">
-          <p
-            class="Winds"
-            id="Min-deg"
-            style="display: inline-block; margin-left: 10px"
-            >Wind</p
-          >
+      <div class="foot">
+        <div class="footer-img">
+          <img src="/assets/icon_humidity_info.png" />
         </div>
 
-        <div class="footer-4-content-info4">
-          <p id="Visibility-mph" style="margin-left: 10px">100 mph</p>
+        <div class="abc">
+          <div class="footer-text1">Humidity</div>
+
+          <div class="footer-text2">{{ getCityResults["main"].humidity }}%</div>
         </div>
       </div>
-    </div>
 
-    <!-- footer-5  -->
-    <div class="footer-5">
-      <div class="footer-5-image">
-        <img src="./assets/icon_visibility_info.png" alt="" />
-      </div>
+      <!-- 4 -->
 
-      <div class="footer-5-content">
-        <div class="footer-5-content-info2">
-          <p
-            class="Winds"
-            style="display: inline-block; margin-left: 10px"
-            id="Min-deg"
-            >Visibility</p
-          >
+      <div class="foot">
+        <div class="footer-img">
+          <img src="/assets/icon_wind_info.png" />
         </div>
 
-        <div class="footer-5-content-info5">
-          <p id="Visibility-mph" style="margin-left: 10px">10 mph</p>
+        <div class="abc">
+          <div class="footer-text1">Wind</div>
+
+          <div class="footer-text2">{{ getCityResults["wind"].speed }} mph</div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="footer-img">
+          <img src="/assets/icon_visibility_info.png" />
+        </div>
+
+        <div class="abc">
+          <div class="footer-text1">Visibility</div>
+
+          <div class="footer-text2">{{ getCityResults.visibility }} mph</div>
         </div>
       </div>
     </div>

@@ -14,11 +14,11 @@
   /* height: 100.54%; */
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 3px;
   background-color: transparent;
   z-index: 99999;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.116);
 }
 .serach-bar-icon {
   position: absolute;
@@ -130,6 +130,7 @@ input.serach-city-input {
   }
    }
 
+
 @media only screen and (max-width: 600px) {
   .serach-city-input {
     background: transparent;
@@ -170,9 +171,10 @@ input.serach-city-input {
 
     position: fixed;
     background-color: white;
-    width: 50%;
+    width: 75%;
     margin-top: -13%;
-    height: 455px;
+    height: 100%;
+    z-index: 1;
   }
 
   .home-mobile {
@@ -183,7 +185,7 @@ input.serach-city-input {
     width: 5%;
     height: 10%;
     /* margin: 30px 0 20px 20px; */
-    top: 35px;
+    top: 26px;
     left: 3%;
     cursor: pointer;
     z-index: 100;
@@ -220,7 +222,7 @@ input.serach-city-input {
     font-size: 14px;
     letter-spacing: 0;
     line-height: 15px;
-    margin-top: 6%;
+    margin-top: 20%;
   }
 }
 
