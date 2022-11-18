@@ -2,7 +2,7 @@
   border-bottom: 1px solid #2e6e9a;
   width: 100%;
   margin: auto;
-  margin-top: 35px;
+  margin-top: 75px;
   opacity: 0.6;
 }
 
@@ -34,7 +34,7 @@
   color: #49586b;
   text-align: center;
   font-size: 13px;
-  margin-top: 70px;
+  margin-top: 35px;
 }
 
 .navbar-maindiv1-tab{
@@ -106,5 +106,10 @@
 
   .footer-copyright {
     margin-top: 20px;
+  }
+
+  .line-copy1{
+  margin-top: 26px;
+
   }
 }

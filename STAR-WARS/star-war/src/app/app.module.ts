@@ -14,6 +14,12 @@ import { StartshipComponent } from './startship/startship.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PeopleDetailsComponent } from './people-details/people-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FilmsDetailComponent } from './films-detail/films-detail.component';
+import { SpiciesDetailsComponent } from './spicies-details/spicies-details.component';
+import { PlantesDetailsComponent } from './plantes-details/plantes-details.component';
+import { StrashipDetailsComponent } from './straship-details/straship-details.component';
+import { VehiclesDetailsComponent } from './vehicles-details/vehicles-details.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +34,17 @@ import { PeopleDetailsComponent } from './people-details/people-details.componen
     StartshipComponent,
     VehiclesComponent,
     NavbarComponent,
-    PeopleDetailsComponent
+    PeopleDetailsComponent,
+    FilmsDetailComponent,
+    SpiciesDetailsComponent,
+    PlantesDetailsComponent,
+    StrashipDetailsComponent,
+    VehiclesDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

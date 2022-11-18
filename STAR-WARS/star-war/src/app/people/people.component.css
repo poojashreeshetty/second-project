@@ -3,15 +3,30 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width:200px;
+  margin: auto;
+  margin-top: 38px;
+}
+.people-character-data div{
+  padding:10px 0;
+  width:210px;
+  margin: auto;
+  text-align: center;
 }
 
+.people-character-data div:hover{
+  background-color: rgba(13,168,255,0.45);
+}
 span {
   color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
   font-weight: bolder;
   margin-top: 25px;
+  /* background-color: #00A8FF; */
 }
+
+
 
 .button {
   display: flex;
@@ -50,5 +65,7 @@ button {
     padding: 6px 14px;
   }
 
-
+  .people-character-data {
+    margin-top: 13px;
+  }
 }

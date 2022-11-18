@@ -10,39 +10,47 @@
   text-align: center;
   row-gap: 30px;
   column-gap: 70px;
+
 }
 
 .films-icon,
-.species ,
-.planets ,
-.characters ,
-.starship ,
-.vehicles  {
-  width:110%;
+.species,
+.planets,
+.characters,
+.starship,
+.vehicles {
+  width: 110%;
   /* height: 100px; */
 }
 
-
 .films {
   font-family: "Open Sans", sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   color: white;
+  font-weight: bolder;
   /* text-align: center; */
 }
-.films-icon-div{
-  width:120px;
+.films-icon-div {
+  width: 120px;
   justify-content: center;
   align-items: center;
 }
-
-
 
 @media only screen and (max-width: 700px) {
   .starwar-icon {
     display: grid;
     grid-template-columns: repeat(2, auto);
+    margin-top: 37px;
   }
 
+  .films-icon,
+.species,
+.planets,
+.characters,
+.starship,
+.vehicles {
+  width: 95%;
+  /* height: 100px; */
+}
 
-  
 }
