@@ -4,6 +4,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+
 }
 html {
   width: 100%;
@@ -11,4 +13,6 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+
 }

@@ -1,22 +1,13 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 
-<div class="people-character-data">
-  <div><span>DARTH VADER</span></div>
-  <div><span>LUKE SKYWALKER</span></div>
-  <div><span>OBI-WAN KENOBI </span></div>
-  <div><span routerLink="/plantes-details">YODA</span></div>
-  <div><span>REY</span></div>
-  <div><span>DARTH VADER</span></div>
-  <div><span>LUKE SKYWALKER</span></div>
-  <div><span>OBI-WAN KENOBI </span></div>
-  <div><span>YODA</span></div>
-  <div><span>REY</span></div>
+<div class="people-character-data" *ngFor="let planet of planets.results">
+  <div  routerLink="/plantes-details" (click)="character(planets.results.indexOf(planet))"><span>{{planet.name | uppercase}}</span></div>
 </div>
 
 <div class="button">
-  <button class="btn1">PREVIOUS</button>
-  <button class="btn2">NEXT</button>
+  <button class="btn1" (click)="previousApi()">PREVIOUS</button>
+  <button class="btn2"  (click)="nextApi()">NEXT</button>
 </div>
 
 <app-footer></app-footer>

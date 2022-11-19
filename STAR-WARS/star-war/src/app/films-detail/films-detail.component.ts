@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./films-detail.component.css']
 })
 export class FilmsDetailComponent implements OnInit {
+  filmdetail: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.filmdetail=JSON.parse(localStorage.getItem('films') as any)
+    console.log('film fetch',this.filmdetail);
+    
   }
 
 }

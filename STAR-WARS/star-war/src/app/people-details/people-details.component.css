@@ -28,7 +28,7 @@
   height: 299px;
   text-align: justify;
   margin-bottom: 42px;
-  line-height: 32px;
+  line-height: 13px;
   color: white;
 }
 
@@ -71,6 +71,23 @@
   background-color: transparent;
 }
 
+
+
+
+
+
+.designation{
+  color: #A5C1D3;
+  font-size: 17px;
+ 
+}
+
+
+.designation-data{
+  color: white;
+  font-size: bolder;
+
+}
 @media screen and (max-width: 700px) {
   .people-detail-maindiv2 {
     flex-direction: column;
