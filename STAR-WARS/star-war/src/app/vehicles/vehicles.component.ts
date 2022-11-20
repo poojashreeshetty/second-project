@@ -7,6 +7,8 @@ import { StarWarserviceService } from '../star-warservice.service';
   styleUrls: ['./vehicles.component.css']
 })
 export class VehiclesComponent implements OnInit {
+  load = true;
+  unload = false;
   urlVehicles = 'https://swapi.dev/api/vehicles/';
   vehicle: any;
 
@@ -16,18 +18,24 @@ export class VehiclesComponent implements OnInit {
     this.service.getApi(this.urlVehicles).subscribe((data) => {
       this.vehicle = data;
       console.log(this.vehicle);
+      this.load = false;
+      this.unload = true;
     });
   }
 
   nextApi() {
     this.service.getApi(this.vehicle.next).subscribe((data) => {
       this.vehicle = data;
+      this.load = false;
+      this.unload = true;
     });
   }
 
   previousApi() {
     this.service.getApi(this.vehicle.previous).subscribe((data) => {
       this.vehicle = data;
+      this.load = false;
+      this.unload = true;
     });
   }
 

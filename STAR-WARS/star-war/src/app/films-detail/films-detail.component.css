@@ -63,6 +63,7 @@
   background-color: #00a8ff;
 }
 
+
 ::-webkit-scrollbar-track {
   background-image: url("https://i.imgur.com/GvV1R30.png");
   opacity: 90%;
@@ -70,6 +71,19 @@
   background-size: contain;
   background-color: transparent;
 }
+.designation{
+  color: #A5C1D3;
+  font-size: 17px;
+ 
+}
+
+
+.designation-data{
+  color: white;
+  font-size: bolder;
+
+}
+
 
 @media screen and (max-width: 700px) {
   .people-detail-maindiv2 {

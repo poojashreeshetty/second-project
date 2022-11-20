@@ -70,7 +70,18 @@
   background-size: contain;
   background-color: transparent;
 }
+.designation{
+  color: #A5C1D3;
+  font-size: 17px;
+ 
+}
 
+
+.designation-data{
+  color: white;
+  font-size: bolder;
+
+}
 @media screen and (max-width: 700px) {
   .people-detail-maindiv2 {
     flex-direction: column;

@@ -1,21 +1,25 @@
+
+
 .people-character-data {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width:200px;
+  width: 200px;
   margin: auto;
   margin-top: 38px;
 }
-.people-character-data div{
-  padding:10px 0;
-  width:210px;
+.people-character-data div {
+  padding: 9px 0;
+  width: 210px;
   margin: auto;
   text-align: center;
+  margin-bottom: -1px;
+  cursor: pointer;
 }
 
-.people-character-data div:hover{
-  background-color: rgba(13,168,255,0.45);
+.people-character-data div:hover {
+  background-color: rgba(13, 168, 255, 0.45);
 }
 span {
   color: white;
@@ -23,16 +27,16 @@ span {
   font-size: 13px;
   font-weight: bolder;
   margin-top: 25px;
+  font-size: 15px;
+
   /* background-color: #00A8FF; */
 }
 
-
-
-.button {
+/* .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 60px;
   gap: 20px;
 }
 
@@ -55,17 +59,26 @@ button {
 .btn2:hover {
   background: rgb(0, 168, 255, 0.7);
   opacity: 0.4;
-}
+} */
 
 @media only screen and (max-width: 700px) {
-  button {
+  /* button {
     width: 80px;
     text-align: center;
     font-size: 10px;
     padding: 6px 14px;
-  }
+  } */
 
   .people-character-data {
     margin-top: 13px;
+  }
+  span {
+    font-size: 18px;
+  }
+  .people-character-data div {
+    width: 222px;
+  }
+  .people-character-data {
+    margin-top: 40px;
   }
 }

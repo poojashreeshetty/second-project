@@ -11,7 +11,7 @@ p {
   color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  
+  margin-top: 12px;
 }
 
 .star-nav div{
@@ -19,10 +19,14 @@ padding:0 12px;
 display: flex;
 width: 100%;
 justify-content: center;
+cursor: pointer;
 
 }
-.people-div{
+/* .people-div{
+} */
+.active{
   background:rgba(13,168,255,0.4)
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -34,12 +38,12 @@ justify-content: center;
 
   }
 
-  .people-div{
+  /* .people-div{
     background:rgba(13,168,255,0.59)
-  }
+  } */
   
   p {
-    font-size: 10px;
+    font-size: 13px;
     }
 
 }

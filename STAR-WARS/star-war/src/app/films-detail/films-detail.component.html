@@ -4,17 +4,15 @@
 <div class="people-detail-maindiv1">
   <div class="people-detail-maindiv2">
     <div class="img-div">
-      <img src="./assets/yodhaimage.jpg" alt="" id="yoda-size" />
+      <img src="./assets/films.jpeg" alt="" id="yoda-size" />
     </div>
     <div class="detail-div" >
       <h1 class="heading-name">{{filmdetail.title | uppercase}}</h1>
-      <p><span class="designation">created :  </span><span class="designation-data"> {{filmdetail.created | titlecase}}</span></p>
-      <p><span class="designation">director :  </span><span class="designation-data">{{filmdetail.director| titlecase}}</span></p>
-      <p><span class="designation">edited :  </span><span class="designation-data">{{filmdetail.edited | titlecase}}</span></p>
-      <p><span class="designation">episode_id :  </span><span class="designation-data">{{filmdetail.episode_id }}</span></p>
-      <p><span class="designation">opening_crawl :  </span><span class="designation-data">{{filmdetail.opening_crawl | titlecase}}</span></p>
-      <p><span class="designation">producer :  </span><span class="designation-data">{{filmdetail.producer | titlecase}}</span></p>
-      <p><span class="designation">release_date :  </span><span class="designation-data">{{filmdetail.release_date}}</span></p>
+      <p class="des-p"><span class="designation">Director :  </span><span class="designation-data">{{filmdetail.director| titlecase}}</span></p>
+      <p class="des-p"><span class="designation">Episode_id :  </span><span class="designation-data">{{filmdetail.episode_id }}</span></p>
+      <p class="des-p"><span class="designation">Opening_crawl :  </span><span class="designation-data">{{filmdetail.opening_crawl | titlecase}}</span></p>
+      <p class="des-p"><span class="designation">Producer :  </span><span class="designation-data">{{filmdetail.producer | titlecase}}</span></p>
+      <p class="des-p"><span class="designation">Release_date :  </span><span class="designation-data">{{filmdetail.release_date}}</span></p>
 
     </div>
   </div>

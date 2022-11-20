@@ -1,10 +1,12 @@
+
+{{highlight()}}
 <div class="star-nav">
-  <div routerLink="/films-character"><p>FILMS</p></div>
-  <div routerLink="/spicies-character"> <p>SPICIES</p></div>
-  <div routerLink="/plantes-character"><p>PLANETS</p></div>
-  <div class="people-div" routerLink="/people-character"><p>CHARACTER</p></div>
-  <div routerLink="/straship-character"><p>STARSHIP</p></div>
-  <div routerLink="/vehicles-character"><p>VEHICLES</p></div>
+  <div routerLink="/films-character" routerLinkActive="active" [ngClass]="filmssactive"><p>FILMS</p></div>
+  <div routerLink="/spicies-character" routerLinkActive="active" [ngClass]="spiciesactive"> <p>SPICIES</p></div>
+  <div routerLink="/plantes-character" routerLinkActive="active" [ngClass]="plantesactive"><p>PLANETS</p></div>
+  <div class="people-div" routerLink="/people-character" routerLinkActive="active" [ngClass]="peopleactive"><p>CHARACTER</p></div>
+  <div routerLink="/straship-character" routerLinkActive="active" [ngClass]="strashipactive"><p>STARSHIP</p></div>
+  <div routerLink="/vehicles-character" routerLinkActive="active" [ngClass]="vehiclesactive"><p>VEHICLES</p></div>
 </div>
 
 

@@ -4,20 +4,24 @@ import { StarWarserviceService } from '../star-warservice.service';
 @Component({
   selector: 'app-films',
   templateUrl: './films.component.html',
-  styleUrls: ['./films.component.css']
+  styleUrls: ['./films.component.css'],
 })
 export class FilmsComponent implements OnInit {
+  load = true;
+  unload = false;
+
   urlfilms = 'https://swapi.dev/api/films/';
   films: any;
 
-  constructor(public service: StarWarserviceService) { }
+  constructor(public service: StarWarserviceService) {}
 
   ngOnInit(): void {
-    this.service.filmsApi(this.urlfilms).subscribe(data=>{
-      this.films=data;
+    this.service.filmsApi(this.urlfilms).subscribe((data) => {
+      this.films = data;
       console.log(this.films);
-      
-    })
+      this.load = false;
+      this.unload = true;
+    });
   }
 
   filmCharacter(data: any) {

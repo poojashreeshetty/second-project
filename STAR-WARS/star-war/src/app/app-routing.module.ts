@@ -16,6 +16,8 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+
   { path: 'films-character', component: FilmsComponent },
   { path: 'spicies-character', component: SpiciesComponent },
   { path: 'plantes-character', component: PlanetsComponent },
