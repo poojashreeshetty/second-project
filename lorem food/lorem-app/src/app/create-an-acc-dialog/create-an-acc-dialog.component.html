@@ -1,0 +1,124 @@
+<div class="dialogContainer">
+    <div class="dialog">
+        <div class="dialogleft">
+            <div class="dialogleftHeading">
+                <p>LOREM</p>
+            </div>
+            <p class="dialogleftPara">Experience the
+                easiest a way to get
+                <strong>great food</strong> Delivered
+            </p>
+        </div>
+        <div class="dialogright" *ngIf="showRight">
+            <div class="dialogrightHeading">
+                <p id="heading">Create your account</p>
+                <p>Share your email address to send you the OTP to get yourself registered</p>
+            </div>
+            <form class="dialogright-input example-form">
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Invalid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+        </form>
+           
+            <div class="dialogright-button-login">
+                <p (click)="createAcc()" type="submit">CREATE AN ACCOUNT</p>
+            </div>
+
+            <div class="by-registering">
+                <p>By registering you agree to the <span>Terms and Conditions</span></p>
+            </div>
+
+            <div class="dialogright-buttons">
+                <button class="facebook-button">Facebook</button>
+                <button class="google-button">Google+</button>
+            </div>
+
+
+            <div class="dialogright-footer">
+                <p>Already have an account? <span style="color: orange;">Login</span></p>
+            </div>
+        </div>
+
+        <div class="verification-right" *ngIf="showVerify">
+            <mat-icon matSuffix (click)="goBack();">arrow_back</mat-icon>
+            <div class="verify">
+                <img src="../../assets/icn_verify_icon.png" alt="">
+            </div>
+            <div class="text">
+                <p>Verification</p>
+                <p>We just sent OTP via SMS to your email address/mobile no. You should get it soon!</p>
+            </div>
+
+            <mat-form-field class="otp">
+                <mat-label>Enter OTP</mat-label>
+                <input type="text" matInput>
+            </mat-form-field>
+        
+
+            <div class="verify-button   ">
+                <p (click)="verify()">VERIFY</p>
+            </div>
+        </div>
+
+
+        <div class="verified" *ngIf="showVerified">
+            <mat-icon matSuffix (click)="goBack();">arrow_back</mat-icon>
+            <div class="text text2">
+                <p>Verified</p>
+                <p>Your email is verified. <br> Finally enter details below to create account</p>
+            </div>
+            <form >
+                <mat-form-field >
+                    <mat-label>First Name</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+    
+                <mat-form-field >
+                    <mat-label>Last Name</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+    
+                <mat-form-field >
+                    <mat-label>Enter Mobile number (optional)</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+    
+                <mat-form-field >
+                    <mat-label>Create Password</mat-label>
+                    <input type="password" matInput>
+                </mat-form-field>
+            </form>
+
+            <div class="verify-button   ">
+                <p (click)="done()">DONE</p>
+            </div>
+           
+        </div>
+
+
+
+
+        
+            <div class="dialogright" *ngIf="successRegi"> 
+                  
+                <div><mat-icon class="close-icon">close</mat-icon></div>
+                <div class="icn-verify-icon-register"><img src="./assets/icn_register_success.png" alt=""></div>
+                <div class="hi-abdulla-welcome">Hi Abdulla,
+                    Welcome to Zadoh</div>
+                <div class="your-password-has-be  ">We've sent you an email on abdulla.mohammad for verification.</div>
+                <div class="rectangle-3-copy-3-great" [mat-dialog-close]="true"><p class="verify-browse" (click)="login()">Browse to start ordering</p></div>
+            
+            </div>
+        
+            </div>
+
+
+
+</div>

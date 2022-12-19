@@ -2,15 +2,15 @@
   height: auto;
   width: 40%;
   margin: auto;
-  margin-top: 58px;
+  margin-top: 80px;
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-items: center;
   text-align: center;
   row-gap: 30px;
-  column-gap: 70px;
-
+  column-gap: 90px;
+  margin-bottom: 78px;
 }
 
 .films-icon,
@@ -25,9 +25,11 @@
 
 .films {
   font-family: "Open Sans", sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: white;
   font-weight: bolder;
+  margin-top: 12px;
+  padding-left: 34px;
   /* text-align: center; */
 }
 .films-icon-div {
@@ -36,22 +38,24 @@
   align-items: center;
 }
 
-
 @media only screen and (max-width: 700px) {
   .starwar-icon {
     display: grid;
     grid-template-columns: repeat(2, auto);
     margin-top: 37px;
+    margin-bottom: -22px;
   }
 
   .films-icon,
-.species,
-.planets,
-.characters,
-.starship,
-.vehicles {
-  width: 95%;
-  /* height: 100px; */
-}
-
+  .species,
+  .planets,
+  .characters,
+  .starship,
+  .vehicles {
+    width: 102%;
+    /* height: 100px; */
+  }
+  .films {
+    padding-left: 5px;
+  }
 }

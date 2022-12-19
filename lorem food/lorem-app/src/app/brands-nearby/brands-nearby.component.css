@@ -1,0 +1,88 @@
+/* main div  */
+.main-brands-nearby-div {
+  /* background-color: rgb(236, 203, 203); */
+  height: 217px;
+  width: 60%;
+  margin: auto;
+  margin-top: 28px;
+}
+
+/* paragraph  */
+.brands-nearby {
+  color: #636364;
+  font-family: "Open Sans";
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 34px;
+}
+
+/* mask div  */
+.mask {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  border-radius: 9px;
+  background-color:#ffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+/* image  */
+.bitmap {
+  width: 35%;
+}
+.bitmap img {
+  width: 100%;
+  object-fit: cover cover;
+  height: 167px;
+}
+.left-side {
+  width: 63%;
+}
+.icon-div{
+  width:94px;
+}
+.icon-div img{
+  width:76px;
+  object-fit: cover cover;
+} 
+
+.kfc {
+  color: #223136;
+  font-family: "Open Sans";
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 39px;
+  margin-top: 5px;
+}
+
+.icon-and-kfc-div {
+  display: flex;
+  width: 100%;
+  margin-top: 9px;
+  /* justify-content: space-between; */
+}
+.latin-american-bake {
+  color: #757575;
+  font-family: "Open Sans";
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.Lorem-ipsum-dolor-si {
+  width: 74%;
+  color: #6A6A6A;
+  font-family: "Open Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.menu-png img{
+  width: 106px;
+}
+.Lorem-ipsum-and-menu-png-div {
+  display: flex;
+  margin-top: 26px;
+}

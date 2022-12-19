@@ -1,0 +1,134 @@
+.container {
+    background: url('../../assets/BG 2.png') no-repeat;
+    background-size: contain;
+    background-size: 100%;
+    height: 400px;
+    position: relative;
+    padding: 70px 0px;
+}
+
+.offers {
+    display: grid;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.heading {
+    width: 650px;
+    margin: auto;
+    display: grid;
+    justify-content: start;
+}
+
+.heading h2 {
+    margin-top: 20px;
+    font-size: 2.4em;
+    color: #4C4C4C;
+    font-weight: 500;
+    line-height: 1;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.heading p {
+    font-size: 14px;
+    color: #4C4C4C;
+    width: 100%;
+    margin-left: 3px;
+    line-height: 4;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.cards {
+    display: flex;
+    width: 750px;
+    height: 200px;
+    margin: 20px auto;
+    justify-content: start;
+    padding-left: 6%;
+    /* background-color: red; */
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 7%;
+    width: 645px;
+    margin-top: -20px;
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+.card1 {
+    /* background-color: #fff; */
+    /* box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1); */
+    width: 43%;
+    margin-right: 10px;
+    height: 100%;
+    border-radius: 10px;
+    
+}
+
+.card2 {
+    /* background-color: #000; */
+    border-radius: 10px;
+    width: 43%;
+    height: 98%;
+    border-radius: 10px;
+
+}
+
+.card1 #rest {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#no-rest {
+    /* width: 90%; */
+    width: 40%;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.card2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.icon {
+    display: flex;
+}
+
+.button p {
+    color: #F67E03;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.icon button {
+    background-color: #fff;
+    padding: 10px 13px;
+    border: none;
+    margin-top: 10px;
+}
+
+.icon button:first-child {
+    border-right: 1px solid #f4f4f4;
+}
+.oops{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.oops h3{
+    line-height: 2;
+}
+.oops p{
+    font-size: 13px;
+    color: #868995;
+}

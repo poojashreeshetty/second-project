@@ -37,6 +37,8 @@
   justify-content: flex-start;
   align-items: center;
   width: 50%;
+  height: 365px;
+
 }
 
 .heading-name {
@@ -112,6 +114,9 @@
   .detail-div::-webkit-scrollbar{
     display: none;
   }
+}
+.des-p{
+  padding-right: 30px;
 }
 
 @media screen and (max-width: 1000px) {

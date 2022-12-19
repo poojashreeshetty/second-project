@@ -5,13 +5,14 @@
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid #2e6e9a;
+  position: relative;
 }
 
 p {
   color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
 .star-nav div{

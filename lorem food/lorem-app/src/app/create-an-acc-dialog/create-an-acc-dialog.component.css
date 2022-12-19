@@ -1,0 +1,309 @@
+.dialog{
+    display: flex;
+}
+
+.dialogContainer{
+    width: 625px;
+    height: 335px;
+}
+.dialogleft{
+    width: 55%;
+    background-image: url('../../assets/Image.png')    ;
+    background-size: contain;
+    background-size:100%;
+    height: 383px;
+    margin-top: -24px;
+    margin-left: -24px;
+}
+.dialogright{
+    width: 45%;
+    margin-left: 3.5%;
+}
+.dialogleftHeading{
+    margin-top: 70px;
+    margin-left: 15%;
+    height: 60px;
+    width: 103px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 35px;
+    letter-spacing: 0;
+    line-height: 60px;
+    text-align: center;
+}
+.dialogleftPara{
+   margin-top: 35px;
+   margin-left: 15%;
+   height: 132px;
+  width: 55%;
+  color: #FFFFFF;
+  font-family: "Open Sans";
+  font-size: 20px;
+  letter-spacing: -0.57px;
+  /* line-height: 44px; */
+  text-shadow: 0 0 9px 0 #FFFFFF;
+}
+
+.dialogrightHeading{
+    text-align: center;
+}
+
+.dialogrightHeading #heading{
+    height: 38px;
+    color: #2A2C30;
+    font-family: "Open Sans";
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -0.47px;
+    /* line-height: 98px; */
+    text-shadow: 0 0 9px 0 #FFFFFF;
+
+}
+.dialogrightHeading p {
+    color:#4A4A4A;
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    font-family: var(--open);
+}
+
+.dialogright-button-login{
+    margin-top: 50px;
+}
+.dialogright-input{
+    height: 33px;
+    width: 100%;
+    margin-top: 13px;
+}
+ mat-form-field{
+    width: 100%;
+    /* border: 1px solid black; */
+}
+
+.mat-form-field-appearance-legacy .mat-hint{
+    color: red !important;
+    font-size:11px !important;
+    font-family: var(--open) !important;
+}
+.dialogright-button-login{
+    height:45px;
+    width: 105%;
+    background-image: url('../../assets/Rectangle 3 Copy 3.png')    ;
+    background-size: contain;
+    background-size:100%;
+    margin: 37px 0px 0px -6px;
+
+}
+
+.dialogright-button-login p{
+    height: 16px;
+    width: 100%;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: bold;
+    /* letter-spacing: -0.56px; */
+    /* line-height: 22px; */
+    text-align: center;
+
+    text-shadow: 0 0 9px 0 #FFFFFF;
+    /* margin-left: 40%; */
+    padding-top:10px;
+}
+.forget-password{
+    margin-left: 68%;
+    margin-top: 90px;
+    font-size: 11px;
+}
+.dialogright-buttons{
+    display: flex;
+    /* justify-content: space-between; */
+     margin-top: 10px;
+}
+.dialogright-buttons button{
+    background-color: #FFFFFF;
+    height: 35px;
+    margin-left: 4%;
+    /* margin-top: 10px; */
+    border-radius: 5px;
+    width: 45%;
+}
+.facebook-button{
+    border:1px solid rgb(0, 162, 255);
+    margin-right: 0%;
+    color:rgb(0, 162, 255);
+}
+.google-button{
+    border:1px solid rgb(255, 0, 21);
+    color:rgb(255, 0, 21);
+}
+.dialogright-footer{
+    /* margin-left: 25%; */
+    margin-left: 13%;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+.dialogright-footer span{
+    font-weight: 600;
+}
+
+.by-registering{
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.by-registering p{
+    font-size: 13px;
+}
+
+.by-registering span{
+    color:#F67E03;
+   
+
+}
+
+/* Verification css */
+
+
+.verification-right{
+    width: 45%;
+    margin-left: 3.5%;
+}
+.verify {
+    margin-top: 0px;
+    text-align: center;
+}
+
+.text{
+    text-align: center;
+}
+
+.text p:first-child{
+     color: #2A2C30;
+     font-weight: 600;
+     font-size: 22px;
+     font-family: var(--open);
+     text-shadow: 0 0 9px 0 #FFFFFF;
+}
+
+.text p:last-child{
+    /* width: 200px; */
+    margin-top: 10px;
+    font-size: 13px;
+    font-family: var(--open);
+}
+
+.otp{
+    margin-top: 30px;
+}
+
+.verify-button{
+    height:45px;
+    width: 105%;
+    background-image: url('../../assets/Rectangle 3 Copy 3.png')    ;
+    background-size: contain;
+    background-size:100%;
+    margin: 7px 0px 10px -6px;
+}
+
+.verify-button p{
+    height: 16px;
+    width: 100%;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 9px 0 #FFFFFF;
+    padding-top:10px;
+}
+
+mat-icon{
+    margin: -13px;
+}
+
+
+/* verified css */
+
+.verified{
+    width: 45%;
+    margin-left: 3.5%;
+}
+
+.verified form{
+    margin-top: 12px;
+}
+.verified mat-form-field{
+    height: 53px;
+}
+.text2{
+    margin-top: -23px;
+}
+
+/* success */
+
+.dialogright {
+    width: 45%;
+    margin-left: 3.5%;
+  }
+  .close-icon {
+    margin-left: 263px;
+  }  
+
+  .icn-verify-icon-register {
+    width: 157px;
+    margin: auto;
+  }
+  
+  .icn-verify-icon-register img {
+    width: 150px;
+  }
+  
+  .verify-browse {
+    position: absolute;
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.56px;
+    line-height: 22px;
+    text-align: center;
+  
+    text-shadow: 0 0 9px 0 #FFFFFF;
+    left: 18%;
+    padding-top: 10px;
+
+  }
+
+  .hi-abdulla-welcome {
+    width: 208px;
+    margin: auto;
+    color: #2A2C30;
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -0.37px;
+    line-height: 27px;
+    text-align: center;
+    text-shadow: 0 0 9px 0 #FFFFFF;
+  }
+
+  .your-password-has-be {
+    color: #4a4a4a;
+    font-family: "Open Sans";
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .rectangle-3-copy-3-great {
+    height: 43px;
+    width: 280px;
+    border-radius: 6px;
+    background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+    box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+    position: relative;
+    margin-top: 10px;
+  }

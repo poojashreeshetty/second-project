@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StarWarserviceService } from '../star-warservice.service';
+ let urlSpecies = 'https://swapi.dev/api/species/';
 
 @Component({
   selector: 'app-spicies',
@@ -9,7 +10,6 @@ import { StarWarserviceService } from '../star-warservice.service';
 export class SpiciesComponent implements OnInit {
   load = true;
   unload = false;
-  urlSpecies = 'https://swapi.dev/api/species/';
   species: any;
   disableP = '';
   disableN = '';
@@ -17,16 +17,21 @@ export class SpiciesComponent implements OnInit {
   constructor(public service: StarWarserviceService) {}
 
   ngOnInit(): void {
-    this.service.speciesApi(this.urlSpecies).subscribe((data) => {
+    this.service.speciesApi(urlSpecies).subscribe((data) => {
       this.species = data;
       this.load = false;
       this.unload = true;
-      this.disableP = 'disable';
-      this.disableN = 'enable';
+      if (this.species?.previous === null) {
+        this.disableP = 'disable';
+      } else {
+        this.disableP = 'enable';
+      }
     });
   }
-  nextApi() {
+  nextApi(url: any) {
     this.service.getApi(this.species.next).subscribe((data) => {
+      urlSpecies = url;
+
       this.species = data;
       this.load = false;
       this.unload = true;
@@ -34,8 +39,10 @@ export class SpiciesComponent implements OnInit {
     });
   }
 
-  previousApi() {
+  previousApi(url:any) {
     this.service.getApi(this.species.previous).subscribe((data) => {
+      urlSpecies = url;
+
       this.species = data;
       this.load = false;
       this.unload = true;
@@ -45,6 +52,7 @@ export class SpiciesComponent implements OnInit {
 
   character(data: any) {
     localStorage.setItem('species', JSON.stringify(this.species.results[data]));
+    localStorage.setItem('characterId',JSON.stringify(data));
   }
 
   visible(data: any) {

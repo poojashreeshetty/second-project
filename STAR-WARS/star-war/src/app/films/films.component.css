@@ -1,5 +1,3 @@
-
-
 .people-character-data {
   display: flex;
   flex-direction: column;
@@ -31,35 +29,10 @@ span {
 
   /* background-color: #00A8FF; */
 }
-
-/* .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 60px;
-  gap: 20px;
+.main {
+  height: 490px;
+  margin-bottom: -35px;
 }
-
-button {
-  border: none;
-  padding: 8px 14px;
-  width: 100px;
-  color: white;
-  font-size: 13px;
-  font-family: "Open Sans", sans-serif;
-}
-.btn2 {
-  background: rgb(0, 168, 255, 0.4);
-}
-.btn1 {
-  background: rgb(0, 168, 255, 0.4);
-}
-
-.btn1:hover,
-.btn2:hover {
-  background: rgb(0, 168, 255, 0.7);
-  opacity: 0.4;
-} */
 
 @media only screen and (max-width: 700px) {
   /* button {
@@ -79,6 +52,24 @@ button {
     width: 222px;
   }
   .people-character-data {
-    margin-top: 40px;
+    margin-top: 36px;
+  }
+  .main {
+    height: 460px;
+    margin-bottom: -8px;
+  }
+
+  .loader {
+    left: 40%;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+  }
+
+  .loader,
+  .loader:after {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
   }
 }

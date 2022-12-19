@@ -1,0 +1,636 @@
+.dialog {
+
+  display: flex;
+  position: relative;
+
+}
+
+.dialogright-close-icon {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+}
+
+.displaynone {
+  display: none;
+}
+
+.small {
+  color: red;
+}
+
+.dialogContainer {
+  width: 625px;
+  height: 335px;
+}
+
+.dialogleft {
+  width: 55%;
+  /* background-image: url('lorem-app/src/assets/Image.png'); */
+  background-image: url('../../assets/Image.png');
+  background-size: contain;
+  background-size: 100%;
+  height: 383px;
+  margin-top: -24px;
+  margin-left: -24px;
+}
+
+.dialogright {
+  width: 45%;
+  margin-left: 3.5%;
+}
+
+.dialogleftHeading {
+  margin-top: 70px;
+  margin-left: 15%;
+}
+
+.dialog {
+  display: flex;
+}
+
+.dialogContainer {
+  width: 625px;
+  height: 335px;
+}
+
+.dialogleft {
+  width: 55%;
+  /* background-image: url('lorem-app/src/assets/Image.png'); */
+  background-image: url("../../assets/Image.png");
+  background-size: contain;
+  background-size: 100%;
+  height: 383px;
+  margin-top: -24px;
+  margin-left: -24px;
+}
+
+.dialogright {
+  width: 45%;
+  margin-left: 3.5%;
+}
+
+.dialogleftHeading {
+  margin-top: 70px;
+  margin-left: 15%;
+
+
+  height: 60px;
+  width: 103px;
+  color: #ffffff;
+
+  font-weight: bold;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: 60px;
+  text-align: center;
+}
+
+.dialogleftPara {
+  margin-top: 35px;
+  margin-left: 15%;
+
+  height: 132px;
+  width: 55%;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 20px;
+  letter-spacing: -0.57px;
+  /* line-height: 44px; */
+  text-shadow: 0 0 9px 0 #ffffff;
+}
+
+.dialogrightHeading p {
+  height: 38px;
+  width: 220px;
+  color: #2a2c30;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -0.47px;
+  line-height: 38px;
+  text-shadow: 0 0 9px 0 #ffffff;
+}
+
+.dialogright-input {
+  height: 33px;
+  width: 100%;
+  margin-top: 13px;
+}
+
+mat-form-field {
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.dialogright-button-login {
+  height: 45px;
+  width: 100%;
+  background-image: url("../../assets/Rectangle 3 Copy 3.png");
+  background-size: contain;
+  background-size: 100%;
+  margin-top: 7px;
+}
+
+.dialogright-button-login p {
+  height: 16px;
+  width: 49.35px;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.56px;
+  /* line-height: 22px; */
+  text-align: center;
+  text-shadow: 0 0 9px 0 #ffffff;
+  margin-left: 40%;
+  padding-top: 10px;
+}
+
+.forget-password {
+  margin-left: 68%;
+  margin-top: 90px;
+  font-size: 11px;
+}
+
+.dialogright-buttons {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-top: 10px;
+}
+
+.dialogright-buttons button {
+  background-color: #ffffff;
+  height: 35px;
+  margin-left: 4%;
+  /* margin-top: 10px; */
+  border-radius: 5px;
+  width: 45%;
+}
+
+.facebook-button {
+  border: 1px solid rgb(0, 162, 255);
+  margin-right: 0%;
+}
+
+.google-button {
+  border: 1px solid rgb(255, 0, 21);
+}
+
+.dialogright-footer {
+  /* margin-left: 25%; */
+  margin-left: 13%;
+  font-size: 12px;
+  margin-top: 25px;
+}
+
+/* forgot password enter otp start style  */
+.icn-verify-icon {
+  width: 100px;
+  margin: auto;
+}
+
+.icn-verify-icon img {
+  width: 100%;
+}
+
+.verification {
+  color: #2a2c30;
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: -0.37px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 0 9px 0 #ffffff;
+  margin: auto;
+  margin-top: 16px;
+}
+
+.we-just-sent-you-the {
+  width: 191px;
+  color: #4a4a4a;
+  font-family: "Open Sans";
+  font-size: 12px;
+  letter-spacing: -0.24px;
+  line-height: 20px;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.enter-otp-div {
+  margin-top: -50px;
+  margin-left: -16%;
+  /* margin-top: 10px; */
+  /* margin-left: 11%; */
+  /* margin-top: 44px; */
+  width: 92%;
+}
+
+.enter-otp-input {
+  margin-left: 20%;
+  margin-top: 44px;
+  width: 100%;
+}
+
+.rectangle-3-copy-3 {
+  height: 43px;
+  width: 280px;
+  border-radius: 6px;
+  background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+  position: relative;
+}
+
+.verify {
+  position: absolute;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.56px;
+  line-height: 22px;
+  text-align: center;
+  text-shadow: 0 0 9px 0 #ffffff;
+  top: 28%;
+  left: 41%;
+}
+
+.margin-top {
+  margin-top: 25px;
+}
+
+.verify-change {
+  position: absolute;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.56px;
+  line-height: 22px;
+  text-align: center;
+  text-shadow: 0 0 9px 0 #ffffff;
+  top: 28%;
+  left: 27%;
+}
+
+.mat-input-element {
+  font: inherit;
+  background: transparent;
+  color: currentColor;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  max-width: 100%;
+  vertical-align: bottom;
+  text-align: inherit;
+  box-sizing: content-box;
+}
+
+.close-icon {
+  margin-left: 263px;
+}
+
+.icn-verify-icon-great {
+  width: 200px;
+  margin: auto;
+}
+
+.your-password-has-be {
+  color: #4a4a4a;
+  font-family: "Open Sans";
+  font-size: 12px;
+  letter-spacing: -0.24px;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.rectangle-3-copy-3-great {
+  height: 43px;
+  width: 280px;
+  border-radius: 6px;
+  background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+  position: relative;
+  margin-top: 10px;
+}
+
+.dialogright-input3 {
+  margin-left: 4%;
+  width: 45%;
+}
+
+.dialogright-input3 mat-form-filed {
+  /* margin-left: 20%; */
+  margin-top: 44px;
+  width: 90%;
+
+}
+
+/* sign-up email start  */
+
+/* .create-your-account {
+  color: #2a2c30;
+  font-family: "Open Sans";
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -0.47px;
+  line-height: 38px;
+  text-align: center;
+  text-shadow: 0 0 9px 0 #ffffff;
+}
+.share-your-email-add {
+  width: 285px;
+  color: #4a4a4a;
+  font-family: "Open Sans";
+  font-size: 14px;
+  letter-spacing: -0.24px;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+.dialogright-button-create {
+  height: 43px;
+  width: 280px;
+  border-radius: 6px;
+  background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+  margin-top: 33px;
+  position: relative;
+}
+.create-account {
+  position: absolute;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.56px;
+  line-height: 22px;
+  text-align: center;
+  text-shadow: 0 0 9px 0 #ffffff;
+  top: 28%;
+  left: 29%;
+}
+.by-registering-you-a {
+  width: 330px;
+  color: #4a4a4a;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -0.24px;
+  line-height: 19px;
+  text-align: center;
+} */
+
+
+/* register success start  */
+.hi-abdulla-welcome {
+  width: 208px;
+  margin: auto;
+  color: #2A2C30;
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: -0.37px;
+  line-height: 27px;
+  text-align: center;
+  text-shadow: 0 0 9px 0 #FFFFFF;
+}
+
+.weve-sent-you-an-em {
+  height: 38px;
+  width: 227px;
+  color: #4A4A4A;
+  font-family: "Open Sans";
+  font-size: 14px;
+  letter-spacing: -0.24px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.icn-verify-icon-register {
+  width: 157px;
+  margin: auto;
+}
+
+.icn-verify-icon-register img {
+  width: 150px;
+}
+
+.verify-browse {
+  position: absolute;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.56px;
+  line-height: 22px;
+  text-align: center;
+
+  text-shadow: 0 0 9px 0 #FFFFFF;
+  margin-left: 40%;
+  padding-top: 10px;
+}
+
+.forget-password {
+  margin-left: 68%;
+  margin-top: 90px;
+  font-size: 11px;
+}
+
+.dialogright-buttons {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-top: 10px;
+}
+
+.dialogright-buttons button {
+  background-color: #FFFFFF;
+  height: 35px;
+  margin-left: 4%;
+  /* margin-top: 10px; */
+  border-radius: 5px;
+  width: 45%;
+}
+
+.facebook-button {
+  border: 1px solid rgb(0, 162, 255);
+  margin-right: 0%;
+}
+
+.google-button {
+  border: 1px solid rgb(255, 0, 21);
+}
+
+.dialogright-footer {
+  /* margin-left: 25%; */
+  margin-left: 13%;
+  font-size: 12px;
+  margin-top: 25px;
+
+}
+
+.forgetpassowrd-icon-heading-para {
+  text-align: center;
+
+}
+
+.forgetpawword-icon {
+  margin-left: 6%;
+}
+
+.forgetpawword-heading {
+
+  color: #2A2C30;
+  font-family: "Open Sans";
+
+  font-weight: bold;
+  letter-spacing: -0.37px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 0 9px 0 #FFFFFF;
+
+}
+
+.forgetpawword-para {
+
+  color: #4A4A4A;
+  font-family: "Open Sans";
+  font-size: 10px;
+  letter-spacing: -0.24px;
+  line-height: 20px;
+  text-align: center;
+
+}
+
+.dialogright-input2 {
+  height: 33px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.otp-selection {
+  display: flex;
+  margin-left: 2%;
+  margin-top: 7px;
+  width: 87px;
+  opacity: 0.66;
+  color: #4A4A4A;
+  font-family: "Open Sans";
+
+  letter-spacing: -0.43px;
+
+
+}
+
+.otp-selection p {
+  margin-right: 60%;
+}
+
+.active {
+  color: black;
+  opacity: 1;
+  font-weight: 700;
+  border-bottom: 1px solid orange;
+}
+
+.dialogright-button-login2 {
+  height: 45px;
+  width: 100%;
+  background-image: url('../../assets/Rectangle 3 Copy 3.png');
+  background-size: contain;
+  background-size: 100%;
+  margin-top: 35px;
+
+
+
+}
+
+.dialogright-button-login2 p {
+  height: 16px;
+  width: 100%;
+  color: #FFFFFF;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.56px;
+  /* line-height: 22px; */
+  text-align: center;
+  text-shadow: 0 0 9px 0 #FFFFFF;
+  /* margin-left: 40%; */
+  padding-top: 10px;
+
+}
+
+.dialogright-input2 {
+  margin-top: 18px;
+}
+
+.dialogright2 {
+  width: 45%;
+  margin-left: 3.5%;
+  position: relative;
+}
+
+.dialogright-left-icon {
+  position: absolute;
+}
+
+.dialogright-left-icon img {
+  width: 21px;
+  height: 18px;
+}
+
+.dialogright-input3 {
+  height: 33px;
+  width: 45%;
+  margin-top: 8px;
+}
+
+.dialogright-input3 mat-form-field {
+  /* margin-left: 3%; */
+
+  /* margin-left: 20%; */
+  margin-top: 44px;
+}
+
+.dialogright-button-login3 {
+  height: 45px;
+  width: 100%;
+  background-image: url('../../assets/Rectangle 3 Copy 3.png');
+  background-size: contain;
+  background-size: 100%;
+  margin-top: 35px;
+  /* margin-left: 7%; */
+
+}
+
+.dialogright-button-login3 p {
+  height: 16px;
+  width: 100%;
+  color: #FFFFFF;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.56px;
+  /* line-height: 22px; */
+  text-align: center;
+  text-shadow: 0 0 9px 0 #FFFFFF;
+
+  padding-top: 10px;
+
+
+  text-shadow: 0 0 9px 0 #ffffff;
+  top: 28%;
+  left: 19%;
+
+}

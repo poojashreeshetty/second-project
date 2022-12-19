@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StarWarserviceService } from '../star-warservice.service';
+let urlplanets = 'https://swapi.dev/api/people/';
 
 @Component({
   selector: 'app-people',
@@ -7,7 +8,6 @@ import { StarWarserviceService } from '../star-warservice.service';
   styleUrls: ['./people.component.css'],
 })
 export class PeopleComponent implements OnInit {
-  url = 'https://swapi.dev/api/people/';
   people: any;
   load = true;
   unload = false;
@@ -16,18 +16,26 @@ export class PeopleComponent implements OnInit {
   constructor(public service: StarWarserviceService) {}
 
   ngOnInit(): void {
-    this.service.getApi(this.url).subscribe((data) => {
+    this.service.getApi(urlplanets).subscribe((data) => {
       this.people = data;
       console.log(this.people);
       this.load = false;
       this.unload = true;
       this.disableP = 'disable';
       this.disableN = 'enable';
+
+      if (this.people?.previous === null) {
+        this.disableP = 'disable';
+      } else {
+        this.disableP = 'enable';
+      }
     });
   }
 
-  nextApi() {
+  nextApi(url:any) {
     this.service.getApi(this.people.next).subscribe((data) => {
+      urlplanets = url;
+
       this.people = data;
       this.load = false;
       this.unload = true;
@@ -36,8 +44,10 @@ export class PeopleComponent implements OnInit {
     });
   }
 
-  previousApi() {
+  previousApi(url:any) {
     this.service.getApi(this.people.previous).subscribe((data) => {
+      urlplanets = url;
+
       this.people = data;
       this.load = false;
       this.unload = true;
@@ -48,6 +58,8 @@ export class PeopleComponent implements OnInit {
 
   character(data: any) {
     localStorage.setItem('people', JSON.stringify(this.people.results[data]));
+    localStorage.setItem('characterId',JSON.stringify(data));
+
   }
   visible(data: any) {
     if (data?.previous === null) {

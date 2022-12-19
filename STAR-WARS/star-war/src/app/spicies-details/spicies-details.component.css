@@ -37,6 +37,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 50%;
+  /* height: 360px; */
 }
 
 .heading-name {
@@ -70,17 +71,18 @@
   background-size: contain;
   background-color: transparent;
 }
-.designation{
-  color: #A5C1D3;
+.designation {
+  color: #a5c1d3;
   font-size: 17px;
- 
 }
 
-
-.designation-data{
+.designation-data {
   color: white;
   font-size: bolder;
-
+}
+.des-p {
+  padding-right: 30px;
+  margin-bottom: 9px;
 }
 @media screen and (max-width: 700px) {
   .people-detail-maindiv2 {
@@ -106,8 +108,33 @@
     margin-top: -26px;
   }
 
-  .detail-div::-webkit-scrollbar{
+  /* .detail-div::-webkit-scrollbar {
     display: none;
+  } */
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-track {
+    width: 4px;
+    /* border: none; */
+    /* background: transparent; */
+  }
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-track-piece,
+  ::-webkit-scrollbar-corner,
+  ::-webkit-resizer {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb:vertical {
+    background-color: #00a8ff;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-image: url("https://i.imgur.com/GvV1R30.png");
+    opacity: 90%;
+    background-repeat: repeat-y;
+    background-size: contain;
+    background-color: transparent;
   }
 }
 
