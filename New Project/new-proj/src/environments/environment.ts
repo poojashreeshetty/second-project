@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url: 'http://virtuallearn-env.eba-6xmym3vf.ap-south-1.elasticbeanstalk.com/',
+
 };
 
 /*
