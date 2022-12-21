@@ -31,8 +31,8 @@
     <div class="right-side">
 
       <div class="right-side-inside">
-        <div class="logo-main-div"><img src="./assets/Vector.png" alt="" /> <img src="./assets/Vector(2).png" alt="" id="vector-img-small"></div>
-        <div class="virtual-learn-div"><img src="./assets/Vector (1).png" alt=""> <img src="./assets/Vector(4).png" alt=""><img src="./assets/Vector (2).png" alt=""></div>
+        <div class="logo-main-div"><img src="./assets/img_virtuallearn logo_splash 2.png" alt=""></div>
+        
         <div class="welcome-back">Welcome Back!</div>
         <div class="easy-to-learn">Easy to learn anytime and anywhere.</div>
         <div class="easy-to-learn-two">Login to your account</div>
@@ -41,18 +41,18 @@
           <button class="google-div"><img src="./assets/google-icon.png" alt=""></button>
         </div>
         <div class="forms-div">
-          <form>
+          <form [formGroup]="login" (ngSubmit)="loginSubmit()">
             <mat-form-field class="usrname-input">
               <mat-label class="username">Username</mat-label>
-              <input type="email" matInput  placeholder="Enter your Username">
+              <input type="email" matInput formControlName="username">
             </mat-form-field>
 
             <mat-form-field class="usrname-input">
-              <mat-label class="username">Enter your mobile number</mat-label>
-              <input type="email" matInput  placeholder="Enter your mobile number">
+              <mat-label class="username">Enter your password</mat-label>
+              <input type="email" matInput formControlName="password">
             </mat-form-field>
             
-            <div class="continue-div" (click)="logincontinue()"><button class="continue-button">Continue</button></div>
+            <div class="continue-div"><button class="continue-button">Continue</button></div>
 
           </form>
         </div>

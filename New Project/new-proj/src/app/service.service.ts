@@ -7,11 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ServiceService {
   constructor(private http: HttpClient) {}
-  loginfromService() {
-    const body = {
-      userName: 'Sharath',
-      password: 'Sharu@123',
-    };
+  loginfromService(body:any) {
     return this.http.put(environment.url + 'login', body,{observe:'response'});
   }
 }

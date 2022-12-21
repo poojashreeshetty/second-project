@@ -1,18 +1,23 @@
 .main {
   margin: auto;
-  width: 75%;
+  min-width: 780px;
+  max-width: 1120px;
   height: 625px;
   padding-top: 130px;
   display: flex;
   justify-content: space-between;
+  /* border: 1px solid red; */
 }
 .left-side {
+  /* border: 1px solid red; */
   width: 60%;
   margin-top: 50px;
 }
-
+.image-div {
+  width: 420px;
+}
 .image-div img {
-  width: 100%;
+  width: 420px;
 }
 .seamless {
   font-family: "Biko";
@@ -22,6 +27,7 @@
   line-height: 35px;
   text-align: center;
   color: #2b2b2b;
+  margin-top: 16px;
 }
 .sync {
   font-family: "Proxima Nova Soft";
@@ -31,7 +37,9 @@
   line-height: 28px;
   text-align: center;
   color: #7a7a7a;
-  margin-top: 10px;
+  padding-top: 26px;
+  width: 350px;
+  margin: auto;
 }
 .first-dot,
 .second-dot {
@@ -45,7 +53,7 @@
   width: 32px;
   height: 5px;
   background-color: #ee5c4d;
-  border-radius: 10px;
+  border-radius: 40px;
   margin-top: 2px;
 }
 .dots-div {
@@ -53,25 +61,35 @@
   margin: auto;
   display: flex;
   justify-content: space-between;
-  margin-top: 18px;
+  margin-top: 26px;
 }
 .left-side-inside {
-  width: 65%;
+  /* border: 1px solid red; */
+
+  width: 450px;
   margin: auto;
 }
 
 .right-side {
+  /* border: 1px solid red; */
+
   background-color: #092963;
-  width: 32%;
+  width: 389px;
 }
 .right-side-inside {
+  /* border: 1px solid red; */
+
   width: 75%;
   margin: auto;
 }
 .logo-main-div {
-  position: relative;
   text-align: center;
   margin-top: 30px;
+}
+::ng-deep .mat-form-field-underline {
+  background: #ffffff !important;
+  mix-blend-mode: normal !important;
+  opacity: 0.4 !important;
 }
 #vector-img-small {
   position: absolute;
@@ -121,8 +139,9 @@
   background-color: #ffffff;
   height: 49px;
   border-radius: 6px;
+  border: none;
 }
-.continue-div{
+.continue-div {
   margin-top: 15px;
 }
 .google-div img {
@@ -157,11 +176,11 @@
   text-align: center;
 
   color: #ffffff;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 #reg span {
-  color: #EE5C4D;
+  color: #ee5c4d;
 }
 .continue-button {
   width: 100%;
@@ -175,4 +194,71 @@
   line-height: 35px;
   text-align: center;
   color: #ffffff;
+  border: none;
+}
+@media only screen and (max-width: 800px) {
+  .main {
+    min-width: 685px;
+    max-width: 1120px;
+    height: 625px;
+    padding-top: 130px;
+    display: flex;
+    justify-content: space-between;
+  }
+  #reg {
+    color: white;
+    font-family: "Proxima Nova Soft";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    /* line-height: 26px; */
+    text-align: center;
+    color: #ffffff;
+    margin-top: 10px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .left-side {
+      display: none;
+    }
+    .right-side {
+      width: 100%;
+    }
+    .right-side-inside {
+      width: 90%;
+    }
+    .main {
+      margin: auto;
+      min-width: 300px;
+      max-width:700px;
+      height: auto;
+      min-height: 883px;
+      padding-top: 0px;
+      display: flex;
+      justify-content: space-between;
+      /* border: 1px solid red; */
+    }
+    .logo-main-div{
+      margin-top: 80px;
+    }
+    .face-google-login{
+      margin-top:  60px;
+      margin-bottom: 40px;
+    }
+    .easy-to-learn{
+      margin-top: 46px;
+    }
+    .continue-button{
+      margin-top: 50px;
+    }
+    #reg{
+      margin-top: 40px;
+    }
+    .usrname-input{
+      margin-top: 20px;
+    }
+    .google-div img{
+      width:30px
+    }
+  }
 }

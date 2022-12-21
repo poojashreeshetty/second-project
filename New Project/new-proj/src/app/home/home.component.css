@@ -1,0 +1,163 @@
+.main {
+  margin: auto;
+  width: 80%;
+  height: auto;
+  min-height: 1000px;
+  border: 1px solid red;
+  margin-top: 30px;
+}
+.main-main {
+  overflow-y: auto;
+  height: 860px;
+}
+.hello {
+  font-family: "Biko";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  color: #7a7a7a;
+}
+.mahendra {
+  font-family: "Biko";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 50px;
+  color: #092963;
+}
+.banner {
+  position: relative;
+}
+.course-name {
+  position: absolute;
+  bottom: 1%;
+  left: 9%;
+  font-family: "Biko";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  color: #ffffff;
+}
+.banner img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.first-dot,
+.second-dot,
+.third-dot {
+  width: 8px;
+  height: 8px;
+  background: #ee5c4d;
+  border-radius: 10px;
+}
+.second-dot,
+.third-dot {
+  background: #ee5c4d;
+  opacity: 0.2;
+}
+
+.dots-div {
+  width: 3%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.first-row {
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  grid-column-gap: 50px;
+}
+.second-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-column-gap: 50px;
+  /* position: relative; */
+}
+/* .banner-second-row {
+  display: flex;
+  justify-content: space-between; */
+/* } */
+/* .left-content-div {
+  display: flex;
+  flex-direction: column;
+} */
+/* .art {
+  position: absolute;
+  left: 1%;
+  bottom: 7%;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 50px;
+  color: #ffffff;
+} */
+/* .chapter-count {
+  position: absolute;
+  left: 1%;
+  top: 81%;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 50px;
+  color: #ffffff;
+} */
+/* .continue-button {
+  width: 119.52px;
+  height: 36px;
+  background: #ec5d52;
+  border-radius: 4px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+  position: absolute;
+  left: 1%;
+  top: 81%;
+}
+
+.ongoing-course {
+  font-family: "Biko";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 50px;
+  color: #000000;
+} */
+
+/* ::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+ 
+  display: none;
+} */
+/* ::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+} */
+
+/* ::-webkit-scrollbar-thumb:vertical {
+  display: none;
+} */
+
+/* ::-webkit-scrollbar-track {
+  display: none;
+} */
+
+
+.category-types-div{
+  border: 1px solid red;
+}
+.third-row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-column-gap: 50px;
+  grid-row-gap: 31px;
+}

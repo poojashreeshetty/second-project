@@ -5,10 +5,12 @@ import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { CourseOverviewComponent } from './course-overview/course-overview.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     LoginComponent,
     HeaderComponent,
+    HomeComponent,
+    CourseOverviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,8 @@ import { HeaderComponent } from './header/header.component';
     MaterialModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
