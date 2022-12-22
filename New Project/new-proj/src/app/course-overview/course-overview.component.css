@@ -3,42 +3,57 @@
   width: 80%;
   height: auto;
   min-height: 1000px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-top: 30px;
+  min-width: 700px;
+  max-width: 1440px;
 }
 .main-main {
   overflow-y: auto;
   height: 860px;
 }
+.course-ongoing {
+  display: flex;
+}
 
 .left-and-right {
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-top: 29px;
 }
 
 .left {
   width: 55%;
-  height: 100px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .right {
   width: 40%;
   /* height: 100px; */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .intro-vedio {
   width: 100%;
-  border: 1px solid green;
-  height: 400px;
-  background-color: aqua;
+  /* height: 400px; */
+}
+.intro-vedio img {
+  width: 100%;
 }
 .introduction-content-flex {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
+.intoduction-vedio-name {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  color: #111111;
+}
+
 .design-button {
   width: 91px;
   height: 34px;
@@ -46,34 +61,67 @@
   mix-blend-mode: normal;
   border-radius: 6px;
 }
-.intro-para-one {
+.design {
   font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  text-align: center;
+  padding-left: 20px;
+  margin-top: 7px;
+}
+.chapter-count {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #111111;
+}
+.intro-para-one {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
   color: #2bb5f4;
   margin-top: 21px;
+  line-height: 25px;
 }
 .intro-para-two {
   font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   text-align: justify;
   color: #000000;
   margin-top: 21px;
+  line-height: 25px;
+}
+.intro-para-twoo {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: justify;
+  color: #000000;
+  margin-top: 4px;
+  line-height: 25px;
 }
 .show {
   font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   color: #ee5c4d;
+  cursor: pointer;
 }
 .inside-right {
   width: 90%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -81,7 +129,7 @@
 .overview-and-chapters {
   display: flex;
   justify-content: space-between;
-  width: 177px;
+  width: 200px;
 }
 .overview {
   font-family: "Proxima Nova Soft";
@@ -90,6 +138,7 @@
   font-size: 20px;
   line-height: 50px;
   color: #ec5d52;
+  cursor: pointer;
 }
 .chapter {
   font-family: "Proxima Nova Soft";
@@ -98,6 +147,7 @@
   font-size: 20px;
   line-height: 50px;
   color: #7a7a7a;
+  cursor: pointer;
 }
 .course-include {
   font-family: "Proxima Nova Soft";
@@ -128,13 +178,26 @@
   font-size: 20px;
   line-height: 30px;
   color: #111111;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .what-yoll-content-list {
   display: flex;
+  margin-top: 10px;
 }
 .content-row-right {
   padding-left: 10px;
+  margin-top: 3px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height, or 111% */
+
+  color: #111111;
+}
+.about-techer-para {
+  margin-top: 19px;
 }
 .requirement {
   font-family: "Proxima Nova Soft";
@@ -142,7 +205,7 @@
   font-weight: 600;
   font-size: 20px;
   color: #111111;
-  margin-top: 10px;
+  margin-top: 27px;
 }
 .what-yoll-content-list-second {
   display: flex;
@@ -156,9 +219,11 @@
   font-size: 20px;
   line-height: 30px;
   color: #111111;
+  margin-top: 26px;
 }
 .intructor-div {
   display: flex;
+  margin-top: 15px;
 }
 .about-techer {
   margin-top: 20px;
@@ -196,7 +261,7 @@
   font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 26px;
   line-height: 50px;
   text-align: center;
   color: #ffffff;
@@ -210,9 +275,19 @@
   justify-content: space-between;
   margin-top: 10px;
 }
+.teacher-para {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  /* or 144% */
+
+  color: #000000;
+}
 
 .chaptername-list-name {
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;

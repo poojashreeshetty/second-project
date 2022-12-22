@@ -25,8 +25,16 @@
   line-height: 50px;
   color: #092963;
 }
+
+/* top header  */
+.first-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 85px;
+}
 .banner {
   position: relative;
+  width:300px;
 }
 .course-name {
   position: absolute;
@@ -35,11 +43,11 @@
   font-family: "Biko";
   font-style: normal;
   font-weight: 400;
-  font-size: 21px;
+  font-size: 19px;
   color: #ffffff;
 }
 .banner img {
-  width: 100%;
+  width: 300px;
   border-radius: 4px;
 }
 
@@ -58,23 +66,55 @@
 }
 
 .dots-div {
-  width: 3%;
+  width: 5%;
   margin: auto;
   display: flex;
   justify-content: space-between;
   margin-top: 18px;
 }
 
-.first-row {
-  display: grid;
-  grid-template-columns: repeat(3,auto);
-  grid-column-gap: 50px;
+/* second row  */
+.ongoing-and-seeall {
+  display: flex;
+  justify-content: space-between;
 }
+.ongoing-course {
+  font-family: "Biko";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 50px;
+  /* identical to box height, or 208% */
+
+  color: #000000;
+}
+.see-all {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 50px;
+  text-align: right;
+  color: #7a7a7a;
+  cursor: pointer;
+}
+
 .second-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  grid-column-gap: 50px;
+  border: 1px solid red;
+  display: flex;
+  /* flex-direction: row; */
+  width: 100%;
+  gap: 35px;
+  overflow-x: auto;
+
   /* position: relative; */
+}
+.banner-two {
+  width: 400px;
+  
+}
+.banner-two img {
+  width: 400px;
 }
 /* .banner-second-row {
   display: flex;
@@ -130,12 +170,11 @@
   color: #000000;
 } */
 
-/* ::-webkit-scrollbar,
+::-webkit-scrollbar,
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track {
- 
-  display: none;
-} */
+  /* display: none; */
+}
 /* ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-track-piece,
 ::-webkit-scrollbar-corner,
@@ -151,11 +190,10 @@
   display: none;
 } */
 
-
-.category-types-div{
+.category-types-div {
   border: 1px solid red;
 }
-.third-row{
+.third-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   grid-column-gap: 50px;

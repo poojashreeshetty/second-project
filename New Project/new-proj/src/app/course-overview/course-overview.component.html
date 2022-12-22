@@ -1,31 +1,38 @@
 <app-header></app-header>
 <div class="main-main">
   <div class="main">
-    <div>ongoing</div>
     <div class="left-and-right">
       <div class="left">
-        <div class="intro-vedio"></div>
+        <div class="intro-vedio">
+          <img src="./assets/Video Space.png" alt="" />
+          <!-- <video src="{{user?.previewVideo}}" type="video/ogg"></video> -->
+        </div>
         <div class="introduction-content-flex">
           <div class="intoduction-vedio-name">
-            Learn Figma - UI/UX Design Essential Training
+            {{ user?.courseName }}
           </div>
-          <div class="design-button">Design</div>
+          <div class="design-button">
+            <p class="design">{{ user?.categoryName }}</p>
+          </div>
         </div>
-        <div>7 Chapter | 46 lessons</div>
+        <div class="chapter-count">
+          {{ user?.chapterCount }} Chapter | {{ user?.lessonCount }} lessons
+        </div>
         <div class="intro-para-one">
-          Learn how to design a beautiful and engaging mobile app with Figma.
-          Learn-by-doing approach. Learn how to design a beautiful and engaging
-          mobile app with Figma. Learn-by-doing approach.
+          {{ user?.courseTagLine }}
         </div>
         <div class="intro-para-two">
-          Figma is a very powerful application that runs online. There are
-          virtually no platform boundaries when it comes to using figma because
-          you can design within a web browser or using their desktop application
-          made for windows and macs. Figma is similar to Sketch and Adobe XD but
-          is the more powerful....<span class="show">SHOW MORE</span>
+          {{ user?.description }}<span *ngIf="showMore">..</span
+          ><span class="show" *ngIf="showMore" (click)="clickShowMore()"
+            >SHOW MORE</span
+          >
+        </div>
+        <div class="intro-para-twoo" *ngIf="showless">
+          {{ user?.description
+          }}<span class="show" (click)="clickShowLess()">SHOW LESS</span>
         </div>
       </div>
-      <!-- <div class="right">
+      <div class="right">
         <div class="inside-right">
           <div class="overview-and-chapters">
             <div class="overview">Overview</div>
@@ -36,92 +43,65 @@
             <div class="course-row-subone">
               <img src="./assets/Group 163 (6).png" alt="" />
             </div>
-            <div class="course-row-subtwo">3.5 total hours video</div>
+            <div class="course-row-subtwo">
+              {{ user?.courseDuration }} total hours video
+            </div>
           </div>
           <div class="course-row-one">
             <div class="course-row-subone">
               <img src="./assets/Group 163 (5).png" alt="" />
             </div>
-            <div class="course-row-subtwo">3.5 total hours video</div>
+            <div class="course-row-subtwo">Support Files</div>
           </div>
           <div class="course-row-one">
             <div class="course-row-subone">
               <img src="./assets/Group 163 (4).png" alt="" />
             </div>
-            <div class="course-row-subtwo">3.5 total hours video</div>
+            <div class="course-row-subtwo">
+              {{ user?.chapterCount }}Module Test
+            </div>
           </div>
           <div class="course-row-one">
             <div class="course-row-subone">
               <img src="./assets/Group 163 (3).png" alt="" />
             </div>
-            <div class="course-row-subtwo">3.5 total hours video</div>
+            <div class="course-row-subtwo">Full lifetime access</div>
           </div>
           <div class="course-row-one">
             <div class="course-row-subone">
               <img src="./assets/Group 163 (2).png" alt="" />
             </div>
-            <div class="course-row-subtwo">3.5 total hours video</div>
+            <div class="course-row-subtwo">
+              Access on mobile, desktop and tv
+            </div>
           </div>
           <div class="course-row-one">
             <div class="course-row-subone">
               <img src="./assets/Group 163 (1).png" alt="" />
             </div>
-            <div class="course-row-subtwo">3.5 total hours video</div>
+            <div class="course-row-subtwo">Certificate of Completion</div>
           </div>
 
           <div class="what">What you'll learn</div>
-          <div class="what-yoll-content-list">
+          <div
+            class="what-yoll-content-list"
+            *ngFor="let lerning of user?.learningOutCome"
+          >
             <div><img src="./assets/Combined-Shape.png" alt="" /></div>
             <div class="content-row-right">
-              You will have a fully interactive design and prototype at the end
-              of this course
-            </div>
-          </div>
-
-          <div class="what-yoll-content-list">
-            <div><img src="./assets/Combined-Shape.png" alt="" /></div>
-            <div class="content-row-right">
-              You will have a fully interactive design and prototype at the end
-              of this course
-            </div>
-          </div>
-
-          <div class="what-yoll-content-list">
-            <div><img src="./assets/Combined-Shape.png" alt="" /></div>
-            <div class="content-row-right">
-              You will have a fully interactive design and prototype at the end
-              of this course
-            </div>
-          </div>
-
-          <div class="what-yoll-content-list">
-            <div><img src="./assets/Combined-Shape.png" alt="" /></div>
-            <div class="content-row-right">
-              You will have a fully interactive design and prototype at the end
-              of this course
+              {{ lerning }}
             </div>
           </div>
 
           <div class="requirement">Requirements</div>
 
-          <div class="what-yoll-content-list-second">
+          <div
+            class="what-yoll-content-list-second"
+            *ngFor="let require of user?.requirements"
+          >
             <div><img src="./assets/Ellipse 9.png" alt="" /></div>
             <div class="content-row-right">
-              You should know your way around comouter basics
-            </div>
-          </div>
-
-          <div class="what-yoll-content-list-second">
-            <div><img src="./assets/Ellipse 9.png" alt="" /></div>
-            <div class="content-row-right">
-              You should know your way around comouter basics
-            </div>
-          </div>
-
-          <div class="what-yoll-content-list-second">
-            <div><img src="./assets/Ellipse 9.png" alt="" /></div>
-            <div class="content-row-right">
-              You should know your way around comouter basics
+              {{ require }}
             </div>
           </div>
 
@@ -132,36 +112,28 @@
               <img src="./assets/img_instructor1 copy@3x 1.png" alt="" />
             </div>
             <div class="about-techer">
-              <div class="techer-name">Dean Mathew</div>
+              <div class="techer-name">{{ user?.instructorName }}</div>
               <div class="about-teacher-second">
-                User Interface teacher www.appledesigntips.com
+                {{ user?.designation }} {{ user?.url }}
               </div>
             </div>
           </div>
 
           <div class="about-techer-para">
-            <p>
-              Back in 2010, I started brainspin with a desire to design
-              compelling and engaging apps. For over 7 years, I have designed
-              many high profile web and iPhone applications. The applications
-              range from 3D medical aided web applications to project management
-              applications for niche industries. I am also the founder of a
-              large local design organization, Salt Lake Designers, where I and
-              other local influencers help cultivate the talents of up and
-              coming UX designers through workshops and panel discussions.
-              <span class="show">SHOW MORE</span>
+            <p class="teacher-para">
+              {{ user?.instructorDescription }}
             </p>
           </div>
         </div>
 
         <div class="join-course">
-          <div class="join-course-btn">  Join Course</div>  
+          <div class="join-course-btn">Join Course</div>
         </div>
-      </div> -->
+      </div>
 
       <!-- for chapteer-list -->
 
-      <div class="right">
+      <!-- <div class="right">
         <div class="inside-right">
           <div>Course Content</div>
           <div>
@@ -180,7 +152,7 @@
             <div><img src="./assets/Vector (6).png" alt=""></div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
