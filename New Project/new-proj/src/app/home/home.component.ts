@@ -12,22 +12,22 @@ export class HomeComponent implements OnInit {
   constructor(private loginservice: ServiceService) {}
 
   ngOnInit(): void {
-    this.gettopHeader();
-    this.getOngoingCourse(1,3);
+    // this.gettopHeader();
+    // this.getOngoingCourse(1,3);
   }
-  gettopHeader() {
-    this.loginservice.topHeaderService().subscribe((data) => {
-      console.log('topheaderservice',  JSON.parse(data));
-     this.user=JSON.parse(data);
-    });
-  }
-  getOngoingCourse(page:any,limit:any){
-    this.loginservice.ongoingcourseService().subscribe(data=>{
-      this.usersecond=JSON.parse(data)
-      console.log('ongoing', this.usersecond);
-      sessionStorage.setItem('ongoingCourse',JSON.stringify(this.usersecond[0].courseId));
-    })
-  }
+  // gettopHeader() {
+  //   this.loginservice.topHeaderService().subscribe((data) => {
+  //     console.log('topheaderservice',  JSON.parse(data));
+  //    this.user=JSON.parse(data);
+  //   });
+  // }
+  // getOngoingCourse(page:any,limit:any){
+  //   this.loginservice.ongoingcourseService().subscribe(data=>{
+  //     this.usersecond=JSON.parse(data)
+  //     console.log('ongoing', this.usersecond);
+  //     sessionStorage.setItem('ongoingCourse',JSON.stringify(this.usersecond[0].courseId));
+  //   })
+  // }
 }
 
 

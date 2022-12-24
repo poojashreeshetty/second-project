@@ -9,69 +9,93 @@ import { ThisReceiver } from '@angular/compiler';
 export class ServiceService {
   constructor(private http: HttpClient) {}
   loginfromService(body: any) {
-    return this.http.put(environment.url + 'login', body, {
-      observe: 'response',
+    return this.http.post(environment.url + 'signin', body);
+  }
+
+  topserchSErvice() {
+    let token = sessionStorage.getItem('token');
+
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.get(environment.url + 'topSearches', {
+      headers: headers_object,
+      responseType: 'text',
     });
   }
-
-  topHeaderService() {
+  topserchCategoryService() {
+    const body = {
+      "choice":"seeAll"
+    };
     let token = sessionStorage.getItem('token');
+
     var headers_object = new HttpHeaders().set(
       'Authorization',
       'Bearer ' + token
     );
-    return this.http.get(
-      environment.url + 'user/home/course/pagination?pageNumber=1&pageLimit=3',
-      { headers: headers_object, responseType: 'text' }
-    );
-  }
-
-  ongoingcourseService() {
-    let token = sessionStorage.getItem('token');
-    var headers_object = new HttpHeaders().set(
-      'Authorization',
-      'Bearer ' + token
-    );
-
-    return this.http.get(environment.url + 'user/ongoingCourses', {
+    return this.http.post(environment.url + 'getCategories', body,{
       headers: headers_object,
       responseType: 'text',
     });
   }
 
-  courseOverViewService(dataID: any) {
+  serachByCategorySErvice(data: any) {
+    const body = {
+      text: data,
+    };
+
     let token = sessionStorage.getItem('token');
+
     var headers_object = new HttpHeaders().set(
       'Authorization',
       'Bearer ' + token
     );
-    const parms = new HttpParams().set('courseId', dataID);
-    return this.http.get(environment.url + 'user/courseOverView', {
+    return this.http.post(environment.url + 'searchByCategory', body, {
       headers: headers_object,
       responseType: 'text',
-      params: parms,
     });
-    // return this.http.get(environment.url + 'Lorem/Search?longitude= ' + lat + '&latitude=' + lang +'&brandId=' + brandId +'&restaurantOrFoodType=' + type +'&descRating'+rate)
   }
 
-  //   serchretrntalloffersService(data:any,id:any){
+  // searchByCategory
 
-  //     let params = new HttpParams()
+  // topHeaderService() {
+  //   let token = sessionStorage.getItem('token');
+  //   var headers_object = new HttpHeaders().set(
+  //     'Authorization',
+  //     'Bearer ' + token
+  //   );
+  //   return this.http.get(
+  //     environment.url + 'user/home/course/pagination?pageNumber=1&pageLimit=3',
+  //     { headers: headers_object, responseType: 'text' }
+  //   );
+  // }
 
-  //     .set('page', 1)
+  // ongoingcourseService() {
+  //   let token = sessionStorage.getItem('token');
+  //   var headers_object = new HttpHeaders().set(
+  //     'Authorization',
+  //     'Bearer ' + token
+  //   );
 
-  //     .set('limit', 10)
+  //   return this.http.get(environment.url + 'user/ongoingCourses', {
+  //     headers: headers_object,
+  //     responseType: 'text',
+  //   });
+  // }
 
-  //     .set('description', data)
-
-  //     .set("restaurantId",id)
-
-  //     return this.http.get(environment.url + 'Lorem/SearchRestaurantOffer', {
-
-  //       params: params,
-
-  //     });
-
-  //   }
+  // courseOverViewService(dataID: any) {
+  //   let token = sessionStorage.getItem('token');
+  //   var headers_object = new HttpHeaders().set(
+  //     'Authorization',
+  //     'Bearer ' + token
+  //   );
+  //   const parms = new HttpParams().set('courseId', dataID);
+  //   return this.http.get(environment.url + 'user/courseOverView', {
+  //     headers: headers_object,
+  //     responseType: 'text',
+  //     params: parms,
+  //   });
+  //   // return this.http.get(environment.url + 'Lorem/Search?longitude= ' + lat + '&latitude=' + lang +'&brandId=' + brandId +'&restaurantOrFoodType=' + type +'&descRating'+rate)
   // }
 }

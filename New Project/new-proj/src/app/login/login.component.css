@@ -8,6 +8,9 @@
   justify-content: space-between;
   /* border: 1px solid red; */
 }
+.forgot-pass {
+  display: block;
+}
 .left-side {
   /* border: 1px solid red; */
   width: 60%;
@@ -28,6 +31,24 @@
   text-align: center;
   color: #2b2b2b;
   margin-top: 16px;
+}
+textarea:focus,
+input:focus {
+  color: white;
+  font-size: 16px;
+}
+
+#red {
+  color: red;
+  margin-left: 0px;
+  font-size: 13px;
+}
+
+input,
+select,
+textarea {
+  color: white;
+  font-size: 16px;
 }
 .sync {
   font-family: "Proxima Nova Soft";
@@ -125,6 +146,9 @@
 .easy-to-learn {
   margin-top: 20px;
 }
+.easy-to-learn-for-mobile {
+  display: none;
+}
 .face-google-login {
   margin-top: 30px;
   display: flex;
@@ -196,6 +220,9 @@
   color: #ffffff;
   border: none;
 }
+.forgot-pass {
+  display: none;
+}
 @media only screen and (max-width: 800px) {
   .main {
     min-width: 685px;
@@ -230,7 +257,7 @@
     .main {
       margin: auto;
       min-width: 300px;
-      max-width:700px;
+      max-width: 700px;
       height: auto;
       min-height: 883px;
       padding-top: 0px;
@@ -238,27 +265,92 @@
       justify-content: space-between;
       /* border: 1px solid red; */
     }
-    .logo-main-div{
+    .logo-main-div {
       margin-top: 80px;
     }
-    .face-google-login{
-      margin-top:  60px;
+    .face-google-login {
+      margin-top: 60px;
       margin-bottom: 40px;
     }
-    .easy-to-learn{
+    .easy-to-learn {
       margin-top: 46px;
     }
-    .continue-button{
+    .continue-button {
       margin-top: 50px;
     }
-    #reg{
+    #reg {
       margin-top: 40px;
     }
-    .usrname-input{
+    .usrname-input {
       margin-top: 20px;
     }
-    .google-div img{
-      width:30px
+    .google-div img {
+      width: 30px;
+    }
+    .logo-main-div {
+      display: none;
+    }
+    .right-side {
+      /* border: 1px solid red; */
+      background-color: white;
+      /* background-color: rgb(240, 100, 100); */
+    }
+    .welcome-back {
+      padding-top: 90px;
+      text-align: left;
+      color: black;
+      margin-top: 28px;
+    }
+    .easy-to-learn,
+    .easy-to-learn-two {
+      /* text-align: left; */
+      display: none;
+    }
+    .easy-to-learn-for-mobile {
+      display: block;
+      font-family: "Proxima Nova Soft";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 26px;
+      text-align: left;
+      color: #7a7a7a;
+      opacity: 0.6;
+      margin-top: 58px;
+    }
+    .face-div,
+    .google-div {
+      width: 45%;
+      background-color: #ffffff;
+      height: 49px;
+      border-radius: 6px;
+      border: none;
+      border: 1px solid rgba(119, 134, 158, 0.3);
+      margin-top: 30px;
+    }
+
+    .forgot-pass {
+      height: 17px;
+      width: 118px;
+      color: #ee5c4d;
+      font-family: "Proxima Nova";
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.29px;
+      line-height: 17px;
+      text-align: right;
+      width: 100%;
+      margin-top: 30px;
+      display: block;
+    }
+    ::ng-deep .mat-form-field-underline {
+      background: rgba(28, 29, 29, 0.3) !important;
+      mix-blend-mode: normal !important;
+      opacity: 0.4 !important;
+    }
+    #reg {
+      color: #7a7a7a;
+      margin-top: 70px;
     }
   }
 }

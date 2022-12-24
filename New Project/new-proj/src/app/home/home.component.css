@@ -26,15 +26,15 @@
   color: #092963;
 }
 
-/* top header  */
+/* top header  first row */
 .first-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-column-gap: 85px;
+  grid-column-gap: 28px;
 }
 .banner {
   position: relative;
-  width:300px;
+  width: 100%;
 }
 .course-name {
   position: absolute;
@@ -47,7 +47,7 @@
   color: #ffffff;
 }
 .banner img {
-  width: 300px;
+  width: 100%;
   border-radius: 4px;
 }
 
@@ -100,21 +100,82 @@
 }
 
 .second-row {
-  border: 1px solid red;
+  /* border: 1px solid red;
   display: flex;
-  /* flex-direction: row; */
   width: 100%;
   gap: 35px;
-  overflow-x: auto;
-
-  /* position: relative; */
+  overflow-x: auto; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 28px;
+  grid-row-gap: 13px;
 }
 .banner-two {
-  width: 400px;
-  
+  position: relative;
+  width: 100%;
+  /* padding-bottom: 10px; */
+  /* width: 400px; */
 }
 .banner-two img {
-  width: 400px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.second-row-inside {
+  display: flex;
+  justify-content: space-around;
+  margin-top: -70px;
+}
+.second-left {
+  display: flex;
+  flex-direction: column;
+}
+.art {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+  color: #ffffff;
+}
+.chapt {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #ffffff;
+}
+.second-right {
+  width: 93px;
+  height: 32px;
+  background: #ec5d52;
+  border-radius: 4px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 11px;
+}
+.second-right p {
+  padding-top: 7px;
+}
+
+/* third row  */
+.third-row {
+  grid-row-gap: 31px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+  border: 1px solid red;
+  grid-column-gap: 28px;
+}
+.category-types-div {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+.fit-content{
+  width: fit-content;
 }
 /* .banner-second-row {
   display: flex;
@@ -189,13 +250,3 @@
 /* ::-webkit-scrollbar-track {
   display: none;
 } */
-
-.category-types-div {
-  border: 1px solid red;
-}
-.third-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  grid-column-gap: 50px;
-  grid-row-gap: 31px;
-}

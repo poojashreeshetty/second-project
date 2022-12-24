@@ -17,14 +17,14 @@ export class CourseOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.getCourseId = sessionStorage.getItem('ongoingCourse');
 
-    this.courseOverView(this.getCourseId);
+    // this.courseOverView(this.getCourseId);
   }
-  courseOverView(courseId: any) {
-    this.loginservice.courseOverViewService(courseId).subscribe((data: any) => {
-      console.log(JSON.parse(data));
-      this.user = JSON.parse(data);
-    });
-  }
+  // courseOverView(courseId: any) {
+  //   this.loginservice.courseOverViewService(courseId).subscribe((data: any) => {
+  //     console.log(JSON.parse(data));
+  //     this.user = JSON.parse(data);
+  //   });
+  // }
   clickShowMore() {
     this.showless = true;
     this.showMore=false;

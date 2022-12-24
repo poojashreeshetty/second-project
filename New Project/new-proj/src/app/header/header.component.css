@@ -14,46 +14,70 @@
   /* border: 1px solid white; */
 }
 .search {
-  width: 46%;
+  width: 42%;
   position: relative;
-
-  /* height: 20px; */
 }
+
 ::placeholder {
   font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 700;
   font-size: 22px;
   line-height: 28px;
-  /* identical to box height, or 127% */
-  /* text-align: center; */
   color: #ffffff;
   opacity: 0.3;
-  padding-left: 50px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
-mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
+input,
+select,
+textarea {
+  color: white;
+  font-size: 16px;
+  padding-left: 35px;
+  padding-top: 4px;
+}
+.maticon-left {
   color: white;
   position: absolute;
-  top: 17%;
+  top: 23%;
   left: 3%;
   opacity: 0.7;
-  /* background: #FFFFFF */
+}
+.icon-right-side {
+  position: absolute;
+  top: 7%;
+  right: 0%;
+}
+.maticon-right {
+  color: white;
+  opacity: 0.7;
+  background: #244f9c;
+  border-radius: 57px;
+  width: 240%;
+  height: 38px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .search input {
   background: #123779;
   border-radius: 57px;
   border: none;
   width: 100%;
-  height: 30px;
-  /* appearance: none; */
+  height: 39px;
   outline: none;
+  position: relative;
 }
 
 .settings {
   display: flex;
-  width: 15%;
+  width: 12%;
   justify-content: space-between;
   column-gap: 15px;
+  position: relative;
   /* margin-top: 10px; */
 }
 .img1 {
@@ -62,6 +86,12 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
 .img2 {
   /* margin-top: 10px; */
 }
+.img4 {
+  position: absolute;
+  right: 9%;
+  /* top: 4%; */
+  margin-top: -8px;
+}
 
 .if-search {
   width: 100%;
@@ -69,13 +99,12 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
   min-height: 80px;
   height: auto;
 }
-.if-margin-auto {
-  width: 80%;
-  margin: auto;
-}
+
 .if-margin-auto-secnd {
-  width: 48%;
+  width: 35%;
   margin: auto;
+  position: relative;
+  left: 32px;
 }
 .all-elm {
   display: flex;
@@ -84,6 +113,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
   column-gap: 34px;
   padding-bottom: 47px;
   padding-top: 24px;
+  cursor: pointer;
 }
 .top-serach {
   font-family: "Proxima Nova Soft";
@@ -92,6 +122,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
   font-size: 24px;
   line-height: 26px;
   color: #ffffff;
+  padding-top: 14px;
 }
 .serach-div {
   background: #ffffff;
@@ -126,16 +157,22 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
   column-gap: 10px;
   line-height: 30px;
   mix-blend-mode: normal;
-  background-color:  white;
+  background-color: white;
   border-radius: 6px;
   padding-right: 15px;
   padding-left: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 3px;
+  cursor: pointer;
 }
 .cat1 p {
   margin: 0%;
   width: 100%;
-  color: #ffffff;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #373737;
+  padding-top: 7px;
 }
 .cat1 img {
   padding-top: 5px;
@@ -145,5 +182,180 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
   display: flex;
   flex-wrap: wrap;
   column-gap: 20px;
-  row-gap: 20px;
+  row-gap: 33px;
+  padding-bottom: 51px;
+}
+
+.if-show-category-marginAuto {
+  position: relative;
+  left: 30px;
+  width: 35%;
+  margin: auto;
+  display: flex;
+  column-gap: 45px;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  border-bottom: 1px solid #1e4284;
+}
+.left-img {
+  width: 100px;
+}
+
+.if-show-right-cont {
+  width: 438px;
+}
+.hamburger {
+  display: none;
+}
+.search-for-mobile {
+  display: none;
+}
+.show-category-individual {
+  background: #092963;
+  height: 500px;
+  overflow-y: auto;
+  width: 100%;
+  padding-top: 1px;
+}
+.if-show-right-inside {
+  width: 100%;
+}
+.cat2 {
+  display: flex;
+  height: auto;
+  width: fit-content;
+  column-gap: 10px;
+  line-height: 30px;
+  mix-blend-mode: normal;
+  background-color: white;
+  border-radius: 6px;
+  padding-right: 15px;
+  padding-left: 10px;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+.cat2 p {
+  margin: 0%;
+  width: 100%;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #373737;
+  padding-top: 6px;
+}
+.left-img img {
+  border-radius: 10px;
+  height: 109px;
+  margin-top: 6px;
+}
+.digital-marketing {
+  padding-top: 7px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+}
+.chapter-fourteen {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  opacity: 0.3;
+}
+
+.ind-icon {
+  padding-top: 8px;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  width: 4px;
+  /* border: none; */
+  /* background: transparent; */
+}
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: #0891d5;
+}
+
+::-webkit-scrollbar-track {
+  background-image: url("https://i.imgur.com/GvV1R30.png");
+  opacity: 90%;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-color: transparent;
+}
+
+@media only screen and (max-width: 700px) {
+  .hamburger {
+    display: block;
+  }
+  .logo {
+    display: none;
+  }
+  .search {
+    display: none;
+  }
+  .settings {
+    display: none;
+  }
+  .search-for-mobile {
+    display: block;
+  }
+  .headMain {
+    background: white;
+  }
+  .if-search {
+    display: none;
+  }
+  .show-category-individual {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .if-margin-auto-secnd,
+  .if-show-category-marginAuto {
+    width: 35%;
+    margin: auto;
+    position: relative;
+    left: 50px;
+  }
+}
+@media only screen and (max-width: 1056px) {
+  .if-margin-auto-secnd,
+  .if-show-category-marginAuto {
+    width: 35%;
+    margin: auto;
+    position: relative;
+    left: 60px;
+  }
+}
+@media only screen and (max-width: 1111px) {
+  .if-margin-auto-secnd {
+    width: 35%;
+    margin: auto;
+    position: relative;
+    left: 70px;
+  }
+  @media only screen and (max-width: 886px) {
+    .digital-marketing {
+      padding-top: 7px;
+      font-family: "Proxima Nova Soft";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      color: #ffffff;
+    }
+  }
 }

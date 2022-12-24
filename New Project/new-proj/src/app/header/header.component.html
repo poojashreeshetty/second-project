@@ -3,75 +3,107 @@
     <div class="logo" routerLink="/home">
       <img src="./assets/Group 118.png" alt="" />
     </div>
+    <div class="hamburger">
+      <img src="./assets/icn_hamburgermenu.png" alt="" />
+    </div>
+    <div class="search-for-mobile">
+      <img src="./assets/icn_search-Search.png" alt="" />
+    </div>
     <div class="search">
-      <input type="text" placeholder="Search" />
-      <mat-icon>search</mat-icon>
+      <input
+        type="text"
+        placeholder="Search"
+        (click)="onsearch()"
+        value="{{ val }}"
+        #search
+      />
+      <mat-icon class="maticon-left" *ngIf="serachleft">search</mat-icon>
+      <div class="icon-right-side">
+        <mat-icon class="maticon-right" *ngIf="searchright">search</mat-icon>
+      </div>
     </div>
 
     <div class="settings">
-      <div class="img1">
+      <div class="img1" *ngIf="img1">
         <img src="./assets/Bell@2x.png" alt="" />
       </div>
-      <div class="img1" routerLink="/course">
+      <div class="img1" routerLink="/course" *ngIf="img2">
         <img src="./assets/Gear@2x.png" alt="" />
       </div>
-      <div class="img2">
+      <div class="img2" *ngIf="img3">
         <img src="./assets/Mask Group.png" alt="" />
+      </div>
+      <div class="img4" *ngIf="img4">
+        <img src="./assets/X.png" alt="" (click)="notshow()" />
       </div>
     </div>
   </div>
 </div>
-<div class="if-search">
-  <div class="if-margin-auto">
-    <div class="if-margin-auto-secnd">
-      <div class="top-serach">Top Search</div>
-      <div class="all-elm">
-        <!-- <div class="serach-div"><p class="search-div-name">Pytdry7dr67yr67hon</p></div> -->
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
-        <div class="serach-div"><p class="search-div-name">Python</p></div>
+
+<div class="if-search" *ngIf="showdiv">
+  <div class="if-margin-auto-secnd">
+    <div class="top-serach">Top Search</div>
+    <div class="all-elm">
+      <div
+        class="serach-div"
+        (click)="onclickDesignone(user)"
+        *ngFor="let user of topSearch"
+      >
+        <p class="search-div-name">{{ user }}</p>
       </div>
+    </div>
 
-      <div class="search-category">Search from Categories</div>
-      <div class="all-el-two">
-        <div class="cat1">
-          <img src="./assets/pen.png" alt="">
-          <p>Design</p>
-        </div>
-        <div class="cat1">
-          <img src="./assets/pen.png" alt="">
-          <p>Design</p>
-        </div>
-        <div class="cat1">
-          <img src="./assets/pen.png" alt="">
-          <p>Design</p>
-        </div>
-        <div class="cat1">
-          <img src="./assets/pen.png" alt="">
-          <p>Design</p>
-        </div>
-        <div class="cat1">
-          <img src="./assets/pen.png" alt="">
-          <p>Desigafaszetswetn</p>
-        </div>
-
-        <div class="cat1">
-          <img src="./assets/pen.png" alt="">
-          <p>Design</p>
-        </div>
-
+    <div class="search-category">Search from Categories</div>
+    <div class="all-el-two">
+      <!-- <div class="cat1" (click)="onclickDesign()">
+            <img src="./assets/pen.png" alt="" />
+            <p (click)="onclickcat('Design')" id="1">Design</p>
+          </div> -->
+      <div
+        class="cat1"
+        (click)="searchByCategodry(us)"
+        *ngFor="let us of serachcatt"
+      >
+        <img src="./assets/pen.png" alt="" />
+        <p>{{ us }}</p>
       </div>
-
-      
     </div>
   </div>
+</div>
+
+<div class="show-category-individual" *ngIf="individualcat">
+  <div
+    class="if-show-category-marginAuto"
+    *ngFor="let thirddata of serachcatby"
+  >
+    <div class="left-img">
+      <img
+        src="{{ thirddata.courseImage }}"
+        alt=""
+        width="100px"
+        height="50px"
+      />
+    </div>
+    <div class="if-show-right-cont">
+      <div class="if-show-right-inside">
+        <div class="digital-marketing">
+          <p>{{ thirddata.courseTitle }}</p>
+        </div>
+        <div class="chapter-fourteen">
+          <p>{{ thirddata.courseContent.totalChapters }} Chapter</p>
+        </div>
+        <div>
+          <div class="cat2">
+            <div class="ind-icon">
+              <img src="./assets/pen.png" alt="" />
+            </div>
+
+            <p>{{ thirddata.category }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- courseImage: "http://res.cloudinary.com/dghcx4s2l/image/upload/v1668840632/course/sbhfmfjikcydns5zhepz.jpg" -->
 </div>
