@@ -1,0 +1,75 @@
+.main {
+  margin: auto;
+  width: 80%;
+  height: auto;
+  min-height: 1000px;
+  /* border: 1px solid red; */
+  margin-top: 30px;
+}
+.main-main {
+  overflow-y: auto;
+  height: 800px;
+}
+
+
+.second-row {
+  /* border: 1px solid red;
+  display: flex;
+  width: 100%;
+  gap: 35px;
+  overflow-x: auto; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 28px;
+  grid-row-gap: 13px;
+}
+.banner-two {
+  position: relative;
+  width: 100%;
+  /* padding-bottom: 10px; */
+  /* width: 400px; */
+}
+.banner-two img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.second-row-inside {
+  display: flex;
+  justify-content: space-around;
+  margin-top: -70px;
+}
+.second-left {
+  display: flex;
+  flex-direction: column;
+}
+.art {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+  color: #ffffff;
+}
+.chapt {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #ffffff;
+}
+.second-right {
+  width: 93px;
+  height: 32px;
+  background: #ec5d52;
+  border-radius: 4px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 11px;
+}
+.second-right p {
+  padding-top: 7px;
+}

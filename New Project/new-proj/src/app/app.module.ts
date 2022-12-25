@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { CourseOverviewComponent } from './course-overview/course-overview.component';
+import { SeallOngoingComponent } from './seall-ongoing/seall-ongoing.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CourseOverviewComponent } from './course-overview/course-overview.compo
     HeaderComponent,
     HomeComponent,
     CourseOverviewComponent,
+    SeallOngoingComponent,
   ],
   imports: [
     BrowserModule,
