@@ -1,6 +1,6 @@
 .main {
   margin: auto;
-  width: 80%;
+  width: 85%;
   height: auto;
   min-height: 1000px;
   /* border: 1px solid red; */
@@ -49,6 +49,7 @@
 .banner img {
   width: 100%;
   border-radius: 4px;
+  filter: brightness(50%);
 }
 
 .first-dot,
@@ -118,8 +119,11 @@
   /* width: 400px; */
 }
 .banner-two img {
+  height: 100%;
+
   width: 100%;
   border-radius: 4px;
+  filter: brightness(60%);
 }
 
 .second-row-inside {
@@ -130,12 +134,14 @@
 .second-left {
   display: flex;
   flex-direction: column;
+  width: 224px;
+  z-index: 1;
 }
 .art {
   font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 600;
-  font-size: 21px;
+  font-size: 17px;
   color: #ffffff;
 }
 .chapt {
@@ -144,6 +150,7 @@
   font-weight: 500;
   font-size: 18px;
   color: #ffffff;
+  margin-top: -9px;
 }
 .second-right {
   width: 93px;
@@ -157,6 +164,7 @@
   color: #ffffff;
   text-align: center;
   margin-top: 11px;
+  z-index: 1;
 }
 .second-right p {
   padding-top: 7px;
@@ -164,10 +172,17 @@
 
 /* third row  */
 .third-row {
-  grid-row-gap: 31px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 31px;
+  column-gap: 34px;
+  padding-bottom: 47px;
+  padding-top: 24px;
+  cursor: pointer;
+  /* grid-row-gap: 31px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(121px, 1fr));
-  grid-column-gap: 24px;
+  grid-column-gap: 24px; */
 }
 .category-types-div {
   display: flex;
@@ -204,6 +219,7 @@
   background: #fcbe4b;
   mix-blend-mode: normal;
   border-radius: 6px;
+  z-index: 1;
 }
 .fourth-right p {
   margin-top: 10px;
@@ -213,6 +229,7 @@
   justify-content: space-between;
   margin-top: -59px;
   margin-right: 18px;
+  z-index: 1;
 }
 .banner-four {
   position: relative;
@@ -221,7 +238,9 @@
 }
 .banner-four img {
   width: 100%;
+  height: 71%;
   border-radius: 4px;
+  filter: brightness(50%);
 }
 .banner-four-below-content {
   width: 222px;
@@ -306,7 +325,6 @@
   grid-row-gap: 13px;
   margin-top: 15px;
   position: relative;
-
 }
 .second-row-inside-fifth {
   width: 41px;
@@ -314,20 +332,19 @@
   top: 27%;
   left: 42%;
 }
-.timer{
+.timer {
   display: flex;
   padding-top: 3px;
 }
-.timer img{
+.timer img {
   width: 19px;
   height: 19px;
   padding-right: 10px;
 }
-.chapter-fifth{
+.chapter-fifth {
   display: flex;
   justify-content: space-between;
 }
-
 
 ::-webkit-scrollbar,
 ::-webkit-scrollbar-thumb,
@@ -354,4 +371,3 @@
   background-size: contain;
   background-color: transparent;
 }
-

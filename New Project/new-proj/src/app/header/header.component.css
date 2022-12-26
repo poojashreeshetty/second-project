@@ -6,7 +6,7 @@
 
 .header {
   display: flex;
-  width: 80%;
+  width: 85%;
   justify-content: space-between;
   margin: auto;
   height: 80px;
@@ -296,6 +296,23 @@ textarea {
   background-color: transparent;
 }
 
+.noimage{
+  width:382px;
+  margin: auto;
+}
+.noimage img{
+  width: 156px;
+  padding-top: 124px;
+  padding-left: 101px;
+}
+.noimage p{
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 37px;
+  color: #98b6f7;
+  padding-top: 7px;
+}
 @media only screen and (max-width: 700px) {
   .hamburger {
     display: block;

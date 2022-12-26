@@ -16,6 +16,7 @@
         (click)="onsearch()"
         value="{{ val }}"
         #search
+        (keydown)="enterindividual($event,search.value)"
       />
       <mat-icon class="maticon-left" *ngIf="serachleft">search</mat-icon>
       <div class="icon-right-side">
@@ -72,6 +73,10 @@
 </div>
 
 <div class="show-category-individual" *ngIf="individualcat">
+  <div *ngIf="shonoimage" class="noimage">
+    <img src="./assets/three-no.png" alt="">
+    <p>Sorry! No result found:( </p>
+  </div>
   <div
     class="if-show-category-marginAuto"
     *ngFor="let thirddata of serachcatby"
@@ -85,6 +90,8 @@
       />
     </div>
     <div class="if-show-right-cont">
+
+     
       <div class="if-show-right-inside">
         <div class="digital-marketing">
           <p>{{ thirddata.courseTitle }}</p>

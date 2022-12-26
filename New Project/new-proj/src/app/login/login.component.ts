@@ -13,8 +13,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  logintoken:any;
-  constructor(private loginservice: ServiceService, public fb: FormBuilder,private router:Router) {}
+  logintoken: any;
+  constructor(
+    private loginservice: ServiceService,
+    public fb: FormBuilder,
+    private router: Router
+  ) {}
   login!: FormGroup;
   ngOnInit(): void {
     this.login = this.fb.group({
@@ -29,26 +33,20 @@ export class LoginComponent implements OnInit {
     };
     if (this.login.valid == false) {
       alert('invalid data');
-    }
-    else{
+    } else {
       this.loginservice.loginfromService(body).subscribe({
         next: (data) => {
           console.log(data);
-          this.logintoken=data;
-          
-          sessionStorage.setItem('token', this.logintoken.access_token);
-        },
-        error: (e) => {
-          alert("invalid credential");
-        },
-        complete: () => {
-          alert('Login successfull');
-          this.router.navigate(['/home'])
+          this.logintoken = data;
+          if (this.logintoken.message == 'Login successful') {
+            alert('Login successfull');
+            this.router.navigate(['/home']);
+            sessionStorage.setItem('token', this.logintoken.access_token);
+          } else {
+            alert('invalid credential');
+          }
         },
       });
     }
-    
   }
 }
-
-

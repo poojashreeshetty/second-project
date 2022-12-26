@@ -2,7 +2,7 @@
 <div class="main-main">
   <div class="main">
     <div class="hello">Hello!</div>
-    <div class="mahendra">Mahendra Singh Dhoni</div>
+    <div class="mahendra">{{ fullname?.fullName }}</div>
     <!-- first row  -->
     <div class="first-row">
       <div class="banner">
@@ -31,34 +31,15 @@
       <div class="ongoing-course">Ongoing courses</div>
       <div class="see-all" routerLink="/ogoing">See All</div>
     </div>
-
     <div class="second-row">
-      <div class="banner-two">
-        <img src="./assets/banner-42 1.png" alt="" />
+      <div  class="banner-two"  *ngFor="let userscnd of usersecond" (click)="gotoOverView(userscnd.courseId)">
+        <img src="{{ userscnd.url }}" alt="" />
         <div class="second-row-inside">
           <div class="second-left">
-            <p class="art">Art & Illustration</p>
-            <p class="chapt">15/20 Chapters</p>
-          </div>
-          <div class="second-right"><p>Continue</p></div>
-        </div>
-      </div>
-      <div class="banner-two">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <div class="second-row-inside">
-          <div class="second-left">
-            <p class="art">Art & Illustration</p>
-            <p class="chapt">15/20 Chapters</p>
-          </div>
-          <div class="second-right"><p>Continue</p></div>
-        </div>
-      </div>
-      <div class="banner-two">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <div class="second-row-inside">
-          <div class="second-left">
-            <p class="art">Art & Illustration</p>
-            <p class="chapt">15/20 Chapters</p>
+            <p class="art">{{ userscnd.title }}</p>
+            <p class="chapt">
+              {{ userscnd.totalChapters }}/{{ userscnd.totalLessons }} Chapters
+            </p>
           </div>
           <div class="second-right"><p>Continue</p></div>
         </div>
@@ -71,69 +52,11 @@
       <div class="see-all">See All</div>
     </div>
     <div class="third-row">
-      <div class="category-types-div">
+      <div class="category-types-div" *ngFor="let thirdrow of serachcatt">
         <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Desiw4t5g</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Desiwes45tgn</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Desiewtr44gn</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Desittgn</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Desigrtn</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Desigswrtn</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Desigrtrn</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Designtret</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Designrtr4t</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Designrtrt</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Designrtgrt</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Designrtrt</p></div>
-      </div>
-
-      <div class="category-types-div">
-        <div class="pen-img-div"><img src="./assets/pen.png" alt="" /></div>
-        <div class="fit-content"><p>Design</p></div>
+        <div class="fit-content">
+          <p>{{ thirdrow }}</p>
+        </div>
       </div>
     </div>
 
@@ -144,48 +67,43 @@
       <div class="see-all">See All</div>
     </div>
     <div class="all-pop-new-flex">
-      <div class="all-fourt"><p>All</p></div>
-      <div class="popular-fourth"><p>Popular</p></div>
-      <div class="new-fourth"><p>Newest</p></div>
+      <div class="all-fourt" (click)="function('All')" value="All" id="btn1">
+        <p>All</p>
+      </div>
+      <div
+        class="popular-fourth"
+        (click)="function('Popular')"
+        value="Popular"
+        id="btn2"
+      >
+        <p>Popular</p>
+      </div>
+      <div
+        class="new-fourth"
+        (click)="function('Newest')"
+        value="Newest"
+        id="btn3"
+      >
+        <p>Newest</p>
+      </div>
     </div>
+
     <div class="fourth-row">
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
+      <div class="banner-four" *ngFor="let pop of allCourses">
+        <img src="{{ pop.courseImage }}" alt="" />
         <div class="second-row-inside-four">
           <div class="second-left"></div>
-          <div class="fourth-right"><p>Design</p></div>
+          <div class="fourth-right">
+            <p>{{ pop.category }}</p>
+          </div>
         </div>
         <div class="banner-four-below-content">
           <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
+            {{ pop.courseTitle }}
           </p>
-          <p class="scnd-below-content-four">7 Chapters</p>
-        </div>
-      </div>
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <div class="second-row-inside-four">
-          <div class="second-left"></div>
-          <div class="fourth-right"><p>Design</p></div>
-        </div>
-        <div class="banner-four-below-content">
-          <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
+          <p class="scnd-below-content-four">
+            {{ pop.courseContent.totalChapters }} Chapters
           </p>
-          <p class="scnd-below-content-four">7 Chapters</p>
-        </div>
-      </div>
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <div class="second-row-inside-four">
-          <div class="second-left"></div>
-          <div class="fourth-right"><p>Design</p></div>
-        </div>
-        <div class="banner-four-below-content">
-          <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
-          </p>
-          <p class="scnd-below-content-four">7 Chapters</p>
         </div>
       </div>
     </div>
@@ -206,7 +124,9 @@
           </p>
           <div class="chapter-fifth">
             <p class="scnd-below-content-four">7 Chapters</p>
-            <p  class="timer"><img src="./assets/clock@2x 1.png" alt="" /> 1:30:20</p>
+            <p class="timer">
+              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+            </p>
           </div>
         </div>
       </div>
@@ -221,7 +141,9 @@
           </p>
           <div class="chapter-fifth">
             <p class="scnd-below-content-four">7 Chapters</p>
-            <p  class="timer"><img src="./assets/clock@2x 1.png" alt="" /> 1:30:20</p>
+            <p class="timer">
+              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+            </p>
           </div>
         </div>
       </div>
@@ -236,11 +158,12 @@
           </p>
           <div class="chapter-fifth">
             <p class="scnd-below-content-four">7 Chapters</p>
-            <p  class="timer"><img src="./assets/clock@2x 1.png" alt="" /> 1:30:20</p>
+            <p class="timer">
+              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+            </p>
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="ongoing-and-seeall">
@@ -259,7 +182,9 @@
           </p>
           <div class="chapter-fifth">
             <p class="scnd-below-content-four">7 Chapters</p>
-            <p  class="timer"><img src="./assets/clock@2x 1.png" alt="" /> 1:30:20</p>
+            <p class="timer">
+              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+            </p>
           </div>
         </div>
       </div>
@@ -274,7 +199,9 @@
           </p>
           <div class="chapter-fifth">
             <p class="scnd-below-content-four">7 Chapters</p>
-            <p  class="timer"><img src="./assets/clock@2x 1.png" alt="" /> 1:30:20</p>
+            <p class="timer">
+              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+            </p>
           </div>
         </div>
       </div>
@@ -289,11 +216,12 @@
           </p>
           <div class="chapter-fifth">
             <p class="scnd-below-content-four">7 Chapters</p>
-            <p  class="timer"><img src="./assets/clock@2x 1.png" alt="" /> 1:30:20</p>
+            <p class="timer">
+              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+            </p>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

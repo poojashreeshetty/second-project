@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   individualcat: boolean = false;
   search: any;
   serachcatby: any;
-
+  shonoimage:boolean=false;
   constructor(private loginservice: ServiceService) {}
   @ViewChild('search')
   input!: ElementRef;
@@ -48,23 +48,35 @@ export class HeaderComponent implements OnInit {
     this.val = us;
     this.showdiv = false;
     this.individualcat = true;
-    this.loginservice.serachByCategorySErvice(us).subscribe((data) => {
+    if(this.val=='')
+    {
+      this.val='  '
+    }
+    this.loginservice.serachByCategorySErvice(this.val).subscribe((data) => {
       this.serachcatby = JSON.parse(data);
       console.log(this.serachcatby);
+      this.shonoimage=false;
+      if(this.serachcatby.length==0){
+        this.shonoimage=true;
+      }
     });
   }
 
   onsearch() {
-    console.log('search');
-    this.serachleft = false;
-    this.searchright = true;
-    this.img1 = false;
-    this.img2 = false;
-    this.img3 = false;
-    this.img4 = true;
-    this.showdiv = true;
+    if (this.individualcat == true) {
+      this.showdiv = false;
+    } else {
+      console.log('search');
+      this.serachleft = false;
+      this.searchright = true;
+      this.img1 = false;
+      this.img2 = false;
+      this.img3 = false;
+      this.img4 = true;
+      this.showdiv = true;
+    }
   }
-  
+
   notshow() {
     this.serachleft = true;
     this.searchright = false;
@@ -75,6 +87,12 @@ export class HeaderComponent implements OnInit {
     this.img4 = false;
     this.individualcat = false;
     this.input.nativeElement.value = '';
+  }
+
+  enterindividual(e: any, serach: any) {
+    if (e.keyCode === 13) {
+      this.searchByCategodry(serach);
+    }
   }
 
   // onclickcat(cat: any) {

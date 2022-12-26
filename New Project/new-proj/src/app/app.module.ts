@@ -12,6 +12,10 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { CourseOverviewComponent } from './course-overview/course-overview.component';
 import { SeallOngoingComponent } from './seall-ongoing/seall-ongoing.component';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 
 
 @NgModule({
@@ -31,6 +35,10 @@ import { SeallOngoingComponent } from './seall-ongoing/seall-ongoing.component';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
