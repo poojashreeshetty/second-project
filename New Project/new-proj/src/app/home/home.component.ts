@@ -14,13 +14,24 @@ export class HomeComponent implements OnInit {
   serachcatt: any;
   chicecourse: any;
   allCourses: any;
+  active1 = 'noactive';
+  active2 = 'active';
+  active3 = 'active';
+  userbusiness: any;
+  userdesign: any;
+  count = 0;
+  userheader: any;
+
   constructor(private loginservice: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
     this.getName();
-    this.gettopHeader();
     this.getOngoingCourse();
     this.topserachCategory();
+    this.function('All');
+    this.topCoursesInBusiness();
+    this.topCoursesInDesign();
+    this.nextpage();
     // this.ChoiceYourCOurse();
   }
   getName() {
@@ -30,10 +41,22 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  nextpage() {
+    this.count = ++this.count;
+    console.log("vv" ,this.count);
+    this.gettopHeader()
+  }
+  prevpage() {
+    this.count = --this.count;
+    console.log("vv" ,this.count);
+    
+    this.gettopHeader()
+  }
+
   gettopHeader() {
-    this.loginservice.topHeaderService().subscribe((data) => {
+    this.loginservice.topHeaderService(this.count).subscribe((data) => {
       console.log('topheaderservice', JSON.parse(data));
-      this.user = JSON.parse(data);
+      this.userheader = JSON.parse(data);
     });
   }
 
@@ -62,11 +85,42 @@ export class HomeComponent implements OnInit {
       console.log(this.allCourses);
     });
   }
+  one() {
+    this.active1 = 'noactive';
+    this.active2 = 'active';
+    this.active3 = 'active';
+  }
+  two() {
+    this.active1 = 'active';
+    this.active2 = 'noactive';
+    this.active3 = 'active';
+  }
+  three() {
+    this.active1 = 'active';
+    this.active2 = 'active';
+    this.active3 = 'noactive';
+  }
 
   gotoOverView(courseId: any) {
     console.log(courseId);
     sessionStorage.setItem('courseid', courseId);
     this.router.navigate(['/course']);
+  }
+
+  topCoursesInBusiness() {
+    this.loginservice.topCoursesInbusService().subscribe((data) => {
+      this.userbusiness = data;
+      console.log('userBusiness', this.userbusiness);
+      // sessionStorage.setItem('ongoingCourse',JSON.stringify(this.usersecond[0].courseId));
+    });
+  }
+
+  topCoursesInDesign() {
+    this.loginservice.topCoursesIndesignService().subscribe((data) => {
+      this.userdesign = data;
+      console.log('userBusinessdd', this.userdesign);
+      // sessionStorage.setItem('ongoingCourse',JSON.stringify(this.usersecond[0].courseId));
+    });
   }
 
   // onclickAll(choice: any) {

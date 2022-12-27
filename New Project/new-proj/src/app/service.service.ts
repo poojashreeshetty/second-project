@@ -57,6 +57,22 @@ export class ServiceService {
     });
   }
 
+  serachByTop(use: any) {
+    const body = {
+      text: use,
+    };
+
+    let token = sessionStorage.getItem('token');
+
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'searchCourse', body, {
+      headers: headers_object,
+    });
+  }
+
   getNameService() {
     let token = sessionStorage.getItem('token');
 
@@ -70,14 +86,14 @@ export class ServiceService {
     });
   }
 
-  topHeaderService() {
+  topHeaderService(count:any) {
     let token = sessionStorage.getItem('token');
 
     var headers_object = new HttpHeaders().set(
       'Authorization',
       'Bearer ' + token
     );
-    return this.http.get(environment.url + 'getBanner', {
+    return this.http.get(environment.url + 'getBanner?page='+count, {
       headers: headers_object,
       responseType: 'text',
     });
@@ -112,14 +128,10 @@ export class ServiceService {
   }
 
   courseOverViewService() {
-    
-    
     const body = {
-      
-        'courseId': sessionStorage.getItem('courseid')
-      
+      courseId: sessionStorage.getItem('courseid'),
     };
-    console.log('body',body);
+    console.log('body', body);
 
     let token = sessionStorage.getItem('token');
     var headers_object = new HttpHeaders().set(
@@ -127,6 +139,53 @@ export class ServiceService {
       'Bearer ' + token
     );
     return this.http.post(environment.url + 'getCourse/overview', body, {
+      headers: headers_object,
+    });
+  }
+  courseChaptersService() {
+    const body = {
+      view: 'chapters',
+      courseId: sessionStorage.getItem('courseid'),
+    };
+    console.log('body', body);
+
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'getCourse/chapters', body, {
+      headers: headers_object,
+    });
+  }
+
+  topCoursesInbusService() {
+    const body = {
+      text: 'Business',
+    };
+    console.log('body', body);
+
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'topCoursesInCategory', body, {
+      headers: headers_object,
+    });
+  }
+  topCoursesIndesignService() {
+    const body = {
+      text: 'Design'
+    };
+    console.log('body', body);
+
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'topCoursesInCategory', body, {
       headers: headers_object,
     });
   }

@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   img3: boolean = true;
   img4: boolean = false;
   showdiv: boolean = false;
+  
   topSearch: any;
   val: any;
   searchcat: any;
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
   individualcat: boolean = false;
   search: any;
   serachcatby: any;
-  shonoimage:boolean=false;
+  shonoimage: boolean = false;
+  individualtop: any;
   constructor(private loginservice: ServiceService) {}
   @ViewChild('search')
   input!: ElementRef;
@@ -48,16 +50,15 @@ export class HeaderComponent implements OnInit {
     this.val = us;
     this.showdiv = false;
     this.individualcat = true;
-    if(this.val=='')
-    {
-      this.val='  '
-    }
+    // if (this.val == '') {
+    //   this.val = '  ';
+    // }
     this.loginservice.serachByCategorySErvice(this.val).subscribe((data) => {
       this.serachcatby = JSON.parse(data);
       console.log(this.serachcatby);
-      this.shonoimage=false;
-      if(this.serachcatby.length==0){
-        this.shonoimage=true;
+      this.shonoimage = false;
+      if (this.serachcatby.length == 0) {
+        this.shonoimage = true;
       }
     });
   }
@@ -90,10 +91,24 @@ export class HeaderComponent implements OnInit {
   }
 
   enterindividual(e: any, serach: any) {
-    if (e.keyCode === 13) {
+    console.log(serach);
+
+    if (serach != '') {
       this.searchByCategodry(serach);
+    } else {
+      this.showdiv = true;
+      this.individualcat = false;
+      this.shonoimage = false;
     }
   }
+
+  // back(search: any) {
+  //   console.log('back', search);
+
+  //   if (search = '') {
+  //     this.ss!=this.searchByCategodry(search);
+  //   }
+  // }
 
   // onclickcat(cat: any) {
   //   console.log(cat);
@@ -107,6 +122,11 @@ export class HeaderComponent implements OnInit {
   // }
 
   onclickDesignone(useone: any) {
+    this.loginservice.serachByTop(useone).subscribe((data) => {
+      console.log('top', data);
+      this.serachcatby=data
+    });
+
     this.val = useone;
     this.showdiv = false;
     this.individualcat = true;

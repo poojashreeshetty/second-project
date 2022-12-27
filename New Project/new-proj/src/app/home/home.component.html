@@ -4,20 +4,18 @@
     <div class="hello">Hello!</div>
     <div class="mahendra">{{ fullname?.fullName }}</div>
     <!-- first row  -->
+
     <div class="first-row">
-      <div class="banner">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <p class="course-name">Product UX Design Course Sale</p>
+      <div class="banner" *ngFor="let bb of userheader">
+        <img src="{{ bb.courseImage }}" alt="" />
+        <p class="course-name">{{bb.courseTitle}}</p>
       </div>
-      <div class="banner">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <p class="course-name">Product UX Design Course Sale</p>
-      </div>
-      <div class="banner">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <p class="course-name">Product UX Design Course Sale</p>
-      </div>
+
+      <!-- <mat-icon class="label-impone">label_important</mat-icon>
+      <mat-icon class="label-imptwo">label_important</mat-icon> -->
     </div>
+    <button (click)="nextpage()">next</button>
+    <button (click)="prevpage()">preview</button>
 
     <div class="dots-div">
       <div class="first-dot"></div>
@@ -32,7 +30,11 @@
       <div class="see-all" routerLink="/ogoing">See All</div>
     </div>
     <div class="second-row">
-      <div  class="banner-two"  *ngFor="let userscnd of usersecond" (click)="gotoOverView(userscnd.courseId)">
+      <div
+        class="banner-two"
+        *ngFor="let userscnd of usersecond"
+        (click)="gotoOverView(userscnd.courseId)"
+      >
         <img src="{{ userscnd.url }}" alt="" />
         <div class="second-row-inside">
           <div class="second-left">
@@ -67,24 +69,35 @@
       <div class="see-all">See All</div>
     </div>
     <div class="all-pop-new-flex">
-      <div class="all-fourt" (click)="function('All')" value="All" id="btn1">
-        <p>All</p>
+      <div
+        class="all-fourt"
+        (click)="function('All')"
+        (click)="one()"
+        value="All"
+        id="btn1"
+        [ngClass]="active1"
+      >
+        All
       </div>
       <div
         class="popular-fourth"
         (click)="function('Popular')"
         value="Popular"
         id="btn2"
+        [ngClass]="active2"
+        (click)="two()"
       >
-        <p>Popular</p>
+        Popular
       </div>
       <div
         class="new-fourth"
         (click)="function('Newest')"
         value="Newest"
         id="btn3"
+        [ngClass]="active3"
+        (click)="three()"
       >
-        <p>Newest</p>
+        Newest
       </div>
     </div>
 
@@ -92,10 +105,10 @@
       <div class="banner-four" *ngFor="let pop of allCourses">
         <img src="{{ pop.courseImage }}" alt="" />
         <div class="second-row-inside-four">
-          <div class="second-left"></div>
-          <div class="fourth-right">
-            <p>{{ pop.category }}</p>
-          </div>
+          <div class="fourth-left"></div>
+          <!-- <div class="fourth-right"> -->
+          <p class="fourth-right">{{ pop.category }}</p>
+          <!-- </div> -->
         </div>
         <div class="banner-four-below-content">
           <p class="first-below-content-four">
@@ -113,51 +126,19 @@
       <div class="see-all">See All</div>
     </div>
     <div class="fifth-row">
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
+      <div class="banner-four" *ngFor="let userbus of userbusiness">
+        <img src="{{ userbus.courseImage }}" alt="" />
         <div class="second-row-inside-fifth">
           <img src="./assets/play.png" alt="" />
         </div>
         <div class="banner-four-below-content">
           <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
+            {{ userbus.courseTitle }}
           </p>
           <div class="chapter-fifth">
-            <p class="scnd-below-content-four">7 Chapters</p>
-            <p class="timer">
-              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+            <p class="scnd-below-content-four">
+              {{ userbus.courseContent.totalChapters }} Chapters
             </p>
-          </div>
-        </div>
-      </div>
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <div class="second-row-inside-fifth">
-          <img src="./assets/play.png" alt="" />
-        </div>
-        <div class="banner-four-below-content">
-          <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
-          </p>
-          <div class="chapter-fifth">
-            <p class="scnd-below-content-four">7 Chapters</p>
-            <p class="timer">
-              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <div class="second-row-inside-fifth">
-          <img src="./assets/play.png" alt="" />
-        </div>
-        <div class="banner-four-below-content">
-          <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
-          </p>
-          <div class="chapter-fifth">
-            <p class="scnd-below-content-four">7 Chapters</p>
             <p class="timer">
               <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
             </p>
@@ -171,51 +152,19 @@
       <div class="see-all">See All</div>
     </div>
     <div class="fifth-row">
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
+      <div class="banner-four" *ngFor="let userbuss of userdesign">
+        <img src="{{ userbuss.courseImage }}" alt="" />
         <div class="second-row-inside-fifth">
           <img src="./assets/play.png" alt="" />
         </div>
         <div class="banner-four-below-content">
           <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
+            {{ userbuss.courseTitle }}
           </p>
           <div class="chapter-fifth">
-            <p class="scnd-below-content-four">7 Chapters</p>
-            <p class="timer">
-              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+            <p class="scnd-below-content-four">
+              {{ userbuss.courseContent.totalChapters }} Chapters
             </p>
-          </div>
-        </div>
-      </div>
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <div class="second-row-inside-fifth">
-          <img src="./assets/play.png" alt="" />
-        </div>
-        <div class="banner-four-below-content">
-          <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
-          </p>
-          <div class="chapter-fifth">
-            <p class="scnd-below-content-four">7 Chapters</p>
-            <p class="timer">
-              <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="banner-four">
-        <img src="./assets/banner-42 1.png" alt="" />
-        <div class="second-row-inside-fifth">
-          <img src="./assets/play.png" alt="" />
-        </div>
-        <div class="banner-four-below-content">
-          <p class="first-below-content-four">
-            Learn Figma - UI/UX Design Essential Training
-          </p>
-          <div class="chapter-fifth">
-            <p class="scnd-below-content-four">7 Chapters</p>
             <p class="timer">
               <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
             </p>

@@ -101,7 +101,7 @@ textarea {
 }
 
 .if-margin-auto-secnd {
-  width: 35%;
+  width: 38%;
   margin: auto;
   position: relative;
   left: 32px;
@@ -242,7 +242,7 @@ textarea {
   font-weight: 700;
   font-size: 16px;
   color: #373737;
-  padding-top: 6px;
+  padding-top: 4px;
 }
 .left-img img {
   border-radius: 10px;
@@ -296,23 +296,48 @@ textarea {
   background-color: transparent;
 }
 
-.noimage{
-  width:382px;
+.noimage {
+  width: 540px;
   margin: auto;
 }
-.noimage img{
+/* .noimage img {
   width: 156px;
   padding-top: 124px;
   padding-left: 101px;
-}
-.noimage p{
+} */
+/* .noimage p {
   font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 700;
   font-size: 37px;
   color: #98b6f7;
   padding-top: 7px;
+} */
+.no-matching {
+  text-align: center;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 26px;
+  color: #ffffff;
+  padding-top: 69px;
 }
+.try-a {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 26px;
+  /* identical to box height, or 100% */
+
+  color: #ffffff;
+
+  opacity: 0.5;
+  text-align: center;
+  padding-bottom: 41px;
+}
+
 @media only screen and (max-width: 700px) {
   .hamburger {
     display: block;
@@ -360,19 +385,34 @@ textarea {
 }
 @media only screen and (max-width: 1111px) {
   .if-margin-auto-secnd {
-    width: 35%;
+    width: 40%;
     margin: auto;
     position: relative;
     left: 70px;
   }
-  @media only screen and (max-width: 886px) {
-    .digital-marketing {
-      padding-top: 7px;
-      font-family: "Proxima Nova Soft";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 14px;
-      color: #ffffff;
-    }
+}
+@media only screen and (max-width: 1300px) {
+  .if-margin-auto-secnd {
+    width: 40%;
+    margin: auto;
+    position: relative;
+    left: 70px;
   }
 }
+@media only screen and (max-width: 886px) {
+  .digital-marketing {
+    padding-top: 7px;
+    font-family: "Proxima Nova Soft";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+  }
+}
+
+
+/* if (serach = ''){
+  alert('no result found');
+} else {
+  this.searchByCategodry(serach);
+} */

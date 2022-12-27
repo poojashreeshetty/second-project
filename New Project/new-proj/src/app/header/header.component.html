@@ -16,8 +16,10 @@
         (click)="onsearch()"
         value="{{ val }}"
         #search
-        (keydown)="enterindividual($event,search.value)"
+        (keyup)="enterindividual($event, search.value)"
       />
+      <!-- (keydown.backspace)="back(search.value)"  -->
+
       <mat-icon class="maticon-left" *ngIf="serachleft">search</mat-icon>
       <div class="icon-right-side">
         <mat-icon class="maticon-right" *ngIf="searchright">search</mat-icon>
@@ -53,13 +55,37 @@
         <p class="search-div-name">{{ user }}</p>
       </div>
     </div>
+    <div>
+      <div class="search-category">Search from Categories</div>
+      <div class="all-el-two">
+        <!-- <div class="cat1" (click)="onclickDesign()">
+          <img src="./assets/pen.png" alt="" />
+          <p (click)="onclickcat('Design')" id="1">Design</p>
+        </div> -->
+        <div
+          class="cat1"
+          (click)="searchByCategodry(us)"
+          *ngFor="let us of serachcatt"
+        >
+          <img src="./assets/pen.png" alt="" />
+          <p>{{ us }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="show-category-individual" *ngIf="individualcat">
+  <div *ngIf="shonoimage" class="noimage">
+    <p class="no-matching">No matching course</p>
+    <p class="try-a">Try a different search or browse categories</p>
 
     <div class="search-category">Search from Categories</div>
     <div class="all-el-two">
       <!-- <div class="cat1" (click)="onclickDesign()">
-            <img src="./assets/pen.png" alt="" />
-            <p (click)="onclickcat('Design')" id="1">Design</p>
-          </div> -->
+          <img src="./assets/pen.png" alt="" />
+          <p (click)="onclickcat('Design')" id="1">Design</p>
+        </div> -->
       <div
         class="cat1"
         (click)="searchByCategodry(us)"
@@ -69,13 +95,6 @@
         <p>{{ us }}</p>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="show-category-individual" *ngIf="individualcat">
-  <div *ngIf="shonoimage" class="noimage">
-    <img src="./assets/three-no.png" alt="">
-    <p>Sorry! No result found:( </p>
   </div>
   <div
     class="if-show-category-marginAuto"
@@ -90,8 +109,6 @@
       />
     </div>
     <div class="if-show-right-cont">
-
-     
       <div class="if-show-right-inside">
         <div class="digital-marketing">
           <p>{{ thirddata.courseTitle }}</p>
@@ -101,9 +118,9 @@
         </div>
         <div>
           <div class="cat2">
-            <div class="ind-icon">
+            <!-- <div class="ind-icon">
               <img src="./assets/pen.png" alt="" />
-            </div>
+            </div> -->
 
             <p>{{ thirddata.category }}</p>
           </div>
@@ -111,6 +128,4 @@
       </div>
     </div>
   </div>
-
-  <!-- courseImage: "http://res.cloudinary.com/dghcx4s2l/image/upload/v1668840632/course/sbhfmfjikcydns5zhepz.jpg" -->
 </div>

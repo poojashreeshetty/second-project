@@ -29,14 +29,18 @@
           </div> -->
 
           <!-- <img class="video" src="/assets/Video Space.png" alt="" /> -->
-          <!-- <div class="vedio-div">
-            <video class="video"  [src]="user?.courseOverview?.previewVideo?.overViewId?.previewThisCourse?.videoLink" type="mp4" controls></video>
+          <div class="vedio-div">
+            <video
+              class="video"
+              [src]="vedio"
+              type="mp4"
+              controls
+            ></video>
+          </div>
 
-          </div> -->
-
-          <vg-player>
+          <!-- <vg-player>
             <video [vgMedia]="$any(media)" #media [src]="user?.courseOverview?.previewVideo?.overViewId?.previewThisCourse?.videoLink" id="singleVideo" preload="auto" crossorigin></video>
-        </vg-player>
+        </vg-player> -->
 
           <div class="heading">
             <div class="headName">
@@ -50,22 +54,22 @@
 
             <div class="description1">
               <p>
-                Learn how to design a beautiful and engaging mobile app with
-                Figma. Learn-by-doing approach. Learn how to design a beautiful
-                and engaging mobile app with Figma. Learn-by-doing approach.
+                {{ vedio?.previewThisCourse?.description }}
               </p>
             </div>
+
             <div class="description2">
               <p>
-                Figma is a very powerful application that runs online. There are
-                virtually no platform boundaries when it comes to using figma
-                because you can design within a web browser or using their
-                desktop application made for windows and macs. Figma is similar
-                to Sketch and Adobe XD but is the more powerful of the three
-                when it comes. Figma is a very powerful application that runs
-                online. There are virtually no platform boundaries when it comes
-                to using figma because you can design within a web browser or
-                using their desktop application made for windows and macs...
+                {{ user?.courseOverview?.overViewId?.description
+                }}<span *ngIf="showMore">..</span
+                ><span class="show" *ngIf="showMore" (click)="clickShowMore()"
+                  >SHOW MORE</span
+                >
+              </p>
+              <p *ngIf="showless">
+                {{ user?.courseOverview?.overViewId?.description
+                }}<span *ngIf="showless">..</span
+                ><span class="show" (click)="clickShowLess()">SHOW LESS</span>
               </p>
             </div>
           </div>
@@ -115,7 +119,10 @@
                       height="25"
                     />
                   </div>
-                  <p>3.5 total hours video</p>
+                  <p>
+                    {{ vedio?.previewThisCourse?.videoDuration / 60 }} total
+                    hours video
+                  </p>
                 </div>
                 <div class="item">
                   <div>
@@ -176,231 +183,124 @@
 
               <div class="learn">
                 <p class="learnP">What you'll learn</p>
-                <div class="learnItem">
+                <div
+                  class="learnItem"
+                  *ngFor="
+                    let what of user?.courseOverview?.overViewId
+                      ?.whatYouWillLearn
+                  "
+                >
                   <div>
                     <img src="./assets/Combined-Shape.png" alt="" />
                   </div>
-                  <p>Design Websites</p>
-                </div>
-                <div class="learnItem">
-                  <div>
-                    <img src="./assets/Combined-Shape.png" alt="" />
-                  </div>
-                  <p>
-                    You will have a fully interactive design and prototype at
-                    the end of this course
-                  </p>
-                </div>
-                <div class="learnItem">
-                  <div>
-                    <img src="./assets/Combined-Shape.png" alt="" />
-                  </div>
-                  <p>Design mobile and desktop apps</p>
-                </div>
-                <div class="learnItem">
-                  <div>
-                    <img src="./assets/Combined-Shape.png" alt="" />
-                  </div>
-                  <p>
-                    You will learn how to reuse design elements for future
-                    projects
-                  </p>
+                  <p>{{ what }}</p>
                 </div>
               </div>
               <div class="require">
                 <p class="recP">Requirements</p>
-                <div class="recItem">
+                <div
+                  class="recItem"
+                  *ngFor="
+                    let require of user?.courseOverview?.overViewId
+                      ?.requirements
+                  "
+                >
                   <div>
                     <img src="/assets/Ellipse 9.png" alt="" />
                   </div>
                   <p>
-                    Internet Access You should know your way around comouter
-                    basics
+                    {{ require }}
                   </p>
-                </div>
-                <div class="recItem">
-                  <div>
-                    <img src="/assets/Ellipse 9.png" alt="" />
-                  </div>
-                  <p>You should know your way around comouter basics</p>
                 </div>
               </div>
 
               <div class="ins">
                 <p class="recP">Instructor</p>
                 <div class="instructor">
-                  <div>
+                  <div class="instr-image">
                     <img
                       class="mblinst"
-                      src="/assets/img_instructor1 copy@3x 1.png"
+                      src="{{
+                        user?.courseOverview?.overViewId?.instructor
+                          .instructorImage
+                      }}"
                       alt=""
                     />
                   </div>
                   <div class="cont">
-                    <p class="aa">Dean Mathew</p>
+                    <p class="aa">
+                      {{ user?.courseOverview?.overViewId?.instructor.name }}
+                    </p>
                     <p class="ab">
-                      User Interface teacher www.appledesigntips.com
+                      {{
+                        user?.courseOverview?.overViewId?.instructor.designation
+                      }}
+                      {{ user?.courseOverview?.overViewId?.instructor.url }}
                     </p>
                   </div>
                 </div>
                 <div class="des">
-                  Back in 2010, I started brainspin with a desire to design
-                  compelling and engaging apps. For over 7 years, I have
-                  designed many high profile web and iPhone applications. The
-                  applications range from 3D medical aided web applications to
-                  project management applications for niche industries. I am
-                  also the founder of a large local design organization, Salt
-                  Lake Designers, where I and other local influencers help
-                  cultivate the talents of up and coming UX designers through
-                  workshops and panel discussions...<span class="show"
-                    >SHOW MORE</span
-                  >
+                  {{ user?.courseOverview?.overViewId?.instructor.description }}
+                  <!-- <span class="show">SHOW MORE</span> -->
                 </div>
               </div>
             </div>
             <div class="join">Join Course</div>
           </div>
-
+          
           <div *ngIf="part2Chap">
             <div class="contentL">
               <p class="cont1">Course Content</p>
               <p class="cont2">
-                7 Chapter | 46 lessons | 6 Assignment Test | 3.5h total length
+                {{lessonDurationtop(userChapter.listOfChapters.courseContent.totalDuration/60)}}
+                {{userChapter.listOfChapters.courseContent.totalChapters}} Chapter | {{userChapter.listOfChapters.courseContent.totalLessons}} lessons | {{userChapter.listOfChapters.courseContent.totalTests}} Assignment Test | {{userChapter.listOfChapters.courseContent.totalLessons}} lessons | {{this.finalfixedtwotop}} h total length
               </p>
             </div>
-            <div class="mainchap">
+            <div
+              class="mainchap"
+              *ngFor="
+                let chapterlist of userChapter.listOfChapters.totalChapters[0]
+                  .chapters; let i = index
+              "
+            >
               <div class="chap">
-                <p class="chapP">Chapter 1 - Introduction to the course</p>
+                <p class="chapP">Chapter {{chapterlist.chapterNumber}} - {{ chapterlist.chapterTitle }}</p>
                 <span
                   ><img
+                  *ngIf="chapterarray[i]"
+                    (click)="plus(i)"
                     src="./assets/Vector (6).png"
-                    alt=""
-                    width="15"
-                    height="15"
-                /></span>
-              </div>
-              <div class="chap">
-                <p class="chapP">Chapter 1 - Introduction to the course</p>
-                <span
-                  ><img
-                    *ngIf="removePlus"
-                    (click)="plus()"
-                    src="./assets/Vector (6).png"
-                    alt="" /><img
+                    alt="" />
+                    <img
                     class="minus"
-                    *ngIf="removeminus"
-                    (click)="minus()"
+                    *ngIf="!chapterarray[i]"
+                    (click)="minus(i)"
                     src="./assets/minus.svg"
                     alt=""
                 /></span>
               </div>
-              <div *ngIf="expand">
-                <div class="chapters">
+              <div *ngIf="!chapterarray[i]" >
+                <div
+                  class="chapters"
+                  *ngFor="let lessonlist of chapterlist.lessons">
                   <div class="chapdiv">
                     <div class="name">
-                      <div class="no">20</div>
+                      <div class="no">{{lessonlist.serialNumberOfLesson}}</div>
                       <div class="nameLen">
                         <p class="chapdivName">
-                          Creating a New Project and File
+                          {{lessonlist.title}}
                         </p>
-                        <p class="chapdivlen">01.38 mins</p>
+                        {{lessonDuration(lessonlist.duration)}}
+                        <p class="chapdivlen"> {{this.finalfixedtwo}} mins</p>
                       </div>
                     </div>
-                    <div class="rPlay">
+                    <div class="rPlay" (click)="onclickvcplay(lessonlist.url)">
                       <img class="redplay" src="./assets/Red Play.svg" alt="" />
                     </div>
                   </div>
                 </div>
-
-                <div class="chapters">
-                  <div class="chapdiv">
-                    <div class="name">
-                      <div class="no">20</div>
-                      <div class="nameLen">
-                        <p class="chapdivName">
-                          Creating a New Project and File
-                        </p>
-                        <p class="chapdivlen">01.38 mins</p>
-                      </div>
-                    </div>
-                    <div class="rPlay">
-                      <img
-                        class="redplay"
-                        src="./assets/Red Play.svg"
-                        alt=""
-                        width="35"
-                        height="35"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="chapters">
-                  <div class="chapdiv">
-                    <div class="name">
-                      <div class="no">20</div>
-                      <div class="nameLen">
-                        <p class="chapdivName">
-                          Creating a New Project and File
-                        </p>
-                        <p class="chapdivlen">01.38 mins</p>
-                      </div>
-                    </div>
-                    <div class="rPlay">
-                      <img
-                        class="redplay"
-                        src="./assets/Red Play.svg"
-                        alt=""
-                        width="35"
-                        height="35"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="chapters">
-                  <div class="chapdiv">
-                    <div class="name">
-                      <div class="no">20</div>
-                      <div class="nameLen">
-                        <p class="chapdivName">
-                          Creating a New Project and File
-                        </p>
-                        <p class="chapdivlen">01.38 mins</p>
-                      </div>
-                    </div>
-                    <div class="rPlay">
-                      <img
-                        class="greyplay"
-                        src="./assets/grey play.svg"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="chapters">
-                  <div class="chapdiv">
-                    <div class="name">
-                      <div class="no">20</div>
-                      <div class="nameLen">
-                        <p class="chapdivName">
-                          Creating a New Project and File
-                        </p>
-                        <p class="chapdivlen">01.38 mins</p>
-                      </div>
-                    </div>
-                    <div class="rPlay">
-                      <img
-                        class="greyplay"
-                        src="./assets/grey play.svg"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
               </div>
-              <div class="chap">
+              <!-- <div class="chap">
                 <p class="chapP">Chapter 1 - Introduction to the course</p>
                 <span
                   ><img
@@ -409,8 +309,8 @@
                     width="15"
                     height="15"
                 /></span>
-              </div>
-              <div class="chap">
+              </div> -->
+              <!-- <div class="chap">
                 <p class="chapP">Chapter 1 - Introduction to the course</p>
                 <span
                   ><img
@@ -419,8 +319,8 @@
                     width="15"
                     height="15"
                 /></span>
-              </div>
-              <div class="chap">
+              </div> -->
+              <!-- <div class="chap">
                 <p class="chapP">Chapter 1 - Introduction to the course</p>
                 <span
                   ><img
@@ -429,7 +329,7 @@
                     width="15"
                     height="15"
                 /></span>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

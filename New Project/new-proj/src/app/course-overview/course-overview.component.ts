@@ -21,11 +21,24 @@ export class CourseOverviewComponent implements OnInit {
   demo1 = true;
   getCourseId: any;
   user: any;
+  vedio: any;
+  showMore: boolean = true;
+  showless: boolean = false;
+  userChapter: any;
+  toFixed: any;
+  finalfixed: any;
+  finalfixedtwo: any;
+  chapterarray: any = [];
+  chapterlength: any;
+  finalfixedtop: any;
+  finalfixedtwotop: any;
+  lessonUrl: any;
   constructor(private loginservice: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
     // this.getCourseId = sessionStorage.getItem('courseid');
     this.courseOverView();
+    this.courseChapters();
   }
   over() {
     this.act = 'act';
@@ -41,16 +54,20 @@ export class CourseOverviewComponent implements OnInit {
     this.part2Chap = true;
     this.part1video = false;
   }
-  plus() {
+  plus(index: any) {
     this.expand = true;
     this.removePlus = false;
     this.removeminus = true;
+
+    this.chapterarray[index] = !this.chapterarray;
   }
 
-  minus() {
+  minus(index: any) {
     this.expand = false;
     this.removePlus = true;
     this.removeminus = false;
+
+    this.chapterarray[index] = this.chapterarray;
   }
   mblOver() {
     this.act = 'act';
@@ -63,8 +80,47 @@ export class CourseOverviewComponent implements OnInit {
 
   courseOverView() {
     this.loginservice.courseOverViewService().subscribe((data: any) => {
-        console.log("overview",data);
-        this.user = data;
-      });
+      console.log('overview', data);
+      this.user = data;
+      this.vedio = this.user.courseOverview.overViewId.previewThisCourse?.videoLink;
+    });
+  }
+
+  courseChapters() {
+    this.loginservice.courseChaptersService().subscribe((data: any) => {
+      console.log('chapters', data);
+      this.userChapter = data;
+
+      this.chapterlength =
+        this.userChapter.listOfChapters.totalChapters[0].chapters.length;
+
+      for (var i = 0; i < this.chapterlength; i++) {
+        this.chapterarray.push('false');
+      }
+    });
+  }
+
+  clickShowMore() {
+    this.showless = true;
+    this.showMore = false;
+  }
+  clickShowLess() {
+    this.showless = false;
+    this.showMore = true;
+  }
+
+  lessonDuration(tofixed: any) {
+    this.finalfixed = tofixed / 60;
+    this.finalfixedtwo = parseFloat(this.finalfixed).toFixed(2);
+  }
+  lessonDurationtop(tofixedtop: any) {
+    this.finalfixedtop = tofixedtop;
+    this.finalfixedtwotop = parseFloat(this.finalfixedtop).toFixed(1);
+  }
+
+  onclickvcplay(lessonurl: any) {
+    this.vedio = lessonurl;
+    console.log(this.vedio);
+    
   }
 }
