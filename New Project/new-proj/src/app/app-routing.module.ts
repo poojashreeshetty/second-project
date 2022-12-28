@@ -4,6 +4,8 @@ import { CourseOverviewComponent } from './course-overview/course-overview.compo
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SeallOngoingComponent } from './seall-ongoing/seall-ongoing.component';
+import { TopBusComponent } from './top-bus/top-bus.component';
+import { TopDesComponent } from './top-des/top-des.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -11,6 +13,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'ogoing', component: SeallOngoingComponent },
   { path: 'course', component: CourseOverviewComponent },
+  { path: 'top-bus', component: TopBusComponent },
+  { path: 'top-des', component: TopDesComponent },
 ];
 
 @NgModule({

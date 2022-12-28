@@ -1,35 +1,22 @@
 <app-header></app-header>
 <div class="main-main">
 <div class="main">
-  <div class="second-row">
-    <div class="banner-two">
-      <img src="./assets/banner-42 1.png" alt="" />
-      <div class="second-row-inside">
-        <div class="second-left">
-          <p class="art">Art & Illustration</p>
-          <p class="chapt">15/20 Chapters</p>
-        </div>
-        <div class="second-right"><p>Continue</p></div>
+  <div class="fourth-row">
+    <div class="banner-four" *ngFor="let pop of usersecond">
+      <img src="{{ pop.courseImage }}" alt="" />
+      <div class="second-row-inside-four">
+        <div class="fourth-left"></div>
+        <!-- <div class="fourth-right"> -->
+        <p class="fourth-right">{{ pop.category }}</p>
+        <!-- </div> -->
       </div>
-    </div>
-    <div class="banner-two">
-      <img src="./assets/banner-42 1.png" alt="" />
-      <div class="second-row-inside">
-        <div class="second-left">
-          <p class="art">Art & Illustration</p>
-          <p class="chapt">15/20 Chapters</p>
-        </div>
-        <div class="second-right"><p>Continue</p></div>
-      </div>
-    </div>
-    <div class="banner-two">
-      <img src="./assets/banner-42 1.png" alt="" />
-      <div class="second-row-inside">
-        <div class="second-left">
-          <p class="art">Art & Illustration</p>
-          <p class="chapt">15/20 Chapters</p>
-        </div>
-        <div class="second-right"><p>Continue</p></div>
+      <div class="banner-four-below-content">
+        <p class="first-below-content-four">
+          {{ pop.courseTitle }}
+        </p>
+        <p class="scnd-below-content-four">
+          {{ pop.courseContent.totalChapters }} Chapters
+        </p>
       </div>
     </div>
   </div>

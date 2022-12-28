@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   userdesign: any;
   count = 0;
   userheader: any;
+  hidePrev = true;
+  hideNext = false;
+  active = ['activeC', '', ''];
 
   constructor(private loginservice: ServiceService, private router: Router) {}
 
@@ -32,6 +35,7 @@ export class HomeComponent implements OnInit {
     this.topCoursesInBusiness();
     this.topCoursesInDesign();
     this.nextpage();
+    this.hidePrev = true;
     // this.ChoiceYourCOurse();
   }
   getName() {
@@ -42,15 +46,33 @@ export class HomeComponent implements OnInit {
   }
 
   nextpage() {
-    this.count = ++this.count;
-    console.log("vv" ,this.count);
-    this.gettopHeader()
+    this.hidePrev = false;
+    let count = ++this.count;
+    if (count == 2) {
+      this.active = ['', 'activeC', ''];
+    }
+    if (count == 3) {
+      this.hideNext = true;
+      this.active = ['', '', 'activeC'];
+    }
+    this.count = count;
+    console.log('vv', this.count);
+    this.gettopHeader();
   }
   prevpage() {
-    this.count = --this.count;
-    console.log("vv" ,this.count);
-    
-    this.gettopHeader()
+    this.hideNext = false;
+    let count = --this.count;
+    if (count == 2) {
+      this.active = ['', 'activeC', ''];
+    }
+    if (count == 1) {
+      this.hidePrev = true;
+      this.active = ['activeC', '', ''];
+    }
+    this.count = count;
+    console.log('vv', this.count);
+
+    this.gettopHeader();
   }
 
   gettopHeader() {
@@ -76,13 +98,15 @@ export class HomeComponent implements OnInit {
   }
 
   function(courses: any) {
+    console.log('cc', courses);
+    sessionStorage.setItem('courses', courses);
     const body = {
       choice: courses,
       view: '',
     };
     this.loginservice.ChoiceAllCourseService(body).subscribe((data) => {
       this.allCourses = data;
-      console.log(this.allCourses);
+      console.log("allllllllll",this.allCourses);
     });
   }
   one() {
@@ -121,6 +145,34 @@ export class HomeComponent implements OnInit {
       console.log('userBusinessdd', this.userdesign);
       // sessionStorage.setItem('ongoingCourse',JSON.stringify(this.usersecond[0].courseId));
     });
+  }
+
+  // seallpop(){
+  //   sessionStorage.setItem('courses',courses)
+  // }
+  seallpop() {
+    this.router.navigate(['/ogoing']);
+  }
+  seallbus() {
+    this.router.navigate(['/top-bus']);
+  }
+  sealldes() {
+    this.router.navigate(['/top-des']);
+  }
+
+  playvedio() {
+    this.loginservice.topCoursesInbusService().subscribe((data) => {
+      this.userbusiness = data;
+      console.log('userBusiness', this.userbusiness);
+      // sessionStorage.setItem('ongoingCourse',JSON.stringify(this.usersecond[0].courseId));
+    });
+  }
+
+
+  gotoOverViewAll(popid:any){
+    console.log("popp",popid);
+    sessionStorage.setItem('courseidall', popid);
+    this.router.navigate(['/course']);
   }
 
   // onclickAll(choice: any) {

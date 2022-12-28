@@ -8,26 +8,41 @@
     <div class="first-row">
       <div class="banner" *ngFor="let bb of userheader">
         <img src="{{ bb.courseImage }}" alt="" />
-        <p class="course-name">{{bb.courseTitle}}</p>
+        <p class="course-name">{{ bb.courseTitle }}</p>
       </div>
 
       <!-- <mat-icon class="label-impone">label_important</mat-icon>
       <mat-icon class="label-imptwo">label_important</mat-icon> -->
     </div>
-    <button (click)="nextpage()">next</button>
-    <button (click)="prevpage()">preview</button>
+
+    <div class="bann">
+      <span
+      [hidden]="hidePrev"
+      (click)="prevpage()"
+      class="left-arrow"
+    > <- </span>
+    <span
+      [hidden]="hideNext"
+      (click)="nextpage()"
+      class="right-arrow"
+    > -> </span>
+    </div>
+    
+
+    <!-- <button >next</button>
+    <button >preview</button> -->
 
     <div class="dots-div">
-      <div class="first-dot"></div>
-      <div class="second-dot"></div>
-      <div class="third-dot"></div>
-      <div class="third-dot"></div>
+      <div class="first-dot" [ngClass]="active[0]"></div>
+      <div class="second-dot" [ngClass]="active[1]"></div>
+      <div class="third-dot" [ngClass]="active[2]"></div>
+      <!-- <div class="third-dot"></div> -->
     </div>
 
     <!-- second row  -->
     <div class="ongoing-and-seeall">
       <div class="ongoing-course">Ongoing courses</div>
-      <div class="see-all" routerLink="/ogoing">See All</div>
+      <!-- <div class="see-all" >See All</div> -->
     </div>
     <div class="second-row">
       <div
@@ -51,7 +66,7 @@
     <!-- third row  -->
     <div class="ongoing-and-seeall">
       <div class="ongoing-course">Categories</div>
-      <div class="see-all">See All</div>
+      <!-- <div class="see-all">See All</div> -->
     </div>
     <div class="third-row">
       <div class="category-types-div" *ngFor="let thirdrow of serachcatt">
@@ -66,7 +81,7 @@
 
     <div class="ongoing-and-seeall">
       <div class="ongoing-course">Choice your course</div>
-      <div class="see-all">See All</div>
+      <div class="see-all" (click)="seallpop()">See All</div>
     </div>
     <div class="all-pop-new-flex">
       <div
@@ -102,7 +117,11 @@
     </div>
 
     <div class="fourth-row">
-      <div class="banner-four" *ngFor="let pop of allCourses">
+      <div
+        class="banner-fourr"
+        *ngFor="let pop of allCourses"
+        (click)="gotoOverViewAll(pop._id)"
+      >
         <img src="{{ pop.courseImage }}" alt="" />
         <div class="second-row-inside-four">
           <div class="fourth-left"></div>
@@ -123,13 +142,21 @@
 
     <div class="ongoing-and-seeall">
       <div class="ongoing-course">Top courses in Business</div>
-      <div class="see-all">See All</div>
+      <div class="see-all" (click)="seallbus()">See All</div>
     </div>
     <div class="fifth-row">
       <div class="banner-four" *ngFor="let userbus of userbusiness">
-        <img src="{{ userbus.courseImage }}" alt="" />
-        <div class="second-row-inside-fifth">
-          <img src="./assets/play.png" alt="" />
+        <!-- <img src="{{ userbus.courseImage }}" alt="" /> -->
+        <video
+          id="{{ userbus?._id }}"
+          poster="{{ userbus.courseImage }}"
+          controls
+          class="vedio"
+        >
+          <source src="{{ userbus?.videoLink }}" type="video/mp4" />
+        </video>
+        <div class="second-row-inside-fifth" (click)="playvedio()">
+          <!-- <img src="./assets/play.png" alt="" /> -->
         </div>
         <div class="banner-four-below-content">
           <p class="first-below-content-four">
@@ -149,13 +176,21 @@
 
     <div class="ongoing-and-seeall">
       <div class="ongoing-course">Top courses in Design</div>
-      <div class="see-all">See All</div>
+      <div class="see-all" (click)="sealldes()">See All</div>
     </div>
     <div class="fifth-row">
       <div class="banner-four" *ngFor="let userbuss of userdesign">
-        <img src="{{ userbuss.courseImage }}" alt="" />
+        <!-- <img src="{{ userbuss.courseImage }}" alt="" /> -->
+        <video
+          id="{{ userbuss?._id }}"
+          poster="{{ userbuss.courseImage }}"
+          controls
+          class="vedio"
+        >
+          <source src="{{ userbuss?.videoLink }}" type="video/mp4" />
+        </video>
         <div class="second-row-inside-fifth">
-          <img src="./assets/play.png" alt="" />
+          <!-- <img src="./assets/play.png" alt="" /> -->
         </div>
         <div class="banner-four-below-content">
           <p class="first-below-content-four">

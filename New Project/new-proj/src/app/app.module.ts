@@ -16,6 +16,8 @@ import {VgCoreModule} from '@videogular/ngx-videogular/core';
 import {VgControlsModule} from '@videogular/ngx-videogular/controls';
 import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { TopBusComponent } from './top-bus/top-bus.component';
+import { TopDesComponent } from './top-des/top-des.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
     HomeComponent,
     CourseOverviewComponent,
     SeallOngoingComponent,
+    TopBusComponent,
+    TopDesComponent,
   ],
   imports: [
     BrowserModule,

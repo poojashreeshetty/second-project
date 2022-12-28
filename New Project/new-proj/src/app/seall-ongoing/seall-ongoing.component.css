@@ -1,6 +1,6 @@
 .main {
   margin: auto;
-  width: 80%;
+  width: 85%;
   height: auto;
   min-height: 1000px;
   /* border: 1px solid red; */
@@ -8,68 +8,158 @@
 }
 .main-main {
   overflow-y: auto;
-  height: 800px;
+  height: 850px;
 }
 
-
-.second-row {
-  /* border: 1px solid red;
-  display: flex;
-  width: 100%;
-  gap: 35px;
-  overflow-x: auto; */
+.fourth-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 28px;
   grid-row-gap: 13px;
+  margin-top: 20px;
 }
-.banner-two {
-  position: relative;
-  width: 100%;
-  /* padding-bottom: 10px; */
-  /* width: 400px; */
-}
-.banner-two img {
-  width: 100%;
-  border-radius: 4px;
+.fourth-right {
+  width: fit-content;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #fcbe4b;
+  mix-blend-mode: normal;
+  border-radius: 6px;
+  z-index: 1;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 10px;
 }
 
-.second-row-inside {
+.second-row-inside-four {
   display: flex;
-  justify-content: space-around;
-  margin-top: -70px;
+  justify-content: space-between;
+  margin-top: -59px;
+  margin-right: 18px;
+  z-index: 1;
 }
-.second-left {
+.banner-four {
+  position: relative;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.banner-four img {
+  width: 100%;
+  height: 71%;
+  border-radius: 4px;
+  filter: brightness(50%);
+}
+.banner-four-below-content {
+  /* width: 222px; */
   display: flex;
   flex-direction: column;
-}
-.art {
-  font-family: "Proxima Nova Soft";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 21px;
-  color: #ffffff;
-}
-.chapt {
-  font-family: "Proxima Nova Soft";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  color: #ffffff;
-}
-.second-right {
-  width: 93px;
-  height: 32px;
-  background: #ec5d52;
-  border-radius: 4px;
-  font-family: "Proxima Nova Soft";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  color: #ffffff;
-  text-align: center;
-  margin-top: 11px;
-}
-.second-right p {
   padding-top: 7px;
+  padding-left: 18px;
 }
+
+.first-below-content-four {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #111111;
+}
+.scnd-below-content-four {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  /* identical to box height, or 162% */
+  color: #7a7a7a;
+}
+.all-pop-new-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  padding-top: 3px;
+}
+
+/* .popular-fourth p,
+.new-fourth p,
+.all-fourt p {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #7a7a7a;
+  cursor: pointer;
+} */
+
+.active {
+  border-radius: 6px;
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  padding-top: 12px;
+
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #7a7a7a;
+  cursor: pointer;
+
+  /* color: #092963; */
+}
+
+.noactive {
+  background: #dfe7f4;
+  border-radius: 6px;
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  padding-top: 12px;
+  color: #092963;
+  cursor: pointer;
+  padding-bottom: 10px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+}
+.fourth-left {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+/* .popular-fourth,
+.all-fourt,
+.new-fourth {
+  border-radius: 6px;
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  padding-top: 12px;
+} */
+
+/* .popular-fourth:hover,
+.all-fourt:hover,
+.new-fourth:hover {
+  background: #dfe7f4;
+  border-radius: 6px;
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  padding-top: 12px;
+  color: #092963;
+  cursor: pointer;
+} */
+
+/* .popular-fourth p:hover,
+.new-fourth p:hover,
+.all-fourt p:hover {
+  color: #092963;
+  cursor: pointer;
+} */

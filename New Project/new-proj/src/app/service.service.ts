@@ -86,14 +86,14 @@ export class ServiceService {
     });
   }
 
-  topHeaderService(count:any) {
+  topHeaderService(count: any) {
     let token = sessionStorage.getItem('token');
 
     var headers_object = new HttpHeaders().set(
       'Authorization',
       'Bearer ' + token
     );
-    return this.http.get(environment.url + 'getBanner?page='+count, {
+    return this.http.get(environment.url + 'getBanner?page=' + 3, {
       headers: headers_object,
       responseType: 'text',
     });
@@ -142,6 +142,21 @@ export class ServiceService {
       headers: headers_object,
     });
   }
+  courseOverViewServiceall() {
+    const body = {
+      courseId: sessionStorage.getItem('courseidall'),
+    };
+    console.log('bodygggg', body);
+
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'getCourse/overview', body, {
+      headers: headers_object,
+    });
+  }
   courseChaptersService() {
     const body = {
       view: 'chapters',
@@ -176,7 +191,7 @@ export class ServiceService {
   }
   topCoursesIndesignService() {
     const body = {
-      text: 'Design'
+      text: 'Design',
     };
     console.log('body', body);
 
@@ -186,6 +201,81 @@ export class ServiceService {
       'Bearer ' + token
     );
     return this.http.post(environment.url + 'topCoursesInCategory', body, {
+      headers: headers_object,
+    });
+  }
+
+  topCoursesInbusServiceSeaall() {
+    const body = {
+      text: 'Business',
+      choice: 'seeAll',
+    };
+    console.log('body', body);
+
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'topCoursesInCategory', body, {
+      headers: headers_object,
+    });
+  }
+
+  topCoursesIndesignServiceSeall() {
+    const body = {
+      text: 'Design',
+      choice: 'seeAll',
+    };
+    console.log('body', body);
+
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'topCoursesInCategory', body, {
+      headers: headers_object,
+    });
+  }
+
+  //   {
+  //     "courseId":"6392c11ff94873e84f66097f",
+  //     "videoCompleted":"true",
+  //     "pauseTime":"1.00",
+  //     "videoSerialNumber":1
+  // }
+  // updateProgress
+  UpdateProgressServise(id: any, serialnumber: any) {
+    const body = {
+      courseId: id,
+      videoCompleted: sessionStorage.getItem('truee'),
+      videoSerialNumber: serialnumber,
+    };
+    console.log('body', body);
+
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'updateProgress', body, {
+      headers: headers_object,
+    });
+  }
+  ongoingcourseServiceseeAll(pop: any) {
+    const body = {
+      choice: pop,
+      view: 'seeAll',
+    };
+    let token = sessionStorage.getItem('token');
+
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+
+    return this.http.post(environment.url + 'choiceYourCourse', body, {
       headers: headers_object,
     });
   }

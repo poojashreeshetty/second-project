@@ -35,6 +35,9 @@
               [src]="vedio"
               type="mp4"
               controls
+              (click)="playPause()"
+              (ended)="vedioend(userChapter.listOfChapters._id)"
+              id="my_video_1"
             ></video>
           </div>
 
@@ -264,6 +267,7 @@
               "
             >
               <div class="chap">
+                
                 <p class="chapP">Chapter {{chapterlist.chapterNumber}} - {{ chapterlist.chapterTitle }}</p>
                 <span
                   ><img
@@ -282,9 +286,10 @@
               <div *ngIf="!chapterarray[i]" >
                 <div
                   class="chapters"
-                  *ngFor="let lessonlist of chapterlist.lessons">
+                  *ngFor="let lessonlist of chapterlist.lessons  ;let x = index " >
                   <div class="chapdiv">
                     <div class="name">
+                      <div class="tik"><img src="./assets/Group Dot.svg" alt=""></div>
                       <div class="no">{{lessonlist.serialNumberOfLesson}}</div>
                       <div class="nameLen">
                         <p class="chapdivName">
@@ -294,8 +299,9 @@
                         <p class="chapdivlen"> {{this.finalfixedtwo}} mins</p>
                       </div>
                     </div>
-                    <div class="rPlay" (click)="onclickvcplay(lessonlist.url)">
-                      <img class="redplay" src="./assets/Red Play.svg" alt="" />
+                    <div class="rPlay" (click)="onclickvcplay(lessonlist.url,i,x)">
+                      <!-- <img class="redplay" src="./assets/Red Play.svg" alt="" /> -->
+                      <img class="redplay" src="./assets/grey play.svg" alt="">
                     </div>
                   </div>
                 </div>

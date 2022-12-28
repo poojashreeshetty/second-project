@@ -55,7 +55,7 @@
   height: 100%;
   width: 100%;
   border-radius: 4px;
-  filter: brightness(82%);
+  filter: brightness(60%);
 }
 .activeC {
   opacity: 1 !important;
@@ -76,13 +76,6 @@
 }
 
 .dots-div {
-  width: 5%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 18px;
-}
-.dots-divv {
   width: 5%;
   margin: auto;
   display: flex;
@@ -249,26 +242,16 @@
   margin-right: 18px;
   z-index: 1;
 }
-.banner-fourr {
-  position: relative;
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
-.banner-fourr img {
-  width: 100%;
-  height: 71%;
-  border-radius: 4px;
-}
 .banner-four {
   position: relative;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.banner-four .vedio {
+.banner-four img {
   width: 100%;
   height: 71%;
   border-radius: 4px;
-  /* filter: brightness(50%); */
+  filter: brightness(50%);
 }
 .banner-four-below-content {
   /* width: 222px; */
@@ -466,42 +449,28 @@
 } */
 
 .left-arrow {
-  /* position: relative;
-  bottom: 142px; */
-  color: rgb(251, 245, 245) !important;
-  font-size: 28px;
-  border-radius: 0px;
-  color: rgb(10, 9, 9);
+  width: 20px;
+  width: fit-content;
+  position: relative;
+  bottom: 142px;
+  font-size: 62px;
+  border-radius: 31px;
   left: 0px;
-  opacity: 0.4;
-  border-radius: 0% 60% 60% 0%;
+  opacity: 0.2;
   cursor: pointer;
-  padding-left: 20px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  background-color: white;
-  /* background-color: white; */
   /* display: inline; */
   /* background-color: white; */
 }
 .right-arrow {
-  color: rgb(251, 245, 245);
-  width: -moz-fit-content;
+  width: 20px;
   width: fit-content;
-  font-size: 28px;
-  left: 1253px;
-  opacity: 0.4;
-  cursor: pointer;
-  margin-left: 85%;
-  border-radius: 60% 0% 0% 60%;
-  padding-left: 20px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  background-color: white;
-}
-.bann {
   position: relative;
-  bottom: 120px;
-  display: flex;
-  justify-content: space-between;
+  bottom: 142px;
+  font-size: 62px;
+  border-radius: 31px;
+  left: 1268px;
+  opacity: 0.2;
+  cursor: pointer;
+  /* display: inline; */
+  /* background-color: white; */
 }

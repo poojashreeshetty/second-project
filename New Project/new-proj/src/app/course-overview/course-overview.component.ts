@@ -33,12 +33,16 @@ export class CourseOverviewComponent implements OnInit {
   finalfixedtop: any;
   finalfixedtwotop: any;
   lessonUrl: any;
+  currenttime: any;
+  storenumber: any;
+  currentindex = 0;
   constructor(private loginservice: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
     // this.getCourseId = sessionStorage.getItem('courseid');
     this.courseOverView();
     this.courseChapters();
+    this.courseOverViewall() 
   }
   over() {
     this.act = 'act';
@@ -82,7 +86,16 @@ export class CourseOverviewComponent implements OnInit {
     this.loginservice.courseOverViewService().subscribe((data: any) => {
       console.log('overview', data);
       this.user = data;
-      this.vedio = this.user.courseOverview.overViewId.previewThisCourse?.videoLink;
+      this.vedio =
+        this.user.courseOverview.overViewId.previewThisCourse?.videoLink;
+    });
+  }
+  courseOverViewall() {
+    this.loginservice.courseOverViewServiceall().subscribe((data: any) => {
+      console.log('overviewwwww', data);
+      this.user = data;
+      this.vedio =
+        this.user.courseOverview.overViewId.previewThisCourse?.videoLink;
     });
   }
 
@@ -118,9 +131,47 @@ export class CourseOverviewComponent implements OnInit {
     this.finalfixedtwotop = parseFloat(this.finalfixedtop).toFixed(1);
   }
 
-  onclickvcplay(lessonurl: any) {
+  onclickvcplay(lessonurl: any, i: any, x: any) {
+    console.log('inde', i);
+    console.log('dd', x);
+
     this.vedio = lessonurl;
     console.log(this.vedio);
-    
+    this.storenumber = sessionStorage.setItem(
+      'serialid',
+      this.userChapter.listOfChapters.totalChapters[0].chapters[i].lessons[x]
+        .serialNumberOfLesson
+    );
+    console.log(this.storenumber);
+  }
+
+  fetchData(e: any) {
+    console.log('hi');
+
+    console.log(e);
+  }
+  playPause() {
+    var myVideo: any = document.getElementById('my_video_1');
+    console.log(myVideo.currentTime);
+    this.currenttime = myVideo.currentTime;
+    //   this.loginservice.UpdateProgressServise(this.currenttime).subscribe((data: any) => {
+    //     console.log('chapters', data);
+    //     this.userChapter = data;
+    //   // if (myVideo.paused) myVideo.play();
+    //   // else myVideo.pause();
+    // })
+  }
+
+  vedioend(id:any) {
+    console.log('jgvh');
+    sessionStorage.setItem('truee','true')
+    this.loginservice
+      .UpdateProgressServise(id,sessionStorage.getItem('serialid'))
+      .subscribe((data: any) => {
+        console.log('chapters', data);
+        this.userChapter = data;
+        // if (myVideo.paused) myVideo.play();
+        // else myVideo.pause();
+      });
   }
 }

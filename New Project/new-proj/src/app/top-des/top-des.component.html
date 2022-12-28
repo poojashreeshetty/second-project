@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="main-main">
+  <div class="main">
+<div class="fifth-row">
+  <div class="banner-four" *ngFor="let userbuss of userbusiness">
+    <img src="{{ userbuss.courseImage }}" alt="" />
+    <div class="second-row-inside-fifth">
+      <img src="./assets/play.png" alt="" />
+    </div>
+    <div class="banner-four-below-content">
+      <p class="first-below-content-four">
+        {{ userbuss.courseTitle }}
+      </p>
+      <div class="chapter-fifth">
+        <p class="scnd-below-content-four">
+          {{ userbuss.courseContent.totalChapters }} Chapters
+        </p>
+        <p class="timer">
+          <img src="./assets/clock@2x 1.png" alt="" /> 1:30:20
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

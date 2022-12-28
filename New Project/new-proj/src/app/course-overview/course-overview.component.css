@@ -371,7 +371,7 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 30px;
-  color: #1eab0d;
+  color: #111111;
 }
 
 .chap img {
@@ -397,13 +397,16 @@
 }
 
 .no {
-  margin-top: 5px;
+  margin-top: 10px;
   font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
   line-height: 30px;
   color: #373737;
+}
+.tik {
+  margin-top: 10px;
 }
 
 .chapdivName {
@@ -414,7 +417,7 @@
   line-height: 20px;
   /* or 111% */
 
-  color: #042c5c;
+  color: #373737;
 }
 
 .chapdivlen {
