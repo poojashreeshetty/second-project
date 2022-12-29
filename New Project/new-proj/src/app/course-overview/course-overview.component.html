@@ -250,32 +250,46 @@
             </div>
             <div class="join">Join Course</div>
           </div>
-          
+
           <div *ngIf="part2Chap">
             <div class="contentL">
               <p class="cont1">Course Content</p>
               <p class="cont2">
-                {{lessonDurationtop(userChapter.listOfChapters.courseContent.totalDuration/60)}}
-                {{userChapter.listOfChapters.courseContent.totalChapters}} Chapter | {{userChapter.listOfChapters.courseContent.totalLessons}} lessons | {{userChapter.listOfChapters.courseContent.totalTests}} Assignment Test | {{userChapter.listOfChapters.courseContent.totalLessons}} lessons | {{this.finalfixedtwotop}} h total length
+                {{
+                  lessonDurationtop(
+                    userChapter.listOfChapters.courseContent.totalDuration / 60
+                  )
+                }}
+                {{ userChapter.listOfChapters.courseContent.totalChapters }}
+                Chapter |
+                {{ userChapter.listOfChapters.courseContent.totalLessons }}
+                lessons |
+                {{ userChapter.listOfChapters.courseContent.totalTests }}
+                Assignment Test |
+                {{ userChapter.listOfChapters.courseContent.totalLessons }}
+                lessons | {{ this.finalfixedtwotop }} h total length
               </p>
             </div>
             <div
               class="mainchap"
               *ngFor="
                 let chapterlist of userChapter.listOfChapters.totalChapters[0]
-                  .chapters; let i = index
+                  .chapters;
+                let i = index
               "
             >
               <div class="chap">
-                
-                <p class="chapP">Chapter {{chapterlist.chapterNumber}} - {{ chapterlist.chapterTitle }}</p>
+                <p class="chapP">
+                  Chapter {{ chapterlist.chapterNumber }} -
+                  {{ chapterlist.chapterTitle }}
+                </p>
                 <span
                   ><img
-                  *ngIf="chapterarray[i]"
+                    *ngIf="chapterarray[i]"
                     (click)="plus(i)"
                     src="./assets/Vector (6).png"
                     alt="" />
-                    <img
+                  <img
                     class="minus"
                     *ngIf="!chapterarray[i]"
                     (click)="minus(i)"
@@ -283,27 +297,43 @@
                     alt=""
                 /></span>
               </div>
-              <div *ngIf="!chapterarray[i]" >
+              <div *ngIf="!chapterarray[i]">
                 <div
                   class="chapters"
-                  *ngFor="let lessonlist of chapterlist.lessons  ;let x = index " >
+                  *ngFor="let lessonlist of chapterlist.lessons; let x = index"
+                >
                   <div class="chapdiv">
                     <div class="name">
-                      <div class="tik"><img src="./assets/Group Dot.svg" alt=""></div>
-                      <div class="no">{{lessonlist.serialNumberOfLesson}}</div>
+                      <div class="tik">
+                        <img src="./assets/Group Dot.svg" alt="" />
+                      </div>
+                      <div class="no">
+                        {{ lessonlist.serialNumberOfLesson }}
+                      </div>
                       <div class="nameLen">
                         <p class="chapdivName">
-                          {{lessonlist.title}}
+                          {{ lessonlist.title }}
                         </p>
-                        {{lessonDuration(lessonlist.duration)}}
-                        <p class="chapdivlen"> {{this.finalfixedtwo}} mins</p>
+                        {{ lessonDuration(lessonlist.duration) }}
+                        <p class="chapdivlen">{{ this.finalfixedtwo }} mins</p>
                       </div>
                     </div>
-                    <div class="rPlay" (click)="onclickvcplay(lessonlist.url,i,x)">
+                    <div
+                      class="rPlay"
+                      (click)="onclickvcplay(lessonlist.url, i, x)"
+                    >
                       <!-- <img class="redplay" src="./assets/Red Play.svg" alt="" /> -->
-                      <img class="redplay" src="./assets/grey play.svg" alt="">
+                      <img
+                        class="redplay"
+                        src="./assets/grey play.svg"
+                        alt=""
+                      />
                     </div>
                   </div>
+                </div>
+                <div (click)="gotoQuiz(userChapter.listOfChapters._id,chapterlist.test._id)" *ngIf="chapterlist.test">
+                  <img src="./assets/moduletest.png" alt="" />
+                  <p>Module Test 2</p>
                 </div>
               </div>
               <!-- <div class="chap">

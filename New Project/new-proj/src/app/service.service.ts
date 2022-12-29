@@ -7,6 +7,7 @@ import { ThisReceiver } from '@angular/compiler';
   providedIn: 'root',
 })
 export class ServiceService {
+  body: any;
   constructor(private http: HttpClient) {}
   loginfromService(body: any) {
     return this.http.post(environment.url + 'signin', body);
@@ -93,7 +94,7 @@ export class ServiceService {
       'Authorization',
       'Bearer ' + token
     );
-    return this.http.get(environment.url + 'getBanner?page=' + 3, {
+    return this.http.get(environment.url + 'getBanner?page=' + count, {
       headers: headers_object,
       responseType: 'text',
     });
@@ -276,6 +277,42 @@ export class ServiceService {
     );
 
     return this.http.post(environment.url + 'choiceYourCourse', body, {
+      headers: headers_object,
+    });
+  }
+
+  getvedio() {
+    const body = {
+      courseId: '638ee5d4860444260090662b',
+    };
+    let token = sessionStorage.getItem('token');
+
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+
+    return this.http.post(environment.url + 'getProgress', body, {
+      headers: headers_object,
+    });
+  }
+
+  gotoquizService(courseid: any, testid: any) {
+    this.body = {
+      courseId: courseid,
+      testId: testid,
+    };
+  }
+
+  gotosecondService() {
+    let token = sessionStorage.getItem('token');
+
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+
+    return this.http.post(environment.url + 'displayTest', this.body, {
       headers: headers_object,
     });
   }

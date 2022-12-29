@@ -43,6 +43,10 @@ export class CourseOverviewComponent implements OnInit {
     this.courseOverView();
     this.courseChapters();
     this.courseOverViewall() 
+    this.loginservice.getvedio().subscribe((data)=>{
+      console.log("gett",data);
+      
+    })
   }
   over() {
     this.act = 'act';
@@ -169,9 +173,15 @@ export class CourseOverviewComponent implements OnInit {
       .UpdateProgressServise(id,sessionStorage.getItem('serialid'))
       .subscribe((data: any) => {
         console.log('chapters', data);
-        this.userChapter = data;
+        // this.userChapter = data;
         // if (myVideo.paused) myVideo.play();
         // else myVideo.pause();
       });
+  }
+  gotoQuiz(courseid:any,testid:any){
+    console.log("courseid",courseid);
+    console.log("tesid",testid); 
+    this.loginservice.gotoquizService(courseid,testid) 
+    this.router.navigate(['/test'])
   }
 }
