@@ -331,9 +331,22 @@
                     </div>
                   </div>
                 </div>
-                <div (click)="gotoQuiz(userChapter.listOfChapters._id,chapterlist.test._id)" *ngIf="chapterlist.test">
-                  <img src="./assets/moduletest.png" alt="" />
-                  <p>Module Test 2</p>
+                <div
+                  (click)="
+                    gotoQuiz(
+                      userChapter.listOfChapters._id,
+                      chapterlist.test._id
+                    )
+                  "
+                  class="quiz-flexx"
+                  *ngIf="chapterlist.test"
+                >
+                  <div class="tik-chapter"><img src="./assets/Group Dot.svg" alt="" /></div>
+                  <div class="module-chapter"><img src="./assets/moduletest.png" alt="" /></div>
+                  <div class="module-dd">
+                    <p>Module Test 2</p>
+                    <p>10 mins | 25 Questions</p>
+                  </div>
                 </div>
               </div>
               <!-- <div class="chap">

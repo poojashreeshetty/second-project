@@ -7,7 +7,7 @@
   width: 85%;
   height: auto;
   min-height: 1000px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-top: 30px;
 }
 .main-main {
@@ -58,17 +58,42 @@
   align-items: center;
 }
 .flex-button {
+  width: 35%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .quiz-container {
   /* border: 1px solid red; */
   margin-top: 15px;
 }
 .flex-button-div {
+  width: 464px;
+  height: 102px;
+  background: #2bb5f4;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: auto;
+  margin-top: 61px;
+}
+.flex-second-div {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: auto;
+}
+.first-flex {
+  width: 50%;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  /* or 133% */
+
+  color: #ffffff;
 }
 #html {
 }
@@ -90,3 +115,11 @@
   width: 97%;
   margin: auto;
 }
+.option-span {
+  padding-left: 10px;
+}
+.main-module{
+  height: auto;
+  min-height: 400px;
+}
+

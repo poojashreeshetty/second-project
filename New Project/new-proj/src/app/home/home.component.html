@@ -117,12 +117,10 @@
     </div>
 
     <div class="fourth-row">
-      <div
-        class="banner-fourr"
-        *ngFor="let pop of allCourses"
-        (click)="gotoOverViewAll(pop._id)"
-      >
-        <img src="{{ pop.courseImage }}" alt="" />
+      <div class="banner-fourr" *ngFor="let pop of allCourses" (click)="gotoOverViewAll(pop._id)">
+        <div class="image">
+          <img src="{{ pop.courseImage }}" alt="" />
+        </div>
         <div class="second-row-inside-four">
           <div class="fourth-left"></div>
           <!-- <div class="fourth-right"> -->

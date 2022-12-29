@@ -181,7 +181,7 @@ export class CourseOverviewComponent implements OnInit {
   gotoQuiz(courseid:any,testid:any){
     console.log("courseid",courseid);
     console.log("tesid",testid); 
-    this.loginservice.gotoquizService(courseid,testid) 
+    sessionStorage.setItem('testid',testid)
     this.router.navigate(['/test'])
   }
 }

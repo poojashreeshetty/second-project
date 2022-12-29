@@ -297,14 +297,18 @@ export class ServiceService {
     });
   }
 
-  gotoquizService(courseid: any, testid: any) {
-    this.body = {
-      courseId: courseid,
-      testId: testid,
-    };
-  }
-
+  // gotoquizService(courseid: any, testid: any) {
+  //   // this.body = {
+  //   //   courseId: courseid,
+  //   //   testId: testid,
+  //   // };
+  // }
   gotosecondService() {
+    const body={
+      courseId:sessionStorage.getItem('courseid'),
+      testId:sessionStorage.getItem('testid')
+    }
+
     let token = sessionStorage.getItem('token');
 
     var headers_object = new HttpHeaders().set(
@@ -312,7 +316,7 @@ export class ServiceService {
       'Bearer ' + token
     );
 
-    return this.http.post(environment.url + 'displayTest', this.body, {
+    return this.http.post(environment.url + 'displayTest', body, {
       headers: headers_object,
     });
   }

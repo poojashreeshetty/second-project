@@ -514,6 +514,20 @@
 .mbldescription22 {
   display: none;
 }
+.quiz-flexx{
+  display: flex;
+  justify-content: space-between;
+}
+.tik-chapter{
+  /* width:10%; */
+}
+.module-chapter{
+  /* width:58%; */
+}
+.module-dd{
+  width: 82%;
+}
+
 
 @media screen and (max-width: 700px) {
   .head {

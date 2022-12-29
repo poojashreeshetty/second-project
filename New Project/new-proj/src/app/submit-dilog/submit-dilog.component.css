@@ -1,0 +1,12 @@
+.cancel-submit {
+  display: flex;
+  justify-content: space-between;
+}
+.cancel {
+}
+.submit {
+  width: 100px;
+  height: 30px;
+  background: #ee5c4d;
+  border-radius: 6px;
+}
