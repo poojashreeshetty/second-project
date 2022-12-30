@@ -42,11 +42,10 @@ export class CourseOverviewComponent implements OnInit {
     // this.getCourseId = sessionStorage.getItem('courseid');
     this.courseOverView();
     this.courseChapters();
-    this.courseOverViewall() 
-    this.loginservice.getvedio().subscribe((data)=>{
-      console.log("gett",data);
-      
-    })
+    this.courseOverViewall();
+    this.loginservice.getvedio().subscribe((data) => {
+      console.log('gett', data);
+    });
   }
   over() {
     this.act = 'act';
@@ -99,7 +98,7 @@ export class CourseOverviewComponent implements OnInit {
       console.log('overviewwwww', data);
       this.user = data;
       this.vedio =
-        this.user.courseOverview.overViewId.previewThisCourse?.videoLink;
+        this.user?.courseOverview?.overViewId?.previewThisCourse?.videoLink;
     });
   }
 
@@ -107,7 +106,10 @@ export class CourseOverviewComponent implements OnInit {
     this.loginservice.courseChaptersService().subscribe((data: any) => {
       console.log('chapters', data);
       this.userChapter = data;
-
+      sessionStorage.setItem(
+        'chapternumber',
+        this.userChapter.listOfChapters.totalChapters[0].chapters.chapterNumber
+      );
       this.chapterlength =
         this.userChapter.listOfChapters.totalChapters[0].chapters.length;
 
@@ -166,11 +168,11 @@ export class CourseOverviewComponent implements OnInit {
     // })
   }
 
-  vedioend(id:any) {
+  vedioend(id: any) {
     console.log('jgvh');
-    sessionStorage.setItem('truee','true')
+    sessionStorage.setItem('truee', 'true');
     this.loginservice
-      .UpdateProgressServise(id,sessionStorage.getItem('serialid'))
+      .UpdateProgressServise(id, sessionStorage.getItem('serialid'))
       .subscribe((data: any) => {
         console.log('chapters', data);
         // this.userChapter = data;
@@ -178,10 +180,20 @@ export class CourseOverviewComponent implements OnInit {
         // else myVideo.pause();
       });
   }
-  gotoQuiz(courseid:any,testid:any){
-    console.log("courseid",courseid);
-    console.log("tesid",testid); 
-    sessionStorage.setItem('testid',testid)
-    this.router.navigate(['/test'])
+  gotoQuiz(
+    courseid: any,
+    testid: any,
+    cahpternumber: any,
+    chapteretitle: any,
+    chapterid: any
+  ) {
+    console.log('courseid', courseid);
+    console.log('tesid', testid);
+    sessionStorage.setItem('testid', testid);
+    this.router.navigate(['/test']);
+    this.storenumber = sessionStorage.setItem('chapternumber', cahpternumber);
+    sessionStorage.setItem('chapteretitle', chapteretitle);
+    sessionStorage.setItem('chapterid', chapterid);
   }
+ 
 }

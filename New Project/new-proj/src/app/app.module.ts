@@ -22,6 +22,7 @@ import { ModuleTestComponent } from './module-test/module-test.component';
 import { SubmitDilogComponent } from './submit-dilog/submit-dilog.component';
 import { CongratsComponent } from './congrats/congrats.component';
 import { ResultsComponent } from './results/results.component';
+import { ResultDilogueComponent } from './result-dilogue/result-dilogue.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ResultsComponent } from './results/results.component';
     SubmitDilogComponent,
     CongratsComponent,
     ResultsComponent,
+    ResultDilogueComponent,
   ],
   imports: [
     BrowserModule,

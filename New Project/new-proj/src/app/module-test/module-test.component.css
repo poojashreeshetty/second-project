@@ -10,12 +10,9 @@
   /* border: 1px solid red; */
   margin-top: 30px;
 }
-.main-main {
-  overflow-y: auto;
-  height: 860px;
-}
+
 .module-testt {
-  font-family: "Biko";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -26,7 +23,7 @@
   flex-grow: 0;
 }
 .question-count {
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -42,7 +39,7 @@
 .min-remain {
   padding-top: 10px;
   padding-left: 10px;
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -86,25 +83,23 @@
 }
 .first-flex {
   width: 50%;
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
-  /* or 133% */
-
+  padding-top: 15px;
   color: #ffffff;
 }
 #html {
 }
 .each-options {
   margin-top: 20px;
-  box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
-  padding: 21px 0px;
+  /* box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px; */
   padding-left: 10px;
 }
 .quiz-question {
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -118,8 +113,97 @@
 .option-span {
   padding-left: 10px;
 }
-.main-module{
+.main-module {
   height: auto;
   min-height: 400px;
 }
+.each-op {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+  padding: 21px 0px;
+  padding-left: 18px;
+  background-color: transparent;
+  align-items: center;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 100% */
 
+  color: #2b2b2b;
+}
+.timer {
+  width: 20px;
+}
+.timer img {
+  width: 100%;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  width: 4px;
+  /* border: none; */
+  /* background: transparent; */
+}
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: grey;
+}
+
+::-webkit-scrollbar-track {
+  background-image: url("https://i.imgur.com/GvV1R30.png");
+  opacity: 90%;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-color: transparent;
+}
+.choiceIcon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+.selectedchoiceIcon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  
+}
+.empty-div {
+  width: 10px;
+}
+
+.submit-buttonn {
+  background: #ec5d52;
+  outline: none;
+  border: none;
+  width: 78px;
+  height: 30px;
+  border-radius: 6px;
+}
+
+.min-remainn {
+  width: 172px;
+}
+.prev-div {
+  margin-right: 10px;
+}
+/* .next-div{
+  width: 10px;
+}
+.submit-div{
+  width: 10px;
+}  */
+@media only screen and (max-width: 800px) {
+  
+}

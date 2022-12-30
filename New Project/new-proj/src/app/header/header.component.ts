@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
   topserachCategory() {
     this.loginservice.topserchCategoryService().subscribe((data) => {
       this.serachcatt = JSON.parse(data);
-      console.log(this.serachcatt);
+      // console.log(this.serachcatt);
     });
   }
 
@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
     // }
     this.loginservice.serachByCategorySErvice(this.val).subscribe((data) => {
       this.serachcatby = JSON.parse(data);
-      console.log(this.serachcatby);
+      // console.log(this.serachcatby);
       this.shonoimage = false;
       if (this.serachcatby.length == 0) {
         this.shonoimage = true;
@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit {
   }
 
   enterindividual(e: any, serach: any) {
-    console.log(serach);
+    // console.log(serach);
 
     if (serach != '') {
       this.searchByCategodry(serach);

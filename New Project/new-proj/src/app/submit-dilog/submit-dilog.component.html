@@ -2,10 +2,10 @@
   <div>
     <div>Do you want to end the test?</div>
     <div>
-      You still have 50 second remaining If you want to check your answer again,
+      You still have <span>{{time}}</span> second remaining If you want to check your answer again,
       press cancel button. If you want to end the test and submit your answers
       you can press submit button.
     </div>
-    <div class="cancel-submit"><div class="cancel">Cancel</div><div class="submit" (click)="clicktoSubmit()" mat-close>Submit</div></div>
+    <div class="cancel-submit"><div class="cancel" (click)="closecancel()">Cancel</div><div class="submit" (click)="clicktoSubmit()" mat-close>Submit</div></div>
   </div>
 </div>

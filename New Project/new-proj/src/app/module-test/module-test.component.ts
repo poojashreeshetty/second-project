@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SubmitDilogComponent } from '../submit-dilog/submit-dilog.component';
-
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-module-test',
@@ -12,7 +12,7 @@ import { SubmitDilogComponent } from '../submit-dilog/submit-dilog.component';
 export class ModuleTestComponent implements OnInit {
   questins: any;
   options: any;
-  selctedOptions: any;
+  selctedOptions = [null, null, null, null, null];
   index: any = 0;
   totquest: any;
   ifcircle: boolean = true;
@@ -23,31 +23,36 @@ export class ModuleTestComponent implements OnInit {
   isButtonDisabled: boolean = false;
   isDisabledBackBtn: boolean = false;
   myAnswer: any;
-  answerArray: any = [];
-
+  // answerArray: any = [];
+  rowClicked: any;
   display: any;
   public timerInterval: any;
+  chosenIndex: any;
+  clicked: boolean = true;
+  coun=1;
 
-  constructor(private loginservice: ServiceService, private md: MatDialog) { }
+  constructor(private loginservice: ServiceService, private md: MatDialog) {}
 
   ngOnInit(): void {
     this.loginservice.gotosecondService().subscribe((data) => {
       console.log('quizzz', data);
       this.totquest = data;
+      // console.log("totquestii",this.totquest);
+
       this.questins = data;
       this.options = this.questins.options;
-      this.selctedOptions = JSON.parse(JSON.stringify(this.options));
+      // this.selctedOptions = JSON.parse(JSON.stringify(this.options));
       this.questins = this.questins.questions;
-      console.log("questions", this.questins);
-      console.log("options", this.options);
+      // console.log("asdrawer",this.questins);
+
+      console.log('questions', this.questins);
+      console.log('options', this.options);
       this.questionToshow = this.questins[this.index];
       console.log(this.questionToshow);
       this.optionToShow = this.options[this.index];
       console.log(this.optionToShow);
-
-
+      this.start();
     });
-    this.start()
   }
 
   next() {
@@ -55,53 +60,59 @@ export class ModuleTestComponent implements OnInit {
       this.index = ++this.index;
       this.questionToshow = this.questins[this.index];
       this.optionToShow = this.options[this.index];
-      console.log("inside", this.index)
+      // console.log('inside', this.index);
+      this.coun++
     }
     if (this.questins.length - 1 == this.index) {
       this.isButtonDisabled = true;
     }
-    console.log(this.index);
-    console.log(this.selctedOptions[this.index] = null);
-    console.log("answerArray", this.selctedOptions)
+    // console.log(this.index);
+    // console.log((this.selctedOptions[this.index] = null));
+    // console.log('answerArray', this.selctedOptions);
   }
 
   prev() {
     this.index = --this.index;
     this.questionToshow = this.questins[this.index];
     this.optionToShow = this.options[this.index];
-    console.log(this.questins.length)
+    console.log(this.questins.length);
+    this.coun--
+    
   }
   onclickcircle() {
     this.tikcircle = true;
     this.ifcircle = false;
   }
   opensubmit() {
+    this.stop();
+
     const dialogRef = this.md.open(SubmitDilogComponent, {
       width: '350px',
       height: '200px',
     });
-    console.log(this.selctedOptions)
+    console.log(this.selctedOptions);
+    sessionStorage.setItem('store',JSON.stringify(this.selctedOptions))
   }
 
   saveAnswer(option: any, index: any) {
-    console.log(this.index)
-    console.log(this.selctedOptions)
-    console.log(this.selctedOptions[this.index]);
-    console.log(this.selctedOptions[this.index] = index);
-    console.log(this.options[this.index]['selected']=option);
-    console.log(this.selctedOptions)
+    console.log(option);
+
+    this.selctedOptions[this.index] = index;
+    // this.selctedOptions = new Array(this.index.totalQuestions).fill(null);
   }
 
   start() {
-    this.timer(1);
+    this.timer(this.totquest?.totalTimeAlloted);
   }
   stop() {
     clearInterval(this.timerInterval);
   }
 
   timer(minute: any) {
+    console.log('min', minute);
+
     // let minute = 1;
-    let seconds: number = minute * 60;
+    let seconds: number = minute;
     let textSec: any = '0';
     let statSec: number = 60;
 
@@ -117,12 +128,27 @@ export class ModuleTestComponent implements OnInit {
       } else textSec = statSec;
 
       this.display = `${prefix}${Math.floor(seconds / 60)}:${textSec}`;
+      sessionStorage.setItem('sec', this.display);
 
       if (seconds == 0) {
         console.log('finished');
         clearInterval(this.timerInterval);
-        this.opensubmit()
+        this.opensubmit();
       }
     }, 1000);
+  }
+
+  changeTableRowColor(idx: any) {
+    if (this.chosenIndex != idx) {
+      this.clicked = false;
+    }
+    if (this.rowClicked === idx) this.rowClicked = -1;
+    else this.rowClicked = idx;
+    this.chosenIndex = idx;
+    this.clicked = !this.clicked;
+    if (this.clicked == false) {
+      this.chosenIndex = null;
+    }
+    console.log(this.clicked);
   }
 }

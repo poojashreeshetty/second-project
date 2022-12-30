@@ -9,11 +9,12 @@
 
       <div class="question-count-flex">
         <div class="question-count">
-          Question {{ totquest?.totalQuestions }} of 25
+          Question {{ coun }} of   {{ totquest?.totalQuestions }}
         </div>
+
         <div class="flex-timer">
-          <mat-icon class="timer">timer</mat-icon>
-          <p class="min-remain">{{display}} mins remaining</p>
+          <div class="timer"><img src="./assets/Group 183.svg" alt="" /></div>
+          <div class="min-remainn"><p class="min-remain">{{ display }} mins remaining</p></div>
         </div>
       </div>
 
@@ -26,13 +27,49 @@
 
         <!-- options start -->
         <div class="quiz-options">
-          <div class="each-options" *ngFor="let option of optionToShow;let i=index">
+          <div
+            class="each-options"
+            *ngFor="let option of optionToShow; let i = index"
+          >
             <!-- <img src="./assets/Ellipse 10.png" alt="" *ngIf="ifcircle" (click)="onclickcircle()" /> -->
             <!-- <img src="./assets/Answer Tick Icon.svg" alt="" *ngIf="tikcircle" /> -->
             <!-- <span class="option-span">{{ option }}</span> -->
-            <input type="radio" id="{{option}}{{i}}" name="quiz" value="{{option}}{{i}}" (click)="saveAnswer(option,i)">
-            <label for="{{option}}{{i}}">{{option}}</label><br> 
             <!-- <input type="radio" name="{{option}}" id="{{option}}" value="{{option}}"> -->
+
+            <!-- start -->
+
+            <!-- <input type="radio" id="{{option}}{{i}}" name="quiz" value="" (change)="saveAnswer(option,i)">
+            <label for="{{option}}{{i}}">{{option}}</label><br>  -->
+
+            <!-- end -->
+
+            <div
+              (click)="saveAnswer(option, i)"
+              [style.background-color]="
+                rowClicked == i ? '#EC5D52' : 'transparent'
+              "
+              [style.color]="rowClicked == i ? 'white' : 'black'"
+              (click)="changeTableRowColor(i)"
+              class="each-op"
+            >
+              <div
+                class="choiceIcon"
+                *ngIf="chosenIndex != i || clicked == false"
+              >
+                <mat-icon>radio_button_unchecked </mat-icon>
+              </div>
+
+              <div
+                class="selectedchoiceIcon"
+                *ngIf="chosenIndex == i && clicked == true"
+              >
+                <mat-icon>check_circle</mat-icon>
+              </div>
+
+              <div>
+                <div class="choiceContent">{{ option }}</div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- options end -->
@@ -48,24 +85,25 @@
           <p>Setting up a new project</p>
         </div>
         <div class="flex-button">
-
-          <div (click)="prev()" *ngIf="index!==0">
+          <div class="empty-div"></div>
+          <div (click)="prev()" *ngIf="index !== 0" class="prev-div">
             <img src="./assets/Shape (1).png" alt="" />
           </div>
 
           <!-- {{index==questins?.length-1}} -->
-          <div (click)="next()" *ngIf="index!=questins?.length-1">
+          <div (click)="next()" *ngIf="index != questins?.length - 1" class="next-div">
             <img src="./assets/Shape.png" alt="" />
           </div>
 
           <!-- {{index==questins?.length-1}} -->
 
-          <div (click)="opensubmit()" *ngIf="index==questins?.length-1">
-            <button>submit</button>
+          <div (click)="opensubmit()" *ngIf="index == questins?.length - 1" class="submit-div">
+            <button class="submit-buttonn">submit</button>
           </div>
+
+
         </div>
       </div>
     </div>
   </div>
 </div>
-

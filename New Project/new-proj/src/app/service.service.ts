@@ -304,10 +304,10 @@ export class ServiceService {
   //   // };
   // }
   gotosecondService() {
-    const body={
-      courseId:sessionStorage.getItem('courseid'),
-      testId:sessionStorage.getItem('testid')
-    }
+    const body = {
+      courseId: sessionStorage.getItem('courseid'),
+      testId: sessionStorage.getItem('testid'),
+    };
 
     let token = sessionStorage.getItem('token');
 
@@ -320,4 +320,72 @@ export class ServiceService {
       headers: headers_object,
     });
   }
+
+  postresultService() {
+    const body = {
+      courseId: sessionStorage.getItem('courseid'),
+      chapterNumber: sessionStorage.getItem('chapternumber'),
+      chapterTitle: sessionStorage.getItem('chapteretitle'),
+      chapterId: sessionStorage.getItem('chapterid'),
+      testId: sessionStorage.getItem('testid'),
+      answers: JSON.parse(sessionStorage.getItem('store') as any),
+    };
+    console.log(body);
+
+    let token = sessionStorage.getItem('token');
+
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+
+    return this.http.post(environment.url + 'submitTest', body, {
+      headers: headers_object,
+      responseType: 'text',
+    });
+  }
+
+  getresultService() {
+    const body = {
+      testId: sessionStorage.getItem('testid'),
+    };
+    console.log(body);
+
+    let token = sessionStorage.getItem('token');
+
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+
+    return this.http.post(
+      environment.url + 'getCompletedTestResultData',
+      body,
+      {
+        headers: headers_object,
+      }
+    );
+  }
+
+  // getTestStatus
+  // gettestService() {
+  //   const body = {
+  //     testId: sessionStorage.getItem('testid')
+  //   };
+  //   let token = sessionStorage.getItem('token');
+  //   var headers_object = new HttpHeaders().set(
+  //     'Authorization',
+  //     'Bearer ' + token
+  //   );
+  //   return this.http.post(environment.url + 'getTestStatus', body,{
+  //     headers: headers_object
+  //   });
+  // }
+
+  // getteststatus() {
+  //   this.loginservice.gettestService().subscribe((data)=>{
+  //     console.log("gettestt",data);
+
+  //   })
+  // }
 }

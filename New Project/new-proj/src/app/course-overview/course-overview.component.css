@@ -514,20 +514,25 @@
 .mbldescription22 {
   display: none;
 }
-.quiz-flexx{
+.quiz-flexx {
   display: flex;
   justify-content: space-between;
+  column-gap: 13px;
 }
-.tik-chapter{
-  /* width:10%; */
+.tik-chapter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.module-chapter{
+.module-chapter {
   /* width:58%; */
 }
-.module-dd{
+.module-dd {
   width: 82%;
 }
-
+.module-dd p {
+  margin-bottom: 0;
+}
 
 @media screen and (max-width: 700px) {
   .head {

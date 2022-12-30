@@ -47,8 +47,31 @@
 .left-eight {
   width: 81%;
 }
-.quiz-board{
+.quiz-board {
   display: flex;
   justify-content: space-between;
   padding: 10 10px;
+}
+.margin-auto-thrd {
+  border: 1px solid red;
+  width: 60%;
+  margin: auto;
+}
+.result-status-div {
+  display: flex;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.07);
+  justify-content: space-between;
+  background-color: #fcbe4b;
+  margin-top: 27px;
+}
+.quiz-div{
+  width:40%;
+  position: relative;
+  margin: auto;
+}
+.cor{
+  color: green;
+}
+.red{
+  color: red;
 }

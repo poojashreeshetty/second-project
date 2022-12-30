@@ -1,0 +1,24 @@
+.main {
+  width: 80%;
+  margin: auto;
+  border: 1px solid red;
+  height: auto;
+  min-height: 700px;
+  overflow-y: auto;
+}
+.main-main {
+  width: 900px;
+  height: 1000px;
+}
+.flex-question {
+  display: flex;
+  justify-content: space-between;
+}
+.option-div {
+  width: 464px;
+  height: 66px;
+  background: #ea2626;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+}

@@ -6,13 +6,50 @@
   <div class="margin-auto-scnd">
     <div class="eight"><p>80</p></div>
     <div class="left-eight">
-        <div><p>Chapter 3: Setting up a new project</p></div>
-        <div><p>Course: Learn Figma - UI/UX Design Essential Training</p></div>
-        <div class="quiz-board">
-          <div> <p> Passing Grade</p> <p>75/100</p></div>
-          <div><p>Correct</p><p>20/25</p></div>
-          <div><p>Wrong</p><p>05/25</p></div>
+      <div><p>Chapter 3: Setting up a new project</p></div>
+      <div><p>Course: Learn Figma - UI/UX Design Essential Training</p></div>
+      <div class="quiz-board">
+        <div>
+          <p>Passing Grade</p>
+          <p>75/100</p>
         </div>
+        <div>
+          <p>Correct</p>
+          <p>20/25</p>
+        </div>
+        <div>
+          <p>Wrong</p>
+          <p>05/25</p>
+        </div>
+      </div>
     </div>
+    
   </div>
+
+  <div class="quiz-div">
+    <div>List of Questions</div>
+  
+
+    <div class="result-status-div" *ngFor="let a of resultdata?.selectedAndActualAnswerSet ;  let i = index">
+      <div>
+        <div>Question{{i+1}}</div>
+        {{correct(a)}}
+        <div *ngIf="correcttt" class="cor">Correct Answer</div>
+        <div *ngIf="worng"  class="red">Wrong Answer</div>
+
+      </div>
+      <div (click)="opendilogueresult(i)">></div>
+    </div>
+
+
+
+    
+
+
+    
+
+
+    
+  </div>
+ 
 </div>
