@@ -2,13 +2,38 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ThisReceiver } from '@angular/compiler';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiceService {
   body: any;
-  constructor(private http: HttpClient) {}
+  
+  private resultData = new BehaviorSubject<any>(null);
+
+  private resultIndex = new BehaviorSubject<any>(null)
+
+  constructor(private http: HttpClient) { }
+
+  saveResultData(obj: any) {
+    this.resultData.next(obj)
+  }
+
+  getResultData() {
+    return this.resultData.asObservable()
+  }
+
+  saveResultIndex(index: any) {
+    this.resultIndex.next(index)
+  }
+
+  getResultIndex() {
+    return this.resultIndex.asObservable()
+  }
+
+
+
   loginfromService(body: any) {
     return this.http.post(environment.url + 'signin', body);
   }

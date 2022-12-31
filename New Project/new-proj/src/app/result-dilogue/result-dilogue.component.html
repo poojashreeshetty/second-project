@@ -1,15 +1,13 @@
 <div class="main-main">
-  <div class="main">
+  <div class="main" *ngIf="resultdata">
     <div class="flex-question">
-      <div>Question 3</div>
+      <div>Question {{index+1}}</div>
       <div>Wrong Answer</div>
     </div>
     <div>
-      <div>How to create dot-matrix in Figma without doing it dot-by-dot?</div>
-      <div class="option-div">* Follow a bezier path</div>
-      <div class="option-div">* Follow a bezier path</div>
-      <div class="option-div">* Follow a bezier path</div>
-      <div class="option-div"># Follow a bezier path</div>
+      <div>{{resultdata.questions[index]}} ?</div> 
+      <div class="option-div" [class.bg-danger]="opt==userSelectedAnswer &&  opt !=rightAnswer" [class.bg-primary]="opt==rightAnswer" *ngFor="let opt of this.resultdata.options[index]">*
+        {{opt}}</div>
     </div>
   </div>
 </div>

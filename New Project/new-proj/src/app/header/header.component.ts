@@ -2,10 +2,22 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { DOCUMENT } from '@angular/common';
 import { ThisReceiver } from '@angular/compiler';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
+  animations: [
+    trigger('onOff', [
+      transition(':enter', [style({
+        opacity: 0,
+        // transform: 'translateY(0)',
+        height:'0%'
+      }),
+      animate(500)
+    ])
+    ])
+ ]
 })
 export class HeaderComponent implements OnInit {
   serachleft: boolean = true;
