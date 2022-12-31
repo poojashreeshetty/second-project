@@ -1,12 +1,13 @@
 .main {
   width: 60%;
   margin: auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: auto;
-  min-height: 600px;
+  min-width: 780px;
+  max-width: 1120px;
 }
 .main-two {
-  width: 36%;
+  width: 326px;
   margin: auto;
 }
 .main-img-div {
@@ -20,30 +21,38 @@
 }
 .congrats {
   text-align: center;
-  font-family: "Biko";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 700;
   font-size: 33px;
   line-height: 60px;
   text-align: center;
   color: #2b2b2b;
+  margin-top: 35px;
 }
 .you-have {
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
   line-height: 30px;
   text-align: center;
   color: #7a7a7a;
+  width: 534px;
+  margin: auto;
+}
+.leran-figma{
+  color: #7a7a7a;
+  font-weight: 600;
 }
 .resulr {
   text-align: center;
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Soft";
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 15px;
   line-height: 30px;
   text-align: center;
   color: #ee5c4d;
+  margin-top: 10px;
 }
