@@ -42,11 +42,11 @@ export class ModuleTestComponent implements OnInit {
     this.loginservice.gotosecondService().subscribe((data) => {
       console.log('quizzz', data);
       this.totquest = data;
-      this.questins = data;
-      this.options = this.questins.options;
-      this.questins = this.questins.questions;
-      this.questionToshow = this.questins[this.index];
-      this.optionToShow = this.options[this.index];
+      // this.questins = data;
+      // this.options = this.questins.options;
+      // this.questins = this.questins.questions;
+      // this.questionToshow = this.questins[this.index];
+      // this.optionToShow = this.options[this.index];
       this.modifyQuestionData();
       this.singleQuestion = this.finalArray[this.index];
       console.log(this.singleQuestion)
@@ -123,7 +123,9 @@ export class ModuleTestComponent implements OnInit {
 
 
   saveAnswer(opt: any) {
+    console.log(opt)
     let options = this.singleQuestion.options;
+    console.log(options)
     options.map((el: any) => {
       if (el.index == opt.index) {
         el.isSelcted = true
@@ -171,6 +173,7 @@ export class ModuleTestComponent implements OnInit {
         }
         console.log(this.finalArray[i].options[j])
       }
+      console.log(this.optionRequestForApi)
     }
     this.stop();
     const dialogRef = this.md.open(SubmitDilogComponent,{
