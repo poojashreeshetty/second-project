@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   constructor(private loginservice: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
+    sessionStorage.removeItem('store')
     this.getName();
     this.getOngoingCourse();
     this.topserachCategory();

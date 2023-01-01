@@ -69,35 +69,13 @@
           {{ correct(a) }}
           <div *ngIf="correcttt" class="cor">Correct Answer</div>
           <div *ngIf="worng" class="red">Wrong Answer</div>
+          <div *ngIf="notAnswer" class="red">Not Answered</div> 
+
         </div>
         <div>></div>
       </div>
     </div>
   </div>
 
-  <div *ngIf="myarray">
-    <div *ngFor="let myarray of myarray">
-      <h6>{{ myarray.questinName }}</h6>
-      <div *ngFor="let option of myarray.options" [class.red]="
-          myarray.selectedAndActualAnswerSet.userSelected == option &&
-          myarray.selectedAndActualAnswerSet.rightAnswer != option
-        " [class.cor]="myarray.selectedAndActualAnswerSet.rightAnswer == option">
-        {{ option }}
-      </div>
-
-      <div>
-        right anbswer:::: {{ myarray.selectedAndActualAnswerSet.rightAnswer }}
-      </div>
-
-      <div *ngIf="myarray.selectedAndActualAnswerSet.userSelected">
-        userSelected::::
-        {{ myarray.selectedAndActualAnswerSet.userSelected }}
-      </div>
-      <div *ngIf="myarray.selectedAndActualAnswerSet.userSelected == null">
-        user Not Answered this questiomn
-      </div>
-
-      <!-- </div> -->
-    </div>
-  </div>
+  
 </div>

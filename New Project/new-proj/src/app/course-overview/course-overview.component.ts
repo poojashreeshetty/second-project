@@ -171,8 +171,7 @@ export class CourseOverviewComponent implements OnInit {
   vedioend(id: any) {
     console.log('jgvh');
     sessionStorage.setItem('truee', 'true');
-    this.loginservice
-      .UpdateProgressServise(id, sessionStorage.getItem('serialid'))
+    this.loginservice.UpdateProgressServise(id, sessionStorage.getItem('serialid'))
       .subscribe((data: any) => {
         console.log('chapters', data);
         // this.userChapter = data;
@@ -190,6 +189,7 @@ export class CourseOverviewComponent implements OnInit {
     console.log('courseid', courseid);
     console.log('tesid', testid);
     sessionStorage.setItem('testid', testid);
+    sessionStorage.setItem('quizStarted', 'true');
     this.router.navigate(['/test']);
     this.storenumber = sessionStorage.setItem('chapternumber', cahpternumber);
     sessionStorage.setItem('chapteretitle', chapteretitle);

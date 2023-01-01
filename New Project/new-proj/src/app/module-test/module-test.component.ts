@@ -39,6 +39,8 @@ export class ModuleTestComponent implements OnInit {
 
   ngOnInit(): void {
 
+    sessionStorage.setItem('quizStarted','true')
+
     this.loginservice.gotosecondService().subscribe((data) => {
       console.log('quizzz', data);
       this.totquest = data;

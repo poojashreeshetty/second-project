@@ -3,6 +3,9 @@
   background: #092963;
   height: 186px;
 }
+.header-part{
+  padding-bottom: 35px;
+}
 
 .margin-auto-first {
   width: 85%;

@@ -7,8 +7,10 @@
 }
 
 .main-main {
-  width: 100%;
-  /* height: 1000px; */
+  width: 500px;
+  height: 500px;
+  overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 .flex-question {
@@ -34,20 +36,21 @@
   background-color: green;
 }
 
-.option-div.bg-primary.ng-star-inserted .op-p {
-  color: white !important;
+p.op-p.bg-primary {
+  color: white;
 }
+
 .bg-danger {
   background-color: red;
 }
 
 .ques {
   font-family: "Proxima Nova Soft";
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    color: #111111;
-    font-weight: 600;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #111111;
+  font-weight: 600;
 }
 
 .quesc {

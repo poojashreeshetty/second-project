@@ -12,9 +12,21 @@ export class ServiceService {
   
   private resultData = new BehaviorSubject<any>(null);
 
-  private resultIndex = new BehaviorSubject<any>(null)
+  private resultIndex = new BehaviorSubject<any>(null);
+
+  private listOfQuest = new BehaviorSubject<any>(null);
+
 
   constructor(private http: HttpClient) { }
+
+
+  savelistOfQuestion(obj: any) {
+    this.listOfQuest.next(obj)
+  }
+
+  getlistOfQuestion() {
+    return this.listOfQuest.asObservable()
+  } 
 
   saveResultData(obj: any) {
     this.resultData.next(obj)
