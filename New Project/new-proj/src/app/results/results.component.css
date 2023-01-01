@@ -3,6 +3,7 @@
   background: #092963;
   height: 186px;
 }
+
 .margin-auto-first {
   width: 85%;
   /* border: 1px solid red; */
@@ -21,6 +22,7 @@
   flex-grow: 0;
   padding-top: 10px;
 }
+
 .margin-auto-scnd {
   width: 38%;
   /* border: 1px solid red; */
@@ -32,12 +34,14 @@
   justify-content: space-between;
   column-gap: 23px;
 }
+
 .eight {
   width: 97px;
   height: 82px;
   background: #fac768;
   border-radius: 4px;
 }
+
 .eighty {
   font-family: "Proxima Nova Soft";
   font-style: normal;
@@ -50,6 +54,7 @@
   align-items: center;
   padding-top: 21px;
 }
+
 .set-up {
   font-family: "Proxima Nova Soft";
   font-style: normal;
@@ -59,6 +64,7 @@
   color: #ffffff;
   white-space: nowrap;
 }
+
 .ler-fig {
   font-family: "Proxima Nova";
   font-style: normal;
@@ -76,6 +82,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.07);
   border-radius: 6px;
 }
+
 .quiz-inside {
   width: 326px;
   height: 72px;
@@ -89,6 +96,7 @@
   padding-right: 23px;
   column-gap: 29px;
 }
+
 .left-eight {
   width: 81%;
 }
@@ -98,24 +106,34 @@
   width: 60%;
   margin: auto;
 }
+
 .result-status-div {
   display: flex;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 4px 10px rgb(0 0 0 / 7%);
   justify-content: space-between;
-  background-color: #fcbe4b;
-  margin-top: 27px;
+  background-color: white;
+  margin-top: 28px;
+  height: 63px;
+  align-items: center;
 }
+
 .quiz-div {
-  width: 40%;
+  width: 49%;
   position: relative;
   margin: auto;
+  left: 7%;
 }
+
 .cor {
   color: green;
+  margin-top: 5px;
 }
+
 .red {
   color: red;
+  margin-top: 5px;
 }
+
 .pass-grade {
   font-family: "Proxima Nova Soft";
   font-style: normal;
@@ -128,7 +146,7 @@
 }
 
 .gra {
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova Sof";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -136,8 +154,28 @@
   text-align: center;
   color: #2bb5f4;
 }
+
 .quiz-board-mobile {
   display: none;
+}
+
+.lis-of {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #111111;
+  margin-top: 38px;
+}
+
+.ques {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #111111;
 }
 
 @media only screen and (max-width: 800px) {
@@ -178,14 +216,17 @@
     padding-right: 23px;
     column-gap: 29px;
   }
+
   .quiz-board {
     display: none;
   }
+
   .quiz-board-mobile {
     display: block;
     width: 88%;
     margin: auto;
   }
+
   .quiz-inside-mobile {
     width: 398px;
     height: 72px;
@@ -215,6 +256,7 @@
     justify-content: space-between;
     column-gap: 0px;
   }
+
   .quiz-inside-mobile {
     width: 300px;
     height: 72px;
@@ -231,12 +273,15 @@
     left: 31px;
     margin-top: 15px;
   }
+
   .eight {
     width: 77px;
   }
+
   .left-eight {
     width: 77%;
   }
+
   .result-header {
     width: 100%;
     background: #092963;

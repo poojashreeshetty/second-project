@@ -1,31 +1,79 @@
 .main {
   width: 80%;
   margin: auto;
-  border: 1px solid red;
   height: auto;
   min-height: 700px;
   overflow-y: auto;
 }
+
 .main-main {
-  width: 900px;
+  width: 600px;
   height: 1000px;
 }
+
 .flex-question {
   display: flex;
   justify-content: space-between;
 }
+
 .option-div {
   width: 464px;
   height: 66px;
-  /* background: #ea2626; */
   border: 1px solid #f0f0f0;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 4px 10px rgb(0 0 0 / 4%);
   border-radius: 6px;
+  margin-top: 38px;
 }
+
+.rih-cross {
+  display: flex;
+  justify-content: right;
+
+}
+
 .bg-primary {
   background-color: green;
 }
 
-.bg-danger{
+.bg-danger {
   background-color: red;
+}
+
+.ques {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #111111;
+}
+
+.quesc {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #111111;
+  margin-top: 15px;
+}
+
+.wrong-ans {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: red;
+}
+
+.op-p {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: black;
+  display: flex;
+  padding: 23px;
 }

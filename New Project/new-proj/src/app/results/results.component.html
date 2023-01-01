@@ -58,19 +58,19 @@
     </div>
 
     <div class="quiz-div">
-      <div (click)="demo()">List of Questions</div>
+      <div (click)="demo()">
+        <p class="lis-of">List of Questions</p>
+      </div>
 
-      <div
-        class="result-status-div"
-        *ngFor="let a of resultdata?.selectedAndActualAnswerSet; let i = index"
-      >
+      <div class="result-status-div" (click)="opendilogueresult(i)"
+        *ngFor="let a of resultdata?.selectedAndActualAnswerSet; let i = index">
         <div>
-          <div>Question{{ i + 1 }}</div>
+          <div class="ques">Question{{ i + 1 }}</div>
           {{ correct(a) }}
           <div *ngIf="correcttt" class="cor">Correct Answer</div>
           <div *ngIf="worng" class="red">Wrong Answer</div>
         </div>
-        <div (click)="opendilogueresult(i)">></div>
+        <div>></div>
       </div>
     </div>
   </div>
@@ -78,14 +78,10 @@
   <div *ngIf="myarray">
     <div *ngFor="let myarray of myarray">
       <h6>{{ myarray.questinName }}</h6>
-      <div
-        *ngFor="let option of myarray.options"
-        [class.red]="
+      <div *ngFor="let option of myarray.options" [class.red]="
           myarray.selectedAndActualAnswerSet.userSelected == option &&
           myarray.selectedAndActualAnswerSet.rightAnswer != option
-        "
-        [class.cor]="myarray.selectedAndActualAnswerSet.rightAnswer == option"
-      >
+        " [class.cor]="myarray.selectedAndActualAnswerSet.rightAnswer == option">
         {{ option }}
       </div>
 

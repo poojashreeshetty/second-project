@@ -1,13 +1,18 @@
 <div class="main-main">
+  <mat-icon mat-dialog-close>close</mat-icon>
   <div class="main" *ngIf="resultdata">
     <div class="flex-question">
-      <div>Question {{index+1}}</div>
-      <div>Wrong Answer</div>
+      <div class="ques">Question {{index+1}}</div>
+      <div class="wrong-ans">Wrong Answer</div>
     </div>
     <div>
-      <div>{{resultdata.questions[index]}} ?</div> 
-      <div class="option-div" [class.bg-danger]="opt==userSelectedAnswer &&  opt !=rightAnswer" [class.bg-primary]="opt==rightAnswer" *ngFor="let opt of this.resultdata.options[index]">*
-        {{opt}}</div>
+      <div>
+        <p class="quesc">{{resultdata.questions[index]}} ?</p>
+      </div>
+      <div class="option-div" [class.bg-danger]="opt==userSelectedAnswer &&  opt !=rightAnswer"
+        [class.bg-primary]="opt==rightAnswer" *ngFor="let opt of this.resultdata.options[index]">
+        <p class="op-p">{{opt}}</p>
+      </div>
     </div>
   </div>
 </div>
