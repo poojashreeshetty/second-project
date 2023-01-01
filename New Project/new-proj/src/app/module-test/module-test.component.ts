@@ -85,6 +85,8 @@ export class ModuleTestComponent implements OnInit {
       this.questionToshow = this.questins[this.index];
       this.optionToShow = this.options[this.index];
       this.coun++
+      this.rowClicked=-1;
+      this.clicked = false;
     }
     if (this.questins.length - 1 == this.index) {
       this.isButtonDisabled = true;
@@ -101,6 +103,9 @@ export class ModuleTestComponent implements OnInit {
     console.log(this.questins.length);
     this.coun--
 
+    this.rowClicked=-1
+    this.clicked = false;
+    
   }
   onclickcircle() {
     this.tikcircle = true;
@@ -109,9 +114,9 @@ export class ModuleTestComponent implements OnInit {
   opensubmit() {
     this.stop();
 
-    const dialogRef = this.md.open(SubmitDilogComponent, {
-      width: '350px',
-      height: '200px',
+    const dialogRef = this.md.open(SubmitDilogComponent,{
+      width: '948px',
+      height: '312px'
     });
     console.log(this.selctedOptions);
     sessionStorage.setItem('store', JSON.stringify(this.selctedOptions))

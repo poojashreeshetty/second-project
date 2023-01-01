@@ -44,7 +44,7 @@
 </div>
 
 <div class="if-search" *ngIf="showdiv"  @onOff>
-  <div class="if-margin-auto-secnd">
+  <div class="if-margin-auto-secnd" >
     <div class="top-serach">Top Search</div>
     <div class="all-elm">
       <div
@@ -75,8 +75,8 @@
   </div>
 </div>
 
-<div class="show-category-individual" *ngIf="individualcat">
-  <div *ngIf="shonoimage" class="noimage">
+<div class="show-category-individual" *ngIf="individualcat" @onOff>
+  <div *ngIf="shonoimage" class="noimage" >
     <p class="no-matching">No matching course</p>
     <p class="try-a">Try a different search or browse categories</p>
 

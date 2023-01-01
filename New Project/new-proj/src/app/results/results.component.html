@@ -1,88 +1,107 @@
 <app-header></app-header>
 <div class="result-header">
-  <div class="margin-auto-first">
-    <div class="module-tt">
-      <p>Module Test 2</p>
-    </div>
-  </div>
-  <div class="margin-auto-scnd">
-    <div class="eight">
-      <p>80</p>
-    </div>
-    <div class="left-eight">
-      <div>
-        <p>Chapter 3: Setting up a new project</p>
+  <div class="header-part">
+    <div class="margin-auto-first">
+      <div class="module-tt">
+        <p>Module Test 2</p>
       </div>
+    </div>
+    <div class="margin-auto-scnd">
       <div>
-        <p>Course: Learn Figma - UI/UX Design Essential Training</p>
-      </div>
-      <div class="quiz-board">
-        <div>
-          <p>Passing Grade</p>
-          <p>75/100</p>
-        </div>
-        <div>
-          <p>Correct</p>
-          <p>20/25</p>
-        </div>
-        <div>
-          <p>Wrong</p>
-          <p>05/25</p>
+        <div class="eight">
+          <p class="eighty">80</p>
         </div>
       </div>
-    </div>
 
-  </div>
-
-  <div class="quiz-div">
-    <div (click)="demo()">List of Questions</div>
-
-
-    <div class="result-status-div" *ngFor="let a of resultdata?.selectedAndActualAnswerSet ;  let i = index">
-      <div>
-        <div>Question{{i+1}}</div>
-        {{correct(a)}}
-        <div *ngIf="correcttt" class="cor">Correct Answer</div>
-        <div *ngIf="worng" class="red">Wrong Answer</div>
-
+      <div class="left-eight">
+        <div>
+          <p class="set-up">Chapter 3: Setting up a new project</p>
+        </div>
+        <div>
+          <p class="ler-fig">
+            Course: Learn Figma - UI/UX Design Essential Training
+          </p>
+        </div>
+        <div class="quiz-board">
+          <div class="quiz-inside">
+            <div>
+              <p class="pass-grade">Passing Grade</p>
+              <p class="gra">75/100</p>
+            </div>
+            <div>
+              <p class="pass-grade">Correct</p>
+              <p class="gra">20/25</p>
+            </div>
+            <div>
+              <p class="pass-grade">Wrong</p>
+              <p class="gra">05/25</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div (click)="opendilogueresult(i)">></div>
+    </div>
+    <div class="quiz-board-mobile">
+      <div class="quiz-inside-mobile">
+        <div>
+          <p class="pass-grade">Passing Grade</p>
+          <p class="gra">75/100</p>
+        </div>
+        <div>
+          <p class="pass-grade">Correct</p>
+          <p class="gra">20/25</p>
+        </div>
+        <div>
+          <p class="pass-grade">Wrong</p>
+          <p class="gra">05/25</p>
+        </div>
+      </div>
     </div>
 
+    <div class="quiz-div">
+      <div (click)="demo()">List of Questions</div>
 
-
-
-
-
-
-
-
-
+      <div
+        class="result-status-div"
+        *ngFor="let a of resultdata?.selectedAndActualAnswerSet; let i = index"
+      >
+        <div>
+          <div>Question{{ i + 1 }}</div>
+          {{ correct(a) }}
+          <div *ngIf="correcttt" class="cor">Correct Answer</div>
+          <div *ngIf="worng" class="red">Wrong Answer</div>
+        </div>
+        <div (click)="opendilogueresult(i)">></div>
+      </div>
+    </div>
   </div>
 
-</div>
+  <div *ngIf="myarray">
+    <div *ngFor="let myarray of myarray">
+      <h6>{{ myarray.questinName }}</h6>
+      <div
+        *ngFor="let option of myarray.options"
+        [class.red]="
+          myarray.selectedAndActualAnswerSet.userSelected == option &&
+          myarray.selectedAndActualAnswerSet.rightAnswer != option
+        "
+        [class.cor]="myarray.selectedAndActualAnswerSet.rightAnswer == option"
+      >
+        {{ option }}
+      </div>
 
-<div *ngIf="myarray">
-  <div *ngFor="let myarray of myarray ">
-    <h6>{{myarray.questinName}}</h6>
-    <div *ngFor="let option of myarray.options"
-    [class.red]="myarray.selectedAndActualAnswerSet.userSelected ==option && myarray.selectedAndActualAnswerSet.rightAnswer !=option"
-    [class.cor]="myarray.selectedAndActualAnswerSet.rightAnswer ==option">
-      {{option}}
+      <div>
+        right anbswer:::: {{ myarray.selectedAndActualAnswerSet.rightAnswer }}
+      </div>
 
+      <div *ngIf="myarray.selectedAndActualAnswerSet.userSelected">
+        userSelected::::
+        {{ myarray.selectedAndActualAnswerSet.userSelected }}
+      </div>
+      <div *ngIf="myarray.selectedAndActualAnswerSet.userSelected == null">
+        user Not Answered this questiomn
+      </div>
+
+      <!-- </div> -->
     </div>
-
-    <div> right anbswer:::: {{myarray.selectedAndActualAnswerSet.rightAnswer}}</div>
-
-    <div *ngIf="myarray.selectedAndActualAnswerSet.userSelected"> userSelected::::
-      {{myarray.selectedAndActualAnswerSet.userSelected}}
-    </div>
-    <div *ngIf="myarray.selectedAndActualAnswerSet.userSelected==null"> 
-      user Not Answered this questiomn
-    </div>
-
-    <!-- </div> -->
-
   </div>
-
 </div>

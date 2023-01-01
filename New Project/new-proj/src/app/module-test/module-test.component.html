@@ -96,7 +96,7 @@
 </div>
 
 
-<!-- new section --> 
+<!-- new section -->
 <div class="main-main">
   <div class="main">
     <div class="main-module">
@@ -129,14 +129,14 @@
         <div class="quiz-options">
           <div class="each-options" *ngFor="let option of singleQuestion.options; let i = index">
 
-              <div  class="each-op"   [style.background-color]="option.isSelcted ? '#EC5D52' : 'transparent'"
-                [style.color]="option.isSelcted ? 'white' : 'black'" (click)="saveAnswer1(option)">
+            <div class="each-op" [style.background-color]="option.isSelcted ? '#EC5D52' : 'transparent'"
+              [style.color]="option.isSelcted ? 'white' : 'black'" (click)="saveAnswer1(option)">
 
               <div class="choiceIcon" *ngIf=!option.isSelcted>
                 <mat-icon>radio_button_unchecked </mat-icon>
               </div>
 
-              <div class="selectedchoiceIcon"  *ngIf=option.isSelcted>
+              <div class="selectedchoiceIcon" *ngIf=option.isSelcted>
                 <mat-icon>check_circle</mat-icon>
               </div>
 
@@ -156,24 +156,24 @@
             </div>
             <div class="flex-button">
               <div class="empty-div"></div>
-              <div (click)="prev1()"  *ngIf="singleQuestion.questionNumber!=1" class="prev-div">
+              <div (click)="prev1()" *ngIf="singleQuestion.questionNumber!=1" class="prev-div">
                 <img src="./assets/Shape (1).png" alt="" />
               </div>
-    
+
               <!-- {{index==questins?.length-1}} -->
-              <div (click)="next1()" *ngIf="singleQuestion.questionNumber!=finalArray.length"  class="next-div">
+              <div (click)="next1()" *ngIf="singleQuestion.questionNumber!=finalArray.length" class="next-div">
                 <img src="./assets/Shape.png" alt="" />
               </div>
-    
+
               <!-- {{index==questins?.length-1}} -->
-    
+
               <div (click)="opensubmit1()" *ngIf="singleQuestion.questionNumber==finalArray.length" class="submit-div">
                 <button class="submit-buttonn">submit</button>
               </div>
 
               <!-- <div (click)="opensubmit1()">11111111</div> -->
-    
-    
+
+
             </div>
           </div>
         </div>

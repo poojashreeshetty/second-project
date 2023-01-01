@@ -10,11 +10,11 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
   animations: [
     trigger('onOff', [
       transition(':enter', [style({
-        opacity: 0,
-        // transform: 'translateY(0)',
-        height:'0%'
+        opacity: 0.1,
+        transform: 'translateX(1000)'
+        // height:'0%'
       }),
-      animate(500)
+      animate(1000)
     ])
     ])
  ]

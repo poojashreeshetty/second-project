@@ -1,12 +1,82 @@
 .cancel-submit {
   display: flex;
   justify-content: space-between;
+  width: 47%;
+  margin: auto;
+  margin-top: 33px;
 }
 .cancel {
+  width: 146px;
+  height: 42px;
+  background: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 35px;
+  /* identical to box height, or 194% */
+
+  text-align: center;
+
+  color: #2b2b2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .submit {
-  width: 100px;
-  height: 30px;
+  width: 146px;
+  height: 42px;
   background: #ee5c4d;
   border-radius: 6px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* identical to box height, or 194% */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.do-you-want {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 26px;
+  text-align: center;
+  color: #000000;
+}
+.main {
+  width: 80%;
+  margin: auto;
+}
+.still-have {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+  margin-top: 35px;
+}
+
+.if-you {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+  margin-top: 35px;
 }

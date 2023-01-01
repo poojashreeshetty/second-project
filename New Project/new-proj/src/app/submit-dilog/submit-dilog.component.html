@@ -1,11 +1,18 @@
 <div>
-  <div>
-    <div>Do you want to end the test?</div>
+  <div class="main">
+    <div class="do-you-want">Do you want to end the test?</div>
     <div>
-      You still have <span>{{time}}</span> second remaining If you want to check your answer again,
-      press cancel button. If you want to end the test and submit your answers
-      you can press submit button.
+      <p class="still-have">
+        You still have <span>{{ time }}</span> second remaining
+      </p>
+      <p class="if-you">
+        If you want to check your answer again, press cancel button. If you want
+        to end the test and submit your answers you can press submit button.
+      </p>
     </div>
-    <div class="cancel-submit"><div class="cancel" (click)="closecancel()">Cancel</div><div class="submit" (click)="clicktoSubmit()" mat-close>Submit</div></div>
+    <div class="cancel-submit">
+      <div class="cancel" (click)="closecancel()">Cancel</div>
+      <div class="submit" (click)="clicktoSubmit()" mat-close>Submit</div>
+    </div>
   </div>
 </div>
