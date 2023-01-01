@@ -29,30 +29,54 @@ export class ModuleTestComponent implements OnInit {
   public timerInterval: any;
   chosenIndex: any;
   clicked: boolean = true;
-  coun=1;
+  coun = 1;
+  myOptions: any = [];
+  finalArray: any = [];
+  singleQuestion: any;
+  optionRequestForApi: any = [];
 
-  constructor(private loginservice: ServiceService, private md: MatDialog) {}
+  constructor(private loginservice: ServiceService, private md: MatDialog) { }
 
   ngOnInit(): void {
     this.loginservice.gotosecondService().subscribe((data) => {
       console.log('quizzz', data);
       this.totquest = data;
-      // console.log("totquestii",this.totquest);
-
       this.questins = data;
       this.options = this.questins.options;
-      // this.selctedOptions = JSON.parse(JSON.stringify(this.options));
       this.questins = this.questins.questions;
-      // console.log("asdrawer",this.questins);
-
-      console.log('questions', this.questins);
-      console.log('options', this.options);
       this.questionToshow = this.questins[this.index];
-      console.log(this.questionToshow);
       this.optionToShow = this.options[this.index];
-      console.log(this.optionToShow);
+      this.modifyQuestionData();
+      this.singleQuestion = this.finalArray[this.index];
+      console.log(this.singleQuestion)
       this.start();
     });
+  }
+
+  modifyQuestionData() {
+    for (let i = 0; i < this.totquest.questions.length; i++) {
+      this.myOptions = []
+      let question = {
+        questionName: this.totquest.questions[i],
+        questionNumber: i + 1,
+        options: this.modifyOptions(this.totquest.options[i])
+      }
+      this.finalArray.push(question)
+    }
+    console.log("final Array", this.finalArray);
+  }
+
+  modifyOptions(options: any): any {
+    for (let j = 0; j < options.length; j++) {
+      let opt =
+      {
+        value: options[j],
+        isSelcted: false,
+        index: j
+      }
+      this.myOptions.push(opt)
+    }
+    return this.myOptions
   }
 
   next() {
@@ -60,7 +84,6 @@ export class ModuleTestComponent implements OnInit {
       this.index = ++this.index;
       this.questionToshow = this.questins[this.index];
       this.optionToShow = this.options[this.index];
-      // console.log('inside', this.index);
       this.coun++
     }
     if (this.questins.length - 1 == this.index) {
@@ -77,7 +100,7 @@ export class ModuleTestComponent implements OnInit {
     this.optionToShow = this.options[this.index];
     console.log(this.questins.length);
     this.coun--
-    
+
   }
   onclickcircle() {
     this.tikcircle = true;
@@ -91,7 +114,7 @@ export class ModuleTestComponent implements OnInit {
       height: '200px',
     });
     console.log(this.selctedOptions);
-    sessionStorage.setItem('store',JSON.stringify(this.selctedOptions))
+    sessionStorage.setItem('store', JSON.stringify(this.selctedOptions))
   }
 
   saveAnswer(option: any, index: any) {
@@ -102,14 +125,16 @@ export class ModuleTestComponent implements OnInit {
   }
 
   start() {
-    this.timer(this.totquest?.totalTimeAlloted);
+    // this.timer(this.totquest?.totalTimeAlloted);
+    this.timer(3000);
+
   }
   stop() {
     clearInterval(this.timerInterval);
   }
 
   timer(minute: any) {
-    console.log('min', minute);
+    // console.log('min', minute);
 
     // let minute = 1;
     let seconds: number = minute;
@@ -149,6 +174,69 @@ export class ModuleTestComponent implements OnInit {
     if (this.clicked == false) {
       this.chosenIndex = null;
     }
+    console.log(this.rowClicked)
     console.log(this.clicked);
   }
+
+  saveAnswer1(opt: any) {
+    let options = this.singleQuestion.options;
+    options.map((el: any) => {
+      if (el.index == opt.index) {
+        el.isSelcted = true
+        // this.optionRequestForApi.push(opt.index)
+      } else {
+        el.isSelcted = false;
+        // this.optionRequestForApi.push(null)
+      }
+    })
+    console.log(options);
+    console.log(this.finalArray)
+  }
+
+  prev1() {
+    console.log(this.index)
+    this.index = this.index - 1;
+    this.singleQuestion = this.finalArray[this.index];
+    console.log(this.singleQuestion)
+    console.log(this.finalArray)
+  }
+
+  next1() {
+    console.log(this.index)
+    this.index = this.index + 1;
+    this.singleQuestion = this.finalArray[this.index];
+    console.log(this.singleQuestion)
+    console.log(this.finalArray)
+
+  }
+
+  opensubmit1() {
+    console.log(this.finalArray)
+    for (let i = 0; i < this.finalArray.length; i++) {
+      console.log(this.finalArray[i].questionName)
+      for (let j = 0; j < this.finalArray[i].options.length; j++) {
+        let a = this.finalArray[i].options.filter((el: any) => el.isSelcted == true)
+        console.log('a', a);
+        if (a.length > 0) {
+          if (this.finalArray[i].options[j].isSelcted == true) {
+            this.optionRequestForApi.push(this.finalArray[i].options[j].index);
+          }
+        } else {
+          this.optionRequestForApi.push(null);
+          break
+        }
+        console.log(this.finalArray[i].options[j])
+      }
+    }
+    this.stop();
+    const dialogRef = this.md.open(SubmitDilogComponent, {
+      width: '350px',
+      height: '200px',
+    });
+    console.log(this.selctedOptions);
+    sessionStorage.setItem('store', JSON.stringify(this.optionRequestForApi))
+    console.log(this.optionRequestForApi)
+  }
+
+
 }
