@@ -1,6 +1,8 @@
 <app-header></app-header>
-<div class="main-main " style="display: none;">
-  <div class="main">
+
+<!-- new section -->
+<div class="main-main">
+  <div class="main" *ngIf="singleQuestion">
     <div class="main-module">
       <div class="module-test">
         <div class="module-testt">Module Test 2</div>
@@ -9,7 +11,7 @@
 
       <div class="question-count-flex">
         <div class="question-count">
-          Question {{ coun }} of {{ totquest?.totalQuestions }}
+          Question {{ singleQuestion?.questionNumber }} of   {{ finalArray.length }}
         </div>
 
         <div class="flex-timer">
@@ -22,104 +24,6 @@
 
       <div class="quiz-container">
         <!-- questions start -->
-        <div class="quiz-question" *ngIf="questins">
-          <p>{{ questionToshow }}</p>
-        </div>
-        <!-- questions end -->
-
-        <!-- options start -->
-        <div class="quiz-options">
-          <div class="each-options" *ngFor="let option of optionToShow; let i = index">
-            <!-- <img src="./assets/Ellipse 10.png" alt="" *ngIf="ifcircle" (click)="onclickcircle()" /> -->
-            <!-- <img src="./assets/Answer Tick Icon.svg" alt="" *ngIf="tikcircle" /> -->
-            <!-- <span class="option-span">{{ option }}</span> -->
-            <!-- <input type="radio" name="{{option}}" id="{{option}}" value="{{option}}"> -->
-
-            <!-- start -->
-
-            <!-- <input type="radio" id="{{option}}{{i}}" name="quiz" value="" (change)="saveAnswer(option,i)">
-            <label for="{{option}}{{i}}">{{option}}</label><br>  -->
-
-            <!-- end -->
-
-            <div (click)="saveAnswer(option, i)" [style.background-color]="
-                rowClicked == i ? '#EC5D52' : 'transparent'
-              " [style.color]="rowClicked == i ? 'white' : 'black'" (click)="changeTableRowColor(i)" class="each-op">
-              <div class="choiceIcon" *ngIf="chosenIndex != i || clicked == false">
-                <mat-icon>radio_button_unchecked </mat-icon>
-              </div>
-
-              <div class="selectedchoiceIcon" *ngIf="chosenIndex == i && clicked == true">
-                <mat-icon>check_circle</mat-icon>
-              </div>
-
-              <div>
-                <div class="choiceContent">{{ option }}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- options end -->
-      </div>
-    </div>
-
-    <div class="flex-button-div">
-      <!-- <button (click)="prev()">prev</button> -->
-      <!-- <button (click)="next()">next</button> -->
-      <div class="flex-second-div">
-        <div class="first-flex">
-          <p>Chapter 3</p>
-          <p>Setting up a new project</p>
-        </div>
-        <div class="flex-button">
-          <div class="empty-div"></div>
-          <div (click)="prev()" *ngIf="index !== 0" class="prev-div">
-            <img src="./assets/Shape (1).png" alt="" />
-          </div>
-
-          <!-- {{index==questins?.length-1}} -->
-          <div (click)="next()" *ngIf="index != questins?.length - 1" class="next-div">
-            <img src="./assets/Shape.png" alt="" />
-          </div>
-
-          <!-- {{index==questins?.length-1}} -->
-
-          <div (click)="opensubmit()" *ngIf="index == questins?.length - 1" class="submit-div">
-            <button class="submit-buttonn">submit</button>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- new section -->
-<div class="main-main">
-  <div class="main">
-    <div class="main-module">
-      <div class="module-test">
-        <div class="module-testt">Module Test 2</div>
-        <mat-icon routerLink="/course">close</mat-icon>
-      </div>
-
-      <div class="question-count-flex">
-        <div class="question-count">
-          <!-- Question {{ coun }} of   {{ totquest?.totalQuestions }} -->
-        </div>
-
-        <div class="flex-timer">
-          <div class="timer"><img src="./assets/Group 183.svg" alt="" /></div>
-          <div class="min-remainn">
-            <p class="min-remain">{{ display }} mins remaining</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="quiz-container" *ngIf="singleQuestion">
-        <!-- questions start -->
         <div class="quiz-question">
           <p>Question {{ singleQuestion.questionNumber }}.</p>
         </div>
@@ -130,7 +34,7 @@
           <div class="each-options" *ngFor="let option of singleQuestion.options; let i = index">
 
             <div class="each-op" [style.background-color]="option.isSelcted ? '#EC5D52' : 'transparent'"
-              [style.color]="option.isSelcted ? 'white' : 'black'" (click)="saveAnswer1(option)">
+              [style.color]="option.isSelcted ? 'white' : 'black'" (click)="saveAnswer(option)">
 
               <div class="choiceIcon" *ngIf=!option.isSelcted>
                 <mat-icon>radio_button_unchecked </mat-icon>
@@ -156,18 +60,18 @@
             </div>
             <div class="flex-button">
               <div class="empty-div"></div>
-              <div (click)="prev1()" *ngIf="singleQuestion.questionNumber!=1" class="prev-div">
+              <div (click)="prev()" *ngIf="singleQuestion.questionNumber!=1" class="prev-div">
                 <img src="./assets/Shape (1).png" alt="" />
               </div>
 
               <!-- {{index==questins?.length-1}} -->
-              <div (click)="next1()" *ngIf="singleQuestion.questionNumber!=finalArray.length" class="next-div">
+              <div (click)="next()" *ngIf="singleQuestion.questionNumber!=finalArray.length" class="next-div">
                 <img src="./assets/Shape.png" alt="" />
               </div>
 
               <!-- {{index==questins?.length-1}} -->
 
-              <div (click)="opensubmit1()" *ngIf="singleQuestion.questionNumber==finalArray.length" class="submit-div">
+              <div (click)="opensubmit()" *ngIf="singleQuestion.questionNumber==finalArray.length" class="submit-div">
                 <button class="submit-buttonn">submit</button>
               </div>
 
@@ -176,36 +80,6 @@
 
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex-button-div" style="display: none;">
-      <!-- <button (click)="prev()">prev</button> -->
-      <!-- <button (click)="next()">next</button> -->
-      <div class="flex-second-div">
-        <div class="first-flex">
-          <p>Chapter 3</p>
-          <p>Setting up a new project</p>
-        </div>
-        <div class="flex-button">
-          <div class="empty-div"></div>
-          <div (click)="prev()" *ngIf="index !== 0" class="prev-div">
-            <img src="./assets/Shape (1).png" alt="" />
-          </div>
-
-          <!-- {{index==questins?.length-1}} -->
-          <div (click)="next()" *ngIf="index != questins?.length - 1" class="next-div">
-            <img src="./assets/Shape.png" alt="" />
-          </div>
-
-          <!-- {{index==questins?.length-1}} -->
-
-          <div (click)="opensubmit()" *ngIf="index == questins?.length - 1" class="submit-div">
-            <button class="submit-buttonn">submit</button>
-          </div>
-
-
         </div>
       </div>
     </div>
