@@ -235,8 +235,8 @@ export class ModuleTestComponent implements OnInit {
     }
     this.stop();
     const dialogRef = this.md.open(SubmitDilogComponent, {
-      width: '350px',
-      height: '200px',
+      width: '900px',
+      height: '300px',
     });
     console.log(this.selctedOptions);
     sessionStorage.setItem('store', JSON.stringify(this.optionRequestForApi))
