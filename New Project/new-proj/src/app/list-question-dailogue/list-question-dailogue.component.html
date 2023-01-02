@@ -1,0 +1,82 @@
+<div class="main-main">
+  <div class="close-icon">
+    <mat-icon mat-dialog-close>close</mat-icon>
+  </div>
+  <div class="main" *ngFor="let myarray of myarray">
+    <div class="flex-question">
+      <div class="ques">{{ myarray.questinName }}</div>
+      <div
+        class="wrong-ans"
+        style="color: green"
+        *ngIf="
+          myarray.selectedAndActualAnswerSet.rightAnswer ==
+          myarray.selectedAndActualAnswerSet.userSelected
+        "
+      >
+        Correct Answer
+      </div>
+      <div
+        class="wrong-ans"
+        style="color: rgb(253, 29, 8)"
+        *ngIf="
+          myarray.selectedAndActualAnswerSet.rightAnswer !=
+            myarray.selectedAndActualAnswerSet.userSelected &&
+          myarray.selectedAndActualAnswerSet.userSelected
+        "
+      >
+        Wrong Answer
+      </div>
+      <div
+        style="color: rgb(77, 76, 76)"
+        class="wrong-ans"
+        *ngIf="myarray.selectedAndActualAnswerSet.userSelected == null"
+      >
+        Not Answer
+      </div>
+    </div>
+    <div class="quess">{{ myarray.questinName }} ?</div>
+
+    <div *ngFor="let option of myarray.options">
+      <div
+       
+        class="op-p"
+        [class.bg-primary]="
+          myarray.selectedAndActualAnswerSet.rightAnswer == option
+        "
+        [class.bg-danger]="
+          myarray.selectedAndActualAnswerSet.userSelected == option &&
+          myarray.selectedAndActualAnswerSet.rightAnswer != option
+        "
+      >
+        <div
+          class="choiceIcon"
+          *ngIf="
+            myarray.selectedAndActualAnswerSet.userSelected != option &&
+            myarray.selectedAndActualAnswerSet.rightAnswer != option
+          "
+        >
+          <mat-icon>radio_button_unchecked </mat-icon>
+        </div>
+        <div
+          class="choiceIcon"
+          *ngIf="myarray.selectedAndActualAnswerSet.rightAnswer == option"
+        >
+          <mat-icon>check_circle</mat-icon>
+        </div>
+        <div
+          class="choiceIcon"
+          *ngIf="
+            myarray.selectedAndActualAnswerSet.userSelected == option &&
+            myarray.selectedAndActualAnswerSet.rightAnswer != option
+          "
+        >
+          <img src="./assets/Wrong Icon.svg" alt="" />
+        </div>
+
+        <p  class="option-div">
+          {{ option }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

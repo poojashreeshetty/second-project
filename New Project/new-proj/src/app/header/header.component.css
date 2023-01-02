@@ -98,6 +98,7 @@ textarea {
   background: #092963;
   min-height: 80px;
   height: auto;
+  overflow: hidden;
 }
 
 .if-margin-auto-secnd {
@@ -216,6 +217,7 @@ textarea {
   overflow-y: auto;
   width: 100%;
   padding-top: 1px;
+  overflow: hidden;
 }
 .if-show-right-inside {
   width: 100%;

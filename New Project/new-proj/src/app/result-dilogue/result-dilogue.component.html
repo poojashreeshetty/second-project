@@ -1,13 +1,55 @@
 <div class="main-main">
+  <div class="close-icon">
+    <mat-icon mat-dialog-close>close</mat-icon>
+  </div>
   <div class="main" *ngIf="resultdata">
     <div class="flex-question">
-      <div>Question {{index+1}}</div>
-      <div>Wrong Answer</div>
+      <div class="ques">Question {{ index + 1 }}</div>
+      <div
+        class="wrong-ans"
+        *ngIf="userSelectedAnswer == null"
+        style="color: rgb(118, 116, 116)"
+      >
+        Not Answered
+      </div>
+      <div
+        class="wrong-ans"
+        style="color: rgb(250, 1, 1)"
+        *ngIf="userSelectedAnswer != null && !isRightAnswer"
+      >
+        Wrong Answer
+      </div>
+      <div
+        class="wrong-ans"
+        style="color: green"
+        *ngIf="userSelectedAnswer != null && isRightAnswer"
+      >
+        Right Answer
+      </div>
     </div>
     <div>
-      <div>{{resultdata.questions[index]}} ?</div> 
-      <div class="option-div" [class.bg-danger]="opt==userSelectedAnswer &&  opt !=rightAnswer" [class.bg-primary]="opt==rightAnswer" *ngFor="let opt of this.resultdata.options[index]">*
-        {{opt}}</div>
+      <div>
+        <p class="quesc">{{ resultdata.questions[index] }} ?</p>
+      </div>
+      <div
+        class="option-div"
+        [class.bg-danger]="opt == userSelectedAnswer && opt != rightAnswer"
+        [class.bg-primary]="opt == rightAnswer" 
+        *ngFor="let opt of this.resultdata.options[index]"
+      >
+        <div class="choiceIcon" *ngIf= "opt != userSelectedAnswer && opt != rightAnswer">
+          <mat-icon>radio_button_unchecked </mat-icon>
+        </div>
+        <div class="choiceIcon" *ngIf="opt == rightAnswer">
+          <mat-icon>check_circle</mat-icon>
+        </div>
+        <div class="choiceIcon" *ngIf="opt == userSelectedAnswer && opt != rightAnswer">
+          <img src="./assets/Wrong Icon.svg" alt="">
+        </div>
+        <div>
+          <p class="op-p">{{ opt }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="main-main">
+<div class="main">
+  <div class="second-row">
+    <div
+      class="banner-two"
+      *ngFor="let userscnd of usersecondseall"
+      (click)="gotoOverView(userscnd.courseId)"
+    >
+      <img src="{{ userscnd.url }}" alt="" />
+      <div class="second-row-inside">
+        <div class="second-left">
+          <p class="art">{{ userscnd.title }}</p>
+          <p class="chapt">
+            {{ userscnd.totalChapters }}/{{ userscnd.totalLessons }} Chapters
+          </p>
+        </div>
+        <div class="second-right"><p>Continue</p></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>

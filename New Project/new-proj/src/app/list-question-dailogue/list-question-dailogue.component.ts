@@ -2,40 +2,50 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 
 @Component({
-  selector: 'app-result-dilogue',
-  templateUrl: './result-dilogue.component.html',
-  styleUrls: ['./result-dilogue.component.css'],
+  selector: 'app-list-question-dailogue',
+  templateUrl: './list-question-dailogue.component.html',
+  styleUrls: ['./list-question-dailogue.component.css']
 })
-export class ResultDilogueComponent implements OnInit {
+export class ListQuestionDailogueComponent implements OnInit {
+
   resultdata: any;
   index: any;
   isRightAnswer: boolean = false;
   rightAnswer: any;
   wrongAnswer: any;
   userSelectedAnswer: any;
-  showWrongAnswer: boolean = false
+  showWrongAnswer: boolean = false;
+  myarray: any = [];
+
   constructor(private loginservice: ServiceService) { }
 
   ngOnInit(): void {
     this.getResultData();
-    console.log("resultData", this.resultdata);
 
   }
 
   getResultData() {
-    this.loginservice.getResultData().subscribe((res) => {
+    this.loginservice.getlistOfQuestion().subscribe((res) => {
       this.resultdata = res;
-      this.getResultInd()
+      console.log("resultData", this.resultdata);
 
+      for (let i = 0; i < this.resultdata?.questions.length; i++) {
+
+        let a = {
+          questinName: this.resultdata.questions[i],
+          options: this.resultdata.options[i],
+          // selected:this.resultdata.selectedAndActualAnswerSet[i],
+          selectedAndActualAnswerSet: {
+            userSelected: this.resultdata.selectedAndActualAnswerSet[i][0],
+            rightAnswer: this.resultdata.selectedAndActualAnswerSet[i][1]
+          }
+        }
+        this.myarray.push(a)
+      }
+      console.log(this.myarray)
     })
   }
 
-  getResultInd() {
-    this.loginservice.getResultIndex().subscribe((res) => {
-      this.index = res;
-      this.showQustionAndOptions(this.index)
-    })
-  }
 
   showQustionAndOptions(i: any) {
     console.log('questname', this.resultdata.questions[i])

@@ -1,31 +1,97 @@
 .main {
   width: 80%;
   margin: auto;
-  border: 1px solid red;
   height: auto;
   min-height: 700px;
   overflow-y: auto;
+  margin-top: 60px;
 }
+
 .main-main {
-  width: 900px;
-  height: 1000px;
+  width: 796px;
+  height: 900px;
 }
+.close-icon {
+  width: 100%;
+  text-align: end;
+}
+
 .flex-question {
   display: flex;
   justify-content: space-between;
 }
+
 .option-div {
   width: 464px;
-  height: 66px;
-  /* background: #ea2626; */
   border: 1px solid #f0f0f0;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 4px 10px rgb(0 0 0 / 4%);
   border-radius: 6px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
+
+.rih-cross {
+  display: flex;
+  justify-content: right;
+}
+
 .bg-primary {
   background-color: green;
 }
 
-.bg-danger{
+.option-div.bg-primary.ng-star-inserted .op-p {
+  color: white !important;
+}
+.option-div.bg-danger.ng-star-inserted .op-p {
+  color: white !important;
+}
+.bg-danger {
   background-color: red;
+}
+
+.ques {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2b2b2b;
+}
+
+.quesc {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 34px;
+  color: #2b2b2b;
+  margin-top: 36px;
+}
+
+.wrong-ans {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 24px;
+  text-align: right;
+}
+
+.op-p {
+  font-family: "Proxima Nova Soft";
+  font-size: 18px;
+  color: #2b2b2b;
+  display: flex;
+  padding: 16px 10px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.choiceIcon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  color: rgb(213, 211, 211);
+  padding-left: 10px;
 }

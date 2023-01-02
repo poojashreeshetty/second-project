@@ -7,7 +7,9 @@
 
     <div class="first-row">
       <div class="banner" *ngFor="let bb of userheader">
-        <img src="{{ bb.courseImage }}" alt="" />
+        <div class="imageone">
+          <img src="{{ bb.courseImage }}" alt="" />
+        </div>
         <p class="course-name">{{ bb.courseTitle }}</p>
       </div>
 
@@ -16,18 +18,13 @@
     </div>
 
     <div class="bann">
-      <span
-      [hidden]="hidePrev"
-      (click)="prevpage()"
-      class="left-arrow"
-    > <- </span>
-    <span
-      [hidden]="hideNext"
-      (click)="nextpage()"
-      class="right-arrow"
-    > -> </span>
+      <span [hidden]="hidePrev" (click)="prevpage()" class="left-arrow">
+        <-
+      </span>
+      <span [hidden]="hideNext" (click)="nextpage()" class="right-arrow">
+        ->
+      </span>
     </div>
-    
 
     <!-- <button >next</button>
     <button >preview</button> -->
@@ -42,7 +39,7 @@
     <!-- second row  -->
     <div class="ongoing-and-seeall">
       <div class="ongoing-course">Ongoing courses</div>
-      <!-- <div class="see-all" >See All</div> -->
+      <div class="see-all" (click)="seallongoing()">See All</div>
     </div>
     <div class="second-row">
       <div
@@ -50,7 +47,9 @@
         *ngFor="let userscnd of usersecond"
         (click)="gotoOverView(userscnd.courseId)"
       >
-        <img src="{{ userscnd.url }}" alt="" />
+        <div class="imagetwo">
+          <img src="{{ userscnd.url }}" alt="" />
+        </div>
         <div class="second-row-inside">
           <div class="second-left">
             <p class="art">{{ userscnd.title }}</p>
@@ -64,7 +63,7 @@
     </div>
 
     <!-- third row  -->
-    <div class="ongoing-and-seeall">
+    <div class="ongoing-and-seeallcat">
       <div class="ongoing-course">Categories</div>
       <!-- <div class="see-all">See All</div> -->
     </div>
@@ -117,7 +116,11 @@
     </div>
 
     <div class="fourth-row">
-      <div class="banner-fourr" *ngFor="let pop of allCourses" (click)="gotoOverViewAll(pop._id)">
+      <div
+        class="banner-fourr"
+        *ngFor="let pop of allCourses"
+        (click)="gotoOverViewAll(pop._id)"
+      >
         <div class="image">
           <img src="{{ pop.courseImage }}" alt="" />
         </div>
@@ -145,14 +148,17 @@
     <div class="fifth-row">
       <div class="banner-four" *ngFor="let userbus of userbusiness">
         <!-- <img src="{{ userbus.courseImage }}" alt="" /> -->
-        <video
-          id="{{ userbus?._id }}"
-          poster="{{ userbus.courseImage }}"
-          controls
-          class="vedio"
-        >
-          <source src="{{ userbus?.videoLink }}" type="video/mp4" />
-        </video>
+        <div class="vedioimage">
+          <video
+            id="{{ userbus?._id }}"
+            poster="{{ userbus.courseImage }}"
+            controls
+            class="vedio"
+          >
+            <source src="{{ userbus?.videoLink }}" type="video/mp4" />
+          </video>
+        </div>
+
         <div class="second-row-inside-fifth" (click)="playvedio()">
           <!-- <img src="./assets/play.png" alt="" /> -->
         </div>

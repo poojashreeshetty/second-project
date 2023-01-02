@@ -34,18 +34,21 @@ export class ModuleTestComponent implements OnInit {
   finalArray: any = [];
   singleQuestion: any;
   optionRequestForApi: any = [];
-
+ 
   constructor(private loginservice: ServiceService, private md: MatDialog) { }
 
   ngOnInit(): void {
+
+    sessionStorage.setItem('quizStarted','true')
+
     this.loginservice.gotosecondService().subscribe((data) => {
       console.log('quizzz', data);
       this.totquest = data;
-      this.questins = data;
-      this.options = this.questins.options;
-      this.questins = this.questins.questions;
-      this.questionToshow = this.questins[this.index];
-      this.optionToShow = this.options[this.index];
+      // this.questins = data;
+      // this.options = this.questins.options;
+      // this.questins = this.questins.questions;
+      // this.questionToshow = this.questins[this.index];
+      // this.optionToShow = this.options[this.index];
       this.modifyQuestionData();
       this.singleQuestion = this.finalArray[this.index];
       console.log(this.singleQuestion)
@@ -55,6 +58,7 @@ export class ModuleTestComponent implements OnInit {
 
   modifyQuestionData() {
     for (let i = 0; i < this.totquest.questions.length; i++) {
+      console.log("gvdfg",this.totquest.questions.length);
       this.myOptions = []
       let question = {
         questionName: this.totquest.questions[i],
@@ -79,59 +83,10 @@ export class ModuleTestComponent implements OnInit {
     return this.myOptions
   }
 
-  next() {
-    if (this.questins.length - 1 > this.index) {
-      this.index = ++this.index;
-      this.questionToshow = this.questins[this.index];
-      this.optionToShow = this.options[this.index];
-      this.coun++
-      this.rowClicked=-1;
-      this.clicked = false;
-    }
-    if (this.questins.length - 1 == this.index) {
-      this.isButtonDisabled = true;
-    }
-    // console.log(this.index);
-    // console.log((this.selctedOptions[this.index] = null));
-    // console.log('answerArray', this.selctedOptions);
-  }
-
-  prev() {
-    this.index = --this.index;
-    this.questionToshow = this.questins[this.index];
-    this.optionToShow = this.options[this.index];
-    console.log(this.questins.length);
-    this.coun--
-
-    this.rowClicked=-1
-    this.clicked = false;
-    
-  }
-  onclickcircle() {
-    this.tikcircle = true;
-    this.ifcircle = false;
-  }
-  opensubmit() {
-    this.stop();
-
-    const dialogRef = this.md.open(SubmitDilogComponent,{
-      width: '948px',
-      height: '312px'
-    });
-    console.log(this.selctedOptions);
-    sessionStorage.setItem('store', JSON.stringify(this.selctedOptions))
-  }
-
-  saveAnswer(option: any, index: any) {
-    console.log(option);
-
-    this.selctedOptions[this.index] = index;
-    // this.selctedOptions = new Array(this.index.totalQuestions).fill(null);
-  }
 
   start() {
-    // this.timer(this.totquest?.totalTimeAlloted);
-    this.timer(3000);
+    this.timer(this.totquest?.totalTimeAlloted);
+    // this.timer(3000);
 
   }
   stop() {
@@ -168,23 +123,10 @@ export class ModuleTestComponent implements OnInit {
     }, 1000);
   }
 
-  changeTableRowColor(idx: any) {
-    if (this.chosenIndex != idx) {
-      this.clicked = false;
-    }
-    if (this.rowClicked === idx) this.rowClicked = -1;
-    else this.rowClicked = idx;
-    this.chosenIndex = idx;
-    this.clicked = !this.clicked;
-    if (this.clicked == false) {
-      this.chosenIndex = null;
-    }
-    console.log(this.rowClicked)
-    console.log(this.clicked);
-  }
-
-  saveAnswer1(opt: any) {
+  saveAnswer(opt: any) {
+    console.log(opt)
     let options = this.singleQuestion.options;
+    console.log(options)
     options.map((el: any) => {
       if (el.index == opt.index) {
         el.isSelcted = true
@@ -198,7 +140,7 @@ export class ModuleTestComponent implements OnInit {
     console.log(this.finalArray)
   }
 
-  prev1() {
+  prev() {
     console.log(this.index)
     this.index = this.index - 1;
     this.singleQuestion = this.finalArray[this.index];
@@ -206,7 +148,7 @@ export class ModuleTestComponent implements OnInit {
     console.log(this.finalArray)
   }
 
-  next1() {
+  next() {
     console.log(this.index)
     this.index = this.index + 1;
     this.singleQuestion = this.finalArray[this.index];
@@ -215,7 +157,7 @@ export class ModuleTestComponent implements OnInit {
 
   }
 
-  opensubmit1() {
+  opensubmit() {
     console.log(this.finalArray)
     for (let i = 0; i < this.finalArray.length; i++) {
       console.log(this.finalArray[i].questionName)
@@ -232,11 +174,17 @@ export class ModuleTestComponent implements OnInit {
         }
         console.log(this.finalArray[i].options[j])
       }
+      console.log(this.optionRequestForApi)
     }
     this.stop();
-    const dialogRef = this.md.open(SubmitDilogComponent, {
-      width: '900px',
-      height: '300px',
+// <<<<<<< HEAD
+//     const dialogRef = this.md.open(SubmitDilogComponent, {
+//       width: '900px',
+//       height: '300px',
+    const dialogRef = this.md.open(SubmitDilogComponent,{
+      width: '948px',
+      height: '312px'
+// >>>>>>> 2f5385094bbc5d721b66465138fbec400d2009cd
     });
     console.log(this.selctedOptions);
     sessionStorage.setItem('store', JSON.stringify(this.optionRequestForApi))

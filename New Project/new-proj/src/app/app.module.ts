@@ -23,6 +23,8 @@ import { SubmitDilogComponent } from './submit-dilog/submit-dilog.component';
 import { CongratsComponent } from './congrats/congrats.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultDilogueComponent } from './result-dilogue/result-dilogue.component';
+import { ListQuestionDailogueComponent } from './list-question-dailogue/list-question-dailogue.component';
+import { OnseallComponent } from './onseall/onseall.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { ResultDilogueComponent } from './result-dilogue/result-dilogue.componen
     CongratsComponent,
     ResultsComponent,
     ResultDilogueComponent,
+    ListQuestionDailogueComponent,
+    OnseallComponent,
   ],
   imports: [
     BrowserModule,

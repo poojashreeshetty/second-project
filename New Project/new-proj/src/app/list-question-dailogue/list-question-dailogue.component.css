@@ -1,0 +1,156 @@
+.main {
+  width: 60%;
+  margin: auto;
+  height: auto;
+  /* min-height: 700px; */
+  overflow-y: auto;
+}
+
+.main-main {
+  width: 800px;
+  height: 880px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.flex-question {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 66px;
+  padding-bottom: 10px;
+}
+.close-icon {
+  width: 100%;
+  text-align: end;
+}
+
+/* .option-div {
+  width: 464px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0px 4px 10px rgb(0 0 0 / 4%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+} */
+
+.rih-cross {
+  display: flex;
+  justify-content: right;
+}
+
+.bg-primary {
+  background-color: green;
+  color: white !important;
+}
+
+p.op-p.bg-primary {
+  color: white !important;
+}
+
+.bg-danger {
+  background-color: red;
+  color: white !important;
+}
+
+.ques {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2b2b2b;
+}
+.quess {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 24px;
+  color: #2b2b2b;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.quesc {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #111111;
+  margin-top: 15px;
+}
+
+.wrong-ans {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: right;
+}
+
+.op-p {
+  padding: 21px 10px;
+  margin: 0;
+  border-radius: 6px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 24px;
+  color: #2b2b2b;
+  display: flex;
+
+  width: 464px;
+  /* border: 1px solid #f0f0f0; */
+  box-shadow: 0px 4px 10px rgb(0 0 0 / 4%);
+  border-radius: 6px;
+  /* display: flex; */
+  align-items: center;
+}
+
+.op-p,
+p {
+  margin: 0;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  width: 4px;
+  /* border: none; */
+  /* background: transparent; */
+}
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: grey;
+}
+
+::-webkit-scrollbar-track {
+  /* background-image: url("https://i.imgur.com/GvV1R30.png"); */
+  opacity: 90%;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-color: transparent;
+}
+.choiceIcon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  color: rgb(213, 211, 211);
+  padding-left: 10px;
+}
+
+::ng-deep .option-div.bg-primary.ng-star-inserted .op-p {
+  color: white !important;
+}
+::ng-deep .option-div.bg-danger.ng-star-inserted .op-p {
+  color: white !important;
+}

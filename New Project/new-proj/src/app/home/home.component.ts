@@ -24,10 +24,12 @@ export class HomeComponent implements OnInit {
   hidePrev = true;
   hideNext = false;
   active = ['activeC', '', ''];
+  
 
   constructor(private loginservice: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
+    sessionStorage.removeItem('store');
     this.getName();
     this.getOngoingCourse();
     this.topserachCategory();
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit {
     this.topCoursesInDesign();
     this.nextpage();
     this.hidePrev = true;
+    // this.  seallongoing();
     // this.ChoiceYourCOurse();
   }
   getName() {
@@ -90,6 +93,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  seallongoing() {
+   
+    this.router.navigate(['/on']);
+  }
+
   topserachCategory() {
     this.loginservice.topserchCategoryService().subscribe((data) => {
       this.serachcatt = JSON.parse(data);
@@ -106,7 +114,7 @@ export class HomeComponent implements OnInit {
     };
     this.loginservice.ChoiceAllCourseService(body).subscribe((data) => {
       this.allCourses = data;
-      console.log("allllllllll",this.allCourses);
+      console.log('allllllllll', this.allCourses);
     });
   }
   one() {
@@ -168,9 +176,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
-  gotoOverViewAll(popid:any){
-    console.log("popp",popid);
+  gotoOverViewAll(popid: any) {
+    console.log('popp', popid);
     sessionStorage.setItem('courseidall', popid);
     this.router.navigate(['/course']);
   }

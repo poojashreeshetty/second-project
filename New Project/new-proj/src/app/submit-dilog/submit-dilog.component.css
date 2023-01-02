@@ -4,6 +4,7 @@
   width: 47%;
   margin: auto;
   margin-top: 33px;
+  column-gap: 48px;
 }
 .cancel {
   width: 146px;
@@ -38,6 +39,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   /* identical to box height, or 194% */
 

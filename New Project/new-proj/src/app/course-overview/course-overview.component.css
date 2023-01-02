@@ -518,6 +518,7 @@
   display: flex;
   justify-content: space-between;
   column-gap: 13px;
+  cursor: pointer;
 }
 .tik-chapter {
   display: flex;
@@ -532,6 +533,32 @@
 }
 .module-dd p {
   margin-bottom: 0;
+}
+.mod {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #373737;
+}
+.quess {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 30px;
+  color: #7a7a7a;
+}
+
+.module-chapter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.module-dd{
+  width: 82%;
+  padding-top: 10px;
 }
 
 @media screen and (max-width: 700px) {

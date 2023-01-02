@@ -18,13 +18,15 @@ export class LoginComponent implements OnInit {
     private loginservice: ServiceService,
     public fb: FormBuilder,
     private router: Router
-  ) {}
+  ) { }
   login!: FormGroup;
+
   ngOnInit(): void {
     this.login = this.fb.group({
       username: this.fb.control(null, [Validators.required]),
       password: this.fb.control(null, [Validators.required]),
     });
+    sessionStorage.clear()
   }
   loginSubmit() {
     const body = {

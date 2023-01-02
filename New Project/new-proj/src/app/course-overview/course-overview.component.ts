@@ -36,6 +36,8 @@ export class CourseOverviewComponent implements OnInit {
   currenttime: any;
   storenumber: any;
   currentindex = 0;
+  testnum = 0;
+  statustrue: any;
   constructor(private loginservice: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class CourseOverviewComponent implements OnInit {
     this.courseOverView();
     this.courseChapters();
     this.courseOverViewall();
+    // this.getstatus();
     this.loginservice.getvedio().subscribe((data) => {
       console.log('gett', data);
     });
@@ -187,13 +190,26 @@ export class CourseOverviewComponent implements OnInit {
     chapteretitle: any,
     chapterid: any
   ) {
-    console.log('courseid', courseid);
-    console.log('tesid', testid);
-    sessionStorage.setItem('testid', testid);
-    this.router.navigate(['/test']);
-    this.storenumber = sessionStorage.setItem('chapternumber', cahpternumber);
-    sessionStorage.setItem('chapteretitle', chapteretitle);
-    sessionStorage.setItem('chapterid', chapterid);
+    this.loginservice.gettestService().subscribe((data) => {
+      console.log('gettestt', data);
+      this.statustrue = data;
+      // if (this.statustrue.message == 'false') {
+        console.log('courseid', courseid);
+        console.log('tesid', testid);
+        sessionStorage.setItem('testid', testid);
+        sessionStorage.setItem('quizStarted', 'true');
+        this.router.navigate(['/test']);
+        this.storenumber = sessionStorage.setItem(
+          'chapternumber',
+          cahpternumber
+        );
+        sessionStorage.setItem('chapteretitle', chapteretitle);
+        sessionStorage.setItem('chapterid', chapterid);
+      
+    });
   }
- 
+
+  //   getstatus(){
+
+  // }
 }

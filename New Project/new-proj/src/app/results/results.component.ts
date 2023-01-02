@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ListQuestionDailogueComponent } from '../list-question-dailogue/list-question-dailogue.component';
 import { ResultDilogueComponent } from '../result-dilogue/result-dilogue.component';
 import { ServiceService } from '../service.service';
 
@@ -13,7 +14,7 @@ export class ResultsComponent implements OnInit {
   correcttt: any;
   worng: any;
   question: any;
-  myarray:any=[];
+  notAnswer: any;
 
   constructor(private loginservice: ServiceService, private md: MatDialog) { }
 
@@ -30,25 +31,7 @@ export class ResultsComponent implements OnInit {
 
   opendilogueresult(i: any) {
     this.loginservice.saveResultIndex(i)
-    // console.log(i)
-    // console.log(this.resultdata)
-    // console.log('questname', this.resultdata.questions[i])
-    // console.log('options', this.resultdata.options[i]);
-    // let selected = this.resultdata.selectedAndActualAnswerSet[i];
-    // let right = this.resultdata.selectedAndActualAnswerSet[i][i];
-    // if (selected[0] && selected[0] == selected[1]) {
-    //   console.log('You are answer is right')
-    //   console.log('right answer is ',selected[0])
-    // } else {
-    //   console.log('You are answer is wrong')
-    //   console.log('selected answer',selected[0])
-    //   console.log('right answer',selected[1])
-    // }
-
-
-
-
-    console.log("czx",i);
+    console.log("czx", i);
     const open = new MatDialogConfig();
     open.position = {
       right: '0%',
@@ -57,35 +40,37 @@ export class ResultsComponent implements OnInit {
     open.panelClass = 'open';
     this.md.open(ResultDilogueComponent, open).afterClosed();
   }
+
   correct(correctanswer: any) {
     // console.log('cc', correctanswer);
     if (correctanswer[0] == correctanswer[1]) {
       this.correcttt = true;
+      this.worng = false;
+      this.notAnswer = false;
+
+    } if (correctanswer[0] == null) {
+      this.notAnswer = true;
+      this.correcttt = false;
       this.worng = false
     }
-    else {
+    if (correctanswer[0] != null && correctanswer[0] != correctanswer[1]) {
       this.correcttt = false;
-      this.worng = true
+      this.worng = true;
+      this.notAnswer = false;
     }
   }
 
-  demo(){
+  demo() {
     console.log(this.resultdata);
+    const open = new MatDialogConfig();
+    open.position = {
+      right: '0%',
+      top: '0%',
+    };
+    open.panelClass = 'open';
+    this.loginservice.savelistOfQuestion(this.resultdata)
 
-    for(let i=0;i<this.resultdata?.questions.length;i++){
+    this.md.open(ListQuestionDailogueComponent, open).afterClosed();
 
-      let a = {
-        questinName:this.resultdata.questions[i],
-        options:this.resultdata.options[i],
-        // selected:this.resultdata.selectedAndActualAnswerSet[i],
-        selectedAndActualAnswerSet : {
-          userSelected:this.resultdata.selectedAndActualAnswerSet[i][0],
-          rightAnswer:this.resultdata.selectedAndActualAnswerSet[i][1]
-        }
-      }
-      this.myarray.push(a)
-    }
-   
-    console.log(this.myarray)
   }
 }

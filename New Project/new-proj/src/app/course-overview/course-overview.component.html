@@ -10,8 +10,7 @@
     <div class="mblName">
       <div class="mblname1">Learn Figma - UI/UX Design Essential Training</div>
       <div>
-        <span class="mblDesign">design</span
-        ><span class="mblchap">7 Chapters | 46 Lessons</span>
+        <span class="mblDesign">design</span><span class="mblchap">7 Chapters | 46 Lessons</span>
       </div>
     </div>
   </div>
@@ -30,15 +29,8 @@
 
           <!-- <img class="video" src="/assets/Video Space.png" alt="" /> -->
           <div class="vedio-div">
-            <video
-              class="video"
-              [src]="vedio"
-              type="mp4"
-              controls
-              (click)="playPause()"
-              (ended)="vedioend(userChapter.listOfChapters._id)"
-              id="my_video_1"
-            ></video>
+            <video class="video" [src]="vedio" type="mp4" controls (click)="playPause()"
+              (ended)="vedioend(userChapter.listOfChapters._id)" id="my_video_1"></video>
           </div>
 
           <!-- <vg-player>
@@ -64,15 +56,12 @@
             <div class="description2">
               <p>
                 {{ user?.courseOverview?.overViewId?.description
-                }}<span *ngIf="showMore">..</span
-                ><span class="show" *ngIf="showMore" (click)="clickShowMore()"
-                  >SHOW MORE</span
-                >
+                }}<span *ngIf="showMore">..</span><span class="show" *ngIf="showMore" (click)="clickShowMore()">SHOW
+                  MORE</span>
               </p>
               <p *ngIf="showless">
                 {{ user?.courseOverview?.overViewId?.description
-                }}<span *ngIf="showless">..</span
-                ><span class="show" (click)="clickShowLess()">SHOW LESS</span>
+                }}<span *ngIf="showless">..</span><span class="show" (click)="clickShowLess()">SHOW LESS</span>
               </p>
             </div>
           </div>
@@ -115,12 +104,7 @@
                 <p class="inP">Course Includes</p>
                 <div class="item">
                   <div>
-                    <img
-                      src="./assets/Group 163 (6).png"
-                      alt=""
-                      width="25"
-                      height="25"
-                    />
+                    <img src="./assets/Group 163 (6).png" alt="" width="25" height="25" />
                   </div>
                   <p>
                     {{ vedio?.previewThisCourse?.videoDuration / 60 }} total
@@ -129,56 +113,31 @@
                 </div>
                 <div class="item">
                   <div>
-                    <img
-                      src="./assets/Group 163 (5).png"
-                      alt=""
-                      width="25"
-                      height="25"
-                    />
+                    <img src="./assets/Group 163 (5).png" alt="" width="25" height="25" />
                   </div>
                   <p>Support Files</p>
                 </div>
                 <div class="item">
                   <div>
-                    <img
-                      src="./assets/Group 163 (4).png"
-                      alt=""
-                      width="25"
-                      height="25"
-                    />
+                    <img src="./assets/Group 163 (4).png" alt="" width="25" height="25" />
                   </div>
                   <p>6 Module Test</p>
                 </div>
                 <div class="item">
                   <div>
-                    <img
-                      src="./assets/Group 163 (3).png"
-                      alt=""
-                      width="25"
-                      height="25"
-                    />
+                    <img src="./assets/Group 163 (3).png" alt="" width="25" height="25" />
                   </div>
                   <p>Full lifetime access</p>
                 </div>
                 <div class="item">
                   <div>
-                    <img
-                      src="./assets/Group 163 (2).png"
-                      alt=""
-                      width="25"
-                      height="25"
-                    />
+                    <img src="./assets/Group 163 (2).png" alt="" width="25" height="25" />
                   </div>
                   <p>Access on mobile, desktop and tv</p>
                 </div>
                 <div class="item">
                   <div>
-                    <img
-                      src="./assets/Group 163 (1).png"
-                      alt=""
-                      width="25"
-                      height="25"
-                    />
+                    <img src="./assets/Group 163 (1).png" alt="" width="25" height="25" />
                   </div>
                   <p>Certificate of Completion</p>
                 </div>
@@ -186,13 +145,10 @@
 
               <div class="learn">
                 <p class="learnP">What you'll learn</p>
-                <div
-                  class="learnItem"
-                  *ngFor="
+                <div class="learnItem" *ngFor="
                     let what of user?.courseOverview?.overViewId
                       ?.whatYouWillLearn
-                  "
-                >
+                  ">
                   <div>
                     <img src="./assets/Combined-Shape.png" alt="" />
                   </div>
@@ -201,13 +157,10 @@
               </div>
               <div class="require">
                 <p class="recP">Requirements</p>
-                <div
-                  class="recItem"
-                  *ngFor="
+                <div class="recItem" *ngFor="
                     let require of user?.courseOverview?.overViewId
                       ?.requirements
-                  "
-                >
+                  ">
                   <div>
                     <img src="/assets/Ellipse 9.png" alt="" />
                   </div>
@@ -221,14 +174,10 @@
                 <p class="recP">Instructor</p>
                 <div class="instructor">
                   <div class="instr-image">
-                    <img
-                      class="mblinst"
-                      src="{{
+                    <img class="mblinst" src="{{
                         user?.courseOverview?.overViewId?.instructor
                           .instructorImage
-                      }}"
-                      alt=""
-                    />
+                      }}" alt="" />
                   </div>
                   <div class="cont">
                     <p class="aa">
@@ -236,7 +185,7 @@
                     </p>
                     <p class="ab">
                       {{
-                        user?.courseOverview?.overViewId?.instructor.designation
+                      user?.courseOverview?.overViewId?.instructor.designation
                       }}
                       {{ user?.courseOverview?.overViewId?.instructor.url }}
                     </p>
@@ -256,9 +205,9 @@
               <p class="cont1">Course Content</p>
               <p class="cont2">
                 {{
-                  lessonDurationtop(
-                    userChapter.listOfChapters.courseContent.totalDuration / 60
-                  )
+                lessonDurationtop(
+                userChapter.listOfChapters.courseContent.totalDuration / 60
+                )
                 }}
                 {{ userChapter.listOfChapters.courseContent.totalChapters }}
                 Chapter |
@@ -270,38 +219,22 @@
                 lessons | {{ this.finalfixedtwotop }} h total length
               </p>
             </div>
-            <div
-              class="mainchap"
-              *ngFor="
+            <div class="mainchap" *ngFor="
                 let chapterlist of userChapter.listOfChapters.totalChapters[0]
                   .chapters;
                 let i = index
-              "
-            >
+              ">
               <div class="chap">
                 <p class="chapP">
                   Chapter {{ chapterlist.chapterNumber }} -
                   {{ chapterlist.chapterTitle }}
                 </p>
-                <span
-                  ><img
-                    *ngIf="chapterarray[i]"
-                    (click)="plus(i)"
-                    src="./assets/Vector (6).png"
-                    alt="" />
-                  <img
-                    class="minus"
-                    *ngIf="!chapterarray[i]"
-                    (click)="minus(i)"
-                    src="./assets/minus.svg"
-                    alt=""
-                /></span>
+                <span><img *ngIf="chapterarray[i]" (click)="plus(i)" src="./assets/Vector (6).png" alt="" />
+                  <img class="minus" *ngIf="!chapterarray[i]" (click)="minus(i)" src="./assets/minus.svg"
+                    alt="" /></span>
               </div>
               <div *ngIf="!chapterarray[i]">
-                <div
-                  class="chapters"
-                  *ngFor="let lessonlist of chapterlist.lessons; let x = index"
-                >
+                <div class="chapters" *ngFor="let lessonlist of chapterlist.lessons; let x = index"> 
                   <div class="chapdiv">
                     <div class="name">
                       <div class="tik">
@@ -318,32 +251,20 @@
                         <p class="chapdivlen">{{ this.finalfixedtwo }} mins</p>
                       </div>
                     </div>
-                    <div
-                      class="rPlay"
-                      (click)="onclickvcplay(lessonlist.url, i, x)"
-                    >
+                    <div class="rPlay" (click)="onclickvcplay(lessonlist.url, i, x)">
                       <!-- <img class="redplay" src="./assets/Red Play.svg" alt="" /> -->
-                      <img
-                        class="redplay"
-                        src="./assets/grey play.svg"
-                        alt=""
-                      />
+                      <img class="redplay" src="./assets/grey play.svg" alt="" />
                     </div>
                   </div>
                 </div>
-                <div
-                  (click)="
+                <div (click)="
                     gotoQuiz(
                       userChapter.listOfChapters._id,
                       chapterlist.test._id,
                       chapterlist.chapterNumber,
                       chapterlist.chapterTitle,
                       chapterlist._id
-                    )
-                  "
-                  class="quiz-flexx"
-                  *ngIf="chapterlist.test"
-                >
+                    )" class="quiz-flexx" *ngIf="chapterlist.test">
                   <div class="tik-chapter">
                     <img src="./assets/Group Dot.svg" alt="" />
                   </div>
@@ -351,8 +272,8 @@
                     <img src="./assets/moduletest.png" alt="" />
                   </div>
                   <div class="module-dd">
-                    <p>Module Test 2</p>
-                    <p>10 mins | 25 Questions</p>
+                    <p class="mod">Module Test 2 </p>
+                    <p class="quess">2 mins  | 5 Questions</p>
                   </div>
                 </div>
               </div>

@@ -12,9 +12,21 @@ export class ServiceService {
   
   private resultData = new BehaviorSubject<any>(null);
 
-  private resultIndex = new BehaviorSubject<any>(null)
+  private resultIndex = new BehaviorSubject<any>(null);
+
+  private listOfQuest = new BehaviorSubject<any>(null);
+
 
   constructor(private http: HttpClient) { }
+
+
+  savelistOfQuestion(obj: any) {
+    this.listOfQuest.next(obj)
+  }
+
+  getlistOfQuestion() {
+    return this.listOfQuest.asObservable()
+  } 
 
   saveResultData(obj: any) {
     this.resultData.next(obj)
@@ -136,6 +148,20 @@ export class ServiceService {
     return this.http.get(environment.url + 'ongoingCourses', {
       headers: headers_object,
       responseType: 'text',
+    });
+  }
+  ongoingcourseallService(){
+    // const body = {
+    //   choice: 'seeAll',
+    // };
+    let token = sessionStorage.getItem('token');
+
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.get(environment.url + 'ongoingCourses?choice=seeAll',{
+      headers: headers_object
     });
   }
 
@@ -393,24 +419,20 @@ export class ServiceService {
   }
 
   // getTestStatus
-  // gettestService() {
-  //   const body = {
-  //     testId: sessionStorage.getItem('testid')
-  //   };
-  //   let token = sessionStorage.getItem('token');
-  //   var headers_object = new HttpHeaders().set(
-  //     'Authorization',
-  //     'Bearer ' + token
-  //   );
-  //   return this.http.post(environment.url + 'getTestStatus', body,{
-  //     headers: headers_object
-  //   });
-  // }
+  gettestService() {
+    const body = {
+      testId: sessionStorage.getItem('testid')
+    };
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.post(environment.url + 'getTestStatus', body,{
+      headers: headers_object
+    });
+  }
 
   // getteststatus() {
-  //   this.loginservice.gettestService().subscribe((data)=>{
-  //     console.log("gettestt",data);
-
-  //   })
-  // }
+    
 }
